@@ -1,0 +1,58 @@
+<root>
+
+    <tracereader name="mangroveTraceReader">
+        <variables path="bl_master/trace.variables"/>
+        <traces>
+            <trace path="bl_master/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <directions>
+            <direction name="wb_cyc" dir="in"/>
+            <direction name="wb_stb" dir="in"/>
+            <direction name="wb_we" dir="in"/>
+            <direction name="wb_ack" dir="out"/>
+            <direction name="wb_err" dir="out"/>
+            <direction name="wb_rst" dir="out"/>
+            <direction name="wb_stall" dir="out"/>
+            <direction name="write" dir="in"/>
+            <direction name="wb_we" dir="out"/>
+
+            <!--
+            <direction name="wb_cyc"   dir="out" />
+            <direction name="wb_stb"   dir="out" />
+            <direction name="wb_we"    dir="out" />
+            <direction name="wb_ack"   dir="in" />
+            <direction name="wb_err"   dir="in" />
+            <direction name="wb_rst"   dir="in" />
+            <direction name="wb_stall" dir="in" />
+
+            <direction name="request"  dir="in" />
+            <direction name="write"    dir="in" />
+            <direction name="busy"     dir="out" />
+            <direction name="reset"    dir="out" />
+            <direction name="ready_from_bus" dir="out" />
+            <direction name="error_from_bus" dir="out" />
+        -->
+        </directions>
+    </coneMiner>
+
+    <propositionminer name="TBMiner">
+        <templates>
+            <template value="p1 U p2"/>
+        </templates>
+    </propositionminer>
+
+    <propertyminer name="A-teamMiner">
+        <templates>
+            <template value="G( p1 -> (p2) )"/>
+            <template value="G( p1 -> X(p2) )"/>
+        </templates>
+        <constraints maxVariables="10"/>
+        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+    </propertyminer>
+
+    <propertyprinter name="psl"/>
+
+</root>

@@ -1,0 +1,33 @@
+<root>
+
+    <tracereader name="mangroveTraceReader">
+        <variables path="camellia/trace.variables"/>
+        <traces>
+            <trace path="camellia/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <directions>
+            <direction name="rstn" dir="in"/>
+            <direction name="en" dir="in"/>
+            <direction name="drdy" dir="in"/>
+            <direction name="krdy" dir="in"/>
+            <direction name="bsy" dir="out"/>
+            <direction name="kvld" dir="out"/>
+            <direction name="dvld" dir="out"/>
+        </directions>
+    </coneMiner>
+
+    <propositionminer name="booleanVariables"/>
+
+    <propertyminer name="A-teamMiner">
+        <templates>
+            <template value="G( p1 -> X(p2) )"/>
+        </templates>
+        <constraints maxVariables="3"/>
+    </propertyminer>
+
+    <propertyprinter name="psl"/>
+
+</root>

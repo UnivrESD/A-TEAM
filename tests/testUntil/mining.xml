@@ -1,0 +1,56 @@
+<root>
+
+    <tracereader name="mangroveTraceReader">
+        <variables path="testUntil/trace.variables"/>
+        <traces>
+            <trace path="testUntil/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <directions>
+            <direction name="a" dir="out"/>
+            <direction name="b" dir="out"/>
+            <direction name="c" dir="out"/>
+            <direction name="d" dir="out"/>
+            <direction name="e" dir="out"/>
+            <direction name="f" dir="out"/>
+            <direction name="g" dir="out"/>
+            <direction name="h" dir="out"/>
+            <direction name="i" dir="out"/>
+        </directions>
+
+        <coneOfInfluence name="cone1">
+            <atomicPropositions>
+                <atomicProposition formula="b >_ ~e" dir="out"/>
+                <atomicProposition formula="~c <=_ ~d" dir="out"/>
+                <atomicProposition formula="(X[1]i = X[1]h)" dir="in"/>
+                <atomicProposition formula="a" dir="out"/>
+            </atomicPropositions>
+        </coneOfInfluence>
+
+    </coneMiner>
+    <!-- 
+         The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+     -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1 && p2"/>
+            <template value="p1 || p2"/>
+            <template value="p1 U p2"/>
+            <template value="p1 R p2"/>
+            <template value="p1"/>
+        </ConsequentTemplates>
+    </propositionminer>
+
+    <propertyminer name="A-teamMiner">
+        <constraints maxVariables="10"/>
+        <!--        <faultyTraces list="testUntil/faultyTraces/traces.xml"/> -->
+    </propertyminer>
+
+    <!-- <propertyQualifier name="FBQualifier"/> -->
+
+    <propertyprinter name="psl"/>
+
+</root>

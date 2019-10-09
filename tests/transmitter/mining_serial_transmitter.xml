@@ -1,0 +1,45 @@
+<root>
+
+    <tracereader name="mangroveTraceReader">
+        <variables path="transmitter/trace.variables"/>
+        <traces>
+            <trace path="transmitter/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <directions>
+            <direction name="rst" dir="in"/>
+            <direction name="data_to_send[0]" dir="out"/>
+            <direction name="data_to_send[1]" dir="out"/>
+            <direction name="data_to_send[2]" dir="out"/>
+            <direction name="data_to_send[3]" dir="out"/>
+            <direction name="data_to_send[4]" dir="out"/>
+            <direction name="data_to_send[5]" dir="out"/>
+            <direction name="data_to_send[6]" dir="out"/>
+            <direction name="data_to_send[7]" dir="out"/>
+            <direction name="send" dir="in"/>
+            <direction name="val" dir="out"/>
+        </directions>
+        <coneOfInfluence name="cone1">
+            <atomicPropositions>
+                <atomicProposition formula="send" dir="in"/>
+                <atomicProposition formula="val" dir="out"/>
+                <atomicProposition formula="rst" dir="in"/>
+            </atomicPropositions>
+        </coneOfInfluence>
+
+    </coneMiner>
+
+    <propositionminer name="booleanVariables"/>
+
+    <propositionminer name="TBMiner">
+        <templates>
+            <template value="G(p1 -> (p2 || p3))"/>
+        </templates>
+        <constraints maxVariables="3"/>
+    </propertyminer>
+
+    <propertyprinter name="psl"/>
+
+</root>

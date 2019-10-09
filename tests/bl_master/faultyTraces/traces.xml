@@ -1,0 +1,7 @@
+<root>
+    <variables path="bl_master/trace.variables"/>
+    <traces>
+        <trace path="bl_master/faultyTraces/fault_0.mangrove"/>
+        <trace path="bl_master/faultyTraces/fault_1.mangrove"/>
+    </traces>
+</root>

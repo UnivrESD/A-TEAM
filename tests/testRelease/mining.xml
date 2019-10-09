@@ -1,0 +1,34 @@
+<root>
+
+    <tracereader name="mangroveTraceReader">
+        <variables path="testRelease/trace.variables"/>
+        <traces>
+            <trace path="testRelease/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <directions>
+            <direction name="a" dir="out"/>
+            <direction name="b" dir="out"/>
+            <direction name="c" dir="in"/>
+        </directions>
+    </coneMiner>
+
+    <propositionminer name="TBMiner">
+        <templates>
+            <template value="p1 R p2"/>
+        </templates>
+    </propositionminer>
+
+    <propertyminer name="A-teamMiner">
+        <templates>
+            <template value="G( p1 -> (p2) )"/>
+        </templates>
+        <constraints maxVariables="10"/>
+        <!--    <faultyTraces list="testUntil/faultyTraces/traces.xml" />  -->
+    </propertyminer>
+
+    <propertyprinter name="psl"/>
+
+</root>
