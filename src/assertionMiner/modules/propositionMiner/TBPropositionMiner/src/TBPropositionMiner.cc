@@ -69,16 +69,12 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
                                           TraceRepository &traceRepository) {
     std::cout<<"Mine propositions ===================================================\n";
     Trace &trace = traceRepository[0];
-    List<Proposition> props;
 
-    std::cout<<"Cone.propositions: "<<cone.propositions.size()<<"\n";
-    for (Proposition *p : cone.propositions) {
-            props.push_back(p);
-    }
+    //std::cout<<"Cone.propositions: "<<cone.propositions.size()<<"\n";
 
     // base solution
-    int *base = new int[props.size()];
-    for (int i  = 0; i < props.size(); ++i)
+    int *base = new int[cone.propositions.size()];
+    for (int i  = 0; i < cone.propositions.size(); ++i)
         base[i] = i;
 
     for (Template templ : _templates) {
@@ -88,27 +84,26 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
         size_t placeHolders = countPlaceholders(templ);
         messageInfo("Number of placeholders: " + std::to_string(placeHolders));
 
-        if (placeHolders > props.size()) {
+        if (placeHolders > cone.propositions.size()) {
             messageWarning("Insufficient number of propositions!!!");
             continue;
         }
 
-        int solutions = props.size();
-        for (int i = props.size() - 1;
-             i > props.size() - placeHolders; --i)
+        int solutions = cone.propositions.size();
+        for (int i = cone.propositions.size() - 1;
+             i > cone.propositions.size() - placeHolders; --i)
             solutions *= i;
 
         messageInfo("Generating " + std::to_string(solutions) +
                     " propositions...");
 
         int *repo = new int[solutions * placeHolders];
-        permGenerator(base, 0, props.size(), repo, placeHolders);
+        permGenerator(base, 0, cone.propositions.size(), repo, placeHolders);
 
         for (int s = 0; s < solutions; ++s) {
 
             size_t counter = 0;
-            Proposition *p = _genProposition(templ, &repo[s * placeHolders],
-                                             counter, props);
+            Proposition *p = _genProposition(templ, &repo[s * placeHolders], counter, cone.propositions);
 
             if (!isInvariant(p))
                 cone.outPropositions.push_back(p);
