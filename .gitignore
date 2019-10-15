@@ -85,3 +85,4 @@ setUpfiles.txt
 tags
 Session.vim
 .clang-format
+*.swp

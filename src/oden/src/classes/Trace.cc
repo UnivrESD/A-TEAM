@@ -59,6 +59,7 @@ void Trace::_allocateTrace(List<DataType> &variables) {
     _numeriTrace  = new Numeric[_length * numVarCounter]{};
     _booleanTrace = new unsigned[((_length + 31) >> 5) * bolVarCounter]{};
     _logicTrace   = new uint64_t[logVarCounter]{};
+
 }
 
 void Trace::_allocatePointers(List<DataType> &variables) {
@@ -102,8 +103,9 @@ void Trace::_allocatePointers(List<DataType> &variables) {
 
 BooleanVariable *Trace::getBooleanVariable(const std::string &name) const {
     auto found = _varName2varValues.find(name);
-    if (found == _varName2varValues.end())
-        return nullptr;
+    if (found == _varName2varValues.end()){
+        messageError("Can't find boolean variable with name: " + name);
+    }
 
     return new BooleanVariable(reinterpret_cast<unsigned int *>(found->second),
                                name, _length);
@@ -111,8 +113,9 @@ BooleanVariable *Trace::getBooleanVariable(const std::string &name) const {
 
 LogicVariable *Trace::getLogicVariable(const std::string &name) const {
     auto found = _varName2varValues.find(name);
-    if (found == _varName2varValues.end())
-        return nullptr;
+    if (found == _varName2varValues.end()){
+        messageError("Can't find logic variable with name: " + name);
+    }
 
     uint8_t size = _logicName2size.at(name);
     return new LogicVariable(reinterpret_cast<uint64_t *>(found->second), size,
@@ -121,8 +124,10 @@ LogicVariable *Trace::getLogicVariable(const std::string &name) const {
 
 NumericVariable *Trace::getNumericVariable(const std::string &name) const {
     auto found = _varName2varValues.find(name);
-    if (found == _varName2varValues.end())
-        return nullptr;
+
+    if (found == _varName2varValues.end()){
+        messageError("Can't find numeric variable with name: " + name);
+    }
 
     return new NumericVariable(reinterpret_cast<Numeric *>(found->second), name,
                                _length);

@@ -279,7 +279,7 @@ void AteamMiner::mineProperties(ConeOfInfluence &cone,
                 cone.assertions.push_back(assertion);
             }
 
-            if (coverage >= 1.0)
+            if (coverage >= 1.0 || cone.assertions.size()>=1000)
                 goto endMining;
         }
     }

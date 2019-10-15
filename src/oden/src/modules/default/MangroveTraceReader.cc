@@ -105,8 +105,9 @@ void MangroveTraceReader::_readVariablesFile(List<DataType> &vars) {
         newVar->setType(type, size);
 
         auto dir = _name2Dir.find(tokens[0]);
-        if (dir != _name2Dir.end())
+        if (dir != _name2Dir.end()) {
             newVar->setDirection(dir->second);
+        }
 
         vars.push_back(newVar);
         _sortedNames.push_back(tokens[0]);
@@ -117,6 +118,7 @@ void MangroveTraceReader::_readVariablesFile(List<DataType> &vars) {
 
 void MangroveTraceReader::_readTraceFile(TraceRepository &repo,
                                          const string &traceFile) {
+//    std::cout<<"_readTraceFile\n";
     ifstream infile(traceFile);
     if (!infile.is_open())
         messageError("File not found: " + traceFile);
@@ -179,9 +181,10 @@ void MangroveTraceReader::_readLogics(LogicVariable *var, ifstream &infile,
     string token;
     for (size_t i = 0; i < length; ++i) {
         infile >> token;
-        if(var->getSize()!=token.size()){
-            std::cout<<var->getSize()<<"!="<<token.size()<<"\n";
-            messageError("Logical trace value size is not equal to declaration!");
+        if (var->getSize() != token.size()) {
+            std::cout << var->getSize() << "!=" << token.size() << "\n";
+            messageError(
+                "Logical trace value size is not equal to declaration!");
         }
         Logic l(token);
         var->assign(i, l);

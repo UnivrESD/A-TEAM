@@ -318,14 +318,6 @@ void PropositionParser::exitBooleanExpression( propositionParser::BooleanExpress
     CHECK_ABORT
     //std::cout << "exitBooleanExpression\n";
 
-        /*
-    if (ctx->NOT() != nullptr) {
-        Proposition *p = _proposition.top();
-        _proposition.pop();
-        _proposition.push(makeExpression<PropositionNot>(p));
-        return;
-    }
-    */
 
     propositionParser::RelopContext *relop = ctx->relop();
     propositionParser::LrelopContext *lrelop = ctx->lrelop();

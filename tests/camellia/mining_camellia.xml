@@ -19,13 +19,19 @@
         </directions>
     </coneMiner>
 
-    <propositionminer name="booleanVariables"/>
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1 U p2"/>
+            <template value="p1 R p2"/>
+            <template value="p1"/>
+        </ConsequentTemplates>
+    </propositionminer>
 
     <propertyminer name="A-teamMiner">
         <templates>
-            <template value="G( p1 -> X(p2) )"/>
+            <template value="G( p1 -> (p2) )"/>
         </templates>
-        <constraints maxVariables="3"/>
+        <constraints maxVariables="10"/>
     </propertyminer>
 
     <propertyprinter name="psl"/>

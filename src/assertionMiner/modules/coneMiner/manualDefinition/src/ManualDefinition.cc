@@ -26,6 +26,8 @@ ManualDefinition::ManualDefinition(XmlNode *xmlNode)
 
     XmlNodeList directionList;
     getNodesFromName(directionsXml, "direction", directionList);
+    messageErrorIf(directionList.empty(), "Direction list is empty!");
+
     _fillName2Dir(directionList);
 
     getNodesFromName(configuration, "coneOfInfluence", _conesList);
@@ -38,15 +40,26 @@ void ManualDefinition::mineCones(TraceRepository &traceRepo,
     // if no cone is specified, create a Cone with all the input/output
     // variables as propositions
     if (_conesList.empty()) {
+        messageWarning("No cone defined! A cone with only boolean varibles will be generated\n");
         ConeOfInfluence *cone = new ConeOfInfluence("noCone");
 
         const Name2Variable &vars = traceRepo.getVariables();
         for (auto &kv : vars) {
+
             if (kv.second->getType() == VariableType::boolean) {
+                if (_name2Dir.find(kv.first) == _name2Dir.end()) {
+
+                    messageWarning("Direction not defined for variable '" +
+                            kv.first + "', the variable will be "
+                            "discarded!\nHint: add the variable "
+                            "direction in the xml file\n");
+                    continue;
+                }
                 auto *newVar = new DataType(*(kv.second));
 
                 auto currentVar = _name2Dir.find(kv.first);
-                Proposition *p  = trace.getBooleanVariable(currentVar->first);
+
+                Proposition *p = trace.getBooleanVariable(currentVar->first);
                 cone->propositions.push_back(p);
 
                 if (currentVar != _name2Dir.end()) {
@@ -65,11 +78,10 @@ void ManualDefinition::mineCones(TraceRepository &traceRepo,
                     }
                     }
                 }
-
-                cones.push_back(cone);
-                return;
             }
         }
+        cones.push_back(cone);
+        return;
     }
 
     for (auto *coneXml : _conesList) {
@@ -92,6 +104,7 @@ void ManualDefinition::mineCones(TraceRepository &traceRepo,
 }
 
 void ManualDefinition::_fillName2Dir(XmlNodeList &directionList) {
+
     for (auto *directionXml : directionList) {
         std::string variableName = getAttributeValue(directionXml, "name");
         messageErrorIf(variableName.empty(), "Name of the variable not found!");
@@ -134,23 +147,21 @@ void ManualDefinition::fillConeWithAtomicPropositions(
 
         VariableDirection direction = variableDirectionFromString(directionStr);
 
-
-    switch (direction) {
-    case VariableDirection::dir_in: {
-        cone.inPropositions.push_back(oden::copy(*p));
-        break;
-    }
-    case VariableDirection::dir_inout: {
-        cone.inoutPropositions.push_back(oden::copy(*p));
-        break;
-    }
-    case VariableDirection::dir_out: {
-        //cone.outPropositions.push_back(oden::copy(*p));
-        cone.propositions.push_back(p);
-        break;
-    }
-    }
-
+        switch (direction) {
+        case VariableDirection::dir_in: {
+            cone.inPropositions.push_back(oden::copy(*p));
+            break;
+        }
+        case VariableDirection::dir_inout: {
+            cone.inoutPropositions.push_back(oden::copy(*p));
+            break;
+        }
+        case VariableDirection::dir_out: {
+            // cone.outPropositions.push_back(oden::copy(*p));
+            cone.propositions.push_back(p);
+            break;
+        }
+        }
     }
 }
 

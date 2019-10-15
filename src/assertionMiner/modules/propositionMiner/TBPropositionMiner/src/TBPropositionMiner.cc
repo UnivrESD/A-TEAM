@@ -67,10 +67,9 @@ TBPropositionMiner::TBPropositionMiner(XmlNode *data)
 
 void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
                                           TraceRepository &traceRepository) {
-    std::cout<<"Mine propositions ===================================================\n";
+    std::cout << "Mine propositions "
+                 "===================================================\n";
     Trace &trace = traceRepository[0];
-
-    //std::cout<<"Cone.propositions: "<<cone.propositions.size()<<"\n";
 
     // base solution
     int *base = new int[cone.propositions.size()];
@@ -78,8 +77,7 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
         base[i] = i;
 
     for (Template templ : _templates) {
-        messageInfo("Generating instances with template: " +
-                    oden::template2String(templ));
+        messageInfo("Generating consequent with template: " + oden::template2String(templ));
 
         size_t placeHolders = countPlaceholders(templ);
         messageInfo("Number of placeholders: " + std::to_string(placeHolders));
@@ -103,7 +101,8 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
         for (int s = 0; s < solutions; ++s) {
 
             size_t counter = 0;
-            Proposition *p = _genProposition(templ, &repo[s * placeHolders], counter, cone.propositions);
+            Proposition *p = _genProposition(templ, &repo[s * placeHolders],
+                                             counter, cone.propositions);
 
             if (!isInvariant(p))
                 cone.outPropositions.push_back(p);
@@ -117,12 +116,7 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
     std::cout << "generated consequents:\n";
     for (auto e : cone.outPropositions) {
         std::cout << prop2String(*e) << "\n";
-        for (size_t i = 0; i < e->getMaxTime(); i++) {
-            std::cout << e->evaluate(i) << " ";
-        }
-        std::cout << "\n";
     }
-
 
     delete[] base;
 }

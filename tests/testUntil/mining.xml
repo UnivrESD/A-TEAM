@@ -9,7 +9,7 @@
 
     <coneminer name="manualDefinition">
         <directions>
-            <direction name="a" dir="out"/>
+            <direction name="a" dir="in"/>
             <direction name="b" dir="out"/>
             <direction name="c" dir="out"/>
             <direction name="d" dir="out"/>
@@ -20,6 +20,7 @@
             <direction name="i" dir="out"/>
         </directions>
 
+    <!-- 
         <coneOfInfluence name="cone1">
             <atomicPropositions>
                 <atomicProposition formula="b >_ ~e" dir="out"/>
@@ -28,12 +29,11 @@
                 <atomicProposition formula="a" dir="out"/>
             </atomicPropositions>
         </coneOfInfluence>
+     -->
 
     </coneMiner>
-    <!-- 
          The template is "always(antecedent -> consequent)"
         The antecedent is generated automatically
-     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
             <template value="p1 && p2"/>
