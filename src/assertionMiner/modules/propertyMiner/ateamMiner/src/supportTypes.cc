@@ -2,31 +2,55 @@
 
 namespace ateam {
 
-TraceInfo::TraceInfo(size_t l)
-    : length(l), goal(nullptr), coverageTrue(nullptr), coverageFalse(nullptr),
+TraceInfo::TraceInfo() 
+    : length(1), goal(nullptr), coverageTrue(nullptr), coverageFalse(nullptr),
       initTrue(0), reachedTrue(0), reachedFalse(0) {
-
-    size_t length32 = length >> 5;
-
-    goal = new BooleanVariable(new unsigned int[length32], "goal", l);
-    coverageTrue =
-        new BooleanVariable(new unsigned int[length32], "coverageTrue", l);
-    coverageFalse =
-        new BooleanVariable(new unsigned int[length32], "coverageFalse", l);
-}
+      
+        goal = new BooleanVariable(new unsigned int[1], "goal", 1);
+        coverageTrue =
+            new BooleanVariable(new unsigned int[1], "coverageTrue", 1);
+        coverageFalse =
+            new BooleanVariable(new unsigned int[1], "coverageFalse", 1);
+      
+      }
 
 TraceInfo::TraceInfo(const TraceInfo &other)
     : length(other.length), goal(other.goal), coverageTrue(other.coverageTrue),
       coverageFalse(other.coverageFalse), initTrue(other.initTrue),
       reachedTrue(other.reachedTrue), reachedFalse(other.reachedFalse) {
+
     // ntd
 }
 
+void TraceInfo::initTraceInfo(size_t l) {
+    if (l > length) {
+        goal->deleteArray();
+        coverageTrue->deleteArray();
+        coverageFalse->deleteArray();
+        delete goal;
+        delete coverageTrue;
+        delete coverageFalse;
+
+
+        goal = new BooleanVariable(new unsigned int[((l + 31) >> 5)], "goal", l);
+        coverageTrue =
+            new BooleanVariable(new unsigned int[((l + 31) >> 5)], "coverageTrue", l);
+        coverageFalse =
+            new BooleanVariable(new unsigned int[((l + 31) >> 5)], "coverageFalse", l);
+    }
+    length = l;
+    initTrue=0;
+    reachedTrue=0;
+    reachedFalse=0;
+}
 TraceInfo::~TraceInfo() {
     // memory leak here. Array in BooleanVariables is not deleted.
-    delete goal;
-    delete coverageTrue;
-    delete coverageFalse;
+        goal->deleteArray();
+        coverageTrue->deleteArray();
+        coverageFalse->deleteArray();
+        delete goal;
+        delete coverageTrue;
+        delete coverageFalse;
 }
 
 TraceInfo &TraceInfo::operator=(const TraceInfo &other) {
@@ -37,6 +61,7 @@ TraceInfo &TraceInfo::operator=(const TraceInfo &other) {
     initTrue      = other.initTrue;
     reachedTrue   = other.reachedTrue;
     reachedFalse  = other.reachedFalse;
+
 
     return *this;
 }

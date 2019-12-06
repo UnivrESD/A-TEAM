@@ -15,7 +15,7 @@ LogicVariable::LogicVariable(uint64_t *v, uint8_t size, const std::string &name,
 
     // Setting the mask to read only _size bits
     _mask         = (1 << _size) - 1;
-    _valuesInside = _bits4Logic / _size;
+    _valuesInside = (_bits4Logic*8) / _size;
 }
 
 LogicVariable::LogicVariable(const LogicVariable &other)

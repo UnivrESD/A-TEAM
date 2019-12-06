@@ -18,11 +18,19 @@ template <> void NextOperator<Proposition>::acceptVisitor(OdenVisitor &vis) {
 }
 
 template <> Numeric NextOperator<NumericExpression>::evaluate(size_t time) {
-    return _e->evaluate(_offset + time);
+    if ((time + _offset) >= _max_time) {
+        return _e->evaluate(_max_time - 1);
+    } else {
+        return _e->evaluate(_offset + time);
+    }
 }
 
 template <> Logic NextOperator<LogicExpression>::evaluate(size_t time) {
-    return _e->evaluate(_offset + time);
+    if ((time + _offset) >= _max_time) {
+        return _e->evaluate(_max_time - 1);
+    } else {
+        return _e->evaluate(_offset + time);
+    }
 }
 
 template <> bool NextOperator<Proposition>::evaluate(size_t time) {

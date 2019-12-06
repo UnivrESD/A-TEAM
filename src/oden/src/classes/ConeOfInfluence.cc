@@ -7,5 +7,8 @@ ConeOfInfluence::ConeOfInfluence(const std::string &n)
       name(n) {
     // ntd
 }
+ConeOfInfluence::~ConeOfInfluence(){
+
+}
 
 } // namespace oden

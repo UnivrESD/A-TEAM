@@ -29,8 +29,10 @@ class PrinterVisitor : public OdenVisitor {
     void visit(PropositionOr &o) override;
     void visit(PropositionXor &o) override;
     void visit(PropositionEq &o) override;
+    void visit(PropositionNeq &o) override;
     void visit(PropositionNot &o) override;
     void visit(PropositionNext &o) override;
+    void visit(PropositionPast &o) override;
     void visit(UntilOperator &o) override;
     void visit(ReleaseOperator &o) override;
 
@@ -42,6 +44,7 @@ class PrinterVisitor : public OdenVisitor {
     void visit(NumericMul &o) override;
     void visit(NumericDiv &o) override;
     void visit(NumericNext &o) override;
+    void visit(NumericPast &o) override;
     void visit(NumericEq &o) override;
     void visit(NumericNeq &o) override;
     void visit(NumericGreater &o) override;
@@ -61,6 +64,7 @@ class PrinterVisitor : public OdenVisitor {
     void visit(LogicBXor &o) override;
     void visit(LogicNot &o) override;
     void visit(LogicNext &o) override;
+    void visit(LogicPast &o) override;
     void visit(LogicEq &o) override;
     void visit(LogicNeq &o) override;
     void visit(LogicGreater &o) override;
@@ -75,6 +79,7 @@ class PrinterVisitor : public OdenVisitor {
         PropositionOr,
         PropositionXor,
         PropositionEq,
+        PropositionNeq,
 
         NumericSum,
         NumericSub,
@@ -103,11 +108,12 @@ class PrinterVisitor : public OdenVisitor {
         LogicLessEq,
 
         Next,
+        Past,
         Until,
         Release
     };
 
-    std::string operators[33];
+    std::string operators[34];
     std::stringstream _ss;
 };
 

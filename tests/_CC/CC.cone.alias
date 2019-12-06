@@ -1,0 +1,64 @@
+(.Etimer.count==.Etimer.timeoutclockperiods) p0
+(.Ltimer.count==.Ltimer.timeoutclockperiods) p1
+(.Ntimer.count==.Ntimer.timeoutclockperiods) p2
+(.Stimer.count==.Stimer.timeoutclockperiods) p3
+(.Wtimer.timeoutclockperiods==.Wtimer.count) p4
+.Etimer.count== $past(('b1+.Etimer.count),1) p5
+.Etimer.count=='b0 p6
+.Etimer.timeoutclockperiods== $past(.Etimer.timeoutclockperiods,1) p7
+.Etimer.timeoutclockperiods== $past(Elength,1) p8
+.Etimer.timeoutclockperiods=='b0 p9
+.Etimer.timesup=='b1 p10
+.Ltimer.count== $past(('b1+.Ltimer.count),1) p11
+.Ltimer.count=='b0 p12
+.Ltimer.timeoutclockperiods== $past(.Ltimer.timeoutclockperiods,1) p13
+.Ltimer.timeoutclockperiods== $past(Llength,1) p14
+.Ltimer.timeoutclockperiods=='b0 p15
+.Ltimer.timesup=='b1 p16
+.Ntimer.count== $past(('b1+.Ntimer.count),1) p17
+.Ntimer.count=='b0 p18
+.Ntimer.timeoutclockperiods== $past(.Ntimer.timeoutclockperiods,1) p19
+.Ntimer.timeoutclockperiods== $past(Nlength,1) p20
+.Ntimer.timeoutclockperiods=='b0 p21
+.Ntimer.timesup=='b1 p22
+.Stimer.count== $past(('b1+.Stimer.count),1) p23
+.Stimer.count=='b0 p24
+.Stimer.timeoutclockperiods== $past(.Stimer.timeoutclockperiods,1) p25
+.Stimer.timeoutclockperiods== $past(Slength,1) p26
+.Stimer.timeoutclockperiods=='b0 p27
+.Stimer.timesup=='b1 p28
+.Wtimer.count== $past(('b1+.Wtimer.count),1) p29
+.Wtimer.count=='b0 p30
+.Wtimer.timeoutclockperiods== $past(.Wtimer.timeoutclockperiods,1) p31
+.Wtimer.timeoutclockperiods== $past(Wlength,1) p32
+.Wtimer.timeoutclockperiods=='b0 p33
+.Wtimer.timesup=='b1 p34
+Eflit_id=='b1 p35
+Ereq=='b1 p36
+Eruntimer=='b0 p37
+Lflit_id=='b1 p38
+Lreq=='b1 p39
+Lruntimer=='b0 p40
+Nflit_id=='b1 p41
+Nreq=='b1 p42
+Nruntimer=='b0 p43
+Sflit_id=='b1 p44
+Sreq=='b1 p45
+Sruntimer=='b0 p46
+Wflit_id=='b1 p47
+Wreq=='b1 p48
+Wruntimer=='b0 p49
+currentstate== $past(nextstate,1) p50
+currentstate=='b1 p51
+currentstate=='b10 p52
+currentstate=='b100 p53
+currentstate=='b1000 p54
+currentstate=='b10000 p55
+currentstate=='b100000 p56
+nextstate=='b1 p57
+nextstate=='b10 p58
+nextstate=='b100 p59
+nextstate=='b1000 p60
+nextstate=='b10000 p61
+nextstate=='b100000 p62
+rst=='b1 p63

@@ -22,8 +22,10 @@ class OdenVisitor {
     virtual void visit(PropositionOr &o);
     virtual void visit(PropositionXor &o);
     virtual void visit(PropositionEq &o);
+    virtual void visit(PropositionNeq &o);
     virtual void visit(PropositionNot &o);
     virtual void visit(PropositionNext &o);
+    virtual void visit(PropositionPast &o);
     virtual void visit(UntilOperator &o);
     virtual void visit(ReleaseOperator &o);
 
@@ -35,6 +37,7 @@ class OdenVisitor {
     virtual void visit(NumericMul &o);
     virtual void visit(NumericDiv &o);
     virtual void visit(NumericNext &o);
+    virtual void visit(NumericPast &o);
     virtual void visit(NumericEq &o);
     virtual void visit(NumericNeq &o);
     virtual void visit(NumericGreater &o);
@@ -54,6 +57,7 @@ class OdenVisitor {
     virtual void visit(LogicBXor &o);
     virtual void visit(LogicNot &o);
     virtual void visit(LogicNext &o);
+    virtual void visit(LogicPast &o);
     virtual void visit(LogicEq &o);
     virtual void visit(LogicNeq &o);
     virtual void visit(LogicGreater &o);

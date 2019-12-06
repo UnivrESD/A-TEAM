@@ -35,7 +35,7 @@ class AteamMiner : public modules::PropertyMiner {
     AteamMiner &operator=(const AteamMiner &other) = delete;
 
     /// @brief Destructor.
-    ~AteamMiner() override = default;
+    ~AteamMiner() override;
 
     /// @brief mineProperties.
     /// @param cone The cone of influence
@@ -61,6 +61,8 @@ class AteamMiner : public modules::PropertyMiner {
 
     // the maximum number of variable in an assertion's antecedent
     size_t _maxVariablesAntecedent;
+
+    TraceInfo traceInfo;
 
     //TODO
     // reads and validates user-defined templates

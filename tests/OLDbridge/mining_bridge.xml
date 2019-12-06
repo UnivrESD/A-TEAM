@@ -1,0 +1,46 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <variables path="bridge/trace.variables"/>
+        <traces>
+            <trace path="bridge/trace.mangrove"/>
+        </traces>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+                <direction name="full_" dir="out"/>
+                <direction name="reset" dir="in"/>
+            </directions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+                        <propertyprinter name="psl"/>
+
+</root>

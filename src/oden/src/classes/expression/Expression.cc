@@ -16,6 +16,7 @@ VISITOR_CALL(AND, Proposition, Proposition)
 VISITOR_CALL(OR, Proposition, Proposition)
 VISITOR_CALL(XOR, Proposition, Proposition)
 VISITOR_CALL(EQ, Proposition, Proposition)
+VISITOR_CALL(NEQ, Proposition, Proposition)
 VISITOR_CALL(NOT, Proposition, Proposition)
 
 // numeric
@@ -90,6 +91,15 @@ bool Expression<BinaryOperator::EQ, Proposition, Proposition>::evaluate(
         return false;
 
     return _items[0]->evaluate(time) == _items[1]->evaluate(time);
+}
+
+template <>
+bool Expression<BinaryOperator::NEQ, Proposition, Proposition>::evaluate(
+    size_t time) {
+    if (_items.size() != 2)
+        return false;
+
+    return _items[0]->evaluate(time) != _items[1]->evaluate(time);
 }
 
 template <>

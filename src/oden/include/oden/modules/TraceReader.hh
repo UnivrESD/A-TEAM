@@ -26,7 +26,9 @@ class TraceReader {
     TraceReader &operator=(const TraceReader &other) = delete;
 
   protected:
+
     /// @brief Constructor.
+    /// @param data is the trace xmlData
     explicit TraceReader(XmlNode *data);
 
     /// @brief The xml node containing the configuration
@@ -40,6 +42,7 @@ class TraceReader {
     /// @param name2Dir a map var_name->var_direction
     void fillName2Dir(XmlNodeList &directionList,
                       std::map<std::string, VariableDirection> &name2Dir);
+
 };
 
 } // namespace modules

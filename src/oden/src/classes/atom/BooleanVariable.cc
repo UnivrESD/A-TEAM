@@ -13,6 +13,9 @@ BooleanVariable::BooleanVariable(const BooleanVariable &other)
     : Variable_Base<bool>(other._name, other._max_time), _v(other._v) {
     // ntd
 }
+void BooleanVariable::deleteArray(){
+    delete[] _v;
+}
 
 bool BooleanVariable::evaluate(size_t time) {
     size_t tPos          = time >> 5;

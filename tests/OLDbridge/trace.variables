@@ -1,0 +1,59 @@
+ackr_o bool
+ackw_o bool
+addr_width logic 32
+data_i[0] bool
+data_i[1] bool
+data_i[2] bool
+data_i[3] bool
+data_i[4] bool
+data_i[5] bool
+data_i[6] bool
+data_i[7] bool
+data_o[0] bool
+data_o[1] bool
+data_o[2] bool
+data_o[3] bool
+data_o[4] bool
+data_o[5] bool
+data_o[6] bool
+data_o[7:0] logic 8
+data_o[7] bool
+data_width logic 32
+empty_ bool
+empty_o bool
+error logic 2
+full_ bool
+full_o bool
+idle logic 2
+next_in_data_[7:0] logic 8
+r_ack_next_ bool
+r_id_[5:0] logic 6
+r_next_id_[0] bool
+r_next_id_[1] bool
+r_next_id_[2] bool
+r_next_id_[3] bool
+r_next_id_[4] bool
+r_next_id_[5] bool
+r_state_[1:0] logic 2
+r_state_next_[1:0] logic 2
+ram_depth logic 32
+read logic 2
+renable_ bool
+reqr_i bool
+reqw_i bool
+reset bool
+tmp_buf_[7:0] logic 8
+w_ack_next_ bool
+w_id_[5:0] logic 6
+w_next_id_[0] bool
+w_next_id_[1] bool
+w_next_id_[2] bool
+w_next_id_[3] bool
+w_next_id_[4] bool
+w_next_id_[5] bool
+w_state_[1:0] logic 2
+w_state_next_[1:0] logic 2
+wait logic 2
+wenable_ bool
+write logic 2
+

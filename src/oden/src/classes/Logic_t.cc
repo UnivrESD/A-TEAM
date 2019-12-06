@@ -76,29 +76,17 @@ Logic_t Logic_t::operator>>(size_t bits) {
     return Logic_t(_value >> bits, _size);
 }
 
-bool Logic_t::operator==(Logic_t other) {
-    return _value == other._value;
-}
+bool Logic_t::operator==(Logic_t other) { return _value == other._value; }
 
-bool Logic_t::operator!=(Logic_t other) {
-    return _value != other._value;
-}
+bool Logic_t::operator!=(Logic_t other) { return _value != other._value; }
 
-bool Logic_t::operator<(Logic_t other) {
-    return _value < other._value;
-}
+bool Logic_t::operator<(Logic_t other) { return _value < other._value; }
 
-bool Logic_t::operator<=(Logic_t other) {
-    return _value <= other._value;
-}
+bool Logic_t::operator<=(Logic_t other) { return _value <= other._value; }
 
-bool Logic_t::operator>(Logic_t other) {
-    return _value > other._value;
-}
+bool Logic_t::operator>(Logic_t other) { return _value > other._value; }
 
-bool Logic_t::operator>=(Logic_t other) {
-    return _value >= other._value;
-}
+bool Logic_t::operator>=(Logic_t other) { return _value >= other._value; }
 
 uint64_t Logic_t::getValue() { return _value; }
 
@@ -106,10 +94,11 @@ uint8_t Logic_t::size() { return _size; }
 
 std::string Logic_t::to_string() const {
     std::stringstream ss;
-
-    // for (int i = 0; i < _size; i++)
-    //     ss << ((*this)[_size - i - 1] ? "1" : "0");
-
+    uint64_t mask = 1;
+    ss<<"'b";
+    for (size_t i = 0; i < _size; i++) {
+                ss << ((_value & (mask << i)) ? 1 : 0);
+    }
     return ss.str();
 }
 

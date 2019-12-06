@@ -69,6 +69,7 @@ using PropositionOr = Expression<BinaryOperator ::OR, Proposition, Proposition>;
 using PropositionXor =
     Expression<BinaryOperator ::XOR, Proposition, Proposition>;
 using PropositionEq = Expression<BinaryOperator ::EQ, Proposition, Proposition>;
+using PropositionNeq = Expression<BinaryOperator ::NEQ, Proposition, Proposition>;
 using PropositionNot =
     Expression<BinaryOperator ::NOT, Proposition, Proposition>;
 

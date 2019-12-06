@@ -1,0 +1,70 @@
+(('b1+.mem_.r_id_)==.mem_.w_id_) p0
+(('b1+.mem_.w_id_)==.mem_.r_id_) p1
+.mem_.Data_o== $past(.mem_.Data_o,1) p2
+.mem_.Data_o== $past(.mem_.mem_[0],1) p3
+.mem_.Data_o== $past(.mem_.mem_[1],1) p4
+.mem_.Data_o== $past(.mem_.mem_[2],1) p5
+.mem_.Data_o== $past(.mem_.mem_[3],1) p6
+.mem_.Data_o== $past(.mem_.mem_[4],1) p7
+.mem_.Data_o== $past(.mem_.mem_[5],1) p8
+.mem_.Data_o== $past(.mem_.mem_[6],1) p9
+.mem_.Data_o== $past(.mem_.mem_[7],1) p10
+.mem_.Data_o=='b0 p11
+.mem_.Empty_o== $past(.mem_.Empty_o,1) p12
+.mem_.Empty_o=='b1 p13
+.mem_.Full_o== $past(.mem_.Full_o,1) p14
+.mem_.Full_o=='b0 p15
+.mem_.mem_[0]== $past(next_in_data_,1) p16
+.mem_.mem_[1]== $past(next_in_data_,1) p17
+.mem_.mem_[2]== $past(next_in_data_,1) p18
+.mem_.mem_[3]== $past(next_in_data_,1) p19
+.mem_.mem_[4]== $past(next_in_data_,1) p20
+.mem_.mem_[5]== $past(next_in_data_,1) p21
+.mem_.mem_[6]== $past(next_in_data_,1) p22
+.mem_.mem_[7]== $past(next_in_data_,1) p23
+.mem_.r_id_== $past(('b1+.mem_.r_id_),1) p24
+.mem_.r_id_== $past(.mem_.r_id_,1) p25
+.mem_.r_id_=='b0 p26
+.mem_.r_id_=='b10 p27
+.mem_.r_id_=='b100 p28
+.mem_.r_id_=='b101 p29
+.mem_.r_id_=='b11 p30
+.mem_.r_id_=='b110 p31
+.mem_.r_id_=='b111 p32
+.mem_.w_id_== $past(('b1+.mem_.w_id_),1) p33
+.mem_.w_id_== $past(.mem_.w_id_,1) p34
+.mem_.w_id_=='b0 p35
+.mem_.w_id_=='b10 p36
+.mem_.w_id_=='b100 p37
+.mem_.w_id_=='b101 p38
+.mem_.w_id_=='b11 p39
+.mem_.w_id_=='b110 p40
+.mem_.w_id_=='b111 p41
+AckR_o== $past(r_ack_next_,1) p42
+AckR_o=='b0 p43
+AckW_o== $past(w_ack_next_,1) p44
+AckW_o=='b0 p45
+ReqR_i=='b0 p46
+ReqW_i=='b0 p47
+next_in_data_== $past(Data_i,1) p48
+next_in_data_== $past(next_in_data_,1) p49
+next_in_data_== $past(tmp_buf_,1) p50
+r_ack_next_=='b0 p51
+r_state_== $past(r_state_next_,1) p52
+r_state_=='b0 p53
+r_state_=='b10 p54
+r_state_next_=='b0 p55
+r_state_next_=='b10 p56
+reset=='b1 p57
+tmp_buf_== $past(Data_i,1) p58
+tmp_buf_== $past(tmp_buf_,1) p59
+tmp_buf_=='b0 p60
+w_ack_next_=='b0 p61
+w_state_== $past(w_state_next_,1) p62
+w_state_=='b0 p63
+w_state_=='b10 p64
+w_state_next_=='b1 p65
+w_state_next_=='b10 p66
+{('b1==r_state_next_),('b1==w_state_next_)}=='b0 p67
+{('b1==r_state_next_),('b1==w_state_next_)}=='b10 p68
+{('b1==r_state_next_),('b1==w_state_next_)}=='b11 p69

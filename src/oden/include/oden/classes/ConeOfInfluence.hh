@@ -22,7 +22,7 @@ class ConeOfInfluence {
     ConeOfInfluence(const ConeOfInfluence &other) = delete;
 
     /// @brief Destructor.
-    ~ConeOfInfluence() = default;
+    ~ConeOfInfluence();
 
     /// @brief A List of propositions among
     /// the input variables belonging to the cone.

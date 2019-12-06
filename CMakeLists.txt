@@ -1,4 +1,5 @@
 # Checking cmake version:
+PROJECT(A-Team)
 cmake_minimum_required(VERSION 2.8.11)
 
 set(ODEN_VERSION_MAJOR 1)

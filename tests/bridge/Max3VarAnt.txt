@@ -1,0 +1,2175 @@
+clocking cone1 @(posedge clk);
+
+	property p0;
+	  property( ((mem_.Data_o == 'b0) && !(('b1 + mem_.r_id_) == mem_.w_id_)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p1;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p2;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p3;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b001)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p4;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b101)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p5;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b11)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p6;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b011)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p7;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b111)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p8;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && !(mem_.w_id_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p9;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p10;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b001)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p11;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b101)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p12;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b11)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p13;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b011)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p14;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b111)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p15;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p16;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (io.tmp_buf_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p17;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p18;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p19;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.Empty_o == 'b1)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p20;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.r_id_ == 'b101) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p21;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p22;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == 'b01) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p23;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == 'b011) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p24;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p25;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(io.r_state_ == 'b0) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p26;
+	  property( (!(mem_.Empty_o == 'b1) && !(mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p27;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p28;
+	  property( (!(mem_.Empty_o == 'b1) && !(mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p29;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b101) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p30;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p31;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b01) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p32;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b011) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p33;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.AckW_o == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p34;
+	  property( (!(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p35;
+	  property( (!(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p36;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.r_ack_next_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p37;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.r_state_ == 'b0) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p38;
+	  property( (!(mem_.Empty_o == 'b1) && (io.w_ack_next_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p39;
+	  property( (!(mem_.Empty_o == 'b1) && (io.w_state_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p40;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p41;
+	  property( (!(mem_.Full_o == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p42;
+	  property( ((io.reset == 'b1)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p43;
+	  property( (!(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p44;
+	  property( ((io.w_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p45;
+	  property( ((io.w_state_next_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p46;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.Data_o == 'b0)) |-> (('b1 + mem_.r_id_) == mem_.w_id_) );
+	endproperty
+
+	property p47;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (('b1 + mem_.r_id_) == mem_.w_id_) );
+	endproperty
+
+	property p48;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (('b1 + mem_.w_id_) == mem_.r_id_) );
+	endproperty
+
+	property p49;
+	  property( ((mem_.Full_o == 'b0) && (mem_.r_id_ == 'b01) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (('b1 + mem_.w_id_) == mem_.r_id_) );
+	endproperty
+
+	property p50;
+	  property( (!(mem_.Full_o == 'b0)) |-> (mem_.Data_o == $past(mem_.Data_o, 1)) );
+	endproperty
+
+	property p51;
+	  property( ((mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (mem_.Data_o == $past(mem_.Data_o, 1)) );
+	endproperty
+
+	property p52;
+	  property( ((io.r_state_ == 'b0)) |-> (mem_.Data_o == $past(mem_.Data_o, 1)) );
+	endproperty
+
+	property p53;
+	  property( ((io.reset == 'b1)) |-> (mem_.Data_o == 'b0) );
+	endproperty
+
+	property p54;
+	  property( ((mem_.Data_o == 'b0) && !(('b1 + mem_.r_id_) == mem_.w_id_)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p55;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p56;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p57;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b001)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p58;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b101)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p59;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b11)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p60;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b011)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p61;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b111)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p62;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && !(mem_.w_id_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p63;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p64;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b001)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p65;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b101)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p66;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b11)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p67;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b011)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p68;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b111)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p69;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p70;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.Empty_o == 'b1) && (io.tmp_buf_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p71;
+	  property( (!(('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p72;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p73;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.Empty_o == 'b1)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p74;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.r_id_ == 'b101) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p75;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p76;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == 'b01) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p77;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == 'b011) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p78;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p79;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(io.r_state_ == 'b0) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p80;
+	  property( (!(mem_.Empty_o == 'b1) && !(mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p81;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p82;
+	  property( (!(mem_.Empty_o == 'b1) && !(mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p83;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b101) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p84;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p85;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b01) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p86;
+	  property( (!(mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b011) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p87;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.AckW_o == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p88;
+	  property( (!(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p89;
+	  property( (!(mem_.Empty_o == 'b1) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p90;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.r_ack_next_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p91;
+	  property( (!(mem_.Empty_o == 'b1) && !(io.r_state_ == 'b0) && !(io.r_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p92;
+	  property( (!(mem_.Empty_o == 'b1) && (io.w_ack_next_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p93;
+	  property( (!(mem_.Empty_o == 'b1) && (io.w_state_ == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p94;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p95;
+	  property( (!(mem_.Full_o == 'b0)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p96;
+	  property( ((io.reset == 'b1)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p97;
+	  property( (!(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p98;
+	  property( ((io.w_state_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p99;
+	  property( ((io.w_state_next_ == 'b01)) |-> (mem_.Empty_o == $past(mem_.Empty_o, 1)) );
+	endproperty
+
+	property p100;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.Empty_o == 'b1) );
+	endproperty
+
+	property p101;
+	  property( ((io.r_state_next_ == 'b01)) |-> (mem_.Empty_o == 'b1) );
+	endproperty
+
+	property p102;
+	  property( ((io.reset == 'b1)) |-> (mem_.Empty_o == 'b1) );
+	endproperty
+
+	property p103;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p104;
+	  property( ((mem_.Data_o == 'b0) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p105;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p106;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p107;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && !(mem_.r_id_ == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p108;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.r_id_ == 'b01) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p109;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.r_id_ == 'b001) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p110;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.r_id_ == 'b011) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p111;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.r_id_ == 'b111) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p112;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.w_id_ == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p113;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.w_id_ == 'b101) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p114;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.w_id_ == 'b11) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p115;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.w_id_ == 'b011) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p116;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.w_id_ == 'b111) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p117;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (io.AckW_o == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p118;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (io.ReqW_i == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p119;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p120;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p121;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p122;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p123;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p124;
+	  property( ((mem_.Empty_o == 'b1)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p125;
+	  property( (!(mem_.Full_o == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p126;
+	  property( ((mem_.r_id_ == $past(mem_.r_id_, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p127;
+	  property( ((mem_.r_id_ == 'b01) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p128;
+	  property( ((mem_.r_id_ == 'b101) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p129;
+	  property( ((mem_.r_id_ == 'b11) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p130;
+	  property( ((mem_.r_id_ == 'b111) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p131;
+	  property( ((mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p132;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p133;
+	  property( ((mem_.w_id_ == 'b01) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p134;
+	  property( ((mem_.w_id_ == 'b001) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p135;
+	  property( ((mem_.w_id_ == 'b101) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p136;
+	  property( ((mem_.w_id_ == 'b111) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p137;
+	  property( ((io.AckR_o == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p138;
+	  property( (!(io.AckR_o == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p139;
+	  property( (!(io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p140;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.r_ack_next_ == 'b0) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p141;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.r_state_ == 'b0) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p142;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == 'b0)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p143;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_ack_next_ == 'b0)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p144;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b0)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p145;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p146;
+	  property( ((io.r_state_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p147;
+	  property( ((io.r_state_next_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p148;
+	  property( ((io.reset == 'b1)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p149;
+	  property( ((io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_next_ == 'b01)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p150;
+	  property( (!(io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_ == 'b0)) |-> (mem_.Full_o == $past(mem_.Full_o, 1)) );
+	endproperty
+
+	property p151;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p152;
+	  property( ((mem_.Data_o == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p153;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p154;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p155;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p156;
+	  property( ((mem_.Empty_o == 'b1)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p157;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p158;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p159;
+	  property( ((mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p160;
+	  property( (!(mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p161;
+	  property( ((mem_.r_id_ == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p162;
+	  property( ((mem_.r_id_ == 'b01) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p163;
+	  property( ((mem_.r_id_ == 'b001) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p164;
+	  property( ((mem_.r_id_ == 'b001) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p165;
+	  property( ((mem_.r_id_ == 'b101) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p166;
+	  property( ((mem_.r_id_ == 'b11) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p167;
+	  property( ((mem_.r_id_ == 'b011) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p168;
+	  property( ((mem_.r_id_ == 'b111) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p169;
+	  property( ((mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p170;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p171;
+	  property( ((mem_.w_id_ == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p172;
+	  property( ((mem_.w_id_ == 'b01) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p173;
+	  property( ((mem_.w_id_ == 'b001) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p174;
+	  property( ((mem_.w_id_ == 'b001) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p175;
+	  property( ((mem_.w_id_ == 'b101) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p176;
+	  property( ((mem_.w_id_ == 'b11) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p177;
+	  property( ((mem_.w_id_ == 'b011) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p178;
+	  property( ((mem_.w_id_ == 'b111) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p179;
+	  property( (!(io.AckR_o == 'b0) && !(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p180;
+	  property( (!(io.ReqW_i == 'b0) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p181;
+	  property( (!(io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p182;
+	  property( ((io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p183;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_ack_next_ == 'b0)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p184;
+	  property( (!(io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b0) && !(io.w_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p185;
+	  property( (!(io.r_ack_next_ == 'b0)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p186;
+	  property( (!(io.r_state_ == 'b0)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p187;
+	  property( ((io.r_state_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p188;
+	  property( ((io.r_state_next_ == 'b01)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p189;
+	  property( ((io.reset == 'b1)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p190;
+	  property( ((io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == 'b0)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p191;
+	  property( ((io.w_state_next_ == 'b1)) |-> (mem_.Full_o == 'b0) );
+	endproperty
+
+	property p192;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p193;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && !(mem_.r_id_ == 'b0)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p194;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b01)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p195;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b001)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p196;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b101)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p197;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b11)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p198;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b011)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p199;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b111)) |-> (mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) );
+	endproperty
+
+	property p200;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1))) |-> (mem_.r_id_ == $past(mem_.r_id_, 1)) );
+	endproperty
+
+	property p201;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b0)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p202;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.w_id_ == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p203;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.w_id_ == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p204;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.w_id_ == 'b0) && (io.w_state_ == 'b01)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p205;
+	  property( ((mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b0)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p206;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && !(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p207;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (mem_.w_id_ == 'b0)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p208;
+	  property( (!(mem_.Full_o == 'b0) && (mem_.w_id_ == 'b0)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p209;
+	  property( (!(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && !(mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p210;
+	  property( (!(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (mem_.w_id_ == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p211;
+	  property( (!(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (mem_.w_id_ == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p212;
+	  property( (!(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (mem_.w_id_ == 'b0) && (io.w_state_ == 'b01)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p213;
+	  property( (!(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && !(io.r_ack_next_ == 'b0)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p214;
+	  property( ((mem_.w_id_ == 'b0) && (io.r_state_next_ == 'b01)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p215;
+	  property( ((mem_.w_id_ == 'b0) && (io.w_state_next_ == 'b01)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p216;
+	  property( ((io.reset == 'b1)) |-> (mem_.r_id_ == 'b0) );
+	endproperty
+
+	property p217;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p218;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && !(mem_.w_id_ == 'b0)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p219;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b01)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p220;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b001)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p221;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b101)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p222;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b11)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p223;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b011)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p224;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b111)) |-> (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) );
+	endproperty
+
+	property p225;
+	  property( ((mem_.Empty_o == 'b1)) |-> (mem_.w_id_ == $past(mem_.w_id_, 1)) );
+	endproperty
+
+	property p226;
+	  property( ((io.w_state_ == 'b0)) |-> (mem_.w_id_ == $past(mem_.w_id_, 1)) );
+	endproperty
+
+	property p227;
+	  property( ((io.w_state_ == 'b01)) |-> (mem_.w_id_ == $past(mem_.w_id_, 1)) );
+	endproperty
+
+	property p228;
+	  property( (!(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && !(mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (mem_.w_id_ == 'b0) );
+	endproperty
+
+	property p229;
+	  property( (!(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && !(io.w_ack_next_ == 'b0)) |-> (mem_.w_id_ == 'b0) );
+	endproperty
+
+	property p230;
+	  property( ((io.reset == 'b1)) |-> (mem_.w_id_ == 'b0) );
+	endproperty
+
+	property p231;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p232;
+	  property( (!(mem_.Full_o == 'b0) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p233;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p234;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.w_state_next_ == 'b01)) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p235;
+	  property( ((mem_.w_id_ == 'b11) && (io.r_state_ == 'b01)) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p236;
+	  property( ((io.reset == 'b1)) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p237;
+	  property( ((io.w_state_ == 'b01)) |-> (io.AckR_o == 'b0) );
+	endproperty
+
+	property p238;
+	  property( ((io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.w_state_ == 'b01)) |-> (io.AckW_o == 'b0) );
+	endproperty
+
+	property p239;
+	  property( ((io.r_state_ == 'b01)) |-> (io.AckW_o == 'b0) );
+	endproperty
+
+	property p240;
+	  property( ((io.reset == 'b1)) |-> (io.AckW_o == 'b0) );
+	endproperty
+
+	property p241;
+	  property( ((io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_ == 'b01)) |-> (io.AckW_o == 'b0) );
+	endproperty
+
+	property p242;
+	  property( ((io.tmp_buf_ == 'b0) && (io.w_state_ == 'b01)) |-> (io.AckW_o == 'b0) );
+	endproperty
+
+	property p243;
+	  property( ((io.r_state_next_ == 'b0)) |-> (io.ReqR_i == 'b0) );
+	endproperty
+
+	property p244;
+	  property( ((io.reset == 'b1)) |-> (io.ReqR_i == 'b0) );
+	endproperty
+
+	property p245;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p246;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p247;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p248;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p249;
+	  property( ((mem_.Empty_o == 'b1) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p250;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p251;
+	  property( ((mem_.Full_o == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p252;
+	  property( ((mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p253;
+	  property( (!(mem_.r_id_ == $past(mem_.r_id_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p254;
+	  property( ((mem_.r_id_ == 'b11) && (io.w_state_ == 'b01) && (io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p255;
+	  property( ((mem_.w_id_ == 'b01) && (io.w_state_ == 'b01) && (io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p256;
+	  property( (!(io.r_ack_next_ == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p257;
+	  property( (!(io.r_state_ == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p258;
+	  property( ((io.r_state_ == 'b01) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p259;
+	  property( ((io.r_state_next_ == 'b01) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p260;
+	  property( ((io.reset == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p261;
+	  property( ((io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p262;
+	  property( ((io.tmp_buf_ == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p263;
+	  property( (!(io.w_state_next_ == 'b1) && !(io.w_state_next_ == 'b01)) |-> (io.ReqW_i == 'b0) );
+	endproperty
+
+	property p264;
+	  property( ((mem_.Data_o == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p265;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p266;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p267;
+	  property( ((mem_.Empty_o == 'b1) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p268;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p269;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p270;
+	  property( (!(mem_.Full_o == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p271;
+	  property( ((mem_.r_id_ == 'b01) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p272;
+	  property( ((mem_.r_id_ == 'b01) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p273;
+	  property( ((mem_.r_id_ == 'b001) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p274;
+	  property( ((mem_.r_id_ == 'b001) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p275;
+	  property( ((mem_.r_id_ == 'b011) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p276;
+	  property( ((mem_.r_id_ == 'b011) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p277;
+	  property( ((mem_.r_id_ == 'b111) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p278;
+	  property( ((mem_.r_id_ == 'b111) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p279;
+	  property( (!(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && !(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p280;
+	  property( (!(mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p281;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p282;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p283;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.ReqW_i == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p284;
+	  property( ((mem_.w_id_ == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p285;
+	  property( (!(io.ReqW_i == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p286;
+	  property( ((io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p287;
+	  property( ((io.next_in_data_ == $past(io.tmp_buf_, 1)) && (io.w_state_next_ == 'b01)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p288;
+	  property( ((io.r_state_next_ == 'b01) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p289;
+	  property( ((io.reset == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p290;
+	  property( ((io.w_ack_next_ == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p291;
+	  property( ((io.w_state_ == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p292;
+	  property( ((io.w_state_ == 'b01) && !(io.w_state_next_ == 'b1)) |-> (io.next_in_data_ == $past(io.next_in_data_, 1)) );
+	endproperty
+
+	property p293;
+	  property( ((mem_.Data_o == 'b0) && (mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p294;
+	  property( ((mem_.Data_o == 'b0) && !(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p295;
+	  property( (!(('b1 + mem_.w_id_) == mem_.r_id_) && !(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p296;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p297;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.r_id_ == 'b0) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p298;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.r_id_ == 'b11) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p299;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.r_id_ == 'b011) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p300;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.r_id_ == 'b111) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p301;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.w_id_ == 'b0) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p302;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.w_id_ == 'b11) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p303;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.w_id_ == 'b011) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p304;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (mem_.w_id_ == 'b111) && !(io.w_state_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p305;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.Full_o == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p306;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p307;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == $past(mem_.r_id_, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p308;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p309;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b01) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p310;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b001) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p311;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b101) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p312;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b11) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p313;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b011) && !(io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p314;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.r_id_ == 'b111) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p315;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p316;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b01) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p317;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b001) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p318;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b101) && !(io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p319;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b11) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p320;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b011) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p321;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.w_id_ == 'b111) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p322;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(io.AckR_o == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p323;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && !(io.ReqW_i == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p324;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.r_ack_next_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p325;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.r_state_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p326;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p327;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.tmp_buf_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p328;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.w_state_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p329;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1)) && (io.w_state_next_ == 'b01)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p330;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p331;
+	  property( ((mem_.w_id_ == $past(('b1 + mem_.w_id_), 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p332;
+	  property( (!(mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p333;
+	  property( ((io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.w_ack_next_ == 'b0)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p334;
+	  property( ((io.reset == 'b1)) |-> (io.next_in_data_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p335;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1))) |-> (io.r_ack_next_ == 'b0) );
+	endproperty
+
+	property p336;
+	  property( ((mem_.Data_o == 'b0) && (mem_.Data_o == $past(mem_.Data_o, 1))) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p337;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && (mem_.Data_o == $past(mem_.Data_o, 1))) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p338;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(mem_.Full_o == $past(mem_.Full_o, 1))) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p339;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.r_id_ == 'b011)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p340;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.w_id_ == 'b111)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p341;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.AckW_o == 'b0)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p342;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.r_state_ == 'b01)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p343;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p344;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (io.w_state_ == 'b01)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p345;
+	  property( (!(mem_.Full_o == 'b0)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p346;
+	  property( ((io.reset == 'b1)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p347;
+	  property( ((io.w_state_next_ == 'b01)) |-> (io.r_state_ == 'b0) );
+	endproperty
+
+	property p348;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.r_id_ == 'b101) && !(io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p349;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.w_id_ == 'b01) && !(io.r_state_next_ == 'b0) && !(io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p350;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.w_id_ == 'b011) && !(io.r_state_next_ == 'b0)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p351;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (io.next_in_data_ == $past(io.tmp_buf_, 1)) && !(io.r_state_next_ == 'b0) && !(io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p352;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.r_state_ == 'b0) && !(io.r_state_next_ == 'b0) && !(io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p353;
+	  property( ((mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.r_id_ == 'b001) && (io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p354;
+	  property( ((mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.r_id_ == 'b101) && (io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p355;
+	  property( ((mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.r_state_ == 'b0) && (io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p356;
+	  property( ((io.ReqR_i == 'b0) && !(io.r_state_next_ == 'b0)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p357;
+	  property( ((io.ReqR_i == 'b0) && (io.r_state_next_ == 'b01)) |-> (io.r_state_ == 'b01) );
+	endproperty
+
+	property p358;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && (io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p359;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p360;
+	  property( (!(mem_.Full_o == 'b0) && (io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p361;
+	  property( ((mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && (io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p362;
+	  property( ((mem_.r_id_ == 'b011) && (io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p363;
+	  property( ((io.ReqR_i == 'b0) && (io.r_state_ == 'b0)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p364;
+	  property( ((io.reset == 'b1)) |-> (io.r_state_next_ == 'b0) );
+	endproperty
+
+	property p365;
+	  property( ((mem_.Empty_o == 'b1) && (mem_.r_id_ == 'b101)) |-> (io.r_state_next_ == 'b01) );
+	endproperty
+
+	property p366;
+	  property( ((mem_.Empty_o == 'b1) && (mem_.w_id_ == 'b101)) |-> (io.r_state_next_ == 'b01) );
+	endproperty
+
+	property p367;
+	  property( ((mem_.Empty_o == 'b1) && !(io.ReqR_i == 'b0)) |-> (io.r_state_next_ == 'b01) );
+	endproperty
+
+	property p368;
+	  property( ((mem_.Empty_o == 'b1) && (io.r_state_ == 'b01)) |-> (io.r_state_next_ == 'b01) );
+	endproperty
+
+	property p369;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p370;
+	  property( ((mem_.Data_o == $past(mem_.Data_o, 1)) && (mem_.Full_o == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p371;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p372;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p373;
+	  property( ((mem_.Empty_o == 'b1)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p374;
+	  property( ((mem_.Full_o == $past(mem_.Full_o, 1)) && (mem_.Full_o == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p375;
+	  property( ((mem_.Full_o == 'b0) && (mem_.r_id_ == $past(mem_.r_id_, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p376;
+	  property( ((mem_.Full_o == 'b0) && (mem_.w_id_ == $past(('b1 + mem_.w_id_), 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p377;
+	  property( ((mem_.Full_o == 'b0) && !(mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p378;
+	  property( ((mem_.Full_o == 'b0) && !(io.AckR_o == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p379;
+	  property( ((mem_.Full_o == 'b0) && (io.next_in_data_ == $past(io.next_in_data_, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p380;
+	  property( ((mem_.Full_o == 'b0) && (io.next_in_data_ == $past(io.tmp_buf_, 1))) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p381;
+	  property( ((mem_.Full_o == 'b0) && (io.r_ack_next_ == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p382;
+	  property( ((mem_.Full_o == 'b0) && (io.r_state_ == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p383;
+	  property( ((mem_.Full_o == 'b0) && !(io.w_ack_next_ == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p384;
+	  property( ((mem_.Full_o == 'b0) && (io.w_state_ == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p385;
+	  property( ((mem_.Full_o == 'b0) && !(io.w_state_ == 'b01)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p386;
+	  property( ((mem_.Full_o == 'b0) && !(io.w_state_next_ == 'b1)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p387;
+	  property( ((io.ReqW_i == 'b0) && (io.w_state_ == 'b0)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p388;
+	  property( ((io.r_state_ == 'b01)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p389;
+	  property( ((io.r_state_next_ == 'b01)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p390;
+	  property( ((io.reset == 'b1)) |-> (io.tmp_buf_ == $past(io.tmp_buf_, 1)) );
+	endproperty
+
+	property p391;
+	  property( ((io.reset == 'b1)) |-> (io.tmp_buf_ == 'b0) );
+	endproperty
+
+	property p392;
+	  property( ((mem_.Empty_o == 'b1)) |-> (io.w_ack_next_ == 'b0) );
+	endproperty
+
+	property p393;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.w_ack_next_ == 'b0) );
+	endproperty
+
+	property p394;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p395;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p396;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && (mem_.w_id_ == $past(mem_.w_id_, 1))) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p397;
+	  property( ((mem_.Empty_o == 'b1)) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p398;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.AckR_o == 'b0)) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p399;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.w_state_ == 'b01)) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p400;
+	  property( ((io.r_state_next_ == 'b01)) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p401;
+	  property( ((io.reset == 'b1)) |-> (io.w_state_ == 'b0) );
+	endproperty
+
+	property p402;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p403;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p404;
+	  property( (!(mem_.Full_o == $past(mem_.Full_o, 1)) && (io.AckR_o == 'b0) && (io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_ == 'b0)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p405;
+	  property( ((mem_.Full_o == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p406;
+	  property( ((mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p407;
+	  property( (!(mem_.r_id_ == $past(mem_.r_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p408;
+	  property( ((mem_.r_id_ == 'b001) && (mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p409;
+	  property( ((mem_.r_id_ == 'b101) && (mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p410;
+	  property( ((mem_.r_id_ == 'b011) && (mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p411;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b001) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p412;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b101) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p413;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && (mem_.w_id_ == 'b011) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p414;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && (io.ReqW_i == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p415;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.next_in_data_ == $past(io.next_in_data_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p416;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.tmp_buf_ == 'b0)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p417;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1)) && !(io.w_state_next_ == 'b01)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p418;
+	  property( ((mem_.w_id_ == $past(mem_.w_id_, 1)) && !(io.w_state_ == 'b0)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p419;
+	  property( (!(io.r_ack_next_ == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p420;
+	  property( (!(io.r_state_ == 'b0) && !(io.tmp_buf_ == $past(io.tmp_buf_, 1))) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p421;
+	  property( ((io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_next_ == 'b01)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p422;
+	  property( (!(io.tmp_buf_ == $past(io.tmp_buf_, 1)) && (io.w_state_next_ == 'b1)) |-> (io.w_state_ == 'b01) );
+	endproperty
+
+	property p423;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p424;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p425;
+	  property( ((('b1 + mem_.w_id_) == mem_.r_id_) && (io.w_state_ == 'b01)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p426;
+	  property( ((('b1 + mem_.r_id_) == mem_.w_id_) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p427;
+	  property( (!(mem_.Empty_o == $past(mem_.Empty_o, 1)) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p428;
+	  property( ((mem_.Empty_o == 'b1) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p429;
+	  property( (!(mem_.Data_o == $past(mem_.Data_o, 1)) && (io.w_state_ == 'b01)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p430;
+	  property( ((mem_.Full_o == 'b0) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p431;
+	  property( ((mem_.r_id_ == $past(('b1 + mem_.r_id_), 1)) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b1) );
+	endproperty
+
+	property p432;
+	  property( (!(mem_.Full_o == 'b0) && !(io.ReqW_i == 'b0)) |-> (io.w_state_next_ == 'b01) );
+	endproperty
+
+	property p433;
+	  property( (!(mem_.Full_o == 'b0) && (io.w_state_ == 'b01)) |-> (io.w_state_next_ == 'b01) );
+	endproperty
+
+endclocking
+
+assert property (cone1.p0);
+assert property (cone1.p1);
+assert property (cone1.p2);
+assert property (cone1.p3);
+assert property (cone1.p4);
+assert property (cone1.p5);
+assert property (cone1.p6);
+assert property (cone1.p7);
+assert property (cone1.p8);
+assert property (cone1.p9);
+assert property (cone1.p10);
+assert property (cone1.p11);
+assert property (cone1.p12);
+assert property (cone1.p13);
+assert property (cone1.p14);
+assert property (cone1.p15);
+assert property (cone1.p16);
+assert property (cone1.p17);
+assert property (cone1.p18);
+assert property (cone1.p19);
+assert property (cone1.p20);
+assert property (cone1.p21);
+assert property (cone1.p22);
+assert property (cone1.p23);
+assert property (cone1.p24);
+assert property (cone1.p25);
+assert property (cone1.p26);
+assert property (cone1.p27);
+assert property (cone1.p28);
+assert property (cone1.p29);
+assert property (cone1.p30);
+assert property (cone1.p31);
+assert property (cone1.p32);
+assert property (cone1.p33);
+assert property (cone1.p34);
+assert property (cone1.p35);
+assert property (cone1.p36);
+assert property (cone1.p37);
+assert property (cone1.p38);
+assert property (cone1.p39);
+assert property (cone1.p40);
+assert property (cone1.p41);
+assert property (cone1.p42);
+assert property (cone1.p43);
+assert property (cone1.p44);
+assert property (cone1.p45);
+assert property (cone1.p46);
+assert property (cone1.p47);
+assert property (cone1.p48);
+assert property (cone1.p49);
+assert property (cone1.p50);
+assert property (cone1.p51);
+assert property (cone1.p52);
+assert property (cone1.p53);
+assert property (cone1.p54);
+assert property (cone1.p55);
+assert property (cone1.p56);
+assert property (cone1.p57);
+assert property (cone1.p58);
+assert property (cone1.p59);
+assert property (cone1.p60);
+assert property (cone1.p61);
+assert property (cone1.p62);
+assert property (cone1.p63);
+assert property (cone1.p64);
+assert property (cone1.p65);
+assert property (cone1.p66);
+assert property (cone1.p67);
+assert property (cone1.p68);
+assert property (cone1.p69);
+assert property (cone1.p70);
+assert property (cone1.p71);
+assert property (cone1.p72);
+assert property (cone1.p73);
+assert property (cone1.p74);
+assert property (cone1.p75);
+assert property (cone1.p76);
+assert property (cone1.p77);
+assert property (cone1.p78);
+assert property (cone1.p79);
+assert property (cone1.p80);
+assert property (cone1.p81);
+assert property (cone1.p82);
+assert property (cone1.p83);
+assert property (cone1.p84);
+assert property (cone1.p85);
+assert property (cone1.p86);
+assert property (cone1.p87);
+assert property (cone1.p88);
+assert property (cone1.p89);
+assert property (cone1.p90);
+assert property (cone1.p91);
+assert property (cone1.p92);
+assert property (cone1.p93);
+assert property (cone1.p94);
+assert property (cone1.p95);
+assert property (cone1.p96);
+assert property (cone1.p97);
+assert property (cone1.p98);
+assert property (cone1.p99);
+assert property (cone1.p100);
+assert property (cone1.p101);
+assert property (cone1.p102);
+assert property (cone1.p103);
+assert property (cone1.p104);
+assert property (cone1.p105);
+assert property (cone1.p106);
+assert property (cone1.p107);
+assert property (cone1.p108);
+assert property (cone1.p109);
+assert property (cone1.p110);
+assert property (cone1.p111);
+assert property (cone1.p112);
+assert property (cone1.p113);
+assert property (cone1.p114);
+assert property (cone1.p115);
+assert property (cone1.p116);
+assert property (cone1.p117);
+assert property (cone1.p118);
+assert property (cone1.p119);
+assert property (cone1.p120);
+assert property (cone1.p121);
+assert property (cone1.p122);
+assert property (cone1.p123);
+assert property (cone1.p124);
+assert property (cone1.p125);
+assert property (cone1.p126);
+assert property (cone1.p127);
+assert property (cone1.p128);
+assert property (cone1.p129);
+assert property (cone1.p130);
+assert property (cone1.p131);
+assert property (cone1.p132);
+assert property (cone1.p133);
+assert property (cone1.p134);
+assert property (cone1.p135);
+assert property (cone1.p136);
+assert property (cone1.p137);
+assert property (cone1.p138);
+assert property (cone1.p139);
+assert property (cone1.p140);
+assert property (cone1.p141);
+assert property (cone1.p142);
+assert property (cone1.p143);
+assert property (cone1.p144);
+assert property (cone1.p145);
+assert property (cone1.p146);
+assert property (cone1.p147);
+assert property (cone1.p148);
+assert property (cone1.p149);
+assert property (cone1.p150);
+assert property (cone1.p151);
+assert property (cone1.p152);
+assert property (cone1.p153);
+assert property (cone1.p154);
+assert property (cone1.p155);
+assert property (cone1.p156);
+assert property (cone1.p157);
+assert property (cone1.p158);
+assert property (cone1.p159);
+assert property (cone1.p160);
+assert property (cone1.p161);
+assert property (cone1.p162);
+assert property (cone1.p163);
+assert property (cone1.p164);
+assert property (cone1.p165);
+assert property (cone1.p166);
+assert property (cone1.p167);
+assert property (cone1.p168);
+assert property (cone1.p169);
+assert property (cone1.p170);
+assert property (cone1.p171);
+assert property (cone1.p172);
+assert property (cone1.p173);
+assert property (cone1.p174);
+assert property (cone1.p175);
+assert property (cone1.p176);
+assert property (cone1.p177);
+assert property (cone1.p178);
+assert property (cone1.p179);
+assert property (cone1.p180);
+assert property (cone1.p181);
+assert property (cone1.p182);
+assert property (cone1.p183);
+assert property (cone1.p184);
+assert property (cone1.p185);
+assert property (cone1.p186);
+assert property (cone1.p187);
+assert property (cone1.p188);
+assert property (cone1.p189);
+assert property (cone1.p190);
+assert property (cone1.p191);
+assert property (cone1.p192);
+assert property (cone1.p193);
+assert property (cone1.p194);
+assert property (cone1.p195);
+assert property (cone1.p196);
+assert property (cone1.p197);
+assert property (cone1.p198);
+assert property (cone1.p199);
+assert property (cone1.p200);
+assert property (cone1.p201);
+assert property (cone1.p202);
+assert property (cone1.p203);
+assert property (cone1.p204);
+assert property (cone1.p205);
+assert property (cone1.p206);
+assert property (cone1.p207);
+assert property (cone1.p208);
+assert property (cone1.p209);
+assert property (cone1.p210);
+assert property (cone1.p211);
+assert property (cone1.p212);
+assert property (cone1.p213);
+assert property (cone1.p214);
+assert property (cone1.p215);
+assert property (cone1.p216);
+assert property (cone1.p217);
+assert property (cone1.p218);
+assert property (cone1.p219);
+assert property (cone1.p220);
+assert property (cone1.p221);
+assert property (cone1.p222);
+assert property (cone1.p223);
+assert property (cone1.p224);
+assert property (cone1.p225);
+assert property (cone1.p226);
+assert property (cone1.p227);
+assert property (cone1.p228);
+assert property (cone1.p229);
+assert property (cone1.p230);
+assert property (cone1.p231);
+assert property (cone1.p232);
+assert property (cone1.p233);
+assert property (cone1.p234);
+assert property (cone1.p235);
+assert property (cone1.p236);
+assert property (cone1.p237);
+assert property (cone1.p238);
+assert property (cone1.p239);
+assert property (cone1.p240);
+assert property (cone1.p241);
+assert property (cone1.p242);
+assert property (cone1.p243);
+assert property (cone1.p244);
+assert property (cone1.p245);
+assert property (cone1.p246);
+assert property (cone1.p247);
+assert property (cone1.p248);
+assert property (cone1.p249);
+assert property (cone1.p250);
+assert property (cone1.p251);
+assert property (cone1.p252);
+assert property (cone1.p253);
+assert property (cone1.p254);
+assert property (cone1.p255);
+assert property (cone1.p256);
+assert property (cone1.p257);
+assert property (cone1.p258);
+assert property (cone1.p259);
+assert property (cone1.p260);
+assert property (cone1.p261);
+assert property (cone1.p262);
+assert property (cone1.p263);
+assert property (cone1.p264);
+assert property (cone1.p265);
+assert property (cone1.p266);
+assert property (cone1.p267);
+assert property (cone1.p268);
+assert property (cone1.p269);
+assert property (cone1.p270);
+assert property (cone1.p271);
+assert property (cone1.p272);
+assert property (cone1.p273);
+assert property (cone1.p274);
+assert property (cone1.p275);
+assert property (cone1.p276);
+assert property (cone1.p277);
+assert property (cone1.p278);
+assert property (cone1.p279);
+assert property (cone1.p280);
+assert property (cone1.p281);
+assert property (cone1.p282);
+assert property (cone1.p283);
+assert property (cone1.p284);
+assert property (cone1.p285);
+assert property (cone1.p286);
+assert property (cone1.p287);
+assert property (cone1.p288);
+assert property (cone1.p289);
+assert property (cone1.p290);
+assert property (cone1.p291);
+assert property (cone1.p292);
+assert property (cone1.p293);
+assert property (cone1.p294);
+assert property (cone1.p295);
+assert property (cone1.p296);
+assert property (cone1.p297);
+assert property (cone1.p298);
+assert property (cone1.p299);
+assert property (cone1.p300);
+assert property (cone1.p301);
+assert property (cone1.p302);
+assert property (cone1.p303);
+assert property (cone1.p304);
+assert property (cone1.p305);
+assert property (cone1.p306);
+assert property (cone1.p307);
+assert property (cone1.p308);
+assert property (cone1.p309);
+assert property (cone1.p310);
+assert property (cone1.p311);
+assert property (cone1.p312);
+assert property (cone1.p313);
+assert property (cone1.p314);
+assert property (cone1.p315);
+assert property (cone1.p316);
+assert property (cone1.p317);
+assert property (cone1.p318);
+assert property (cone1.p319);
+assert property (cone1.p320);
+assert property (cone1.p321);
+assert property (cone1.p322);
+assert property (cone1.p323);
+assert property (cone1.p324);
+assert property (cone1.p325);
+assert property (cone1.p326);
+assert property (cone1.p327);
+assert property (cone1.p328);
+assert property (cone1.p329);
+assert property (cone1.p330);
+assert property (cone1.p331);
+assert property (cone1.p332);
+assert property (cone1.p333);
+assert property (cone1.p334);
+assert property (cone1.p335);
+assert property (cone1.p336);
+assert property (cone1.p337);
+assert property (cone1.p338);
+assert property (cone1.p339);
+assert property (cone1.p340);
+assert property (cone1.p341);
+assert property (cone1.p342);
+assert property (cone1.p343);
+assert property (cone1.p344);
+assert property (cone1.p345);
+assert property (cone1.p346);
+assert property (cone1.p347);
+assert property (cone1.p348);
+assert property (cone1.p349);
+assert property (cone1.p350);
+assert property (cone1.p351);
+assert property (cone1.p352);
+assert property (cone1.p353);
+assert property (cone1.p354);
+assert property (cone1.p355);
+assert property (cone1.p356);
+assert property (cone1.p357);
+assert property (cone1.p358);
+assert property (cone1.p359);
+assert property (cone1.p360);
+assert property (cone1.p361);
+assert property (cone1.p362);
+assert property (cone1.p363);
+assert property (cone1.p364);
+assert property (cone1.p365);
+assert property (cone1.p366);
+assert property (cone1.p367);
+assert property (cone1.p368);
+assert property (cone1.p369);
+assert property (cone1.p370);
+assert property (cone1.p371);
+assert property (cone1.p372);
+assert property (cone1.p373);
+assert property (cone1.p374);
+assert property (cone1.p375);
+assert property (cone1.p376);
+assert property (cone1.p377);
+assert property (cone1.p378);
+assert property (cone1.p379);
+assert property (cone1.p380);
+assert property (cone1.p381);
+assert property (cone1.p382);
+assert property (cone1.p383);
+assert property (cone1.p384);
+assert property (cone1.p385);
+assert property (cone1.p386);
+assert property (cone1.p387);
+assert property (cone1.p388);
+assert property (cone1.p389);
+assert property (cone1.p390);
+assert property (cone1.p391);
+assert property (cone1.p392);
+assert property (cone1.p393);
+assert property (cone1.p394);
+assert property (cone1.p395);
+assert property (cone1.p396);
+assert property (cone1.p397);
+assert property (cone1.p398);
+assert property (cone1.p399);
+assert property (cone1.p400);
+assert property (cone1.p401);
+assert property (cone1.p402);
+assert property (cone1.p403);
+assert property (cone1.p404);
+assert property (cone1.p405);
+assert property (cone1.p406);
+assert property (cone1.p407);
+assert property (cone1.p408);
+assert property (cone1.p409);
+assert property (cone1.p410);
+assert property (cone1.p411);
+assert property (cone1.p412);
+assert property (cone1.p413);
+assert property (cone1.p414);
+assert property (cone1.p415);
+assert property (cone1.p416);
+assert property (cone1.p417);
+assert property (cone1.p418);
+assert property (cone1.p419);
+assert property (cone1.p420);
+assert property (cone1.p421);
+assert property (cone1.p422);
+assert property (cone1.p423);
+assert property (cone1.p424);
+assert property (cone1.p425);
+assert property (cone1.p426);
+assert property (cone1.p427);
+assert property (cone1.p428);
+assert property (cone1.p429);
+assert property (cone1.p430);
+assert property (cone1.p431);
+assert property (cone1.p432);
+assert property (cone1.p433);
+

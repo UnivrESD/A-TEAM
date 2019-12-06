@@ -1,67 +1,54 @@
 grammar proposition;
 
-file : proposition EOF;
+file : expression EOF;
 
-proposition
-    : atomicProp
-    ;
+//This grammar tries to narrow the possible types of an epression
+//by exploiting informations from the operators, for example in the expression 
+// "NEG subExp", the NEG operator forces subExp to be of type "Logic".
+//The complete type of a subexpression will inferred at runtime in most cases.
 
-// equality operator can be defined between booleans too.
-// as = belongs to relop, booleans can be found when going
-// from an atomicProp formula!
-atomicProp
-    : numericExpression 
-    | booleanExpression 
-    | logicExpression 
-    | LPAREN atomicProp RPAREN
-    ;
-
-numericExpression
-    :  numericExpression artop numericExpression
-    |  numericExpression relop numericExpression
-    |  numericExpression boolop booleanExpression
-    |  LPAREN numericExpression RPAREN
-    |  atom
-    ;
-
-booleanExpression
-    :  
-    |  NOT handleNot boolop NOT handleNot 
-    |  booleanExpression boolop NOT handleNot 
-    |  NOT handleNot boolop booleanExpression
-    |  NOT handleNot
-    |  booleanExpression boolop booleanExpression
-    |  booleanExpression relop numericExpression
-    |  numericExpression relop numericExpression
-    |  logicExpression lrelop logicExpression
-    |  booleanExpression relop logicExpression
-    |  LPAREN booleanExpression RPAREN
-    |  atom
-    ;
-
-handleNot
-    : booleanExpression
-    ;
-handleNeg
-    : logicExpression
-    ;
-
-logicExpression
-    : NEG handleNeg logop NEG handleNeg 
-    | logicExpression logop NEG handleNeg 
-    | NEG handleNeg logop logicExpression
-    | NEG handleNeg
-    | logicExpression logop logicExpression
-    | logicExpression lrelop logicExpression
-    | logicExpression boolop booleanExpression
-    | LPAREN logicExpression RPAREN
+//can be Bool, Numeric or Logic
+ expression
+    : LPAREN expression RPAREN
+    | NextOp LCPAREN CONSTANT RCPAREN expression
+    | PastOp LPAREN expression ',' CONSTANT RPAREN
+    | NOT expression
+    | numeric_logic relop numeric_logic
+    | expression EQ expression
+    | expression NEQ expression
+    | expression boolop=AND expression
+    | expression boolop=OR expression
+    | numeric_logic
     | atom
     ;
+
+
+//can be Numeric or Logic
+numeric_logic
+    : LPAREN numeric_logic RPAREN
+    | NextOp LCPAREN CONSTANT RCPAREN numeric_logic
+    | PastOp LPAREN numeric_logic ',' CONSTANT RPAREN
+    | atom
+    | logic
+    | numeric_logic artop=(TIMES|DIV) numeric_logic
+    | numeric_logic artop=(PLUS|MINUS) numeric_logic
+    ;
+
+//can only be Logic
+logic
+    : LPAREN logic RPAREN
+    | atom
+    | NEG logic 
+    | logic logop=BAND logic
+    | logic logop=BOR logic
+    ;
+
 
 atom
     : constant
     | variable
     ;
+
 
 constant
     :  CONSTANT
@@ -69,11 +56,14 @@ constant
 
 variable
     : VARIABLE
-    | NextOp LCPAREN CONSTANT RCPAREN VARIABLE
     ;
+/*  : NextOp LCPAREN CONSTANT RCPAREN VARIABLE*/
 
 NextOp
     : 'X'
+    ;
+PastOp
+    : '$past'
     ;
 LCPAREN
     : '['
@@ -99,36 +89,38 @@ VARIABLE
 
 fragment VALID_ID_START
     : ('a' .. 'z')
-    | ('A' .. 'Z')
+    | ('A' .. 'W')
+    | ('Y' .. 'Z')
     | '_'
     ;
 
 fragment VALID_ID_CHAR
     : VALID_ID_START
     | ('0' .. '9')
+    | ('.')
+    | ('[')
+    | (']')
+    | (':')
     ;
 //------------------------------------------------------------------------------
 
 
-//==== Token CONSTANT ==========================================================
+//==== Token constant ==========================================================
 CONSTANT
-   : NUMBER
+   : NUMERIC
+   | BINARY
    ;
 
-fragment NUMBER
+fragment NUMERIC
    : ('0' .. '9') + ('.' ('0' .. '9') +)?
+   ;
+fragment BINARY
+   : ('\'')('b')('0' .. '1')+
    ;
 //------------------------------------------------------------------------------
 
 
 //==== Arithmetic Operators ====================================================
-artop
-    : TIMES
-    | DIV
-    | PLUS
-    | MINUS
-    ;
-
 PLUS
     : '+'
     ;
@@ -146,46 +138,9 @@ DIV
     ;
 //------------------------------------------------------------------------------
 
-//==== Relational Operators for logic ====================================================
-lrelop
-    : EQ_
-    | NEQ_
-    | GT_
-    | GE_
-    | LT_
-    | LE_
-    ;
-
-GT_
-    : '>_'
-    ;
-
-GE_
-    : '>=_'
-    ;
-
-LT_
-    : '<_'
-    ;
-
-LE_
-    : '<=_'
-    ;
-
-EQ_
-    : '=_'
-    ;
-
-NEQ_
-    : '!=_'
-    ;
-//------------------------------------------------------------------------------
-
-//==== Relational Operators for numeric ====================================================
+//==== Relational Operators ====================================================
 relop
-    : EQ
-    | NEQ
-    | GT
+    : GT
     | GE
     | LT
     | LE
@@ -208,7 +163,7 @@ LE
     ;
 
 EQ
-    : '='
+    : '=='
     ;
 
 NEQ
@@ -218,15 +173,6 @@ NEQ
 
 
 //==== Logic Operators =========================================================
-logop
-    : BAND
-    | BOR
-    | BXOR
-    | TIMES_
-    | DIV_
-    | PLUS_
-    | MINUS_
-    ;
 
 BAND
     : '&'
@@ -244,29 +190,10 @@ NEG
     : '~'
     ;
 
-PLUS_
-    : '+_'
-    ;
-
-MINUS_
-    : '-_'
-    ;
-
-TIMES_
-    : '*_'
-    ;
-
-DIV_
-    : '/_'
-    ;
 //------------------------------------------------------------------------------
 
 
 //==== Boolean Operators ========================================================
-boolop
-    : AND
-    | OR
-    ;
 
 AND
     : '&&'

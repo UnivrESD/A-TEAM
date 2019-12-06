@@ -40,11 +40,13 @@ class MangroveTraceReader : public TraceReader {
     // list of files .mangrove
     list<string> _tracesFile;
 
+    // mapping between var's name and its direction
+    std::map<std::string, VariableDirection> _name2Dir;
+    
     // list of variables
     std::list<std::string> _sortedNames;
 
-    // mapping between var's name and its direction
-    std::map<std::string, VariableDirection> _name2Dir;
+    size_t duplicatedVariablesCount=0;
 
     void _readVariablesFile(List<DataType> &vars);
     void _readTraceFile(TraceRepository &repo, const string &traceFile);

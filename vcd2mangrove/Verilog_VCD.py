@@ -2,6 +2,7 @@
 # http://cpansearch.perl.org/src/GSULLIVAN/Verilog-VCD-0.03/lib/Verilog/VCD.pm 
 
 import re
+import sys
 
 global timescale
 global endtime
@@ -140,6 +141,11 @@ def parse_vcd(file, only_sigs=0, use_stdout=0, siglist=[], opt_timescale=''):
                 name = "".join(ls[4:-1])
                 path = '.'.join(hier)
                 full_name = path + '.' + name
+
+                if (name!="clk"):
+                    name= hier[len(hier)-1] + '.' + name
+
+                sys.stdout.write(name + "\n")
                 if (full_name in usigs) or all_sigs:
                     if code not in data:
                         data[code] = {}

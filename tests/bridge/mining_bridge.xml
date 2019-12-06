@@ -1,0 +1,156 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdFile path="bridge/bridge.vcd"/>
+    </tracereader>
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            <!--
+                <direction name="io.reset" dir="in"/>
+                <direction name="io.ReqW_i" dir="in"/>
+                <direction name="io.ReqR_i" dir="in"/>
+                <direction name="io.Data_i[0]" dir="in"/>
+                <direction name="io.Data_i[1]" dir="in"/>
+                <direction name="io.Data_i[2]" dir="in"/>
+                <direction name="io.Data_i[3]" dir="in"/>
+                <direction name="io.Data_i[4]" dir="in"/>
+                <direction name="io.Data_i[5]" dir="in"/>
+                <direction name="io.Data_i[6]" dir="in"/>
+                <direction name="io.Data_i[7]" dir="in"/>
+                <direction name="io.AckW_o" dir="in"/>
+                <direction name="io.AckR_o" dir="in"/>
+                <direction name="io.Data_o[0]" dir="in"/>
+                <direction name="io.Data_o[1]" dir="in"/>
+                <direction name="io.Data_o[2]" dir="in"/>
+                <direction name="io.Data_o[3]" dir="in"/>
+                <direction name="io.Data_o[4]" dir="in"/>
+                <direction name="io.Data_o[5]" dir="in"/>
+                <direction name="io.Data_o[6]" dir="in"/>
+                <direction name="io.Data_o[7]" dir="in"/>
+                <direction name="io.w_ack_next_" dir="in"/>
+                <direction name="io.r_ack_next_" dir="in"/>
+                <direction name="io.WEnable_" dir="in"/>
+                <direction name="io.REnable_" dir="in"/>
+                <direction name="io.Empty_" dir="in"/>
+                <direction name="io.Full_" dir="in"/>
+                <direction name="mem_.clk" dir="in"/>
+                <direction name="mem_.reset" dir="in"/>
+                <direction name="mem_.REnable_i" dir="in"/>
+                <direction name="mem_.WEnable_i" dir="in"/>
+                <direction name="mem_.Data_i[8]" dir="in"/>
+                <direction name="mem_.Data_i[9]" dir="in"/>
+                <direction name="mem_.Data_i[10]" dir="in"/>
+                <direction name="mem_.Data_i[11]" dir="in"/>
+                <direction name="mem_.Data_i[12]" dir="in"/>
+                <direction name="mem_.Data_i[13]" dir="in"/>
+                <direction name="mem_.Data_i[14]" dir="in"/>
+                <direction name="mem_.Data_i[15]" dir="in"/>
+                <direction name="mem_.Empty_o" dir="in"/>
+                <direction name="mem_.Full_o" dir="in"/>
+                <direction name="mem_.r_next_id_[0]" dir="in"/>
+                <direction name="mem_.r_next_id_[1]" dir="in"/>
+                <direction name="mem_.r_next_id_[2]" dir="in"/>
+                <direction name="mem_.r_next_id_[3]" dir="in"/>
+                <direction name="mem_.r_next_id_[4]" dir="in"/>
+                <direction name="mem_.r_next_id_[5]" dir="in"/>
+                <direction name="mem_.w_next_id_[0]" dir="in"/>
+                <direction name="mem_.w_next_id_[1]" dir="in"/>
+                <direction name="mem_.w_next_id_[2]" dir="in"/>
+                <direction name="mem_.w_next_id_[3]" dir="in"/>
+                <direction name="mem_.w_next_id_[4]" dir="in"/>
+                <direction name="mem_.w_next_id_[5]" dir="in"/>
+            -->
+            </directions>
+            <atomicPropositions>
+                <atomicProposition formula="mem_.Empty_o==$past(mem_.Empty_o,1)" dir="inout"/>
+                <atomicProposition formula="io.AckR_o == $past(io.r_ack_next_,1)" dir="inout"/>
+                <atomicProposition formula="'b1 + mem_.r_id_ == mem_.w_id_" dir="inout"/>
+                <atomicProposition formula="'b1 + mem_.w_id_ == mem_.r_id_" dir="inout"/>
+                <atomicProposition formula="mem_.Data_o == $past(mem_.Data_o,1)" dir="inout"/>
+                <atomicProposition formula="mem_.Data_o=='b0" dir="inout"/>
+                <atomicProposition formula="mem_.Empty_o== $past(mem_.Empty_o,1)" dir="inout"/>
+                <atomicProposition formula="mem_.Empty_o=='b1"               dir="inout"/>
+                <atomicProposition formula="mem_.Full_o== $past(mem_.Full_o,1)"   dir="inout"/>
+                <atomicProposition formula="mem_.Full_o=='b0"                dir="inout"/>
+                <atomicProposition formula="mem_.r_id_== $past('b1+mem_.r_id_,1)" dir="inout"/>
+                <atomicProposition formula="mem_.r_id_== $past(mem_.r_id_,1)"    dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b0"                    dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b10"                   dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b100"                  dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b101"                 dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b11"                  dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b110"                  dir="inout"/>
+                <atomicProposition formula="mem_.r_id_=='b111"                  dir="inout"/>
+                <atomicProposition formula="mem_.w_id_== $past('b1+mem_.w_id_,1)"  dir="inout"/>
+                <atomicProposition formula="mem_.w_id_== $past(mem_.w_id_,1)"     dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b0"                    dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b10"                   dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b100"                  dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b101"                 dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b11"                   dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b110"                  dir="inout"/>
+                <atomicProposition formula="mem_.w_id_=='b111"                 dir="inout"/>
+                <atomicProposition formula="io.AckR_o== $past(io.r_ack_next_,1)"          dir="inout"/>
+                <atomicProposition formula="io.AckR_o=='b0"                         dir="inout"/>
+                <atomicProposition formula="io.AckW_o== $past(io.w_ack_next_,1)"          dir="inout"/>
+                <atomicProposition formula="io.AckW_o=='b0"                         dir="inout"/>
+                <atomicProposition formula="io.ReqR_i=='b0"                        dir="inout"/>
+                <atomicProposition formula="io.ReqW_i=='b0"                        dir="inout"/>
+                <!--
+                <atomicProposition formula="io.next_in_data_== $past(io.Data_i,1)"        dir="inout"/>
+                -->
+                <atomicProposition formula="io.next_in_data_== $past(io.next_in_data_,1)" dir="inout"/>
+                <atomicProposition formula="io.next_in_data_== $past(io.tmp_buf_,1)"      dir="inout"/>
+                <atomicProposition formula="io.r_ack_next_=='b0"                    dir="inout"/>
+                <atomicProposition formula="io.r_state_== $past(io.r_state_next_,1)"      dir="inout"/>
+                <atomicProposition formula="io.r_state_=='b0"                      dir="inout"/>
+                <atomicProposition formula="io.r_state_=='b10"                      dir="inout"/>
+                <atomicProposition formula="io.r_state_next_=='b0"                  dir="inout"/>
+                <atomicProposition formula="io.r_state_next_=='b10"                 dir="inout"/>
+                <atomicProposition formula="io.reset=='b1"                          dir="inout"/>
+                <!--
+                <atomicProposition formula="io.tmp_buf_== $past(io.Data_i,1)"             dir="inout"/>
+                -->
+                <atomicProposition formula="io.tmp_buf_== $past(io.tmp_buf_,1)"           dir="inout"/>
+                <atomicProposition formula="io.tmp_buf_=='b0"                       dir="inout"/>
+                <atomicProposition formula="io.w_ack_next_=='b0"                    dir="inout"/>
+                <atomicProposition formula="io.w_state_== $past(io.w_state_next_,1)"      dir="inout"/>
+                <atomicProposition formula="io.w_state_=='b0"                       dir="inout"/>
+                <atomicProposition formula="io.w_state_=='b10"                      dir="inout"/>
+                <atomicProposition formula="io.w_state_next_=='b1"                  dir="inout"/>
+                <atomicProposition formula="io.w_state_next_=='b10"                 dir="inout"/>
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+                        <propertyprinter name="psl"/>
+
+</root>

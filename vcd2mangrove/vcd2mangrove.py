@@ -28,7 +28,7 @@ def getSignalNames(trace):
         nets = value['nets']
         info = nets[0]
         name = info['name']
-        name = name.lower()
+        #name = name.lower()
         size = info['size']
         names.append((name, key, size))
 
@@ -106,9 +106,10 @@ def printMangroveTrace(path, trace, splitVector):
     for index in range(len(trace)):
         nameSignal, valueSignal = trace[index]
         time, value = valueSignal[0]
+ 
 
         if len(value) == 1:
-            var_file.write(nameSignal + " bool\n")
+            var_file.write(nameSignal + " logic 1\n")
         else:
             if not splitVector:
                 var_file.write(nameSignal + " logic " + str(len(value)) + "\n")
@@ -163,7 +164,7 @@ def printMangroveTrace(path, trace, splitVector):
 
 ###############################################################################
 def main(argv):
-    if len(sys.argv) != 4:
+    if len(sys.argv) < 4:
         print "Usage:"
         print "python " + os.path.basename(sys.argv[0]) + " <vcd> <clock> <split?True:False>"
         return 1
@@ -171,6 +172,7 @@ def main(argv):
     fileName = sys.argv[1]
     clockName = sys.argv[2]
     splitVector = (sys.argv[3] == "True")
+    pathToOut= "./" + sys.argv[4];
 
     data = parse_vcd(fileName)
     clockCode = getSignalCode(clockName, data)
@@ -199,7 +201,7 @@ def main(argv):
         addMissingBits(signalValues, signalSize)
         mangroveTrace.append((signalName, signalValues))
 
-    printMangroveTrace("./", mangroveTrace, splitVector)
+    printMangroveTrace(pathToOut, mangroveTrace, splitVector)
 
 
 ###############################################################################

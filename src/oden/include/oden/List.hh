@@ -71,6 +71,15 @@ template <class T> class List {
     typename std::vector<T *>::iterator
     erase(typename std::vector<T *>::iterator pos);
 
+    /// @brief Removes from the container the element between the two positions
+    /// @param pos1 Iterator pointing to the first element to be removed.
+    /// @param pos2 Iterator pointing to the element after the last to be removed.
+    /// @return An iterator pointing to the new location of the element that
+    /// followed the last element erased by the function call.
+    typename std::vector<T *>::iterator
+    erase(typename std::vector<T *>::iterator pos1,
+          typename std::vector<T *>::iterator pos2);
+
     /// @brief Removes from the container the element at the given position.
     /// @param pos Position of the element to be removed.
     void erase(size_t pos);
@@ -85,11 +94,13 @@ template <class T> class List {
     typename std::vector<T *>::iterator
     insert(typename std::vector<T *>::iterator pos, T *val);
 
+
     /// @brief Copy constructor.
     List(const List<T> &other) = delete;
 
     /// @brief Assign operator.
     List<T> &operator=(const List<T> &other) = delete;
+
 
   private:
     /// @brief The wrapped container

@@ -30,8 +30,10 @@ EXPRESSION_NODE_1(PropositionAnd)
 EXPRESSION_NODE_1(PropositionOr)
 EXPRESSION_NODE_1(PropositionXor)
 EXPRESSION_NODE_1(PropositionEq)
+EXPRESSION_NODE_1(PropositionNeq)
 EXPRESSION_NODE_1(PropositionNot)
 EXPRESSION_NODE_2(PropositionNext)
+EXPRESSION_NODE_2(PropositionPast)
 EXPRESSION_NODE_3(UntilOperator)
 EXPRESSION_NODE_3(ReleaseOperator)
 
@@ -49,6 +51,7 @@ EXPRESSION_NODE_1(NumericGreaterEq)
 EXPRESSION_NODE_1(NumericLess)
 EXPRESSION_NODE_1(NumericLessEq)
 EXPRESSION_NODE_2(NumericNext)
+EXPRESSION_NODE_2(NumericPast)
 
 // logic
 LEAF_NODE(LogicConstant)
@@ -68,5 +71,6 @@ EXPRESSION_NODE_1(LogicLess)
 EXPRESSION_NODE_1(LogicLessEq)
 EXPRESSION_NODE_1(LogicNot)
 EXPRESSION_NODE_2(LogicNext)
+EXPRESSION_NODE_2(LogicPast)
 
 } // namespace oden

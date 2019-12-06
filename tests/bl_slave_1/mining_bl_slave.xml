@@ -5,9 +5,6 @@
         <traces>
             <trace path="bl_slave_1/trace.mangrove"/>
         </traces>
-    </tracereader>
-
-    <coneminer name="manualDefinition">
         <directions>
             <direction name="wb_cyc" dir="in"/>
             <direction name="wb_stb" dir="in"/>
@@ -22,6 +19,9 @@
             <direction name="err" dir="in"/>
             <direction name="done" dir="in"/>
         </directions>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
     </coneMiner>
 
     <propositionminer name="TBMiner">
@@ -33,9 +33,6 @@
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-        <templates>
-            <template value="G( p1 -> (p2) )"/>
-        </templates>
         <constraints maxVariables="10"/>
     </propertyminer>
 

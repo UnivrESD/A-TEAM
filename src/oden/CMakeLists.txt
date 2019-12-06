@@ -4,8 +4,10 @@
 
 project(oden)
 
+
 include_directories(./include
         ${propositionParser_SOURCE_DIR}/include
+        ${PYTHON_INCLUDE_DIRS}
         SYSTEM ${MINER_EXTERNAL_HEADERS})
 
 #############################################
@@ -40,6 +42,7 @@ SET(CLASSES_SRCS
         src/classes/atom/LogicVariable.cc
         src/classes/expression/Expression.cc
         src/classes/temporal/NextOperator.cc
+        src/classes/temporal/PastOperator.cc
         src/classes/temporal/UntilOperator.cc
         src/classes/temporal/ReleaseOperator.cc
         #others

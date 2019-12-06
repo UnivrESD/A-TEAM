@@ -168,6 +168,8 @@ class BooleanVariable : public Variable_Base<bool> {
     /// @param vis The visitor.
     void acceptVisitor(OdenVisitor &vis) override;
 
+    void deleteArray();
+
     // declare friend class to allow it access private variables
     friend class PeTraceChanger;
 

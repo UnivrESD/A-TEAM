@@ -38,9 +38,11 @@ Logic string2Logic(const std::string &val) { return Logic(val); }
 
 bool isConstant(Proposition &prop) {
     bool value = prop.evaluate(0);
-    for (size_t time = 1; time < prop.getMaxTime(); ++time)
-        if (prop.evaluate(time) != value)
+    for (size_t time = 1; time < prop.getMaxTime(); ++time) {
+        if (prop.evaluate(time) != value){
             return false;
+        }
+    }
     return true;
 }
 

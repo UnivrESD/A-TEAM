@@ -64,6 +64,12 @@ template <class T> void List<T>::erase(size_t pos) {
 
     _container.erase(l_iter);
 }
+template <class T>
+typename std::vector<T *>::iterator
+List<T>::erase(typename std::vector<T *>::iterator pos1,
+               typename std::vector<T *>::iterator pos2) {
+    return _container.erase(pos1, pos2);
+}
 
 template <class T>
 typename std::vector<T *>::iterator

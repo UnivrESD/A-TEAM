@@ -1,13 +1,9 @@
 <root>
-
     <tracereader name="mangroveTraceReader">
         <variables path="bl_master/trace.variables"/>
         <traces>
             <trace path="bl_master/trace.mangrove"/>
         </traces>
-    </tracereader>
-
-    <coneminer name="manualDefinition">
         <directions>
             <direction name="address[31]" dir="in"/>
             <direction name="address[30]" dir="in"/>
@@ -222,38 +218,38 @@
             <direction name="wb_stb" dir="out"/>
             <direction name="wb_we" dir="out"/>
             <direction name="write" dir="out"/>
-
         </directions>
-        <!-- 
-        <coneOfInfluence name="cone1">
-            <atomicPropositions>
-            </atomicPropositions>
-        </coneOfInfluence>
-        -->
-    </coneMiner>
+    </tracereader>
 
-        <!-- 
-    The template is "always(antecedent -> consequent)"
-    The antecedent is generated automatically
+    <coneminer name="manualDefinition">
+
+    </coneminer>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
             <template value="p1"/>
-<!--
-            <template value="p1 && p2"/>
-            <template value="p1 U p2"/>
-            <template value="p1 R p2"/>
--->
-        </templates>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+             </ConsequentTemplates>
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-        <constraints maxVariables="1"/>
-        <!--        <faultyTraces list="bl_master/faultyTraces/traces.xml"/> -->
+        <constraints maxVariables="3"/>
+                <!--
+        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                -->
     </propertyminer>
 
-    <!--    <propertyQualifier name="FBQualifier"/> -->
-
+                <!--
+    <propertyQualifier name="FBQualifier"/> 
+                -->
     <propertyprinter name="psl"/>
 
 </root>

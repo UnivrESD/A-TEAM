@@ -30,9 +30,15 @@
 
 #define EXPRESSION_NEXT(NODE)                                                  \
     void PrinterVisitor::visit(oden::NODE &o) {                                \
-        _ss << "X[" << o.getOffset() << "](";                                  \
+        _ss << "nexttime[" << o.getOffset() << "](";                           \
         o.getItem().acceptVisitor(*this);                                      \
         _ss << ")";                                                            \
+    }
+#define EXPRESSION_PAST(NODE)                                                  \
+    void PrinterVisitor::visit(oden::NODE &o) {                                \
+        _ss << "$past(";                                                       \
+        o.getItem().acceptVisitor(*this);                               \
+        _ss << ", " << o.getOffset() << ")";                                   \
     }
 //------------------------------------------------------------------------------
 
@@ -42,17 +48,18 @@ PrinterVisitor::PrinterVisitor() : OdenVisitor(), _ss() {
 
     // proposition
     operators[ope::PropositionNot] = std::string("!");
-    operators[ope::PropositionAnd] = std::string("&");
-    operators[ope::PropositionOr]  = std::string("|");
+    operators[ope::PropositionAnd] = std::string("&&");
+    operators[ope::PropositionOr]  = std::string("||");
     operators[ope::PropositionXor] = std::string("^");
-    operators[ope::PropositionEq]  = std::string("=");
+    operators[ope::PropositionEq]  = std::string("==");
+    operators[ope::PropositionNeq] = std::string("!=");
 
     // numeric
     operators[ope::NumericSum]       = std::string("+");
     operators[ope::NumericSub]       = std::string("-");
     operators[ope::NumericMul]       = std::string("*");
     operators[ope::NumericDiv]       = std::string("/");
-    operators[ope::NumericEq]        = std::string("=");
+    operators[ope::NumericEq]        = std::string("==");
     operators[ope::NumericNeq]       = std::string("!=");
     operators[ope::NumericGreater]   = std::string(">");
     operators[ope::NumericGreaterEq] = std::string(">=");
@@ -68,7 +75,7 @@ PrinterVisitor::PrinterVisitor() : OdenVisitor(), _ss() {
     operators[ope::LogicBOr]       = std::string("|");
     operators[ope::LogicBXor]      = std::string("^");
     operators[ope::LogicNot]       = std::string("~");
-    operators[ope::LogicEq]        = std::string("=");
+    operators[ope::LogicEq]        = std::string("==");
     operators[ope::LogicNeq]       = std::string("!=");
     operators[ope::LogicGreater]   = std::string(">");
     operators[ope::LogicGreaterEq] = std::string(">=");
@@ -76,7 +83,8 @@ PrinterVisitor::PrinterVisitor() : OdenVisitor(), _ss() {
     operators[ope::LogicLessEq]    = std::string("<=");
 
     // temporal
-    operators[ope::Next]    = std::string("X");
+    operators[ope::Next]    = std::string("nexttime");
+    operators[ope::Past]    = std::string("$past");
     operators[ope::Until]   = std::string("U");
     operators[ope::Release] = std::string("R");
 }
@@ -99,7 +107,9 @@ EXPRESSION(PropositionAnd)
 EXPRESSION(PropositionOr)
 EXPRESSION(PropositionXor)
 EXPRESSION(PropositionEq)
+EXPRESSION(PropositionNeq)
 EXPRESSION_NEXT(PropositionNext)
+EXPRESSION_PAST(PropositionPast)
 
 void PrinterVisitor::visit(oden::PropositionNot &o) {
     _ss << operators[ope::PropositionNot];
@@ -141,6 +151,7 @@ EXPRESSION(NumericGreaterEq)
 EXPRESSION(NumericLess)
 EXPRESSION(NumericLessEq)
 EXPRESSION_NEXT(NumericNext)
+EXPRESSION_PAST(NumericPast)
 
 // logic
 VARIABLE(LogicVariable)
@@ -159,5 +170,6 @@ EXPRESSION(LogicGreaterEq)
 EXPRESSION(LogicLess)
 EXPRESSION(LogicLessEq)
 EXPRESSION_NEXT(LogicNext)
+EXPRESSION_PAST(LogicPast)
 
 } // namespace oden

@@ -18,16 +18,27 @@ PSLPrinter::PSLPrinter(XmlNode *data) : PropertyPrinter(data), _pslVisitor() {
 void PSLPrinter::print(ConeOfInfluence &cone) {
 
     stringstream ss;
+    int maxID=0;
+    /*
     ss << "vunit vu" << cone.name << " (__MODULE__) {\n\n"
        << "default clock = (posedge clk);\n\n";
+       */
+    ss<<"clocking "<<cone.name<< " @(posedge clk);\n\n";
+
 
     for (Assertion *assertion : cone.assertions) {
-        ss << "PSL" << assertion->id << ": assert ";
+//        ss << "PSL" << assertion->id << ": assert ";
+        ss<<"\tproperty p"<<assertion->id<<";\n\t  ";
         _printer(*assertion, assertion->templ, ss);
-        ss << ";\n";
+        ss<<"\n\tendproperty\n\n";
+        maxID=std::max(maxID,assertion->id);
     }
+        ss<<"endclocking\n\n";
 
-    ss << "\n}\n";
+        for(int i=0;i<=maxID;i++){
+            ss<<"assert property ("<<cone.name<<".p"<<i<<");\n";
+        }
+
     cout << ss.str() << endl;
 }
 
@@ -35,9 +46,9 @@ void PSLPrinter::_printer(Assertion &assertion, Template templ,
                           stringstream &ss) {
 
     if (templ.is(spot::op::G)) {
-        ss << "always( ";
+        ss << "property( ";
         _printer(assertion, templ[0], ss);
-        ss << " )";
+        ss << " );";
         return;
     }
 
@@ -72,7 +83,7 @@ void PSLPrinter::_printer(Assertion &assertion, Template templ,
         Template consequent = templ[1];
 
         _printer(assertion, antecedent, ss);
-        ss << " -> ";
+        ss << " |-> ";
         _printer(assertion, consequent, ss);
 
         return;

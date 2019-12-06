@@ -1,48 +1,82 @@
 #include "oden/modules/default/MangroveTraceReader.hh"
 #include "oden/odenUtils/applicationUtils.hh"
 #include "oden/odenUtils/xmlUtils.hh"
+#include <algorithm>
+#include <cstdlib>
+#include <fstream>
 #include <iostream>
 
 namespace oden {
 namespace modules {
 
 MangroveTraceReader::MangroveTraceReader(XmlNode *xmlNode)
-    : TraceReader(xmlNode), _variablesFile(), _tracesFile(), _sortedNames(),
-      _name2Dir() {
+    : TraceReader(xmlNode), _variablesFile(), _tracesFile(), _name2Dir(),
+      _sortedNames() {
 
-    XmlNode *variablesXml = configuration->first_node("variables");
-    if (variablesXml == nullptr)
-        messageError("The xml node 'variables' has not been found");
+    XmlNode *vcdFileXml = configuration->first_node("vcdFile");
+    if (vcdFileXml == nullptr)
+        messageError("The xml node 'vcdFile' has not been found");
 
-    _variablesFile = getAttributeValue(variablesXml, "path");
-    if (_variablesFile.empty())
-        messageError("The attribute 'path' in the xml node 'variables' has not "
-                     "been found");
+    std::string vcdFilePath = getAttributeValue(vcdFileXml, "path");
+    size_t itIndex = vcdFilePath.find_last_of("/", vcdFilePath.size() - 1);
+    std::string pathToOut(vcdFilePath.begin(),
+                          vcdFilePath.begin() + (itIndex + 1));
 
-    XmlNode *tracesXML = configuration->first_node("traces");
-    if (tracesXML == nullptr)
-        messageError("The xml node 'traces' has not been found");
-
-    XmlNodeList tracesList;
-    getNodesFromName(tracesXML, "trace", tracesList);
-
-    for (auto *traceFile : tracesList) {
-        std::string tracePath = getAttributeValue(traceFile, "path");
-        if (tracePath.empty())
-            messageError("The attribute 'path' in the xml node 'trace' has not "
-                         "been found");
-
-        _tracesFile.push_back(tracePath);
+    ifstream f1((pathToOut + "trace.variables").c_str());
+    ifstream f2((pathToOut + "trace.mangrove").c_str());
+    if (!f1.good() || !f2.good()) {
+        messageInfo("Parsing VCD file...");
+        std::system(("python ../vcd2mangrove/vcd2mangrove.py " + vcdFilePath +
+                     " clk False " + pathToOut)
+                        .c_str());
+    } else {
+        messageInfo("Trace files found! Not parsing the VCD file");
     }
+    f1.close();
+    f2.close();
+    _variablesFile = pathToOut + "trace.variables";
+    _tracesFile.push_back(pathToOut + "trace.mangrove");
+    /*
+XmlNode *variablesXml = configuration->first_node("variables");
+if (variablesXml == nullptr)
+  messageError("The xml node 'variables' has not been found");
+
+_variablesFile = getAttributeValue(variablesXml, "path");
+if (_variablesFile.empty())
+  messageError("The attribute 'path' in the xml node 'variables' has not "
+               "been found");
+
+XmlNode *tracesXML = configuration->first_node("traces");
+if (tracesXML == nullptr)
+  messageError("The xml node 'traces' has not been found");
+
+XmlNodeList tracesList;
+getNodesFromName(tracesXML, "trace", tracesList);
+
+for (auto *traceFile : tracesList) {
+  std::string tracePath = getAttributeValue(traceFile, "path");
+  if (tracePath.empty())
+      messageError("The attribute 'path' in the xml node 'trace' has not "
+                   "been found");
+
+  _tracesFile.push_back(tracePath);
+}
+*/
 
     XmlNode *directionsXml = configuration->first_node("directions");
     if (directionsXml != nullptr) {
-        XmlNodeList directionList;
-        getNodesFromName(directionsXml, "direction", directionList);
-
-        // get variables' direction
-        fillName2Dir(directionList, _name2Dir);
+        messageWarning("Directions definition outside a cone of influence is "
+                       "no longer supported and will be ignored!\n");
     }
+    /*
+    if (directionsXml == nullptr) {
+        messageError("directions not found!");
+    }
+    XmlNodeList directionList;
+    getNodesFromName(directionsXml, "direction", directionList);
+    //set directions for all variables
+    fillName2Dir(directionList, _name2Dir);
+    */
 }
 
 TraceRepository *MangroveTraceReader::readTraces() {
@@ -104,12 +138,21 @@ void MangroveTraceReader::_readVariablesFile(List<DataType> &vars) {
         newVar->setName(tokens[0]);
         newVar->setType(type, size);
 
+        /*
         auto dir = _name2Dir.find(tokens[0]);
         if (dir != _name2Dir.end()) {
             newVar->setDirection(dir->second);
+        }else{
+            messageWarning("Variable \""+tokens[0] + "\" has no direction!");
         }
+        */
 
         vars.push_back(newVar);
+        if (std::find(begin(_sortedNames), end(_sortedNames), tokens[0]) !=
+            _sortedNames.end()) {
+            messageWarning("Duplicated variable in mangrove: " + tokens[0]);
+            duplicatedVariablesCount++;
+        }
         _sortedNames.push_back(tokens[0]);
     }
 
@@ -118,7 +161,6 @@ void MangroveTraceReader::_readVariablesFile(List<DataType> &vars) {
 
 void MangroveTraceReader::_readTraceFile(TraceRepository &repo,
                                          const string &traceFile) {
-//    std::cout<<"_readTraceFile\n";
     ifstream infile(traceFile);
     if (!infile.is_open())
         messageError("File not found: " + traceFile);
@@ -127,9 +169,14 @@ void MangroveTraceReader::_readTraceFile(TraceRepository &repo,
     if (!(infile >> vars >> length))
         messageError("Unknown vars and length");
 
-    if (vars != (repo.getVariables()).size())
-        messageError(
-            "The number of variables does not match with their declaration");
+    if (vars != ((repo.getVariables()).size() + duplicatedVariablesCount)) {
+        messageError("The number of variables does not match with their "
+                     "declaration:\n Unique vars: " +
+                     std::to_string((repo.getVariables()).size()) +
+                     "\n Duplicated: " +
+                     std::to_string(duplicatedVariablesCount) + "\n Defined: " +
+                     std::to_string(vars));
+    }
 
     Trace &trace = repo.makeTrace(length);
 

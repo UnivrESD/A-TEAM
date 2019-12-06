@@ -19,26 +19,14 @@ public:
   virtual void enterFile(propositionParser::FileContext * /*ctx*/) override { }
   virtual void exitFile(propositionParser::FileContext * /*ctx*/) override { }
 
-  virtual void enterProposition(propositionParser::PropositionContext * /*ctx*/) override { }
-  virtual void exitProposition(propositionParser::PropositionContext * /*ctx*/) override { }
+  virtual void enterExpression(propositionParser::ExpressionContext * /*ctx*/) override { }
+  virtual void exitExpression(propositionParser::ExpressionContext * /*ctx*/) override { }
 
-  virtual void enterAtomicProp(propositionParser::AtomicPropContext * /*ctx*/) override { }
-  virtual void exitAtomicProp(propositionParser::AtomicPropContext * /*ctx*/) override { }
+  virtual void enterNumeric_logic(propositionParser::Numeric_logicContext * /*ctx*/) override { }
+  virtual void exitNumeric_logic(propositionParser::Numeric_logicContext * /*ctx*/) override { }
 
-  virtual void enterNumericExpression(propositionParser::NumericExpressionContext * /*ctx*/) override { }
-  virtual void exitNumericExpression(propositionParser::NumericExpressionContext * /*ctx*/) override { }
-
-  virtual void enterBooleanExpression(propositionParser::BooleanExpressionContext * /*ctx*/) override { }
-  virtual void exitBooleanExpression(propositionParser::BooleanExpressionContext * /*ctx*/) override { }
-
-  virtual void enterHandleNot(propositionParser::HandleNotContext * /*ctx*/) override { }
-  virtual void exitHandleNot(propositionParser::HandleNotContext * /*ctx*/) override { }
-
-  virtual void enterHandleNeg(propositionParser::HandleNegContext * /*ctx*/) override { }
-  virtual void exitHandleNeg(propositionParser::HandleNegContext * /*ctx*/) override { }
-
-  virtual void enterLogicExpression(propositionParser::LogicExpressionContext * /*ctx*/) override { }
-  virtual void exitLogicExpression(propositionParser::LogicExpressionContext * /*ctx*/) override { }
+  virtual void enterLogic(propositionParser::LogicContext * /*ctx*/) override { }
+  virtual void exitLogic(propositionParser::LogicContext * /*ctx*/) override { }
 
   virtual void enterAtom(propositionParser::AtomContext * /*ctx*/) override { }
   virtual void exitAtom(propositionParser::AtomContext * /*ctx*/) override { }
@@ -49,20 +37,8 @@ public:
   virtual void enterVariable(propositionParser::VariableContext * /*ctx*/) override { }
   virtual void exitVariable(propositionParser::VariableContext * /*ctx*/) override { }
 
-  virtual void enterArtop(propositionParser::ArtopContext * /*ctx*/) override { }
-  virtual void exitArtop(propositionParser::ArtopContext * /*ctx*/) override { }
-
-  virtual void enterLrelop(propositionParser::LrelopContext * /*ctx*/) override { }
-  virtual void exitLrelop(propositionParser::LrelopContext * /*ctx*/) override { }
-
   virtual void enterRelop(propositionParser::RelopContext * /*ctx*/) override { }
   virtual void exitRelop(propositionParser::RelopContext * /*ctx*/) override { }
-
-  virtual void enterLogop(propositionParser::LogopContext * /*ctx*/) override { }
-  virtual void exitLogop(propositionParser::LogopContext * /*ctx*/) override { }
-
-  virtual void enterBoolop(propositionParser::BoolopContext * /*ctx*/) override { }
-  virtual void exitBoolop(propositionParser::BoolopContext * /*ctx*/) override { }
 
 
   virtual void enterEveryRule(antlr4::ParserRuleContext * /*ctx*/) override { }

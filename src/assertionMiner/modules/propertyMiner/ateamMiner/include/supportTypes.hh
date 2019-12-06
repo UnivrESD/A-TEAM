@@ -15,12 +15,14 @@ namespace ateam {
 
 struct TraceInfo {
     /// @brief Constructor.
-    explicit TraceInfo(size_t l);
+    TraceInfo();
 
     /// @brief Destructor.
     ~TraceInfo();
 
     void setGoal(size_t time, bool value);
+    
+    void initTraceInfo(size_t l);
 
     size_t length;
     BooleanVariable *goal;
@@ -34,6 +36,7 @@ struct TraceInfo {
     TraceInfo &operator=(const TraceInfo &other);
 
     TraceInfo(const TraceInfo &other);
+    
 };
 
 // (offset, (p, !p))  offset: delay due to NEXT operator. Examples:

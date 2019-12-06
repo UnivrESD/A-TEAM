@@ -38,11 +38,16 @@ EXPRESSION(PropositionAnd, _proposition, _proposition)
 EXPRESSION(PropositionOr, _proposition, _proposition)
 EXPRESSION(PropositionXor, _proposition, _proposition)
 EXPRESSION(PropositionEq, _proposition, _proposition)
+EXPRESSION(PropositionNeq, _proposition, _proposition)
 EXPRESSION(PropositionNot, _proposition, _proposition)
 
 void CopyVisitor::visit(PropositionNext &o) {
     o.getItem().acceptVisitor(*this);
     _proposition = new PropositionNext(_proposition, o.getOffset());
+}
+void CopyVisitor::visit(PropositionPast &o) {
+    o.getItem().acceptVisitor(*this);
+    _proposition = new PropositionPast(_proposition, o.getOffset());
 }
 
 void CopyVisitor::visit(UntilOperator &o) {
@@ -82,6 +87,11 @@ void CopyVisitor::visit(NumericNext &o) {
     _numeric = new NumericNext(_numeric, o.getOffset());
 }
 
+void CopyVisitor::visit(NumericPast &o) {
+    o.getItem().acceptVisitor(*this);
+    _numeric = new NumericPast(_numeric, o.getOffset());
+}
+
 // logic
 LEAF_NODE(LogicConstant, _logic)
 LEAF_NODE(LogicVariable, _logic)
@@ -103,6 +113,10 @@ EXPRESSION(LogicGreaterEq, _logic, _proposition)
 void CopyVisitor::visit(LogicNext &o) {
     o.getItem().acceptVisitor(*this);
     _logic = new LogicNext(_logic, o.getOffset());
+}
+void CopyVisitor::visit(LogicPast &o) {
+    o.getItem().acceptVisitor(*this);
+    _logic = new LogicPast(_logic, o.getOffset());
 }
 
 } // namespace oden

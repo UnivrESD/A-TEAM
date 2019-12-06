@@ -7,45 +7,44 @@
         </traces>
     </tracereader>
 
+        
     <coneminer name="manualDefinition">
+
+        <coneOfInfluence name="cone1">
         <directions>
-            <direction name="a" dir="in"/>
-            <direction name="b" dir="out"/>
-            <direction name="c" dir="out"/>
-            <direction name="d" dir="out"/>
-            <direction name="e" dir="out"/>
-            <direction name="f" dir="out"/>
-            <direction name="g" dir="out"/>
-            <direction name="h" dir="out"/>
-            <direction name="i" dir="out"/>
         </directions>
 
-    <!-- 
-        <coneOfInfluence name="cone1">
             <atomicPropositions>
-                <atomicProposition formula="b >_ ~e" dir="out"/>
+                <atomicProposition formula="e" dir="in"/>
+                <atomicProposition formula="f" dir="in"/>
+                <atomicProposition formula="g" dir="out"/>
+                <atomicProposition formula="h" dir="out"/>
+
+                <!--
                 <atomicProposition formula="~c <=_ ~d" dir="out"/>
                 <atomicProposition formula="(X[1]i = X[1]h)" dir="in"/>
                 <atomicProposition formula="a" dir="out"/>
+                -->
             </atomicPropositions>
         </coneOfInfluence>
-     -->
 
-    </coneMiner>
-         The template is "always(antecedent -> consequent)"
-        The antecedent is generated automatically
+    </conemine>
+
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
+            <template value="p1"/>
+<!--
             <template value="p1 && p2"/>
             <template value="p1 || p2"/>
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>
             <template value="p1"/>
+     -->
         </ConsequentTemplates>
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-        <constraints maxVariables="10"/>
+        <constraints maxVariables="1"/>
         <!--        <faultyTraces list="testUntil/faultyTraces/traces.xml"/> -->
     </propertyminer>
 

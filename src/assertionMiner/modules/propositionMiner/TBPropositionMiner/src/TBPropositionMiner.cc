@@ -71,6 +71,8 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
                  "===================================================\n";
     Trace &trace = traceRepository[0];
 
+    assert(cone.outPropositions.size()==0);
+
     // base solution
     int *base = new int[cone.propositions.size()];
     for (int i  = 0; i < cone.propositions.size(); ++i)
@@ -106,8 +108,10 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
 
             if (!isInvariant(p))
                 cone.outPropositions.push_back(p);
-            else
+            else{
+                std::cout<<oden::prop2String(*p)<<" is an invariant!\n";
                 delete p;
+            }
         }
 
         delete[] repo;

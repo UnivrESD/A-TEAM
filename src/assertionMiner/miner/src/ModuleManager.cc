@@ -2,6 +2,8 @@
 #include "oden/modules/default/MangroveTraceReader.hh"
 #include "oden/odenUtils/odenUtils.hh"
 
+#include <cstdlib>
+
 //==== Modules =================================================================
 #include "AteamMiner.hh"
 #include "BooleanVariables.hh"
@@ -33,6 +35,7 @@ ConeMiner *ModuleManager::getConeMiner(XmlNode *data) {
 TraceReader *ModuleManager::getTraceReader(XmlNode *data) {
     if (data == nullptr)
         return nullptr;
+
 
     std::string name = getAttributeValue(data, "name");
     if (name == "mangroveTraceReader") {

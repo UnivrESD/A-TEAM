@@ -32,16 +32,37 @@ class PropositionParser : public propositionBaseListener {
     std::stack<Proposition *> _proposition;
     std::stack<LogicExpression *> _logicExpressions;
     std::stack<NumericExpression *> _numericExpressions;
+    size_t boolStack   = 0;
+    size_t logicStack  = 0;
+    size_t numeriStack = 0;
 
     std::stack<std::string> constants;
 
     void enterFile(propositionParser::FileContext *ctx) override;
+    void enterVariable(propositionParser::VariableContext *ctx) override;
+    void enterConstant(propositionParser::ConstantContext *ctx) override;
+    void
+    exitNumeric_logic(propositionParser::Numeric_logicContext *ctx) override;
+    void exitExpression(propositionParser::ExpressionContext *ctx) override;
+    void exitLogic(propositionParser::LogicContext *ctx) override;
+    void exitFile(propositionParser::FileContext *ctx) override;
+    void handleNumericExpression(propositionParser::RelopContext *relop);
+
+
+    void handleBooleanExpression(antlr4::Token  *boolop);
+    void makeLogicFromLogic(antlr4::Token *art_log_op);
+    void makeBoolFromNumericLogic(propositionParser::RelopContext *relop);
+    void makeNumericLogicFromNumericLogic(antlr4::Token *art_log_op);
+
+    /*
+    void exitHandleNot( propositionParser::HandleNotContext *ctx) override;
+    void exitHandleNeg( propositionParser::HandleNegContext *ctx) override;
+    */
+    /*
 
     void exitProposition(propositionParser::PropositionContext *ctx) override;
 
-    void enterConstant(propositionParser::ConstantContext *ctx) override;
 
-    void enterVariable(propositionParser::VariableContext *ctx) override;
 
     void exitLogicExpression(
         propositionParser::LogicExpressionContext *ctx) override;
@@ -60,9 +81,7 @@ class PropositionParser : public propositionBaseListener {
     void handleBooleanExpression( propositionParser::BoolopContext *boolop);
     void handleLogicExpression( propositionParser::LogopContext *logop);
     void handleNumericExpression( propositionParser::LrelopContext *lrelop);
-    void exitHandleNot( propositionParser::HandleNotContext *ctx);
-    void exitHandleNeg( propositionParser::HandleNegContext *ctx);
-
+    */
 };
 
 } // namespace oden

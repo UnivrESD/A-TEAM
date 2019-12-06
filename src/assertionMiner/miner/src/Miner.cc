@@ -84,6 +84,7 @@ void Miner::run() {
             messageErrorIf(!checker.evaluate(*a, *traceRepo),
                            "Checking mined assertion failed!");
     }
+    delete traceRepo;
 }
 
 void Miner::_printWelcomeMessage() {
