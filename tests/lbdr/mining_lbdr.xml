@@ -1,0 +1,48 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdFile path="lbdr/lbdr.vcd"/>
+    </tracereader>
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+                <!--
+                <atomicProposition formula=".Eport== $past((((((('b0<({dst_addr}[1:0]))&&(({dst_addr}[3:2])<({.cur_addr}[3:2])))&&({.Rxy}['b10]))||((('b0<({dst_addr}[1:0]))&&(!(({dst_addr}[3:2])<({.cur_addr}[3:2]))))&&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))||((('b0<({dst_addr}[1:0]))&&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&&({.Rxy}['b11])))&&({.Cx}['b1])),1)" dir="inout"/>
+                -->
+                <atomicProposition formula=".Eport == $past({.Cx}['b1] && {.Rxy}['b11],1)" dir="inout"/>
+            </atomicPropositions>
+            </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+                        <propertyprinter name="psl"/>
+
+</root>

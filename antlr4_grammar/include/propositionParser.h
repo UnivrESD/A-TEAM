@@ -12,15 +12,17 @@
 class  propositionParser : public antlr4::Parser {
 public:
   enum {
-    T__0 = 1, NextOp = 2, PastOp = 3, LCPAREN = 4, RCPAREN = 5, LPAREN = 6, 
-    RPAREN = 7, VARIABLE = 8, CONSTANT = 9, PLUS = 10, MINUS = 11, TIMES = 12, 
-    DIV = 13, GT = 14, GE = 15, LT = 16, LE = 17, EQ = 18, NEQ = 19, BAND = 20, 
-    BOR = 21, BXOR = 22, NEG = 23, AND = 24, OR = 25, NOT = 26, WS = 27
+    T__0 = 1, T__1 = 2, NextOp = 3, PastOp = 4, LGPAREN = 5, RGPAREN = 6, 
+    LCPAREN = 7, RCPAREN = 8, LPAREN = 9, RPAREN = 10, VARIABLE = 11, CONSTANT = 12, 
+    PLUS = 13, MINUS = 14, TIMES = 15, DIV = 16, GT = 17, GE = 18, LT = 19, 
+    LE = 20, EQ = 21, NEQ = 22, BAND = 23, BOR = 24, BXOR = 25, NEG = 26, 
+    AND = 27, OR = 28, NOT = 29, WS = 30
   };
 
   enum {
     RuleFile = 0, RuleExpression = 1, RuleNumeric_logic = 2, RuleLogic = 3, 
-    RuleAtom = 4, RuleConstant = 5, RuleVariable = 6, RuleRelop = 7
+    RuleAtom = 4, RuleConstant = 5, RuleVariable = 6, RuleUpper_bound = 7, 
+    RuleLower_bound = 8, RuleRelop = 9
   };
 
   propositionParser(antlr4::TokenStream *input);
@@ -40,6 +42,8 @@ public:
   class AtomContext;
   class ConstantContext;
   class VariableContext;
+  class Upper_boundContext;
+  class Lower_boundContext;
   class RelopContext; 
 
   class  FileContext : public antlr4::ParserRuleContext {
@@ -65,10 +69,13 @@ public:
     std::vector<ExpressionContext *> expression();
     ExpressionContext* expression(size_t i);
     antlr4::tree::TerminalNode *RPAREN();
-    antlr4::tree::TerminalNode *NextOp();
+    antlr4::tree::TerminalNode *LGPAREN();
+    LogicContext *logic();
+    antlr4::tree::TerminalNode *RGPAREN();
     antlr4::tree::TerminalNode *LCPAREN();
     antlr4::tree::TerminalNode *CONSTANT();
     antlr4::tree::TerminalNode *RCPAREN();
+    antlr4::tree::TerminalNode *NextOp();
     antlr4::tree::TerminalNode *PastOp();
     antlr4::tree::TerminalNode *NOT();
     std::vector<Numeric_logicContext *> numeric_logic();
@@ -124,6 +131,13 @@ public:
     std::vector<LogicContext *> logic();
     LogicContext* logic(size_t i);
     antlr4::tree::TerminalNode *RPAREN();
+    antlr4::tree::TerminalNode *LGPAREN();
+    antlr4::tree::TerminalNode *RGPAREN();
+    antlr4::tree::TerminalNode *LCPAREN();
+    antlr4::tree::TerminalNode *CONSTANT();
+    antlr4::tree::TerminalNode *RCPAREN();
+    Upper_boundContext *upper_bound();
+    Lower_boundContext *lower_bound();
     AtomContext *atom();
     antlr4::tree::TerminalNode *NEG();
     antlr4::tree::TerminalNode *BAND();
@@ -175,6 +189,32 @@ public:
   };
 
   VariableContext* variable();
+
+  class  Upper_boundContext : public antlr4::ParserRuleContext {
+  public:
+    Upper_boundContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *CONSTANT();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Upper_boundContext* upper_bound();
+
+  class  Lower_boundContext : public antlr4::ParserRuleContext {
+  public:
+    Lower_boundContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *CONSTANT();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  Lower_boundContext* lower_bound();
 
   class  RelopContext : public antlr4::ParserRuleContext {
   public:

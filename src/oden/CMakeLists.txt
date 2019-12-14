@@ -41,6 +41,7 @@ SET(CLASSES_SRCS
         src/classes/atom/NumericVariable.cc
         src/classes/atom/LogicVariable.cc
         src/classes/expression/Expression.cc
+        src/classes/expression/BitSelector.cc
         src/classes/temporal/NextOperator.cc
         src/classes/temporal/PastOperator.cc
         src/classes/temporal/UntilOperator.cc

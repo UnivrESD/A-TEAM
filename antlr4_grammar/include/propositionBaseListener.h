@@ -37,6 +37,12 @@ public:
   virtual void enterVariable(propositionParser::VariableContext * /*ctx*/) override { }
   virtual void exitVariable(propositionParser::VariableContext * /*ctx*/) override { }
 
+  virtual void enterUpper_bound(propositionParser::Upper_boundContext * /*ctx*/) override { }
+  virtual void exitUpper_bound(propositionParser::Upper_boundContext * /*ctx*/) override { }
+
+  virtual void enterLower_bound(propositionParser::Lower_boundContext * /*ctx*/) override { }
+  virtual void exitLower_bound(propositionParser::Lower_boundContext * /*ctx*/) override { }
+
   virtual void enterRelop(propositionParser::RelopContext * /*ctx*/) override { }
   virtual void exitRelop(propositionParser::RelopContext * /*ctx*/) override { }
 

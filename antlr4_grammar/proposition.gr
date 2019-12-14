@@ -10,6 +10,7 @@ file : expression EOF;
 //can be Bool, Numeric or Logic
  expression
     : LPAREN expression RPAREN
+    | LGPAREN logic RGPAREN LCPAREN CONSTANT RCPAREN 
     | NextOp LCPAREN CONSTANT RCPAREN expression
     | PastOp LPAREN expression ',' CONSTANT RPAREN
     | NOT expression
@@ -37,6 +38,8 @@ numeric_logic
 //can only be Logic
 logic
     : LPAREN logic RPAREN
+    | LGPAREN logic RGPAREN LCPAREN CONSTANT RCPAREN 
+    | LGPAREN logic RGPAREN LCPAREN upper_bound ':' lower_bound RCPAREN 
     | atom
     | NEG logic 
     | logic logop=BAND logic
@@ -65,6 +68,14 @@ NextOp
 PastOp
     : '$past'
     ;
+
+LGPAREN
+    : '{'
+    ;
+
+RGPAREN
+    : '}'
+    ;
 LCPAREN
     : '['
     ;
@@ -81,7 +92,13 @@ RPAREN
     : ')'
     ;
 
+upper_bound:
+    CONSTANT
+    ;
 
+lower_bound:
+    CONSTANT
+    ;
 //==== Token VARIABLE ==========================================================
 VARIABLE
    : VALID_ID_START VALID_ID_CHAR*
@@ -91,6 +108,7 @@ fragment VALID_ID_START
     : ('a' .. 'z')
     | ('A' .. 'W')
     | ('Y' .. 'Z')
+    | ('.')
     | '_'
     ;
 

@@ -12,10 +12,11 @@
 class  propositionLexer : public antlr4::Lexer {
 public:
   enum {
-    T__0 = 1, NextOp = 2, PastOp = 3, LCPAREN = 4, RCPAREN = 5, LPAREN = 6, 
-    RPAREN = 7, VARIABLE = 8, CONSTANT = 9, PLUS = 10, MINUS = 11, TIMES = 12, 
-    DIV = 13, GT = 14, GE = 15, LT = 16, LE = 17, EQ = 18, NEQ = 19, BAND = 20, 
-    BOR = 21, BXOR = 22, NEG = 23, AND = 24, OR = 25, NOT = 26, WS = 27
+    T__0 = 1, T__1 = 2, NextOp = 3, PastOp = 4, LGPAREN = 5, RGPAREN = 6, 
+    LCPAREN = 7, RCPAREN = 8, LPAREN = 9, RPAREN = 10, VARIABLE = 11, CONSTANT = 12, 
+    PLUS = 13, MINUS = 14, TIMES = 15, DIV = 16, GT = 17, GE = 18, LT = 19, 
+    LE = 20, EQ = 21, NEQ = 22, BAND = 23, BOR = 24, BXOR = 25, NEG = 26, 
+    AND = 27, OR = 28, NOT = 29, WS = 30
   };
 
   propositionLexer(antlr4::CharStream *input);

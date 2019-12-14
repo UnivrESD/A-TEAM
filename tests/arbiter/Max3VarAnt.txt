@@ -1,0 +1,3020 @@
+clocking cone1 @(posedge clk);
+
+	property p0;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == Etimer.timeoutclockperiods) );
+	endproperty
+
+	property p1;
+	  property( ((Etimer.timesup == 'b1)) |-> (Etimer.count == Etimer.timeoutclockperiods) );
+	endproperty
+
+	property p2;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == Etimer.timeoutclockperiods) );
+	endproperty
+
+	property p3;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == Etimer.timeoutclockperiods) );
+	endproperty
+
+	property p4;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == Etimer.timeoutclockperiods) );
+	endproperty
+
+	property p5;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == Ltimer.timeoutclockperiods) );
+	endproperty
+
+	property p6;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == Ltimer.timeoutclockperiods) );
+	endproperty
+
+	property p7;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Ltimer.count == Ltimer.timeoutclockperiods) );
+	endproperty
+
+	property p8;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == Ltimer.timeoutclockperiods) );
+	endproperty
+
+	property p9;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == Ltimer.timeoutclockperiods) );
+	endproperty
+
+	property p10;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Ntimer.count == Ntimer.timeoutclockperiods) );
+	endproperty
+
+	property p11;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Ntimer.count == Ntimer.timeoutclockperiods) );
+	endproperty
+
+	property p12;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Ntimer.count == Ntimer.timeoutclockperiods) );
+	endproperty
+
+	property p13;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == Stimer.timeoutclockperiods) );
+	endproperty
+
+	property p14;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == Stimer.timeoutclockperiods) );
+	endproperty
+
+	property p15;
+	  property( ((Stimer.timesup == 'b1)) |-> (Stimer.count == Stimer.timeoutclockperiods) );
+	endproperty
+
+	property p16;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Wtimer.timeoutclockperiods == Wtimer.count) );
+	endproperty
+
+	property p17;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Wtimer.timeoutclockperiods == Wtimer.count) );
+	endproperty
+
+	property p18;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Wtimer.timeoutclockperiods == Wtimer.count) );
+	endproperty
+
+	property p19;
+	  property( (!(Etimer.count == 'b0)) |-> (Etimer.count == $past(('b1 + Etimer.count), 1)) );
+	endproperty
+
+	property p20;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p21;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p22;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p23;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p24;
+	  property( (!(Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p25;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p26;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p27;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p28;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p29;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p30;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p31;
+	  property( (!(Stimer.count == 'b0)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p32;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p33;
+	  property( ((Stimer.timesup == 'b1)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p34;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p35;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p36;
+	  property( (!(Lruntimer == 'b0)) |-> (Etimer.count == 'b0) );
+	endproperty
+
+	property p37;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p38;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p39;
+	  property( (!(Stimer.count == 'b0)) |-> (Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p40;
+	  property( ((Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p41;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Etimer.timeoutclockperiods == 'b0) );
+	endproperty
+
+	property p42;
+	  property( (!(Ntimer.count == Ntimer.timeoutclockperiods) && (Etimer.count == Etimer.timeoutclockperiods)) |-> (Etimer.timesup == 'b1) );
+	endproperty
+
+	property p43;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && !(Stimer.count == Stimer.timeoutclockperiods)) |-> (Etimer.timesup == 'b1) );
+	endproperty
+
+	property p44;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && !(Etimer.timeoutclockperiods == 'b0)) |-> (Etimer.timesup == 'b1) );
+	endproperty
+
+	property p45;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && !(Ntimer.timeoutclockperiods == 'b0)) |-> (Etimer.timesup == 'b1) );
+	endproperty
+
+	property p46;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Ntimer.timesup == 'b1)) |-> (Etimer.timesup == 'b1) );
+	endproperty
+
+	property p47;
+	  property( (!(Ltimer.count == 'b0)) |-> (Ltimer.count == $past(('b1 + Ltimer.count), 1)) );
+	endproperty
+
+	property p48;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p49;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p50;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p51;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p52;
+	  property( (!(Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p53;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p54;
+	  property( (!(Stimer.count == 'b0)) |-> (Ltimer.count == 'b0) );
+	endproperty
+
+	property p55;
+	  property( ((Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p56;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p57;
+	  property( (!(Stimer.count == 'b0)) |-> (Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p58;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Ltimer.timeoutclockperiods == 'b0) );
+	endproperty
+
+	property p59;
+	  property( (!(Ntimer.count == Ntimer.timeoutclockperiods) && (Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p60;
+	  property( (!(Etimer.count == Etimer.timeoutclockperiods) && (Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p61;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && !(Stimer.count == Stimer.timeoutclockperiods)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p62;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && !(Etimer.timeoutclockperiods == 'b0)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p63;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p64;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && !(Ntimer.timeoutclockperiods == 'b0)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p65;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Ntimer.timesup == 'b1)) |-> (Ltimer.timesup == 'b1) );
+	endproperty
+
+	property p66;
+	  property( (!(Ntimer.count == 'b0)) |-> (Ntimer.count == $past(('b1 + Ntimer.count), 1)) );
+	endproperty
+
+	property p67;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p68;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p69;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p70;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p71;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p72;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p73;
+	  property( (!(Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p74;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p75;
+	  property( (!(Stimer.count == 'b0)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p76;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Ntimer.count == 'b0) );
+	endproperty
+
+	property p77;
+	  property( ((Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p78;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p79;
+	  property( (!(Stimer.count == 'b0)) |-> (Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p80;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Ntimer.timeoutclockperiods == 'b0) );
+	endproperty
+
+	property p81;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Etimer.count == Etimer.timeoutclockperiods)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p82;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p83;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Stimer.count == Stimer.timeoutclockperiods)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p84;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p85;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Etimer.timeoutclockperiods == 'b0)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p86;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Ntimer.timeoutclockperiods == 'b0)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p87;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Wtimer.timesup == 'b1)) |-> (Ntimer.timesup == 'b1) );
+	endproperty
+
+	property p88;
+	  property( (!(Stimer.count == 'b0)) |-> (Stimer.count == $past(('b1 + Stimer.count), 1)) );
+	endproperty
+
+	property p89;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p90;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p91;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p92;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p93;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p94;
+	  property( (!(Etimer.count == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p95;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p96;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p97;
+	  property( ((Etimer.timesup == 'b1)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p98;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p99;
+	  property( (!(Ltimer.count == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p100;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p101;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p102;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p103;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p104;
+	  property( (!(Ntimer.count == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p105;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p106;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p107;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p108;
+	  property( (!(Stimer.count == $past(('b1 + Stimer.count), 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p109;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p110;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p111;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p112;
+	  property( (!(Wtimer.count == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p113;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p114;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p115;
+	  property( (!(Eruntimer == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p116;
+	  property( (!(Lruntimer == 'b0)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p117;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p118;
+	  property( ((currentstate == 'b0001)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p119;
+	  property( (!(currentstate == 'b000001)) |-> (Stimer.count == 'b0) );
+	endproperty
+
+	property p120;
+	  property( ((Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p121;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p122;
+	  property( (!(Stimer.count == 'b0)) |-> (Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p123;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Stimer.timeoutclockperiods == 'b0) );
+	endproperty
+
+	property p124;
+	  property( (!(Ntimer.count == Ntimer.timeoutclockperiods) && (Stimer.count == Stimer.timeoutclockperiods)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p125;
+	  property( (!(Etimer.count == Etimer.timeoutclockperiods) && (Stimer.count == Stimer.timeoutclockperiods)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p126;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && !(Etimer.timeoutclockperiods == 'b0)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p127;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && !(Ntimer.timeoutclockperiods == 'b0)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p128;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Ntimer.timesup == 'b1)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p129;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && !(Stimer.count == 'b0)) |-> (Stimer.timesup == 'b1) );
+	endproperty
+
+	property p130;
+	  property( (!(Wtimer.count == 'b0)) |-> (Wtimer.count == $past(('b1 + Wtimer.count), 1)) );
+	endproperty
+
+	property p131;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p132;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p133;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p134;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p135;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p136;
+	  property( (!(Etimer.count == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p137;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p138;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p139;
+	  property( ((Etimer.timesup == 'b1)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p140;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p141;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p142;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p143;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p144;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p145;
+	  property( (!(Ntimer.count == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p146;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p147;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p148;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p149;
+	  property( (!(Stimer.count == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p150;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p151;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p152;
+	  property( ((Stimer.timesup == 'b1)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p153;
+	  property( (!(Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p154;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p155;
+	  property( (!(Lruntimer == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p156;
+	  property( (!(Sruntimer == 'b0)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p157;
+	  property( (!(Wreq == 'b1)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p158;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p159;
+	  property( ((currentstate == 'b0001)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p160;
+	  property( ((currentstate == 'b000001)) |-> (Wtimer.count == 'b0) );
+	endproperty
+
+	property p161;
+	  property( ((Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p162;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p163;
+	  property( (!(Stimer.count == 'b0)) |-> (Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1)) );
+	endproperty
+
+	property p164;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Wtimer.timeoutclockperiods == 'b0) );
+	endproperty
+
+	property p165;
+	  property( (!(Ntimer.count == Ntimer.timeoutclockperiods) && (Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p166;
+	  property( (!(Etimer.count == Etimer.timeoutclockperiods) && (Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p167;
+	  property( (!(Stimer.count == Stimer.timeoutclockperiods) && (Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p168;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && !(Etimer.timeoutclockperiods == 'b0)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p169;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && !(Ntimer.timeoutclockperiods == 'b0)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p170;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Ntimer.timesup == 'b1)) |-> (Wtimer.timesup == 'b1) );
+	endproperty
+
+	property p171;
+	  property( ((Sflit_id == 'b1)) |-> (Eflit_id == 'b1) );
+	endproperty
+
+	property p172;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p173;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p174;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p175;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p176;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p177;
+	  property( (!(Etimer.count == 'b0)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p178;
+	  property( ((Etimer.timesup == 'b1) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p179;
+	  property( ((Ltimer.timesup == 'b1) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p180;
+	  property( ((Stimer.timesup == 'b1) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p181;
+	  property( ((Wtimer.timesup == 'b1) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p182;
+	  property( (!(Eruntimer == 'b0)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p183;
+	  property( (!(Lruntimer == 'b0) && (Nreq == 'b1)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p184;
+	  property( ((Nreq == 'b1) && (currentstate == 'b0001)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p185;
+	  property( ((Nreq == 'b1) && (nextstate == 'b01)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p186;
+	  property( ((nextstate == 'b0001)) |-> (Ereq == 'b1) );
+	endproperty
+
+	property p187;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p188;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p189;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p190;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p191;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p192;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p193;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p194;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p195;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p196;
+	  property( (!(Ntimer.count == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p197;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p198;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p199;
+	  property( (!(Stimer.count == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p200;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p201;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p202;
+	  property( ((Stimer.timesup == 'b1)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p203;
+	  property( (!(Wtimer.count == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p204;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p205;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p206;
+	  property( (!(Lruntimer == 'b0)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p207;
+	  property( (!(currentstate == 'b0001)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p208;
+	  property( ((nextstate == 'b1)) |-> (Eruntimer == 'b0) );
+	endproperty
+
+	property p209;
+	  property( ((Sflit_id == 'b1)) |-> (Lflit_id == 'b1) );
+	endproperty
+
+	property p210;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p211;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p212;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p213;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p214;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1)) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p215;
+	  property( (!(Etimer.count == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p216;
+	  property( ((Etimer.timesup == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p217;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1)) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p218;
+	  property( (!(Ltimer.count == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p219;
+	  property( ((Ltimer.timesup == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p220;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1)) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p221;
+	  property( (!(Ntimer.count == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p222;
+	  property( ((Ntimer.timesup == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p223;
+	  property( ((Stimer.count == 'b0) && (Sreq == 'b1) && !(nextstate == 'b000001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p224;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1)) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p225;
+	  property( (!(Wtimer.count == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p226;
+	  property( ((Wtimer.timesup == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p227;
+	  property( ((Ereq == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p228;
+	  property( (!(Eruntimer == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p229;
+	  property( (!(Lruntimer == 'b0)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p230;
+	  property( ((Nreq == 'b1) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p231;
+	  property( (!(Nruntimer == 'b0) && (Sreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p232;
+	  property( ((Sreq == 'b1) && (Wreq == 'b1)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p233;
+	  property( ((Sreq == 'b1) && !(Wruntimer == 'b0)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p234;
+	  property( ((Sreq == 'b1) && (currentstate == 'b01)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p235;
+	  property( ((Sreq == 'b1) && (currentstate == 'b001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p236;
+	  property( ((Sreq == 'b1) && (currentstate == 'b0001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p237;
+	  property( ((Sreq == 'b1) && (currentstate == 'b00001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p238;
+	  property( ((Sreq == 'b1) && (nextstate == 'b001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p239;
+	  property( ((Sreq == 'b1) && (nextstate == 'b0001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p240;
+	  property( ((Sreq == 'b1) && (nextstate == 'b00001)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p241;
+	  property( ((nextstate == 'b01)) |-> (Lreq == 'b1) );
+	endproperty
+
+	property p242;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p243;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p244;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p245;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p246;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p247;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p248;
+	  property( (!(Etimer.count == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p249;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p250;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p251;
+	  property( ((Etimer.timesup == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p252;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p253;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p254;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p255;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p256;
+	  property( (!(Ntimer.count == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p257;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p258;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p259;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p260;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p261;
+	  property( (!(Stimer.count == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p262;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p263;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p264;
+	  property( ((Stimer.timesup == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p265;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p266;
+	  property( (!(Wtimer.count == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p267;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p268;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p269;
+	  property( (!(Eruntimer == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p270;
+	  property( (!(Lreq == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p271;
+	  property( (!(Sruntimer == 'b0)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p272;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p273;
+	  property( (!(currentstate == 'b01)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p274;
+	  property( ((currentstate == 'b0001)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p275;
+	  property( ((currentstate == 'b000001)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p276;
+	  property( ((nextstate == 'b1)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p277;
+	  property( (!(nextstate == 'b01)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p278;
+	  property( ((nextstate == 'b0001)) |-> (Lruntimer == 'b0) );
+	endproperty
+
+	property p279;
+	  property( ((Sflit_id == 'b1)) |-> (Nflit_id == 'b1) );
+	endproperty
+
+	property p280;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Ereq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p281;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p282;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p283;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p284;
+	  property( ((Etimer.timesup == 'b1) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p285;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1)) && (Ereq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p286;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1)) && !(Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p287;
+	  property( (!(Ntimer.count == 'b0) && (Ereq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p288;
+	  property( (!(Ntimer.count == 'b0) && !(Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p289;
+	  property( ((Ntimer.timesup == 'b1) && (Ereq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p290;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1)) && (Ereq == 'b1) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p291;
+	  property( (!(Stimer.count == 'b0) && (Ereq == 'b1) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p292;
+	  property( ((Stimer.timesup == 'b1) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p293;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1)) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p294;
+	  property( (!(Wtimer.count == 'b0) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p295;
+	  property( ((Wtimer.timesup == 'b1) && (Lreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p296;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && !(Sreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p297;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && !(Wreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p298;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && (currentstate == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p299;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && (currentstate == 'b000001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p300;
+	  property( ((Ereq == 'b1) && !(Sruntimer == 'b0)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p301;
+	  property( ((Ereq == 'b1) && (currentstate == 'b001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p302;
+	  property( ((Ereq == 'b1) && (nextstate == 'b000001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p303;
+	  property( (!(Ereq == 'b1) && (Lreq == 'b1) && (Wreq == 'b1)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p304;
+	  property( ((Lreq == 'b1) && !(Wruntimer == 'b0)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p305;
+	  property( ((Lreq == 'b1) && (currentstate == 'b00001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p306;
+	  property( ((Lreq == 'b1) && (nextstate == 'b00001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p307;
+	  property( (!(Nruntimer == 'b0)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p308;
+	  property( ((nextstate == 'b001)) |-> (Nreq == 'b1) );
+	endproperty
+
+	property p309;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p310;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p311;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p312;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p313;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p314;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p315;
+	  property( (!(Etimer.count == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p316;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p317;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p318;
+	  property( ((Etimer.timesup == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p319;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p320;
+	  property( (!(Ltimer.count == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p321;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p322;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p323;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p324;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p325;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p326;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p327;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p328;
+	  property( (!(Stimer.count == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p329;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p330;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p331;
+	  property( ((Stimer.timesup == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p332;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p333;
+	  property( (!(Wtimer.count == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p334;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p335;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p336;
+	  property( (!(Eruntimer == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p337;
+	  property( (!(Lruntimer == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p338;
+	  property( (!(Nreq == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p339;
+	  property( (!(Sruntimer == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p340;
+	  property( (!(Wruntimer == 'b0)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p341;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p342;
+	  property( ((currentstate == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p343;
+	  property( ((currentstate == 'b01)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p344;
+	  property( ((currentstate == 'b0001)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p345;
+	  property( ((currentstate == 'b000001)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p346;
+	  property( ((nextstate == 'b1)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p347;
+	  property( ((nextstate == 'b01)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p348;
+	  property( (!(nextstate == 'b001)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p349;
+	  property( ((nextstate == 'b0001)) |-> (Nruntimer == 'b0) );
+	endproperty
+
+	property p350;
+	  property( ((Lflit_id == 'b1)) |-> (Sflit_id == 'b1) );
+	endproperty
+
+	property p351;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p352;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Lreq == 'b1) && !(nextstate == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p353;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p354;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Lreq == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p355;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p356;
+	  property( ((Etimer.timesup == 'b1) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p357;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1)) && (Lreq == 'b1) && !(nextstate == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p358;
+	  property( (!(Ltimer.count == 'b0) && (Lreq == 'b1) && !(nextstate == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p359;
+	  property( ((Ltimer.timesup == 'b1) && (Lreq == 'b1) && !(nextstate == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p360;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1)) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p361;
+	  property( (!(Ntimer.count == 'b0) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p362;
+	  property( ((Ntimer.timesup == 'b1) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p363;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1)) && (Lreq == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p364;
+	  property( (!(Stimer.count == 'b0) && (Lreq == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p365;
+	  property( (!(Stimer.count == 'b0) && (nextstate == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p366;
+	  property( ((Stimer.timesup == 'b1) && (Lreq == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p367;
+	  property( ((Wtimer.timesup == 'b1) && (Lreq == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p368;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && !(Nreq == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p369;
+	  property( ((Ereq == 'b1) && (Lreq == 'b1) && (currentstate == 'b1)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p370;
+	  property( ((Ereq == 'b1) && !(Nreq == 'b1) && (nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p371;
+	  property( ((Ereq == 'b1) && (currentstate == 'b1) && (nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p372;
+	  property( (!(Ereq == 'b1) && (Lreq == 'b1) && !(nextstate == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p373;
+	  property( ((Lreq == 'b1) && !(Nreq == 'b1) && !(nextstate == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p374;
+	  property( ((Lreq == 'b1) && !(Nruntimer == 'b0)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p375;
+	  property( ((Lreq == 'b1) && (currentstate == 'b01) && !(nextstate == 'b1) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p376;
+	  property( ((Lreq == 'b1) && (currentstate == 'b001) && !(nextstate == 'b01)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p377;
+	  property( ((Lreq == 'b1) && (currentstate == 'b000001)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p378;
+	  property( ((Lreq == 'b1) && (nextstate == 'b001)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p379;
+	  property( (!(Sruntimer == 'b0)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p380;
+	  property( ((nextstate == 'b000001)) |-> (Sreq == 'b1) );
+	endproperty
+
+	property p381;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p382;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p383;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p384;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p385;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p386;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p387;
+	  property( (!(Etimer.count == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p388;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p389;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p390;
+	  property( ((Etimer.timesup == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p391;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p392;
+	  property( (!(Ltimer.count == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p393;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p394;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p395;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p396;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p397;
+	  property( (!(Ntimer.count == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p398;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p399;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p400;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p401;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p402;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p403;
+	  property( ((Stimer.timesup == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p404;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p405;
+	  property( (!(Wtimer.count == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p406;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p407;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p408;
+	  property( (!(Eruntimer == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p409;
+	  property( (!(Lruntimer == 'b0)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p410;
+	  property( (!(Sreq == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p411;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p412;
+	  property( ((currentstate == 'b0001)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p413;
+	  property( (!(currentstate == 'b000001)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p414;
+	  property( ((nextstate == 'b1)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p415;
+	  property( ((nextstate == 'b01)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p416;
+	  property( ((nextstate == 'b0001)) |-> (Sruntimer == 'b0) );
+	endproperty
+
+	property p417;
+	  property( ((Sflit_id == 'b1)) |-> (Wflit_id == 'b1) );
+	endproperty
+
+	property p418;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p419;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p420;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p421;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1)) && (Ereq == 'b1) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p422;
+	  property( (!(Ltimer.count == 'b0) && (Ereq == 'b1) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p423;
+	  property( ((Ltimer.timesup == 'b1) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p424;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1)) && (Ereq == 'b1) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p425;
+	  property( (!(Ntimer.count == 'b0) && (Ereq == 'b1) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p426;
+	  property( ((Ntimer.timesup == 'b1) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p427;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p428;
+	  property( (!(Wtimer.count == 'b0)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p429;
+	  property( ((Wtimer.timesup == 'b1) && (Ereq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p430;
+	  property( ((Ereq == 'b1) && !(Nreq == 'b1) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p431;
+	  property( ((Ereq == 'b1) && !(Nruntimer == 'b0) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p432;
+	  property( ((Ereq == 'b1) && (Sreq == 'b1) && (currentstate == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p433;
+	  property( ((Ereq == 'b1) && (Sreq == 'b1) && (currentstate == 'b001)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p434;
+	  property( ((Ereq == 'b1) && (Sreq == 'b1) && (nextstate == 'b001)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p435;
+	  property( ((Ereq == 'b1) && (currentstate == 'b00001)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p436;
+	  property( (!(Eruntimer == 'b0) && (Sreq == 'b1)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p437;
+	  property( ((Sreq == 'b1) && (nextstate == 'b0001)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p438;
+	  property( (!(Wruntimer == 'b0)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p439;
+	  property( ((nextstate == 'b00001)) |-> (Wreq == 'b1) );
+	endproperty
+
+	property p440;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p441;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p442;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p443;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p444;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p445;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p446;
+	  property( (!(Etimer.count == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p447;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p448;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p449;
+	  property( ((Etimer.timesup == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p450;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p451;
+	  property( (!(Ltimer.count == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p452;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p453;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p454;
+	  property( ((Ltimer.timesup == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p455;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p456;
+	  property( (!(Ntimer.count == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p457;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p458;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p459;
+	  property( ((Ntimer.timesup == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p460;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p461;
+	  property( (!(Stimer.count == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p462;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p463;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p464;
+	  property( ((Stimer.timesup == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p465;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p466;
+	  property( ((Wtimer.timesup == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p467;
+	  property( (!(Eruntimer == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p468;
+	  property( (!(Lruntimer == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p469;
+	  property( (!(Sruntimer == 'b0)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p470;
+	  property( (!(Wreq == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p471;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p472;
+	  property( ((currentstate == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p473;
+	  property( ((currentstate == 'b01)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p474;
+	  property( ((currentstate == 'b0001)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p475;
+	  property( ((currentstate == 'b000001)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p476;
+	  property( ((nextstate == 'b1)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p477;
+	  property( ((nextstate == 'b01)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p478;
+	  property( ((nextstate == 'b001)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p479;
+	  property( ((nextstate == 'b0001)) |-> (Wruntimer == 'b0) );
+	endproperty
+
+	property p480;
+	  property( (!(Ntimer.count == Ntimer.timeoutclockperiods)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p481;
+	  property( (!(Etimer.count == Etimer.timeoutclockperiods)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p482;
+	  property( (!(Stimer.count == Stimer.timeoutclockperiods)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p483;
+	  property( (!(Etimer.timeoutclockperiods == 'b0)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p484;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p485;
+	  property( (!(Ntimer.timeoutclockperiods == 'b0)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p486;
+	  property( ((Ntimer.timesup == 'b1)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p487;
+	  property( (!(Stimer.count == 'b0)) |-> (currentstate == $past(nextstate, 1)) );
+	endproperty
+
+	property p488;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p489;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p490;
+	  property( ((Ltimer.timesup == 'b1) && !(currentstate == 'b01)) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p491;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p492;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p493;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p494;
+	  property( ((Wtimer.timesup == 'b1) && !(currentstate == 'b00001)) |-> (currentstate == 'b1) );
+	endproperty
+
+	property p495;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1))) |-> (currentstate == 'b01) );
+	endproperty
+
+	property p496;
+	  property( (!(Ltimer.count == 'b0)) |-> (currentstate == 'b01) );
+	endproperty
+
+	property p497;
+	  property( (!(Lruntimer == 'b0)) |-> (currentstate == 'b01) );
+	endproperty
+
+	property p498;
+	  property( ((Ntimer.count == $past(('b1 + Ntimer.count), 1))) |-> (currentstate == 'b001) );
+	endproperty
+
+	property p499;
+	  property( (!(Ntimer.count == 'b0)) |-> (currentstate == 'b001) );
+	endproperty
+
+	property p500;
+	  property( (!(Nruntimer == 'b0)) |-> (currentstate == 'b001) );
+	endproperty
+
+	property p501;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1))) |-> (currentstate == 'b0001) );
+	endproperty
+
+	property p502;
+	  property( (!(Etimer.count == 'b0)) |-> (currentstate == 'b0001) );
+	endproperty
+
+	property p503;
+	  property( (!(Eruntimer == 'b0)) |-> (currentstate == 'b0001) );
+	endproperty
+
+	property p504;
+	  property( ((Wtimer.count == $past(('b1 + Wtimer.count), 1))) |-> (currentstate == 'b00001) );
+	endproperty
+
+	property p505;
+	  property( (!(Wtimer.count == 'b0)) |-> (currentstate == 'b00001) );
+	endproperty
+
+	property p506;
+	  property( (!(Wruntimer == 'b0)) |-> (currentstate == 'b00001) );
+	endproperty
+
+	property p507;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1))) |-> (currentstate == 'b000001) );
+	endproperty
+
+	property p508;
+	  property( (!(Stimer.count == 'b0)) |-> (currentstate == 'b000001) );
+	endproperty
+
+	property p509;
+	  property( (!(Sruntimer == 'b0)) |-> (currentstate == 'b000001) );
+	endproperty
+
+	property p510;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Eflit_id == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p511;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Lflit_id == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p512;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Nflit_id == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p513;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Nreq == 'b1) && !(Sreq == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p514;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Sflit_id == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p515;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Wflit_id == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p516;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p517;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p518;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && !(Nreq == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p519;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p520;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p521;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p522;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p523;
+	  property( ((Etimer.timeoutclockperiods == 'b0)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p524;
+	  property( ((Etimer.timesup == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p525;
+	  property( ((Etimer.timesup == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p526;
+	  property( (!(Ltimer.timeoutclockperiods == $past(Ltimer.timeoutclockperiods, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p527;
+	  property( ((Ltimer.timeoutclockperiods == 'b0)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p528;
+	  property( ((Ltimer.timesup == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p529;
+	  property( (!(Ntimer.timeoutclockperiods == $past(Ntimer.timeoutclockperiods, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p530;
+	  property( ((Ntimer.timeoutclockperiods == 'b0)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p531;
+	  property( ((Ntimer.timesup == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p532;
+	  property( (!(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p533;
+	  property( ((Stimer.timeoutclockperiods == 'b0)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p534;
+	  property( ((Stimer.timesup == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p535;
+	  property( (!(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p536;
+	  property( ((Wtimer.timeoutclockperiods == 'b0)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p537;
+	  property( ((Wtimer.timesup == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p538;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p539;
+	  property( ((rst == 'b1)) |-> (nextstate == 'b1) );
+	endproperty
+
+	property p540;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Lreq == 'b1)) |-> (nextstate == 'b01) );
+	endproperty
+
+	property p541;
+	  property( ((Stimer.timesup == 'b1) && (Lreq == 'b1)) |-> (nextstate == 'b01) );
+	endproperty
+
+	property p542;
+	  property( ((Lreq == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b01) );
+	endproperty
+
+	property p543;
+	  property( (!(Lruntimer == 'b0)) |-> (nextstate == 'b01) );
+	endproperty
+
+	property p544;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p545;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p546;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p547;
+	  property( ((Etimer.timesup == 'b1) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p548;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1)) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p549;
+	  property( (!(Ltimer.count == 'b0) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p550;
+	  property( ((Ltimer.timesup == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p551;
+	  property( ((Wtimer.timesup == 'b1) && !(Lreq == 'b1) && (Nreq == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p552;
+	  property( (!(Lreq == 'b1) && (Nreq == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p553;
+	  property( (!(Lreq == 'b1) && (Nreq == 'b1) && (currentstate == 'b01)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p554;
+	  property( (!(Nruntimer == 'b0)) |-> (nextstate == 'b001) );
+	endproperty
+
+	property p555;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Ereq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p556;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p557;
+	  property( ((Stimer.count == Stimer.timeoutclockperiods) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p558;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p559;
+	  property( ((Ltimer.timesup == 'b1) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p560;
+	  property( ((Ntimer.timesup == 'b1) && (Ereq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p561;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1)) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p562;
+	  property( (!(Stimer.count == 'b0) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p563;
+	  property( ((Stimer.timesup == 'b1) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p564;
+	  property( ((Wtimer.timesup == 'b1) && (Ereq == 'b1) && !(Nreq == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p565;
+	  property( ((Ereq == 'b1) && !(Nreq == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p566;
+	  property( ((Ereq == 'b1) && !(Nreq == 'b1) && (currentstate == 'b000001)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p567;
+	  property( (!(Eruntimer == 'b0)) |-> (nextstate == 'b0001) );
+	endproperty
+
+	property p568;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p569;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p570;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p571;
+	  property( ((Etimer.timesup == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p572;
+	  property( ((Ltimer.count == $past(('b1 + Ltimer.count), 1)) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p573;
+	  property( (!(Ltimer.count == 'b0) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p574;
+	  property( ((Ltimer.timesup == 'b1) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p575;
+	  property( ((Ntimer.timesup == 'b1) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p576;
+	  property( ((Stimer.count == $past(('b1 + Stimer.count), 1)) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p577;
+	  property( (!(Stimer.count == 'b0) && !(Ereq == 'b1) && (Wreq == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p578;
+	  property( (!(Ereq == 'b1) && (Wreq == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p579;
+	  property( (!(Ereq == 'b1) && (Wreq == 'b1) && (currentstate == 'b01)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p580;
+	  property( (!(Ereq == 'b1) && (Wreq == 'b1) && (currentstate == 'b000001)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p581;
+	  property( (!(Wruntimer == 'b0)) |-> (nextstate == 'b00001) );
+	endproperty
+
+	property p582;
+	  property( ((Ntimer.count == Ntimer.timeoutclockperiods) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p583;
+	  property( ((Ltimer.count == Ltimer.timeoutclockperiods) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p584;
+	  property( ((Etimer.count == Etimer.timeoutclockperiods) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p585;
+	  property( ((Wtimer.timeoutclockperiods == Wtimer.count) && (Sreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p586;
+	  property( ((Etimer.count == $past(('b1 + Etimer.count), 1)) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p587;
+	  property( (!(Etimer.count == 'b0) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p588;
+	  property( ((Etimer.timesup == 'b1) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p589;
+	  property( ((Ltimer.timesup == 'b1) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p590;
+	  property( ((Ntimer.timesup == 'b1) && (Sreq == 'b1) && !(Wreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p591;
+	  property( ((Wtimer.timesup == 'b1) && (Sreq == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p592;
+	  property( ((Sreq == 'b1) && !(Wreq == 'b1) && (currentstate == 'b1)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p593;
+	  property( ((Sreq == 'b1) && !(Wreq == 'b1) && (currentstate == 'b0001)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p594;
+	  property( (!(Sruntimer == 'b0)) |-> (nextstate == 'b000001) );
+	endproperty
+
+	property p595;
+	  property( (!(Etimer.timeoutclockperiods == $past(Etimer.timeoutclockperiods, 1)) && (Ntimer.timeoutclockperiods == 'b0)) |-> (rst == 'b1) );
+	endproperty
+
+	property p596;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Ntimer.timesup == 'b1)) |-> (rst == 'b1) );
+	endproperty
+
+	property p597;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Stimer.timeoutclockperiods == $past(Stimer.timeoutclockperiods, 1))) |-> (rst == 'b1) );
+	endproperty
+
+	property p598;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Stimer.timesup == 'b1)) |-> (rst == 'b1) );
+	endproperty
+
+	property p599;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Wtimer.timeoutclockperiods == $past(Wtimer.timeoutclockperiods, 1))) |-> (rst == 'b1) );
+	endproperty
+
+	property p600;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Wtimer.timesup == 'b1)) |-> (rst == 'b1) );
+	endproperty
+
+	property p601;
+	  property( ((Ntimer.timeoutclockperiods == 'b0) && !(Sflit_id == 'b1)) |-> (rst == 'b1) );
+	endproperty
+
+	property p602;
+	  property( (!(currentstate == $past(nextstate, 1))) |-> (rst == 'b1) );
+	endproperty
+
+endclocking
+
+assert property (cone1.p0);
+assert property (cone1.p1);
+assert property (cone1.p2);
+assert property (cone1.p3);
+assert property (cone1.p4);
+assert property (cone1.p5);
+assert property (cone1.p6);
+assert property (cone1.p7);
+assert property (cone1.p8);
+assert property (cone1.p9);
+assert property (cone1.p10);
+assert property (cone1.p11);
+assert property (cone1.p12);
+assert property (cone1.p13);
+assert property (cone1.p14);
+assert property (cone1.p15);
+assert property (cone1.p16);
+assert property (cone1.p17);
+assert property (cone1.p18);
+assert property (cone1.p19);
+assert property (cone1.p20);
+assert property (cone1.p21);
+assert property (cone1.p22);
+assert property (cone1.p23);
+assert property (cone1.p24);
+assert property (cone1.p25);
+assert property (cone1.p26);
+assert property (cone1.p27);
+assert property (cone1.p28);
+assert property (cone1.p29);
+assert property (cone1.p30);
+assert property (cone1.p31);
+assert property (cone1.p32);
+assert property (cone1.p33);
+assert property (cone1.p34);
+assert property (cone1.p35);
+assert property (cone1.p36);
+assert property (cone1.p37);
+assert property (cone1.p38);
+assert property (cone1.p39);
+assert property (cone1.p40);
+assert property (cone1.p41);
+assert property (cone1.p42);
+assert property (cone1.p43);
+assert property (cone1.p44);
+assert property (cone1.p45);
+assert property (cone1.p46);
+assert property (cone1.p47);
+assert property (cone1.p48);
+assert property (cone1.p49);
+assert property (cone1.p50);
+assert property (cone1.p51);
+assert property (cone1.p52);
+assert property (cone1.p53);
+assert property (cone1.p54);
+assert property (cone1.p55);
+assert property (cone1.p56);
+assert property (cone1.p57);
+assert property (cone1.p58);
+assert property (cone1.p59);
+assert property (cone1.p60);
+assert property (cone1.p61);
+assert property (cone1.p62);
+assert property (cone1.p63);
+assert property (cone1.p64);
+assert property (cone1.p65);
+assert property (cone1.p66);
+assert property (cone1.p67);
+assert property (cone1.p68);
+assert property (cone1.p69);
+assert property (cone1.p70);
+assert property (cone1.p71);
+assert property (cone1.p72);
+assert property (cone1.p73);
+assert property (cone1.p74);
+assert property (cone1.p75);
+assert property (cone1.p76);
+assert property (cone1.p77);
+assert property (cone1.p78);
+assert property (cone1.p79);
+assert property (cone1.p80);
+assert property (cone1.p81);
+assert property (cone1.p82);
+assert property (cone1.p83);
+assert property (cone1.p84);
+assert property (cone1.p85);
+assert property (cone1.p86);
+assert property (cone1.p87);
+assert property (cone1.p88);
+assert property (cone1.p89);
+assert property (cone1.p90);
+assert property (cone1.p91);
+assert property (cone1.p92);
+assert property (cone1.p93);
+assert property (cone1.p94);
+assert property (cone1.p95);
+assert property (cone1.p96);
+assert property (cone1.p97);
+assert property (cone1.p98);
+assert property (cone1.p99);
+assert property (cone1.p100);
+assert property (cone1.p101);
+assert property (cone1.p102);
+assert property (cone1.p103);
+assert property (cone1.p104);
+assert property (cone1.p105);
+assert property (cone1.p106);
+assert property (cone1.p107);
+assert property (cone1.p108);
+assert property (cone1.p109);
+assert property (cone1.p110);
+assert property (cone1.p111);
+assert property (cone1.p112);
+assert property (cone1.p113);
+assert property (cone1.p114);
+assert property (cone1.p115);
+assert property (cone1.p116);
+assert property (cone1.p117);
+assert property (cone1.p118);
+assert property (cone1.p119);
+assert property (cone1.p120);
+assert property (cone1.p121);
+assert property (cone1.p122);
+assert property (cone1.p123);
+assert property (cone1.p124);
+assert property (cone1.p125);
+assert property (cone1.p126);
+assert property (cone1.p127);
+assert property (cone1.p128);
+assert property (cone1.p129);
+assert property (cone1.p130);
+assert property (cone1.p131);
+assert property (cone1.p132);
+assert property (cone1.p133);
+assert property (cone1.p134);
+assert property (cone1.p135);
+assert property (cone1.p136);
+assert property (cone1.p137);
+assert property (cone1.p138);
+assert property (cone1.p139);
+assert property (cone1.p140);
+assert property (cone1.p141);
+assert property (cone1.p142);
+assert property (cone1.p143);
+assert property (cone1.p144);
+assert property (cone1.p145);
+assert property (cone1.p146);
+assert property (cone1.p147);
+assert property (cone1.p148);
+assert property (cone1.p149);
+assert property (cone1.p150);
+assert property (cone1.p151);
+assert property (cone1.p152);
+assert property (cone1.p153);
+assert property (cone1.p154);
+assert property (cone1.p155);
+assert property (cone1.p156);
+assert property (cone1.p157);
+assert property (cone1.p158);
+assert property (cone1.p159);
+assert property (cone1.p160);
+assert property (cone1.p161);
+assert property (cone1.p162);
+assert property (cone1.p163);
+assert property (cone1.p164);
+assert property (cone1.p165);
+assert property (cone1.p166);
+assert property (cone1.p167);
+assert property (cone1.p168);
+assert property (cone1.p169);
+assert property (cone1.p170);
+assert property (cone1.p171);
+assert property (cone1.p172);
+assert property (cone1.p173);
+assert property (cone1.p174);
+assert property (cone1.p175);
+assert property (cone1.p176);
+assert property (cone1.p177);
+assert property (cone1.p178);
+assert property (cone1.p179);
+assert property (cone1.p180);
+assert property (cone1.p181);
+assert property (cone1.p182);
+assert property (cone1.p183);
+assert property (cone1.p184);
+assert property (cone1.p185);
+assert property (cone1.p186);
+assert property (cone1.p187);
+assert property (cone1.p188);
+assert property (cone1.p189);
+assert property (cone1.p190);
+assert property (cone1.p191);
+assert property (cone1.p192);
+assert property (cone1.p193);
+assert property (cone1.p194);
+assert property (cone1.p195);
+assert property (cone1.p196);
+assert property (cone1.p197);
+assert property (cone1.p198);
+assert property (cone1.p199);
+assert property (cone1.p200);
+assert property (cone1.p201);
+assert property (cone1.p202);
+assert property (cone1.p203);
+assert property (cone1.p204);
+assert property (cone1.p205);
+assert property (cone1.p206);
+assert property (cone1.p207);
+assert property (cone1.p208);
+assert property (cone1.p209);
+assert property (cone1.p210);
+assert property (cone1.p211);
+assert property (cone1.p212);
+assert property (cone1.p213);
+assert property (cone1.p214);
+assert property (cone1.p215);
+assert property (cone1.p216);
+assert property (cone1.p217);
+assert property (cone1.p218);
+assert property (cone1.p219);
+assert property (cone1.p220);
+assert property (cone1.p221);
+assert property (cone1.p222);
+assert property (cone1.p223);
+assert property (cone1.p224);
+assert property (cone1.p225);
+assert property (cone1.p226);
+assert property (cone1.p227);
+assert property (cone1.p228);
+assert property (cone1.p229);
+assert property (cone1.p230);
+assert property (cone1.p231);
+assert property (cone1.p232);
+assert property (cone1.p233);
+assert property (cone1.p234);
+assert property (cone1.p235);
+assert property (cone1.p236);
+assert property (cone1.p237);
+assert property (cone1.p238);
+assert property (cone1.p239);
+assert property (cone1.p240);
+assert property (cone1.p241);
+assert property (cone1.p242);
+assert property (cone1.p243);
+assert property (cone1.p244);
+assert property (cone1.p245);
+assert property (cone1.p246);
+assert property (cone1.p247);
+assert property (cone1.p248);
+assert property (cone1.p249);
+assert property (cone1.p250);
+assert property (cone1.p251);
+assert property (cone1.p252);
+assert property (cone1.p253);
+assert property (cone1.p254);
+assert property (cone1.p255);
+assert property (cone1.p256);
+assert property (cone1.p257);
+assert property (cone1.p258);
+assert property (cone1.p259);
+assert property (cone1.p260);
+assert property (cone1.p261);
+assert property (cone1.p262);
+assert property (cone1.p263);
+assert property (cone1.p264);
+assert property (cone1.p265);
+assert property (cone1.p266);
+assert property (cone1.p267);
+assert property (cone1.p268);
+assert property (cone1.p269);
+assert property (cone1.p270);
+assert property (cone1.p271);
+assert property (cone1.p272);
+assert property (cone1.p273);
+assert property (cone1.p274);
+assert property (cone1.p275);
+assert property (cone1.p276);
+assert property (cone1.p277);
+assert property (cone1.p278);
+assert property (cone1.p279);
+assert property (cone1.p280);
+assert property (cone1.p281);
+assert property (cone1.p282);
+assert property (cone1.p283);
+assert property (cone1.p284);
+assert property (cone1.p285);
+assert property (cone1.p286);
+assert property (cone1.p287);
+assert property (cone1.p288);
+assert property (cone1.p289);
+assert property (cone1.p290);
+assert property (cone1.p291);
+assert property (cone1.p292);
+assert property (cone1.p293);
+assert property (cone1.p294);
+assert property (cone1.p295);
+assert property (cone1.p296);
+assert property (cone1.p297);
+assert property (cone1.p298);
+assert property (cone1.p299);
+assert property (cone1.p300);
+assert property (cone1.p301);
+assert property (cone1.p302);
+assert property (cone1.p303);
+assert property (cone1.p304);
+assert property (cone1.p305);
+assert property (cone1.p306);
+assert property (cone1.p307);
+assert property (cone1.p308);
+assert property (cone1.p309);
+assert property (cone1.p310);
+assert property (cone1.p311);
+assert property (cone1.p312);
+assert property (cone1.p313);
+assert property (cone1.p314);
+assert property (cone1.p315);
+assert property (cone1.p316);
+assert property (cone1.p317);
+assert property (cone1.p318);
+assert property (cone1.p319);
+assert property (cone1.p320);
+assert property (cone1.p321);
+assert property (cone1.p322);
+assert property (cone1.p323);
+assert property (cone1.p324);
+assert property (cone1.p325);
+assert property (cone1.p326);
+assert property (cone1.p327);
+assert property (cone1.p328);
+assert property (cone1.p329);
+assert property (cone1.p330);
+assert property (cone1.p331);
+assert property (cone1.p332);
+assert property (cone1.p333);
+assert property (cone1.p334);
+assert property (cone1.p335);
+assert property (cone1.p336);
+assert property (cone1.p337);
+assert property (cone1.p338);
+assert property (cone1.p339);
+assert property (cone1.p340);
+assert property (cone1.p341);
+assert property (cone1.p342);
+assert property (cone1.p343);
+assert property (cone1.p344);
+assert property (cone1.p345);
+assert property (cone1.p346);
+assert property (cone1.p347);
+assert property (cone1.p348);
+assert property (cone1.p349);
+assert property (cone1.p350);
+assert property (cone1.p351);
+assert property (cone1.p352);
+assert property (cone1.p353);
+assert property (cone1.p354);
+assert property (cone1.p355);
+assert property (cone1.p356);
+assert property (cone1.p357);
+assert property (cone1.p358);
+assert property (cone1.p359);
+assert property (cone1.p360);
+assert property (cone1.p361);
+assert property (cone1.p362);
+assert property (cone1.p363);
+assert property (cone1.p364);
+assert property (cone1.p365);
+assert property (cone1.p366);
+assert property (cone1.p367);
+assert property (cone1.p368);
+assert property (cone1.p369);
+assert property (cone1.p370);
+assert property (cone1.p371);
+assert property (cone1.p372);
+assert property (cone1.p373);
+assert property (cone1.p374);
+assert property (cone1.p375);
+assert property (cone1.p376);
+assert property (cone1.p377);
+assert property (cone1.p378);
+assert property (cone1.p379);
+assert property (cone1.p380);
+assert property (cone1.p381);
+assert property (cone1.p382);
+assert property (cone1.p383);
+assert property (cone1.p384);
+assert property (cone1.p385);
+assert property (cone1.p386);
+assert property (cone1.p387);
+assert property (cone1.p388);
+assert property (cone1.p389);
+assert property (cone1.p390);
+assert property (cone1.p391);
+assert property (cone1.p392);
+assert property (cone1.p393);
+assert property (cone1.p394);
+assert property (cone1.p395);
+assert property (cone1.p396);
+assert property (cone1.p397);
+assert property (cone1.p398);
+assert property (cone1.p399);
+assert property (cone1.p400);
+assert property (cone1.p401);
+assert property (cone1.p402);
+assert property (cone1.p403);
+assert property (cone1.p404);
+assert property (cone1.p405);
+assert property (cone1.p406);
+assert property (cone1.p407);
+assert property (cone1.p408);
+assert property (cone1.p409);
+assert property (cone1.p410);
+assert property (cone1.p411);
+assert property (cone1.p412);
+assert property (cone1.p413);
+assert property (cone1.p414);
+assert property (cone1.p415);
+assert property (cone1.p416);
+assert property (cone1.p417);
+assert property (cone1.p418);
+assert property (cone1.p419);
+assert property (cone1.p420);
+assert property (cone1.p421);
+assert property (cone1.p422);
+assert property (cone1.p423);
+assert property (cone1.p424);
+assert property (cone1.p425);
+assert property (cone1.p426);
+assert property (cone1.p427);
+assert property (cone1.p428);
+assert property (cone1.p429);
+assert property (cone1.p430);
+assert property (cone1.p431);
+assert property (cone1.p432);
+assert property (cone1.p433);
+assert property (cone1.p434);
+assert property (cone1.p435);
+assert property (cone1.p436);
+assert property (cone1.p437);
+assert property (cone1.p438);
+assert property (cone1.p439);
+assert property (cone1.p440);
+assert property (cone1.p441);
+assert property (cone1.p442);
+assert property (cone1.p443);
+assert property (cone1.p444);
+assert property (cone1.p445);
+assert property (cone1.p446);
+assert property (cone1.p447);
+assert property (cone1.p448);
+assert property (cone1.p449);
+assert property (cone1.p450);
+assert property (cone1.p451);
+assert property (cone1.p452);
+assert property (cone1.p453);
+assert property (cone1.p454);
+assert property (cone1.p455);
+assert property (cone1.p456);
+assert property (cone1.p457);
+assert property (cone1.p458);
+assert property (cone1.p459);
+assert property (cone1.p460);
+assert property (cone1.p461);
+assert property (cone1.p462);
+assert property (cone1.p463);
+assert property (cone1.p464);
+assert property (cone1.p465);
+assert property (cone1.p466);
+assert property (cone1.p467);
+assert property (cone1.p468);
+assert property (cone1.p469);
+assert property (cone1.p470);
+assert property (cone1.p471);
+assert property (cone1.p472);
+assert property (cone1.p473);
+assert property (cone1.p474);
+assert property (cone1.p475);
+assert property (cone1.p476);
+assert property (cone1.p477);
+assert property (cone1.p478);
+assert property (cone1.p479);
+assert property (cone1.p480);
+assert property (cone1.p481);
+assert property (cone1.p482);
+assert property (cone1.p483);
+assert property (cone1.p484);
+assert property (cone1.p485);
+assert property (cone1.p486);
+assert property (cone1.p487);
+assert property (cone1.p488);
+assert property (cone1.p489);
+assert property (cone1.p490);
+assert property (cone1.p491);
+assert property (cone1.p492);
+assert property (cone1.p493);
+assert property (cone1.p494);
+assert property (cone1.p495);
+assert property (cone1.p496);
+assert property (cone1.p497);
+assert property (cone1.p498);
+assert property (cone1.p499);
+assert property (cone1.p500);
+assert property (cone1.p501);
+assert property (cone1.p502);
+assert property (cone1.p503);
+assert property (cone1.p504);
+assert property (cone1.p505);
+assert property (cone1.p506);
+assert property (cone1.p507);
+assert property (cone1.p508);
+assert property (cone1.p509);
+assert property (cone1.p510);
+assert property (cone1.p511);
+assert property (cone1.p512);
+assert property (cone1.p513);
+assert property (cone1.p514);
+assert property (cone1.p515);
+assert property (cone1.p516);
+assert property (cone1.p517);
+assert property (cone1.p518);
+assert property (cone1.p519);
+assert property (cone1.p520);
+assert property (cone1.p521);
+assert property (cone1.p522);
+assert property (cone1.p523);
+assert property (cone1.p524);
+assert property (cone1.p525);
+assert property (cone1.p526);
+assert property (cone1.p527);
+assert property (cone1.p528);
+assert property (cone1.p529);
+assert property (cone1.p530);
+assert property (cone1.p531);
+assert property (cone1.p532);
+assert property (cone1.p533);
+assert property (cone1.p534);
+assert property (cone1.p535);
+assert property (cone1.p536);
+assert property (cone1.p537);
+assert property (cone1.p538);
+assert property (cone1.p539);
+assert property (cone1.p540);
+assert property (cone1.p541);
+assert property (cone1.p542);
+assert property (cone1.p543);
+assert property (cone1.p544);
+assert property (cone1.p545);
+assert property (cone1.p546);
+assert property (cone1.p547);
+assert property (cone1.p548);
+assert property (cone1.p549);
+assert property (cone1.p550);
+assert property (cone1.p551);
+assert property (cone1.p552);
+assert property (cone1.p553);
+assert property (cone1.p554);
+assert property (cone1.p555);
+assert property (cone1.p556);
+assert property (cone1.p557);
+assert property (cone1.p558);
+assert property (cone1.p559);
+assert property (cone1.p560);
+assert property (cone1.p561);
+assert property (cone1.p562);
+assert property (cone1.p563);
+assert property (cone1.p564);
+assert property (cone1.p565);
+assert property (cone1.p566);
+assert property (cone1.p567);
+assert property (cone1.p568);
+assert property (cone1.p569);
+assert property (cone1.p570);
+assert property (cone1.p571);
+assert property (cone1.p572);
+assert property (cone1.p573);
+assert property (cone1.p574);
+assert property (cone1.p575);
+assert property (cone1.p576);
+assert property (cone1.p577);
+assert property (cone1.p578);
+assert property (cone1.p579);
+assert property (cone1.p580);
+assert property (cone1.p581);
+assert property (cone1.p582);
+assert property (cone1.p583);
+assert property (cone1.p584);
+assert property (cone1.p585);
+assert property (cone1.p586);
+assert property (cone1.p587);
+assert property (cone1.p588);
+assert property (cone1.p589);
+assert property (cone1.p590);
+assert property (cone1.p591);
+assert property (cone1.p592);
+assert property (cone1.p593);
+assert property (cone1.p594);
+assert property (cone1.p595);
+assert property (cone1.p596);
+assert property (cone1.p597);
+assert property (cone1.p598);
+assert property (cone1.p599);
+assert property (cone1.p600);
+assert property (cone1.p601);
+assert property (cone1.p602);
+

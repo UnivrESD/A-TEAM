@@ -13,6 +13,11 @@ std::string prop2String(Proposition &prop) {
     prop.acceptVisitor(printer);
     return printer.get();
 }
+std::string logicExp2String(LogicExpression &le) {
+    PrinterVisitor printer;
+    le.acceptVisitor(printer);
+    return printer.get();
+}
 
 Proposition *copy(Proposition &prop) {
     CopyVisitor copy;
@@ -60,5 +65,4 @@ Assertion *makeInvariant(Proposition &proposition) {
 
     return assertion;
 }
-
 } // namespace oden

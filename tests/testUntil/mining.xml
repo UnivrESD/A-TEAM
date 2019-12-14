@@ -1,10 +1,7 @@
 <root>
 
     <tracereader name="mangroveTraceReader">
-        <variables path="testUntil/trace.variables"/>
-        <traces>
-            <trace path="testUntil/trace.mangrove"/>
-        </traces>
+        <vcdFile path="testUntil/testUntil.vcd"/>
     </tracereader>
 
         
@@ -17,8 +14,8 @@
             <atomicPropositions>
                 <atomicProposition formula="e" dir="in"/>
                 <atomicProposition formula="f" dir="in"/>
-                <atomicProposition formula="g" dir="out"/>
-                <atomicProposition formula="h" dir="out"/>
+                <atomicProposition formula="({a}[0])" dir="out"/>
+                <atomicProposition formula="(({b}[2:0] < {a}[2:0]) == {b}[0] )" dir="out"/>
 
                 <!--
                 <atomicProposition formula="~c <=_ ~d" dir="out"/>

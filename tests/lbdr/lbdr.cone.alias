@@ -1,0 +1,53 @@
+('b0<({.cur_addr}[1:0])) p0
+('b0<({dst_addr}[1:0])) p1
+('b10<({.cur_addr}[3:2])) p2
+('b1<({dst_addr}[1:0])) p3
+(({.cur_addr}[3:2])<({dst_addr}[3:2])) p4
+(({dst_addr}[1:0])<({.cur_addr}[1:0])) p5
+(({dst_addr}[3:2])<({.cur_addr}[3:2])) p6
+({.Cx}['b0]) p7
+({.Cx}['b10]) p8
+({.Cx}['b11]) p9
+({.Cx}['b1]) p10
+({.Rxy}['b0]) p11
+({.Rxy}['b100]) p12
+({.Rxy}['b101]) p13
+({.Rxy}['b10]) p14
+({.Rxy}['b110]) p15
+({.Rxy}['b111]) p16
+({.Rxy}['b11]) p17
+({.Rxy}['b1]) p18
+.Cx== $past(.Cx,1) p19
+.Cx== $past(Cx_rst,1) p20
+.Eport== $past((((((('b0<({dst_addr}[1:0]))&(({dst_addr}[3:2])<({.cur_addr}[3:2])))&({.Rxy}['b10]))|((('b0<({dst_addr}[1:0]))&(!(({dst_addr}[3:2])<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|((('b0<({dst_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b11])))&({.Cx}['b1])),1) p21
+.Eport== $past((((((('b10<({.cur_addr}[3:2]))&('b0<({dst_addr}[1:0])))&({.Rxy}['b10]))|((('b0<({dst_addr}[1:0]))&(!('b10<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|((('b0<({dst_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b11])))&({.Cx}['b1])),1) p22
+.Eport== $past((((((('b10<({.cur_addr}[3:2]))&('b1<({dst_addr}[1:0])))&({.Rxy}['b10]))|((('b1<({dst_addr}[1:0]))&(!('b10<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|((('b1<({dst_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b11])))&({.Cx}['b1])),1) p23
+.Eport== $past(.Eport,1) p24
+.Eport=='b0 p25
+.Lport== $past(((((!('b0<({dst_addr}[1:0])))&(!(({dst_addr}[3:2])<({.cur_addr}[3:2]))))&(!('b0<({.cur_addr}[1:0]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))),1) p26
+.Lport== $past(((((!('b10<({.cur_addr}[3:2])))&(!('b0<({dst_addr}[1:0]))))&(!('b0<({.cur_addr}[1:0]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))),1) p27
+.Lport== $past(((((!('b10<({.cur_addr}[3:2])))&(!('b1<({dst_addr}[1:0]))))&(!(({dst_addr}[1:0])<({.cur_addr}[1:0]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))),1) p28
+.Lport== $past(.Lport,1) p29
+.Lport=='b0 p30
+.Nport== $past((((((('b0<({dst_addr}[1:0]))&(({dst_addr}[3:2])<({.cur_addr}[3:2])))&({.Rxy}['b0]))|(((({dst_addr}[3:2])<({.cur_addr}[3:2]))&(!('b0<({dst_addr}[1:0]))))&(!('b0<({.cur_addr}[1:0])))))|((('b0<({.cur_addr}[1:0]))&(({dst_addr}[3:2])<({.cur_addr}[3:2])))&({.Rxy}['b1])))&({.Cx}['b0])),1) p31
+.Nport== $past((((((('b10<({.cur_addr}[3:2]))&('b0<({dst_addr}[1:0])))&({.Rxy}['b0]))|((('b10<({.cur_addr}[3:2]))&(!('b0<({dst_addr}[1:0]))))&(!('b0<({.cur_addr}[1:0])))))|((('b10<({.cur_addr}[3:2]))&('b0<({.cur_addr}[1:0])))&({.Rxy}['b1])))&({.Cx}['b0])),1) p32
+.Nport== $past((((((('b10<({.cur_addr}[3:2]))&('b1<({dst_addr}[1:0])))&({.Rxy}['b0]))|((('b10<({.cur_addr}[3:2]))&(!('b1<({dst_addr}[1:0]))))&(!(({dst_addr}[1:0])<({.cur_addr}[1:0])))))|((('b10<({.cur_addr}[3:2]))&(({dst_addr}[1:0])<({.cur_addr}[1:0])))&({.Rxy}['b1])))&({.Cx}['b0])),1) p33
+.Nport== $past(.Nport,1) p34
+.Nport=='b0 p35
+.Rxy== $past(.Rxy,1) p36
+.Rxy== $past(Rxy_rst,1) p37
+.Sport== $past((((((('b0<({dst_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b110]))|(((({.cur_addr}[3:2])<({dst_addr}[3:2]))&(!('b0<({dst_addr}[1:0]))))&(!('b0<({.cur_addr}[1:0])))))|((('b0<({.cur_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b111])))&({.Cx}['b11])),1) p38
+.Sport== $past((((((('b1<({dst_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b110]))|(((({.cur_addr}[3:2])<({dst_addr}[3:2]))&(!('b1<({dst_addr}[1:0]))))&(!(({dst_addr}[1:0])<({.cur_addr}[1:0])))))|(((({dst_addr}[1:0])<({.cur_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b111])))&({.Cx}['b11])),1) p39
+.Sport== $past(.Sport,1) p40
+.Sport=='b0 p41
+.Wport== $past((((((('b0<({.cur_addr}[1:0]))&(({dst_addr}[3:2])<({.cur_addr}[3:2])))&({.Rxy}['b100]))|((('b0<({.cur_addr}[1:0]))&(!(({dst_addr}[3:2])<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|((('b0<({.cur_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b101])))&({.Cx}['b10])),1) p42
+.Wport== $past((((((('b10<({.cur_addr}[3:2]))&('b0<({.cur_addr}[1:0])))&({.Rxy}['b100]))|((('b0<({.cur_addr}[1:0]))&(!('b10<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|((('b0<({.cur_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b101])))&({.Cx}['b10])),1) p43
+.Wport== $past((((((('b10<({.cur_addr}[3:2]))&(({dst_addr}[1:0])<({.cur_addr}[1:0])))&({.Rxy}['b100]))|(((({dst_addr}[1:0])<({.cur_addr}[1:0]))&(!('b10<({.cur_addr}[3:2]))))&(!(({.cur_addr}[3:2])<({dst_addr}[3:2])))))|(((({dst_addr}[1:0])<({.cur_addr}[1:0]))&(({.cur_addr}[3:2])<({dst_addr}[3:2])))&({.Rxy}['b101])))&({.Cx}['b10])),1) p44
+.Wport== $past(.Wport,1) p45
+.Wport=='b0 p46
+.cur_addr== $past(.cur_addr,1) p47
+.cur_addr== $past(cur_addr_rst,1) p48
+empty=='b1 p49
+empty=='bx p50
+flit_id=='b1 p51
+rst=='b1 p52

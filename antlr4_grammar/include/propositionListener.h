@@ -35,6 +35,12 @@ public:
   virtual void enterVariable(propositionParser::VariableContext *ctx) = 0;
   virtual void exitVariable(propositionParser::VariableContext *ctx) = 0;
 
+  virtual void enterUpper_bound(propositionParser::Upper_boundContext *ctx) = 0;
+  virtual void exitUpper_bound(propositionParser::Upper_boundContext *ctx) = 0;
+
+  virtual void enterLower_bound(propositionParser::Lower_boundContext *ctx) = 0;
+  virtual void exitLower_bound(propositionParser::Lower_boundContext *ctx) = 0;
+
   virtual void enterRelop(propositionParser::RelopContext *ctx) = 0;
   virtual void exitRelop(propositionParser::RelopContext *ctx) = 0;
 

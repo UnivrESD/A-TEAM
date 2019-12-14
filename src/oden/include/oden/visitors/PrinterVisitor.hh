@@ -32,6 +32,7 @@ class PrinterVisitor : public OdenVisitor {
     void visit(PropositionNeq &o) override;
     void visit(PropositionNot &o) override;
     void visit(PropositionNext &o) override;
+    void visit(PropositionBitSelector &o) override;
     void visit(PropositionPast &o) override;
     void visit(UntilOperator &o) override;
     void visit(ReleaseOperator &o) override;
@@ -63,6 +64,7 @@ class PrinterVisitor : public OdenVisitor {
     void visit(LogicBOr &o) override;
     void visit(LogicBXor &o) override;
     void visit(LogicNot &o) override;
+    void visit(LogicBitSelector &o) override;
     void visit(LogicNext &o) override;
     void visit(LogicPast &o) override;
     void visit(LogicEq &o) override;

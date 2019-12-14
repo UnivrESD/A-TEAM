@@ -110,7 +110,6 @@ using LogicBOr =
     Expression<BinaryOperator::BOR, LogicExpression, LogicExpression>;
 using LogicBXor =
     Expression<BinaryOperator::BXOR, LogicExpression, LogicExpression>;
-
 using LogicEq  = Expression<BinaryOperator::EQ, LogicExpression, Proposition>;
 using LogicNeq = Expression<BinaryOperator::NEQ, LogicExpression, Proposition>;
 using LogicGreater =

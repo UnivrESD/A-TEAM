@@ -72,5 +72,7 @@ EXPRESSION_NODE_1(LogicLessEq)
 EXPRESSION_NODE_1(LogicNot)
 EXPRESSION_NODE_2(LogicNext)
 EXPRESSION_NODE_2(LogicPast)
+EXPRESSION_NODE_2(LogicBitSelector)
+EXPRESSION_NODE_2(PropositionBitSelector)
 
 } // namespace oden

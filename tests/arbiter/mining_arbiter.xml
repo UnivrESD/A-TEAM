@@ -1,0 +1,109 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdFile path="arbiter/arbiter.vcd"/>
+    </tracereader>
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+                <atomicProposition formula="(Etimer.count==Etimer.timeoutclockperiods)" dir="inout"/> 
+                <atomicProposition formula="(Ltimer.count==Ltimer.timeoutclockperiods)" dir="inout"/> 
+                <atomicProposition formula="(Ntimer.count==Ntimer.timeoutclockperiods)" dir="inout"/> 
+                <atomicProposition formula="(Stimer.count==Stimer.timeoutclockperiods)" dir="inout"/> 
+                <atomicProposition formula="(Wtimer.timeoutclockperiods==Wtimer.count)" dir="inout"/> 
+                <atomicProposition formula="Etimer.count== $past(('b1+Etimer.count),1)" dir="inout"/> 
+                <atomicProposition formula="Etimer.count=='b0" dir="inout"/> 
+                <atomicProposition formula="Etimer.timeoutclockperiods== $past(Etimer.timeoutclockperiods,1)" dir="inout"/> 
+                <atomicProposition formula="Etimer.timeoutclockperiods== $past(Elength,1)" dir="inout"/> 
+                <atomicProposition formula="Etimer.timeoutclockperiods=='b0" dir="inout"/> 
+                <atomicProposition formula="Etimer.timesup=='b1" dir="inout"/> 
+                <atomicProposition formula="Ltimer.count== $past(('b1+Ltimer.count),1)" dir="inout"/> 
+                <atomicProposition formula="Ltimer.count=='b0" dir="inout"/> 
+                <atomicProposition formula="Ltimer.timeoutclockperiods== $past(Ltimer.timeoutclockperiods,1)" dir="inout"/> 
+                <atomicProposition formula="Ltimer.timeoutclockperiods== $past(Llength,1)" dir="inout"/> 
+                <atomicProposition formula="Ltimer.timeoutclockperiods=='b0" dir="inout"/> 
+                <atomicProposition formula="Ltimer.timesup=='b1" dir="inout"/> 
+                <atomicProposition formula="Ntimer.count== $past(('b1+Ntimer.count),1)" dir="inout"/> 
+                <atomicProposition formula="Ntimer.count=='b0" dir="inout"/> 
+                <atomicProposition formula="Ntimer.timeoutclockperiods== $past(Ntimer.timeoutclockperiods,1)" dir="inout"/> 
+                <atomicProposition formula="Ntimer.timeoutclockperiods== $past(Nlength,1)" dir="inout"/> 
+                <atomicProposition formula="Ntimer.timeoutclockperiods=='b0" dir="inout"/> 
+                <atomicProposition formula="Ntimer.timesup=='b1" dir="inout"/> 
+                <atomicProposition formula="Stimer.count== $past(('b1+Stimer.count),1)" dir="inout"/> 
+                <atomicProposition formula="Stimer.count=='b0" dir="inout"/> 
+                <atomicProposition formula="Stimer.timeoutclockperiods== $past(Stimer.timeoutclockperiods,1)" dir="inout"/> 
+                <atomicProposition formula="Stimer.timeoutclockperiods== $past(Slength,1)" dir="inout"/> 
+                <atomicProposition formula="Stimer.timeoutclockperiods=='b0" dir="inout"/> 
+                <atomicProposition formula="Stimer.timesup=='b1" dir="inout"/> 
+                <atomicProposition formula="Wtimer.count== $past(('b1+Wtimer.count),1)" dir="inout"/> 
+                <atomicProposition formula="Wtimer.count=='b0" dir="inout"/> 
+                <atomicProposition formula="Wtimer.timeoutclockperiods== $past(Wtimer.timeoutclockperiods,1)" dir="inout"/> 
+                <atomicProposition formula="Wtimer.timeoutclockperiods== $past(Wlength,1)" dir="inout"/> 
+                <atomicProposition formula="Wtimer.timeoutclockperiods=='b0" dir="inout"/> 
+                <atomicProposition formula="Wtimer.timesup=='b1" dir="inout"/> 
+                <atomicProposition formula="Eflit_id=='b1" dir="inout"/> 
+                <atomicProposition formula="Ereq=='b1" dir="inout"/> 
+                <atomicProposition formula="Eruntimer=='b0" dir="inout"/> 
+                <atomicProposition formula="Lflit_id=='b1" dir="inout"/> 
+                <atomicProposition formula="Lreq=='b1" dir="inout"/> 
+                <atomicProposition formula="Lruntimer=='b0" dir="inout"/> 
+                <atomicProposition formula="Nflit_id=='b1" dir="inout"/> 
+                <atomicProposition formula="Nreq=='b1" dir="inout"/> 
+                <atomicProposition formula="Nruntimer=='b0" dir="inout"/> 
+                <atomicProposition formula="Sflit_id=='b1" dir="inout"/> 
+                <atomicProposition formula="Sreq=='b1" dir="inout"/> 
+                <atomicProposition formula="Sruntimer=='b0" dir="inout"/> 
+                <atomicProposition formula="Wflit_id=='b1" dir="inout"/> 
+                <atomicProposition formula="Wreq=='b1" dir="inout"/> 
+                <atomicProposition formula="Wruntimer=='b0" dir="inout"/> 
+                <atomicProposition formula="currentstate== $past(nextstate,1)" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b1" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b10" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b100" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b1000" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b10000" dir="inout"/> 
+                <atomicProposition formula="currentstate=='b100000" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b1" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b10" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b100" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b1000" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b10000" dir="inout"/> 
+                <atomicProposition formula="nextstate=='b100000" dir="inout"/> 
+                <atomicProposition formula="rst=='b1" dir="inout"/> 
+
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+                        <propertyprinter name="psl"/>
+
+</root>

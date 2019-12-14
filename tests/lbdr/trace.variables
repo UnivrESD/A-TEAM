@@ -1,0 +1,14 @@
+LBDR_tb.CYCLE logic 32
+.Cx logic 4
+.Eport logic 1
+LBDR_tb.Lport logic 1
+Nport logic 1
+.Rxy logic 8
+LBDR_tb.Sport logic 1
+LBDR_tb.Wport logic 1
+.cur_addr logic 4
+dst_addr logic 4
+LBDR_tb.empty logic 1
+LBDR_tb.flit_id logic 3
+LBDR_tb.rst logic 1
+
