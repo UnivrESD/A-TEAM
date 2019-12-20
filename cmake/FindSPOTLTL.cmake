@@ -1,9 +1,9 @@
 include(FindPackageHandleStandardArgs)
 
-find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/spot/.libs)
+find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/spot/libs)
 
 if (NOT SPOTLTL_LIBRARY)
-    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/.libs)
+    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/libs)
 endif ()
 
 if (NOT SPOTLTL_LIBRARY)
