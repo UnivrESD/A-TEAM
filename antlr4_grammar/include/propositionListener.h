@@ -17,17 +17,41 @@ public:
   virtual void enterFile(propositionParser::FileContext *ctx) = 0;
   virtual void exitFile(propositionParser::FileContext *ctx) = 0;
 
-  virtual void enterExpression(propositionParser::ExpressionContext *ctx) = 0;
-  virtual void exitExpression(propositionParser::ExpressionContext *ctx) = 0;
+  virtual void enterBoolean(propositionParser::BooleanContext *ctx) = 0;
+  virtual void exitBoolean(propositionParser::BooleanContext *ctx) = 0;
 
-  virtual void enterNumeric_logic(propositionParser::Numeric_logicContext *ctx) = 0;
-  virtual void exitNumeric_logic(propositionParser::Numeric_logicContext *ctx) = 0;
+  virtual void enterBooleanAtom(propositionParser::BooleanAtomContext *ctx) = 0;
+  virtual void exitBooleanAtom(propositionParser::BooleanAtomContext *ctx) = 0;
+
+  virtual void enterBooleanConstant(propositionParser::BooleanConstantContext *ctx) = 0;
+  virtual void exitBooleanConstant(propositionParser::BooleanConstantContext *ctx) = 0;
+
+  virtual void enterBooleanVariable(propositionParser::BooleanVariableContext *ctx) = 0;
+  virtual void exitBooleanVariable(propositionParser::BooleanVariableContext *ctx) = 0;
 
   virtual void enterLogic(propositionParser::LogicContext *ctx) = 0;
   virtual void exitLogic(propositionParser::LogicContext *ctx) = 0;
 
-  virtual void enterAtom(propositionParser::AtomContext *ctx) = 0;
-  virtual void exitAtom(propositionParser::AtomContext *ctx) = 0;
+  virtual void enterLogicAtom(propositionParser::LogicAtomContext *ctx) = 0;
+  virtual void exitLogicAtom(propositionParser::LogicAtomContext *ctx) = 0;
+
+  virtual void enterLogicConstant(propositionParser::LogicConstantContext *ctx) = 0;
+  virtual void exitLogicConstant(propositionParser::LogicConstantContext *ctx) = 0;
+
+  virtual void enterLogicVariable(propositionParser::LogicVariableContext *ctx) = 0;
+  virtual void exitLogicVariable(propositionParser::LogicVariableContext *ctx) = 0;
+
+  virtual void enterNumeric(propositionParser::NumericContext *ctx) = 0;
+  virtual void exitNumeric(propositionParser::NumericContext *ctx) = 0;
+
+  virtual void enterNumericAtom(propositionParser::NumericAtomContext *ctx) = 0;
+  virtual void exitNumericAtom(propositionParser::NumericAtomContext *ctx) = 0;
+
+  virtual void enterNumericConstant(propositionParser::NumericConstantContext *ctx) = 0;
+  virtual void exitNumericConstant(propositionParser::NumericConstantContext *ctx) = 0;
+
+  virtual void enterNumericVariable(propositionParser::NumericVariableContext *ctx) = 0;
+  virtual void exitNumericVariable(propositionParser::NumericVariableContext *ctx) = 0;
 
   virtual void enterConstant(propositionParser::ConstantContext *ctx) = 0;
   virtual void exitConstant(propositionParser::ConstantContext *ctx) = 0;

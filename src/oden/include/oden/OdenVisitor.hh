@@ -4,6 +4,7 @@
 #include "classes/atom/Variable.hh"
 #include "classes/expression/Expression.hh"
 #include "classes/expression/BitSelector.hh"
+#include "classes/expression/TypeCast.hh"
 #include "classes/temporal/temporal.hh"
 
 namespace oden {
@@ -29,6 +30,7 @@ class OdenVisitor {
     virtual void visit(PropositionPast &o);
     virtual void visit(UntilOperator &o);
     virtual void visit(ReleaseOperator &o);
+    virtual void visit(LogicToBool &o);
 
     // numeric
     virtual void visit(NumericConstant &o);
@@ -59,14 +61,14 @@ class OdenVisitor {
     virtual void visit(LogicNot &o);
     virtual void visit(LogicNext &o);
     virtual void visit(LogicPast &o);
-    virtual void visit(LogicBitSelector &o);
-    virtual void visit(PropositionBitSelector &o);
     virtual void visit(LogicEq &o);
     virtual void visit(LogicNeq &o);
     virtual void visit(LogicGreater &o);
     virtual void visit(LogicGreaterEq &o);
     virtual void visit(LogicLess &o);
     virtual void visit(LogicLessEq &o);
+    virtual void visit(LogicBitSelector &o);
+    virtual void visit(NumericToLogic &o);
 
   protected:
     /// @brief Constructor

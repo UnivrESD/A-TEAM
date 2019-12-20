@@ -1,66 +1,99 @@
 grammar proposition;
 
-file : expression EOF;
+file : boolean EOF;
 
-//This grammar tries to narrow the possible types of an epression
-//by exploiting informations from the operators, for example in the expression 
-// "NEG subExp", the NEG operator forces subExp to be of type "Logic".
-//The complete type of a subexpression will inferred at runtime in most cases.
-
-//can be Bool, Numeric or Logic
- expression
-    : LPAREN expression RPAREN
-    | LGPAREN logic RGPAREN LCPAREN CONSTANT RCPAREN 
-    | NextOp LCPAREN CONSTANT RCPAREN expression
-    | PastOp LPAREN expression ',' CONSTANT RPAREN
-    | NOT expression
-    | numeric_logic relop numeric_logic
-    | expression EQ expression
-    | expression NEQ expression
-    | expression boolop=AND expression
-    | expression boolop=OR expression
-    | numeric_logic
-    | atom
+boolean
+    : LPAREN boolean RPAREN
+    | NextOp LCPAREN constant RCPAREN boolean
+    | PastOp LPAREN boolean ',' constant RPAREN
+    | NOT boolean
+    | logic relop logic
+    | numeric relop numeric
+    | boolean EQ boolean
+    | logic EQ logic
+    | numeric EQ numeric
+    | boolean NEQ boolean
+    | logic NEQ logic
+    | numeric NEQ numeric
+    | boolean booleanop=AND boolean
+    | boolean booleanop=OR boolean
+    | booleanAtom
+    | logic /* implicit cast from logic to boolean */
     ;
 
-
-//can be Numeric or Logic
-numeric_logic
-    : LPAREN numeric_logic RPAREN
-    | NextOp LCPAREN CONSTANT RCPAREN numeric_logic
-    | PastOp LPAREN numeric_logic ',' CONSTANT RPAREN
-    | atom
-    | logic
-    | numeric_logic artop=(TIMES|DIV) numeric_logic
-    | numeric_logic artop=(PLUS|MINUS) numeric_logic
+booleanAtom
+    : booleanConstant
+    | booleanVariable
     ;
 
-//can only be Logic
+booleanConstant
+    :  BOOLEAN
+    ;
+
+booleanVariable
+    : '<' variable ',bool>' 
+    ;
+
 logic
     : LPAREN logic RPAREN
-    | LGPAREN logic RGPAREN LCPAREN CONSTANT RCPAREN 
-    | LGPAREN logic RGPAREN LCPAREN upper_bound ':' lower_bound RCPAREN 
-    | atom
+    | LGPAREN logic RGPAREN LCPAREN constant RCPAREN
+    | LGPAREN logic RGPAREN LCPAREN upper_bound ':' lower_bound RCPAREN
+    | NextOp LCPAREN constant RCPAREN logic
+    | PastOp LPAREN logic ',' constant RPAREN
     | NEG logic 
+    | logic artop=(TIMES|DIV) logic
+    | logic artop=(PLUS|MINUS) logic
     | logic logop=BAND logic
     | logic logop=BOR logic
+    | logicAtom
+    | numeric /* implicit cast from numeric to logic */
     ;
 
-
-atom
-    : constant
-    | variable
+logicAtom
+    : logicConstant
+    | logicVariable
     ;
 
+logicConstant
+    : BINARY
+    ;
+
+logicVariable
+    : '<' variable ',logic>' 
+    ;
+
+numeric
+    : LPAREN numeric RPAREN
+    | NextOp LCPAREN constant RCPAREN numeric
+    | PastOp LPAREN numeric ',' constant RPAREN
+    | numeric artop=(TIMES|DIV) numeric
+    | numeric artop=(PLUS|MINUS) numeric
+    | numericAtom
+    ;
+
+numericAtom
+    : numericConstant
+    | numericVariable
+    ;
+
+numericConstant
+    :  NUMERIC
+    ;
+
+numericVariable
+    : '<' variable ',numeric>' 
+    ;
 
 constant
-    :  CONSTANT
+    :  BINARY
+    |  NUMERIC
+    |  BOOLEAN 
     ;
 
 variable
     : VARIABLE
     ;
-/*  : NextOp LCPAREN CONSTANT RCPAREN VARIABLE*/
+
 
 NextOp
     : 'X'
@@ -93,12 +126,13 @@ RPAREN
     ;
 
 upper_bound:
-    CONSTANT
+    constant
     ;
 
 lower_bound:
-    CONSTANT
+    constant
     ;
+
 //==== Token VARIABLE ==========================================================
 VARIABLE
    : VALID_ID_START VALID_ID_CHAR*
@@ -124,6 +158,19 @@ fragment VALID_ID_CHAR
 
 
 //==== Token constant ==========================================================
+    NUMERIC
+    : ('0' .. '9') + ('.' ('0' .. '9') +)?
+    ;
+    BINARY
+    : ('\'')('b')('0' .. '1')+
+    ;
+
+    BOOLEAN
+    : 'True'
+    | 'False'
+    ;
+
+/*
 CONSTANT
    : NUMERIC
    | BINARY
@@ -135,6 +182,7 @@ fragment NUMERIC
 fragment BINARY
    : ('\'')('b')('0' .. '1')+
    ;
+*/
 //------------------------------------------------------------------------------
 
 

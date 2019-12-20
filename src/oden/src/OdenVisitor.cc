@@ -36,6 +36,7 @@ EXPRESSION_NODE_2(PropositionNext)
 EXPRESSION_NODE_2(PropositionPast)
 EXPRESSION_NODE_3(UntilOperator)
 EXPRESSION_NODE_3(ReleaseOperator)
+EXPRESSION_NODE_2(LogicToBool)
 
 // numeric
 LEAF_NODE(NumericConstant)
@@ -73,6 +74,6 @@ EXPRESSION_NODE_1(LogicNot)
 EXPRESSION_NODE_2(LogicNext)
 EXPRESSION_NODE_2(LogicPast)
 EXPRESSION_NODE_2(LogicBitSelector)
-EXPRESSION_NODE_2(PropositionBitSelector)
+EXPRESSION_NODE_2(NumericToLogic)
 
 } // namespace oden

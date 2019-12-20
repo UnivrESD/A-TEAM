@@ -12,10 +12,7 @@
         </directions>
 
             <atomicPropositions>
-                <atomicProposition formula="e" dir="in"/>
-                <atomicProposition formula="f" dir="in"/>
-                <atomicProposition formula="({a}[0])" dir="out"/>
-                <atomicProposition formula="(({b}[2:0] < {a}[2:0]) == {b}[0] )" dir="out"/>
+                <atomicProposition formula="{_a}['b01] == _e" dir="out"/>
 
                 <!--
                 <atomicProposition formula="~c <=_ ~d" dir="out"/>

@@ -19,197 +19,240 @@ using namespace oden;
 namespace manualDefinition {
 
 ManualDefinition::ManualDefinition(XmlNode *xmlNode)
-    : ConeMiner(xmlNode), _conesList(), _name2Dir() {
+  : ConeMiner(xmlNode), _conesList(), _name2Dir() {
 
-    XmlNode *directionsXml = configuration->first_node("directions");
-    //    messageErrorIf(directionsXml == nullptr, "XML tag 'directions' must be
-    //    defined!");
+      /*
+  XmlNode *directionsXml = configuration->first_node("directions");
+  //    messageErrorIf(directionsXml == nullptr, "XML tag 'directions' must be
+  //    defined!");
 
-    if (directionsXml != nullptr) {
-        XmlNodeList directionList;
-        getNodesFromName(directionsXml, "direction", directionList);
-    }
-    /*
-    messageErrorIf(directionList.empty(), "Direction list is empty!");
+  if (directionsXml != nullptr) {
+    XmlNodeList directionList;
+    getNodesFromName(directionsXml, "direction", directionList);
+  }
+  */
+  /*
+  messageErrorIf(directionList.empty(), "Direction list is empty!");
 
-    _fillName2Dir(directionList);
+  _fillName2Dir(directionList);
 
-    */
-    getNodesFromName(configuration, "coneOfInfluence", _conesList);
+  */
+  getNodesFromName(configuration, "coneOfInfluence", _conesList);
 }
 
 void ManualDefinition::mineCones(TraceRepository &traceRepo,
                                  List<ConeOfInfluence> &cones) {
-    Trace &trace = traceRepo[0];
+  Trace &trace = traceRepo[0];
 
-    // if no cone is specified, create a Cone with all the input/output
-    // variables as propositions
-    if (_conesList.empty()) {
+  // if no cone is specified, create a Cone with all the input/output
+  // variables as propositions
+  if (_conesList.empty()) {
 
-        /*
-        messageWarning("No cone defined! A cone with all available boolean "
-                       "varibles will be generated!\n");
-        ConeOfInfluence *cone = new ConeOfInfluence("noCone");
+    /*
+    messageWarning("No cone defined! A cone with all available boolean "
+                   "varibles will be generated!\n");
+    ConeOfInfluence *cone = new ConeOfInfluence("noCone");
 
-        const Name2Variable &vars = traceRepo.getVariables();
-        // fill noCone directions with all variable directions
-        for (auto &var : vars) {
-            _name2Dir[var.first] = var.second->getDirection();
-        }
+    const Name2Variable &vars = traceRepo.getVariables();
+    // fill noCone directions with all variable directions
+    for (auto &var : vars) {
+        _name2Dir[var.first] = var.second->getDirection();
+    }
 
-        for (auto &kv : vars) {
+    for (auto &kv : vars) {
 
-            if (kv.second->getType() == VariableType::boolean) {
-                auto *newVar = new DataType(*(kv.second));
+        if (kv.second->getType() == VariableType::boolean) {
+            auto *newVar = new DataType(*(kv.second));
 
-                auto currentVar = _name2Dir.find(kv.first);
+            auto currentVar = _name2Dir.find(kv.first);
 
-                Proposition *p = trace.getBooleanVariable(currentVar->first);
+            Proposition *p = trace.getBooleanVariable(currentVar->first);
 
-                if (currentVar != _name2Dir.end()) {
-                    std::string propName = oden::prop2String(*p);
-                    switch (currentVar->second) {
-                    case VariableDirection::dir_in:
-                        cone->inPropositions.push_back(oden::copy(*p));
-                        break;
-                    case VariableDirection::dir_inout:
-                        cone->inoutPropositions.push_back(oden::copy(*p));
-                        break;
-                    case VariableDirection::dir_out:
-                        cone->propositions.push_back(oden::copy(*p));
-                        break;
-                    default:
-                        delete p;
-                        break;
-                    }
+            if (currentVar != _name2Dir.end()) {
+                std::string propName = oden::prop2String(*p);
+                switch (currentVar->second) {
+                case VariableDirection::dir_in:
+                    cone->inPropositions.push_back(oden::copy(*p));
+                    break;
+                case VariableDirection::dir_inout:
+                    cone->inoutPropositions.push_back(oden::copy(*p));
+                    break;
+                case VariableDirection::dir_out:
+                    cone->propositions.push_back(oden::copy(*p));
+                    break;
+                default:
+                    delete p;
+                    break;
                 }
             }
-        } // end for kv
-        cones.push_back(cone);
-        return;
-        */
-
-        // Not defining a cone of influence is no longer supported!
-        messageError("Not defining a cone of influce is no longer supported!");
-
-    } // end if coneList
-
-    for (auto *coneXml : _conesList) {
-        std::string coneName = getAttributeValue(coneXml, "name");
-        messageErrorIf(coneName.empty(),
-                       "Cone of influence does not have a name!");
-
-        auto *newCone = new ConeOfInfluence(coneName);
-
-        //(1) get single variable propositions
-        XmlNode *directionsXml = coneXml->first_node("directions");
-        XmlNodeList directionList;
-        getNodesFromName(directionsXml, "direction", directionList);
-        for (auto *directionXml : directionList) {
-            std::string variableName = getAttributeValue(directionXml, "name");
-            if (variableName.empty())
-                messageError("Name of the variable not found");
-
-            std::string directionStr = getAttributeValue(directionXml, "dir");
-            if (directionStr.empty())
-                messageError("direction not found");
-
-            VariableDirection direction =
-                oden::variableDirectionFromString(directionStr);
-            Proposition *p = trace.getBooleanVariable(variableName);
-            switch (direction) {
-            case VariableDirection::dir_in:
-                newCone->inPropositions.push_back(oden::copy(*p));
-                break;
-            case VariableDirection::dir_inout:
-//                newCone->inoutPropositions.push_back(oden::copy(*p));
-                newCone->inPropositions.push_back(oden::copy(*p));
-                newCone->propositions.push_back(oden::copy(*p));
-                break;
-            case VariableDirection::dir_out:
-                newCone->propositions.push_back(oden::copy(*p));
-                break;
-            }
-            delete p;
         }
+    } // end for kv
+    cones.push_back(cone);
+    return;
+    */
 
-        //(2) get complex manually defined propositions
-        XmlNode *atPropsXml = coneXml->first_node("atomicPropositions");
-        if (atPropsXml != nullptr) {
-            XmlNodeList atPropsList;
-            getNodesFromName(atPropsXml, "atomicProposition", atPropsList);
-            fillConeWithAtomicPropositions(traceRepo, atPropsList, *newCone);
-        }
+    // Not defining a cone of influence is no longer supported!
+    messageError("Not defining a cone of influce is no longer supported!");
 
-        messageInfo("The cone: " + coneName + " has been created");
-        cones.push_back(newCone);
+  } // end if coneList
+
+  for (auto *coneXml : _conesList) {
+    std::string coneName = getAttributeValue(coneXml, "name");
+    messageErrorIf(coneName.empty(), "Cone of influence does not have a name!");
+
+    auto *newCone = new ConeOfInfluence(coneName);
+
+  /*
+    //(1) get single variable propositions
+    XmlNode *directionsXml = coneXml->first_node("directions");
+    XmlNodeList directionList;
+    getNodesFromName(directionsXml, "direction", directionList);
+    for (auto *directionXml : directionList) {
+      std::string variableName = getAttributeValue(directionXml, "name");
+      if (variableName.empty())
+        messageError("Name of the variable not found");
+
+      std::string directionStr = getAttributeValue(directionXml, "dir");
+      if (directionStr.empty())
+        messageError("direction not found");
+
+      VariableDirection direction =
+        oden::variableDirectionFromString(directionStr);
+      Proposition *p = trace.getBooleanVariable(variableName);
+      switch (direction) {
+      case VariableDirection::dir_in:
+        newCone->inPropositions.push_back(oden::copy(*p));
+        break;
+      case VariableDirection::dir_inout:
+        //                newCone->inoutPropositions.push_back(oden::copy(*p));
+        newCone->inPropositions.push_back(oden::copy(*p));
+        newCone->propositions.push_back(oden::copy(*p));
+        break;
+      case VariableDirection::dir_out:
+        newCone->propositions.push_back(oden::copy(*p));
+        break;
+      }
+      delete p;
     }
+    */
+
+    //(2) get complex manually defined propositions
+    XmlNode *atPropsXml = coneXml->first_node("atomicPropositions");
+    if (atPropsXml != nullptr) {
+      XmlNodeList atPropsList;
+      getNodesFromName(atPropsXml, "atomicProposition", atPropsList);
+      fillConeWithAtomicPropositions(traceRepo, atPropsList, *newCone);
+    }
+
+    messageInfo("The cone: " + coneName + " has been created");
+    cones.push_back(newCone);
+  }
 }
 
 void ManualDefinition::_fillName2Dir(XmlNodeList &directionList) {
 
-    for (auto *directionXml : directionList) {
-        std::string variableName = getAttributeValue(directionXml, "name");
-        messageErrorIf(variableName.empty(), "Name of the variable not found!");
+  for (auto *directionXml : directionList) {
+    std::string variableName = getAttributeValue(directionXml, "name");
+    messageErrorIf(variableName.empty(), "Name of the variable not found!");
 
-        std::string directionStr = getAttributeValue(directionXml, "dir");
-        messageErrorIf(directionStr.empty(), "direction not found!");
+    std::string directionStr = getAttributeValue(directionXml, "dir");
+    messageErrorIf(directionStr.empty(), "direction not found!");
 
-        VariableDirection direction = variableDirectionFromString(directionStr);
-        _name2Dir[variableName]     = direction;
-    }
+    VariableDirection direction = variableDirectionFromString(directionStr);
+    _name2Dir[variableName] = direction;
+  }
 }
 
 void ManualDefinition::fillConeWithAtomicPropositions(
-    TraceRepository &traceRepo, XmlNodeList &atomicPropsList,
-    ConeOfInfluence &cone) {
+  TraceRepository &traceRepo, XmlNodeList &atomicPropsList,
+  ConeOfInfluence &cone) {
 
-    for (auto *atomicProp : atomicPropsList) {
-        std::string atProp       = getAttributeValue(atomicProp, "formula");
-        std::string directionStr = getAttributeValue(atomicProp, "dir");
+  for (auto *atomicProp : atomicPropsList) {
+    std::string atProp = getAttributeValue(atomicProp, "formula");
+    std::string directionStr = getAttributeValue(atomicProp, "dir");
 
-        messageErrorIf(atProp.empty(), "formula not found!");
-        messageErrorIf(directionStr.empty(), "Formula's direction not found!");
+    messageErrorIf(atProp.empty(), "formula not found!");
+    messageErrorIf(directionStr.empty(), "Formula's direction not found!");
 
-        antlr4::ANTLRInputStream input(atProp);
+    // add types to variables
+    for (auto name2var : traceRepo.getVariables()) {
 
-        propositionLexer lexer(&input);
-        CommonTokenStream tokens(&lexer);
-        propositionParser parser(&tokens);
-        tree::ParseTree *tree = parser.file();
-        oden::PropositionParser listener(traceRepo.getVariables(),
-                                         traceRepo[0]);
-        tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
-        std::cout << tree->toStringTree(&parser) << std::endl;
+      // retrive type string
+      const DataType *var = name2var.second;
+      std::string nameType = "";
+      switch (var->getType()) {
+      case VariableType::boolean:
+        nameType = "<" + var->getName() + ",bool>";
+        break;
+      case VariableType::logic:
+        nameType = "<" + var->getName() + ",logic>";
+        break;
+      case VariableType::numeric:
+        nameType = "<" + var->getName() + ",numeric>";
+        break;
+      case VariableType::unknown:
+        messageError("Variable as \'Uknown type\'");
+        break;
+      }
 
-
-        Proposition *p = listener.getProposition();
-        messageErrorIf(p == nullptr, "Not valid atomic proposition: " +
-                                         tree->toStringTree(&parser));
-
-        messageInfo("PROPOSITION: " + oden::prop2String(*p));
-
-        VariableDirection direction = variableDirectionFromString(directionStr);
-
-        switch (direction) {
-        case VariableDirection::dir_in: {
-            cone.inPropositions.push_back(oden::copy(*p));
-            break;
+      // add type to the variable (if present)
+      auto it = begin(atProp);
+      std::string toFind = var->getName();
+      while (1) {
+        it = std::search(it, end(atProp), begin(toFind), end(toFind));
+        if (it == end(atProp)) {
+          break;
         }
-        case VariableDirection::dir_inout: {
-//            cone.inoutPropositions.push_back(oden::copy(*p));
-            cone.inPropositions.push_back(oden::copy(*p));
-            cone.propositions.push_back(oden::copy(*p));
-            break;
-        }
-        case VariableDirection::dir_out: {
-            // cone.outPropositions.push_back(oden::copy(*p));
-            cone.propositions.push_back(oden::copy(*p));
-            break;
-        }
-            delete p;
-        }
+        // substitute the typeless variable with <varName,type>
+        atProp.erase(it, it + toFind.size());
+        it = (atProp.insert(it, begin(nameType), end(nameType)) + toFind.size()) + toFind.size();
+      }
     }
+    std::cout << atProp << std::endl;
+
+    antlr4::ANTLRInputStream input(atProp);
+
+    propositionLexer lexer(&input);
+    CommonTokenStream tokens(&lexer);
+    propositionParser parser(&tokens);
+    tree::ParseTree *tree = parser.file();
+    oden::PropositionParser listener(traceRepo.getVariables(), traceRepo[0]);
+    tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
+    std::cout << tree->toStringTree(&parser) << std::endl;
+
+    Proposition *p = listener.getProposition();
+    messageErrorIf(p == nullptr, "Not valid atomic proposition: " +
+                                   tree->toStringTree(&parser));
+
+    messageInfo("PROPOSITION: " + oden::prop2String(*p));
+    /*
+    for(size_t i=0;i<traceRepo[0].getLength();i++){
+        std::cout<<p->evaluate(i)<<" ";
+    }
+    std::cout<<std::endl;
+    */
+
+    VariableDirection direction = variableDirectionFromString(directionStr);
+
+    switch (direction) {
+    case VariableDirection::dir_in: {
+      cone.inPropositions.push_back(oden::copy(*p));
+      break;
+    }
+    case VariableDirection::dir_inout: {
+      //            cone.inoutPropositions.push_back(oden::copy(*p));
+      cone.inPropositions.push_back(oden::copy(*p));
+      cone.propositions.push_back(oden::copy(*p));
+      break;
+    }
+    case VariableDirection::dir_out: {
+      // cone.outPropositions.push_back(oden::copy(*p));
+      cone.propositions.push_back(oden::copy(*p));
+      break;
+    }
+      delete p;
+    }
+  }
 }
 
 } // namespace manualDefinition

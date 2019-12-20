@@ -28,6 +28,19 @@
     }                                                                          \
   }
 
+#define EXPRESSION_LOGIC_TO_BOOL(NODE)          \
+void PrinterVisitor::visit(oden::NODE &o) {\
+  _ss << "((bool) ";                      \
+  o.getItem().acceptVisitor(*this);       \
+  _ss << ")";                             \
+}                                         
+#define EXPRESSION_NUMERIC_TO_LOGIC(NODE)          \
+void PrinterVisitor::visit(oden::NODE &o) {\
+  _ss << "((logic) ";                      \
+  o.getItem().acceptVisitor(*this);       \
+  _ss << ")";                             \
+}                                         
+
 #define EXPRESSION_BOOLEAN_BIT_SELECTION(NODE)\
 void PrinterVisitor::visit(oden::NODE &o) {\
   _ss << "(";                              \
@@ -147,7 +160,7 @@ EXPRESSION(PropositionEq)
 EXPRESSION(PropositionNeq)
 EXPRESSION_NEXT(PropositionNext)
 EXPRESSION_PAST(PropositionPast)
-EXPRESSION_BOOLEAN_BIT_SELECTION(PropositionBitSelector)
+EXPRESSION_LOGIC_TO_BOOL(LogicToBool)
 
 void PrinterVisitor::visit(oden::PropositionNot &o) {
   _ss << operators[ope::PropositionNot];
@@ -210,5 +223,6 @@ EXPRESSION(LogicLessEq)
 EXPRESSION_NEXT(LogicNext)
 EXPRESSION_PAST(LogicPast)
 EXPRESSION_LOGIC_BIT_SELECTION(LogicBitSelector)
+EXPRESSION_NUMERIC_TO_LOGIC(NumericToLogic)
 
 } // namespace oden

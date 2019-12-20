@@ -33,10 +33,10 @@ class CopyVisitor : public OdenVisitor {
     void visit(PropositionNeq &o) override;
     void visit(PropositionNot &o) override;
     void visit(PropositionNext &o) override;
-    void visit(PropositionBitSelector &o) override;
     void visit(PropositionPast &o) override;
     void visit(UntilOperator &o) override;
     void visit(ReleaseOperator &o) override;
+    void visit(LogicToBool &o) override;
 
     // numeric
     void visit(NumericConstant &o) override;
@@ -74,6 +74,7 @@ class CopyVisitor : public OdenVisitor {
     void visit(LogicGreaterEq &o) override;
     void visit(LogicLess &o) override;
     void visit(LogicLessEq &o) override;
+    void visit(NumericToLogic &o) override;
 
   private:
     Proposition *_proposition;

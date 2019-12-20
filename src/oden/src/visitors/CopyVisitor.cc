@@ -49,10 +49,6 @@ void CopyVisitor::visit(PropositionPast &o) {
     o.getItem().acceptVisitor(*this);
     _proposition = new PropositionPast(_proposition, o.getOffset());
 }
-void CopyVisitor::visit(PropositionBitSelector &o) {
-    o.getItem().acceptVisitor(*this);
-    _proposition = new PropositionBitSelector(_logic, o.getLowerBound(),o.getLowerBound());
-}
 
 void CopyVisitor::visit(UntilOperator &o) {
     o.getItem1().acceptVisitor(*this);
@@ -70,6 +66,11 @@ void CopyVisitor::visit(ReleaseOperator &o) {
 
     o.getItem2().acceptVisitor(*this);
     _proposition = new ReleaseOperator(tmp, _proposition);
+}
+
+void CopyVisitor::visit(LogicToBool &o) {
+    o.getItem().acceptVisitor(*this);
+    _proposition = new LogicToBool(_logic);
 }
 
 // numeric
@@ -125,6 +126,10 @@ void CopyVisitor::visit(LogicPast &o) {
 void CopyVisitor::visit(LogicBitSelector &o) {
     o.getItem().acceptVisitor(*this);
     _logic = new LogicBitSelector(_logic, o.getUpperBound(),o.getLowerBound());
+}
+void CopyVisitor::visit(NumericToLogic &o) {
+    o.getItem().acceptVisitor(*this);
+    _logic = new NumericToLogic(_numeric);
 }
 
 } // namespace oden

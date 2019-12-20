@@ -5,11 +5,11 @@ namespace oden {
 
 //==== Call to Visitor's methods ===============================================
 #define VISITOR_CALL(Operator, ET, OT)                                         \
-    template <>                                                                \
-    void Expression<BinaryOperator::Operator, ET, OT>::acceptVisitor(          \
-        OdenVisitor &vis) {                                                    \
-        vis.visit(*this);                                                      \
-    }
+  template <>                                                                  \
+  void Expression<BinaryOperator::Operator, ET, OT>::acceptVisitor(            \
+    OdenVisitor &vis) {                                                        \
+    vis.visit(*this);                                                          \
+  }
 
 // proposition
 VISITOR_CALL(AND, Proposition, Proposition)
@@ -51,64 +51,64 @@ VISITOR_CALL(NOT, LogicExpression, LogicExpression)
 //==== evaluate methods for propositions =======================================
 template <>
 bool Expression<BinaryOperator::AND, Proposition, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    for (Proposition *prop : _items)
-        if (!prop->evaluate(time))
-            return false;
+  for (Proposition *prop : _items)
+    if (!prop->evaluate(time))
+      return false;
 
-    return true;
+  return true;
 }
 
 template <>
 bool Expression<BinaryOperator::OR, Proposition, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    for (Proposition *prop : _items)
-        if (prop->evaluate(time))
-            return true;
+  for (Proposition *prop : _items)
+    if (prop->evaluate(time))
+      return true;
 
-    return false;
+  return false;
 }
 
 template <>
 bool Expression<BinaryOperator::XOR, Proposition, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() < 2)
-        return false;
+  size_t time) {
+  if (_items.size() < 2)
+    return false;
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret ^ _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret ^ _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 bool Expression<BinaryOperator::EQ, Proposition, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) == _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) == _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::NEQ, Proposition, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) != _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) != _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::NOT, Proposition, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 1)
-        return false;
+  size_t time) {
+  if (_items.size() != 1)
+    return false;
 
-    return !_items[0]->evaluate(time);
+  return !_items[0]->evaluate(time);
 }
 //------------------------------------------------------------------------------
 
@@ -116,105 +116,105 @@ bool Expression<BinaryOperator::NOT, Proposition, Proposition>::evaluate(
 template <>
 Numeric
 Expression<BinaryOperator::SUM, NumericExpression, NumericExpression>::evaluate(
-    size_t time) {
-    if (_items.size() < 2)
-        return 0;
+  size_t time) {
+  if (_items.size() < 2)
+    return 0;
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret += _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret += _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Numeric
 Expression<BinaryOperator::SUB, NumericExpression, NumericExpression>::evaluate(
-    size_t time) {
-    if (_items.size() < 2)
-        return 0;
+  size_t time) {
+  if (_items.size() < 2)
+    return 0;
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret -= _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret -= _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Numeric
 Expression<BinaryOperator::MUL, NumericExpression, NumericExpression>::evaluate(
-    size_t time) {
-    if (_items.size() < 2)
-        return 0;
+  size_t time) {
+  if (_items.size() < 2)
+    return 0;
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret *= _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret *= _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Numeric
 Expression<BinaryOperator::DIV, NumericExpression, NumericExpression>::evaluate(
-    size_t time) {
-    if (_items.size() < 2)
-        return 0;
+  size_t time) {
+  if (_items.size() < 2)
+    return 0;
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret /= _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret /= _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 bool Expression<BinaryOperator::EQ, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) == _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) == _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::NEQ, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) != _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) != _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::GT, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) > _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) > _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::GE, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) >= _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) >= _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::LT, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) < _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) < _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::LE, NumericExpression, Proposition>::evaluate(
-    size_t time) {
+  size_t time) {
 
-    return _items.size() == 2 &&
-           _items[0]->evaluate(time) <= _items[1]->evaluate(time);
+  return _items.size() == 2 &&
+         _items[0]->evaluate(time) <= _items[1]->evaluate(time);
 }
 //------------------------------------------------------------------------------
 
@@ -222,155 +222,155 @@ bool Expression<BinaryOperator::LE, NumericExpression, Proposition>::evaluate(
 template <>
 Logic Expression<BinaryOperator::SUM, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret + _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret + _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::SUB, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret - _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret - _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::MUL, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret * _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret * _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::DIV, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret / _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret / _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::BAND, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret & _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret & _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::BOR, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret | _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret | _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 Logic Expression<BinaryOperator::BXOR, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() < 2)
-        return {0, 0};
+  if (_items.size() < 2)
+    return {0, 0};
 
-    auto ret = _items[0]->evaluate(time);
-    for (size_t i = 1; i < _items.size(); ++i)
-        ret = ret ^ _items[i]->evaluate(time);
+  auto ret = _items[0]->evaluate(time);
+  for (size_t i = 1; i < _items.size(); ++i)
+    ret = ret ^ _items[i]->evaluate(time);
 
-    return ret;
+  return ret;
 }
 
 template <>
 bool Expression<BinaryOperator::EQ, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) == _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) == _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::NEQ, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) != _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) != _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::GT, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) > _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) > _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::GE, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) >= _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) >= _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::LT, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) < _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) < _items[1]->evaluate(time);
 }
 
 template <>
 bool Expression<BinaryOperator::LE, LogicExpression, Proposition>::evaluate(
-    size_t time) {
-    if (_items.size() != 2)
-        return false;
+  size_t time) {
+  if (_items.size() != 2)
+    return false;
 
-    return _items[0]->evaluate(time) <= _items[1]->evaluate(time);
+  return _items[0]->evaluate(time) <= _items[1]->evaluate(time);
 }
 
 template <>
 Logic Expression<BinaryOperator::NOT, LogicExpression,
                  LogicExpression>::evaluate(size_t time) {
-    if (_items.size() != 1)
-        return {0, 0};
+  if (_items.size() != 1)
+    return {0, 0};
 
-    return ~_items[0]->evaluate(time);
+  return ~_items[0]->evaluate(time);
 }
 //------------------------------------------------------------------------------
 }
