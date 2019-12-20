@@ -67,14 +67,13 @@ src/vcd2mangrove/makefile
 build/*
 cmake-build-default/*
 install
-utils/poco/*
-utils/spot/*
 .idea
 debug
 cmake-build-debug
 CMakeFiles/*
 !libs/lib/antlr4
 !libs/lib/spot
+libs/lib/z3
 
 
 ################################################################################
@@ -89,5 +88,3 @@ tags
 Session.vim
 .clang-format
 *.swp
-libs/lib/z3/build/libz3.so.4.8
-libs/lib/z3/build/libz3.so.4.8.8.0
