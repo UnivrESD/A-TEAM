@@ -37,7 +37,7 @@ target_link_libraries(${NAME}
         tbPropositionMiner
         faultBasedQualifier
         oden
-        -pthread -lspot
+        -pthread
         ${MINER_EXTERNAL_LIBRARIES}
         )
 

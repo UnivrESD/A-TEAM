@@ -1,11 +1,10 @@
 include(FindPackageHandleStandardArgs)
 
-# Try to find c++ headers
 find_path(ANTLR4CPP_INCLUDE_DIRS
-        NAMES antlr4-runtime.h
-        PATH_SUFFIXES antlr4-runtime
-        DOC "ANTLR4 C++ headers"
-        )
+    PATHS ./libs/antlr4/runtime/Cpp/runtime/src
+    NAMES antlr4-runtime.h
+    DOC "ANTLR4 C++ headers"
+    )
 
 if (NOT ANTLR4CPP_INCLUDE_DIRS)
     message(STATUS "Could not find C++ ANTLR include path")

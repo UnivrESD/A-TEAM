@@ -73,6 +73,9 @@ utils/spot/*
 debug
 cmake-build-debug
 CMakeFiles/*
+!libs/lib/antlr4
+!libs/lib/spot
+
 
 ################################################################################
 # FILES
@@ -86,3 +89,5 @@ tags
 Session.vim
 .clang-format
 *.swp
+libs/lib/z3/build/libz3.so.4.8
+libs/lib/z3/build/libz3.so.4.8.8.0

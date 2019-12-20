@@ -1,6 +1,10 @@
-set(SPOTLTL_ROOT "" CACHE PATH "Root of SPOTLTL distribution.")
+include(FindPackageHandleStandardArgs)
 
-find_library(SPOTLTL_LIBRARY NAMES spot PATHS ${SPOTLTL_ROOT}/lib)
+find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/spot/.libs)
+
+if (NOT SPOTLTL_LIBRARY)
+    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/.libs)
+endif ()
 
 if (NOT SPOTLTL_LIBRARY)
     message(STATUS "Could not find SPOTLTL libraries")
@@ -8,10 +12,16 @@ endif ()
 
 # Try to find c++ headers
 find_path(SPOTLTL_CPP_INCLUDE_DIR
+    NAMES parse.hh print.hh formula.hh
+    PATHS ./libs/lib/spot/spot/tl
+    DOC "SPOTLTL C++ header")
+
+if (NOT SPOTLTL_CPP_INCLUDE_DIR)
+    find_path(SPOTLTL_CPP_INCLUDE_DIR
         NAMES parse.hh print.hh formula.hh
-        PATH_SUFFIXES spot/tl
-        DOC "SPOTLTL C++ header"
-        )
+        PATHS ./libs/spot/spot/tl
+        DOC "SPOTLTL C++ header")
+endif ()
 
 if (SPOTLTL_CPP_INCLUDE_DIR)
     message(STATUS "Found SPOTLTL include directory: " ${SPOTLTL_CPP_INCLUDE_DIR})
