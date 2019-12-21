@@ -7,7 +7,7 @@ SET(NAME propositionParser)
 project(${NAME})
 
 include_directories(include/
-                    SYSTEM /usr/local/include/antlr4-runtime)
+    ${ANTLR4CPP_INCLUDE_DIRS})
 
 #############################################
 # Sources.
@@ -22,4 +22,4 @@ SET (PARSER_SRCS
 # Targets.
 #############################################
 add_library(${NAME} ${PARSER_SRCS})
-target_link_libraries(${NAME} antlr4-runtime)
+target_link_libraries(${NAME} ${ANTLR4_RUNTIME})

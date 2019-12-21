@@ -71,7 +71,7 @@ install
 debug
 cmake-build-debug
 CMakeFiles/*
-!libs/lib/antlr4
+!libs/lib/antlr4/lib/*
 !libs/lib/spot/lib/*
 libs/lib/z3
 

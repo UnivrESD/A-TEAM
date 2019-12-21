@@ -12,16 +12,17 @@ endif ()
 
 # Try to find c++ headers
 find_path(SPOTLTL_CPP_INCLUDE_DIR
-    NAMES parse.hh print.hh formula.hh
-    PATHS ./libs/lib/spot/include/tl
+    NAMES spot/tl
+    PATHS ./libs/lib/spot/include/
     DOC "SPOTLTL C++ header")
 
 if (NOT SPOTLTL_CPP_INCLUDE_DIR)
     find_path(SPOTLTL_CPP_INCLUDE_DIR
-        NAMES parse.hh print.hh formula.hh
-        PATHS ./libs/spot/spot/tl
+        NAMES spot/tl
+        PATHS ./libs/spot/
         DOC "SPOTLTL C++ header")
 endif ()
+
 
 if (SPOTLTL_CPP_INCLUDE_DIR)
     message(STATUS "Found SPOTLTL include directory: " ${SPOTLTL_CPP_INCLUDE_DIR})
