@@ -1,9 +1,9 @@
 include(FindPackageHandleStandardArgs)
 
-find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/spot/libs)
+find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/lib)
 
 if (NOT SPOTLTL_LIBRARY)
-    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/libs)
+    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/.libs)
 endif ()
 
 if (NOT SPOTLTL_LIBRARY)
@@ -13,7 +13,7 @@ endif ()
 # Try to find c++ headers
 find_path(SPOTLTL_CPP_INCLUDE_DIR
     NAMES parse.hh print.hh formula.hh
-    PATHS ./libs/lib/spot/spot/tl
+    PATHS ./libs/lib/spot/include/tl
     DOC "SPOTLTL C++ header")
 
 if (NOT SPOTLTL_CPP_INCLUDE_DIR)

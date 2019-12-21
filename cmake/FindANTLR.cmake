@@ -1,7 +1,7 @@
 include(FindPackageHandleStandardArgs)
 
 find_path(ANTLR4CPP_INCLUDE_DIRS
-    PATHS ./libs/lib/antlr4/runtime/Cpp/runtime/src
+    PATHS ./libs/lib/antlr4/include/runtime/Cpp/runtime/src
     NAMES antlr4-runtime.h
     DOC "ANTLR4 C++ headers"
     )

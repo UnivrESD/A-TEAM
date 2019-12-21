@@ -1,7 +1,7 @@
 
 include(FindPackageHandleStandardArgs)
 
-find_library(Z3_LIBRARY NAMES z3 PATHS ./libs/lib/z3/build)
+find_library(Z3_LIBRARY NAMES z3 PATHS ./libs/lib/z3/lib)
 
 if (NOT Z3_LIBRARY)
     find_library(Z3_LIBRARY NAMES z3 PATHS ./libs/z3/build)
@@ -16,17 +16,13 @@ endif ()
 # Try to find c headers
 find_path(Z3_C_INCLUDE_DIR
     NAMES z3.h
-    # For distributions that keep the header files in a `z3` folder,
-    # for example Fedora's `z3-devel` package at `/usr/include/z3/z3.h`
-    PATHS ./libs/lib/z3/src/api/ 
+    PATHS ./libs/lib/z3/include/api/ 
     DOC "Z3 C header"
     )
 
 if (NOT Z3_C_INCLUDE_DIR)
     find_path(Z3_C_INCLUDE_DIR
         NAMES z3.h
-        # For distributions that keep the header files in a `z3` folder,
-        # for example Fedora's `z3-devel` package at `/usr/include/z3/z3.h`
         PATHS ./libs/z3/src/api/ 
         DOC "Z3 C header"
         )
@@ -35,7 +31,7 @@ endif ()
 # Try to find c++ headers
 find_path(Z3_CPP_INCLUDE_DIR
     NAMES z3++.h
-    PATHS ./libs/lib/z3/src/api/c++
+    PATHS ./libs/lib/z3/include/api/c++
     DOC "Z3 C++ header"
     )
 
