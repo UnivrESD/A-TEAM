@@ -72,7 +72,7 @@ debug
 cmake-build-debug
 CMakeFiles/*
 !libs/lib/antlr4
-!libs/lib/spot
+!libs/lib/spot/lib/*
 libs/lib/z3
 
 
