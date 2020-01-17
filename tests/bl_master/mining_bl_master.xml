@@ -1,224 +1,35 @@
 <root>
     <tracereader name="mangroveTraceReader">
-        <vcdFile path="bl_master/bl_master.vcd"/>
+        <vcdParserConfig>
+            <clockSignal name="wb_clk"/>
+            <splitSignals value="No"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
     </tracereader>
 
     <coneminer name="manualDefinition">
-        <coneOfInfluence name="cone1">
+        <coneOfInfluence name="ManualAnalysis">
             <atomicPropositions>
-                <atomicProposition formula="address[31]" dir="in"/>
-                <atomicProposition formula="address[30]" dir="in"/>
-                <atomicProposition formula="address[29]" dir="in"/>
-                <atomicProposition formula="address[28]" dir="in"/>
-                <atomicProposition formula="address[27]" dir="in"/>
-                <atomicProposition formula="address[26]" dir="in"/>
-                <atomicProposition formula="address[25]" dir="in"/>
-                <atomicProposition formula="address[24]" dir="in"/>
-                <atomicProposition formula="address[23]" dir="in"/>
-                <atomicProposition formula="address[22]" dir="in"/>
-                <atomicProposition formula="address[21]" dir="in"/>
-                <atomicProposition formula="address[20]" dir="in"/>
-                <atomicProposition formula="address[19]" dir="in"/>
-                <atomicProposition formula="address[18]" dir="in"/>
-                <atomicProposition formula="address[17]" dir="in"/>
-                <atomicProposition formula="address[16]" dir="in"/>
-                <atomicProposition formula="address[15]" dir="in"/>
-                <atomicProposition formula="address[14]" dir="in"/>
-                <atomicProposition formula="address[13]" dir="in"/>
-                <atomicProposition formula="address[12]" dir="in"/>
-                <atomicProposition formula="address[11]" dir="in"/>
-                <atomicProposition formula="address[10]" dir="in"/>
-                <atomicProposition formula="address[9]" dir="in"/>
-                <atomicProposition formula="address[8]" dir="in"/>
-                <atomicProposition formula="address[7]" dir="in"/>
-                <atomicProposition formula="address[6]" dir="in"/>
-                <atomicProposition formula="address[5]" dir="in"/>
-                <atomicProposition formula="address[4]" dir="in"/>
-                <atomicProposition formula="address[3]" dir="in"/>
-                <atomicProposition formula="address[2]" dir="in"/>
-                <atomicProposition formula="address[1]" dir="in"/>
-                <atomicProposition formula="address[0]" dir="in"/>
-                <atomicProposition formula="busy" dir="out"/>
-                <atomicProposition formula="byte_sel[3]" dir="out"/>
-                <atomicProposition formula="byte_sel[2]" dir="out"/>
-                <atomicProposition formula="byte_sel[1]" dir="out"/>
-                <atomicProposition formula="byte_sel[0]" dir="out"/>
-                <atomicProposition formula="data_from_bus[31]" dir="in"/>
-                <atomicProposition formula="data_from_bus[30]" dir="in"/>
-                <atomicProposition formula="data_from_bus[29]" dir="in"/>
-                <atomicProposition formula="data_from_bus[28]" dir="in"/>
-                <atomicProposition formula="data_from_bus[27]" dir="in"/>
-                <atomicProposition formula="data_from_bus[26]" dir="in"/>
-                <atomicProposition formula="data_from_bus[25]" dir="in"/>
-                <atomicProposition formula="data_from_bus[24]" dir="in"/>
-                <atomicProposition formula="data_from_bus[23]" dir="in"/>
-                <atomicProposition formula="data_from_bus[22]" dir="in"/>
-                <atomicProposition formula="data_from_bus[21]" dir="in"/>
-                <atomicProposition formula="data_from_bus[20]" dir="in"/>
-                <atomicProposition formula="data_from_bus[19]" dir="in"/>
-                <atomicProposition formula="data_from_bus[18]" dir="in"/>
-                <atomicProposition formula="data_from_bus[17]" dir="in"/>
-                <atomicProposition formula="data_from_bus[16]" dir="in"/>
-                <atomicProposition formula="data_from_bus[15]" dir="in"/>
-                <atomicProposition formula="data_from_bus[14]" dir="in"/>
-                <atomicProposition formula="data_from_bus[13]" dir="in"/>
-                <atomicProposition formula="data_from_bus[12]" dir="in"/>
-                <atomicProposition formula="data_from_bus[11]" dir="in"/>
-                <atomicProposition formula="data_from_bus[10]" dir="in"/>
-                <atomicProposition formula="data_from_bus[9]" dir="in"/>
-                <atomicProposition formula="data_from_bus[8]" dir="in"/>
-                <atomicProposition formula="data_from_bus[7]" dir="in"/>
-                <atomicProposition formula="data_from_bus[6]" dir="in"/>
-                <atomicProposition formula="data_from_bus[5]" dir="in"/>
-                <atomicProposition formula="data_from_bus[4]" dir="in"/>
-                <atomicProposition formula="data_from_bus[3]" dir="in"/>
-                <atomicProposition formula="data_from_bus[2]" dir="in"/>
-                <atomicProposition formula="data_from_bus[1]" dir="in"/>
-                <atomicProposition formula="data_from_bus[0]" dir="in"/>
-                <atomicProposition formula="data_to_bus[31]" dir="out"/>
-                <atomicProposition formula="data_to_bus[30]" dir="out"/>
-                <atomicProposition formula="data_to_bus[29]" dir="out"/>
-                <atomicProposition formula="data_to_bus[28]" dir="out"/>
-                <atomicProposition formula="data_to_bus[27]" dir="out"/>
-                <atomicProposition formula="data_to_bus[26]" dir="out"/>
-                <atomicProposition formula="data_to_bus[25]" dir="out"/>
-                <atomicProposition formula="data_to_bus[24]" dir="out"/>
-                <atomicProposition formula="data_to_bus[23]" dir="out"/>
-                <atomicProposition formula="data_to_bus[22]" dir="out"/>
-                <atomicProposition formula="data_to_bus[21]" dir="out"/>
-                <atomicProposition formula="data_to_bus[20]" dir="out"/>
-                <atomicProposition formula="data_to_bus[19]" dir="out"/>
-                <atomicProposition formula="data_to_bus[18]" dir="out"/>
-                <atomicProposition formula="data_to_bus[17]" dir="out"/>
-                <atomicProposition formula="data_to_bus[16]" dir="out"/>
-                <atomicProposition formula="data_to_bus[15]" dir="out"/>
-                <atomicProposition formula="data_to_bus[14]" dir="out"/>
-                <atomicProposition formula="data_to_bus[13]" dir="out"/>
-                <atomicProposition formula="data_to_bus[12]" dir="out"/>
-                <atomicProposition formula="data_to_bus[11]" dir="out"/>
-                <atomicProposition formula="data_to_bus[10]" dir="out"/>
-                <atomicProposition formula="data_to_bus[9]" dir="out"/>
-                <atomicProposition formula="data_to_bus[8]" dir="out"/>
-                <atomicProposition formula="data_to_bus[7]" dir="out"/>
-                <atomicProposition formula="data_to_bus[6]" dir="out"/>
-                <atomicProposition formula="data_to_bus[5]" dir="out"/>
-                <atomicProposition formula="data_to_bus[4]" dir="out"/>
-                <atomicProposition formula="data_to_bus[3]" dir="out"/>
-                <atomicProposition formula="data_to_bus[2]" dir="out"/>
-                <atomicProposition formula="data_to_bus[1]" dir="out"/>
-                <atomicProposition formula="data_to_bus[0]" dir="out"/>
-                <atomicProposition formula="error_from_bus" dir="in"/>
-                <atomicProposition formula="ready_from_bus" dir="in"/>
-                <atomicProposition formula="request" dir="in"/>
-                <atomicProposition formula="reset" dir="in"/>
-                <atomicProposition formula="wb_ack" dir="out"/>
-                <atomicProposition formula="wb_adr[31]" dir="out"/>
-                <atomicProposition formula="wb_adr[30]" dir="out"/>
-                <atomicProposition formula="wb_adr[29]" dir="out"/>
-                <atomicProposition formula="wb_adr[28]" dir="out"/>
-                <atomicProposition formula="wb_adr[27]" dir="out"/>
-                <atomicProposition formula="wb_adr[26]" dir="out"/>
-                <atomicProposition formula="wb_adr[25]" dir="out"/>
-                <atomicProposition formula="wb_adr[24]" dir="out"/>
-                <atomicProposition formula="wb_adr[23]" dir="out"/>
-                <atomicProposition formula="wb_adr[22]" dir="out"/>
-                <atomicProposition formula="wb_adr[21]" dir="out"/>
-                <atomicProposition formula="wb_adr[20]" dir="out"/>
-                <atomicProposition formula="wb_adr[19]" dir="out"/>
-                <atomicProposition formula="wb_adr[18]" dir="out"/>
-                <atomicProposition formula="wb_adr[17]" dir="out"/>
-                <atomicProposition formula="wb_adr[16]" dir="out"/>
-                <atomicProposition formula="wb_adr[15]" dir="out"/>
-                <atomicProposition formula="wb_adr[14]" dir="out"/>
-                <atomicProposition formula="wb_adr[13]" dir="out"/>
-                <atomicProposition formula="wb_adr[12]" dir="out"/>
-                <atomicProposition formula="wb_adr[11]" dir="out"/>
-                <atomicProposition formula="wb_adr[10]" dir="out"/>
-                <atomicProposition formula="wb_adr[9]" dir="out"/>
-                <atomicProposition formula="wb_adr[8]" dir="out"/>
-                <atomicProposition formula="wb_adr[7]" dir="out"/>
-                <atomicProposition formula="wb_adr[6]" dir="out"/>
-                <atomicProposition formula="wb_adr[5]" dir="out"/>
-                <atomicProposition formula="wb_adr[4]" dir="out"/>
-                <atomicProposition formula="wb_adr[3]" dir="out"/>
-                <atomicProposition formula="wb_adr[2]" dir="out"/>
-                <atomicProposition formula="wb_adr[1]" dir="out"/>
-                <atomicProposition formula="wb_adr[0]" dir="out"/>
-                <atomicProposition formula="wb_cyc" dir="out"/>
-                <atomicProposition formula="wb_dat_i[31]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[30]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[29]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[28]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[27]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[26]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[25]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[24]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[23]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[22]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[21]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[20]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[19]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[18]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[17]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[16]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[15]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[14]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[13]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[12]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[11]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[10]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[9]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[8]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[7]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[6]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[5]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[4]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[3]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[2]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[1]" dir="in"/>
-                <atomicProposition formula="wb_dat_i[0]" dir="in"/>
-                <atomicProposition formula="wb_dat_o[31]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[30]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[29]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[28]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[27]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[26]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[25]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[24]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[23]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[22]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[21]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[20]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[19]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[18]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[17]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[16]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[15]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[14]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[13]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[12]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[11]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[10]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[9]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[8]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[7]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[6]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[5]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[4]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[3]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[2]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[1]" dir="out"/>
-                <atomicProposition formula="wb_dat_o[0]" dir="out"/>
-                <atomicProposition formula="wb_err" dir="out"/>
-                <atomicProposition formula="wb_rst" dir="out"/>
-                <atomicProposition formula="wb_sel[3]" dir="in"/>
-                <atomicProposition formula="wb_sel[2]" dir="in"/>
-                <atomicProposition formula="wb_sel[1]" dir="in"/>
-                <atomicProposition formula="wb_sel[0]" dir="in"/>
-                <atomicProposition formula="wb_stall" dir="in"/>
-                <atomicProposition formula="wb_stb" dir="out"/>
-                <atomicProposition formula="wb_we" dir="out"/>
-                <atomicProposition formula="write" dir="out"/>
+                <atomicProposition formula="request"   dir="in" />
+                <atomicProposition formula="busy"   dir="in" />
+                <atomicProposition formula="X[1]busy"   dir="out" />
+                <atomicProposition formula="wb_we"   dir="in" />
+                <atomicProposition formula="nexttime[1](wb_we == $past(write, 1)"   dir="out" />
+                <!--
+                <atomicProposition formula="wb_stb"   dir="out" />
+                <atomicProposition formula="wb_we"    dir="out" />
+                <atomicProposition formula="wb_ack"   dir="in" />
+                <atomicProposition formula="wb_err"   dir="in" />
+                <atomicProposition formula="wb_rst"   dir="in" />
+                <atomicProposition formula="wb_stall" dir="in" />
+                <atomicProposition formula="request"  dir="in" />
+                <atomicProposition formula="write"    dir="in" />
+                <atomicProposition formula="busy"     dir="out" />
+                <atomicProposition formula="reset"    dir="out" />
+                <atomicProposition formula="ready_from_bus" dir="out" />
+                <atomicProposition formula="error_from_bus" dir="out" />
+-->
             </atomicPropositions>
         </coneOfInfluence>
     </coneminer>
@@ -239,7 +50,7 @@
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-         <constraints maxVariables="3"/>
+         <constraints maxVariables="10"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->
@@ -248,6 +59,8 @@
                     <!--
                         <propertyQualifier name="FBQualifier"/> 
                     -->
-    <propertyprinter name="psl"/>
+    <propertyprinter name="sva">
+        <generateChecker value="Yes" name="buslayer_master"/>
+    </propertyprinter>
 
 </root>

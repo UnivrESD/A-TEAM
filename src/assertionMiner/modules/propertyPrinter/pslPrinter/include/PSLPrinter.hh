@@ -5,6 +5,7 @@
 #include "oden/types.hh"
 
 #include <string>
+#include <algorithm>
 
 using namespace oden;
 
@@ -22,6 +23,8 @@ class PSLPrinter : public modules::PropertyPrinter {
     PSLPropositionPrinter _pslVisitor;
     void _printer(oden::Assertion &assertion, oden::Template templ,
                   std::stringstream &ss);
+    bool _generateChecker=false;
+    std::string _checkerName="";
 };
 
 } // namespace pslPrinter

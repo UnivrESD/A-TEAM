@@ -101,15 +101,15 @@ def addMissingBits(signalValues, signalSize):
 ###############################################################################
 
 ###############################################################################
-def printMangroveTrace(path, trace, splitVector):
+def printMangroveTrace(path, trace, splitVector,convertLogicToBool):
     var_file = open(path + "trace.variables", "w")
     for index in range(len(trace)):
         nameSignal, valueSignal = trace[index]
         time, value = valueSignal[0]
  
 
-        if len(value) == 1:
-            var_file.write(nameSignal + " logic 1\n")
+        if len(value) == 1 and convertLogicToBool == "Yes" :
+            var_file.write(nameSignal + " bool\n")
         else:
             if not splitVector:
                 var_file.write(nameSignal + " logic " + str(len(value)) + "\n")
@@ -164,17 +164,19 @@ def printMangroveTrace(path, trace, splitVector):
 
 ###############################################################################
 def main(argv):
-    if len(sys.argv) < 4:
+    if len(sys.argv) < 7:
         print "Usage:"
-        print "python " + os.path.basename(sys.argv[0]) + " <vcd> <clock> <split?True:False>"
+        print "python " + os.path.basename(sys.argv[0]) + " <vcd> <clock> <split?Yes:No> <addModulePathToVariables?Yes:No> <convertLogicToBool?Yes:No> <pathToOut>"
         return 1
 
     fileName = sys.argv[1]
     clockName = sys.argv[2]
-    splitVector = (sys.argv[3] == "True")
-    pathToOut= "./" + sys.argv[4];
+    splitVector = (sys.argv[3] == "Yes")
+    addModulePathToVariables=sys.argv[4]
+    convertLogicToBool=sys.argv[5]
+    pathToOut= "./" + sys.argv[6]
 
-    data = parse_vcd(fileName)
+    data = parse_vcd(fileName,addModulePathToVariables,clockName)
     clockCode = getSignalCode(clockName, data)
 
     if clockCode == '':
@@ -201,7 +203,7 @@ def main(argv):
         addMissingBits(signalValues, signalSize)
         mangroveTrace.append((signalName, signalValues))
 
-    printMangroveTrace(pathToOut, mangroveTrace, splitVector)
+    printMangroveTrace(pathToOut, mangroveTrace, splitVector, convertLogicToBool)
 
 
 ###############################################################################

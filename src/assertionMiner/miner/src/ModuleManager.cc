@@ -32,15 +32,14 @@ ConeMiner *ModuleManager::getConeMiner(XmlNode *data) {
     return nullptr;
 }
 
-TraceReader *ModuleManager::getTraceReader(XmlNode *data) {
+modules::TraceReader *ModuleManager::getTraceReader(XmlNode *data,const std::string &vcdFile){
     if (data == nullptr)
         return nullptr;
-
 
     std::string name = getAttributeValue(data, "name");
     if (name == "mangroveTraceReader") {
         MangroveTraceReader *mTReader;
-        mTReader = new MangroveTraceReader(data);
+        mTReader = new MangroveTraceReader(data,vcdFile);
         return static_cast<TraceReader *>(mTReader);
     }
 
@@ -102,7 +101,7 @@ PropertyPrinter *ModuleManager::getPropertyPrinter(XmlNode *data) {
         return nullptr;
 
     std::string name = getAttributeValue(data, "name");
-    if (name == "psl") {
+    if (name == "sva") {
         pslPrinter::PSLPrinter *printer;
         printer = new pslPrinter::PSLPrinter(data);
         return static_cast<PropertyPrinter *>(printer);

@@ -1,4 +1,0 @@
-cd /home/sam/assertionminer/build/
-make -j4
-cd /home/sam/assertionminer/tests
-gdb --args /home/sam/assertionminer/build/src/assertionMiner/miner/a-team /home/sam/assertionminer/tests/bl_master/mining_bl_master.xml

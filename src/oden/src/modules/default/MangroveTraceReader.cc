@@ -5,30 +5,68 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <unistd.h>
+
+
+std::string get_selfpath() {
+    char buff[500];
+    ssize_t len = ::readlink("/proc/self/exe", buff, sizeof(buff)-1);
+    if (len != -1) {
+      buff[len] = '\0';
+      return std::string(buff);
+    }
+
+    return "";
+    /* handle error condition */
+}
 
 namespace oden {
 namespace modules {
 
-MangroveTraceReader::MangroveTraceReader(XmlNode *xmlNode)
-    : TraceReader(xmlNode), _variablesFile(), _tracesFile(), _name2Dir(),
+MangroveTraceReader::MangroveTraceReader(XmlNode *xmlNode,const std::string &vcdFile)
+    : TraceReader(xmlNode), _vcdFile(vcdFile), _variablesFile(), _tracesFile(), _name2Dir(),
       _sortedNames() {
 
-    XmlNode *vcdFileXml = configuration->first_node("vcdFile");
-    if (vcdFileXml == nullptr)
-        messageError("The xml node 'vcdFile' has not been found");
+          XmlNode *vcdParserConfigXml = configuration->first_node("vcdParserConfig");
+          if (vcdParserConfigXml == nullptr)
+              messageError("The xml node 'vcdParserConfig' has not been found");
 
-    std::string vcdFilePath = getAttributeValue(vcdFileXml, "path");
-    size_t itIndex = vcdFilePath.find_last_of("/", vcdFilePath.size() - 1);
-    std::string pathToOut(vcdFilePath.begin(),
-                          vcdFilePath.begin() + (itIndex + 1));
+          XmlNode *clockSignalXml = vcdParserConfigXml->first_node("clockSignal");
+          if (clockSignalXml == nullptr)
+              messageError("The xml node 'clockSignal' has not been found");
+
+          XmlNode *splitSignalsXml = vcdParserConfigXml->first_node("splitSignals");
+          if (splitSignalsXml == nullptr)
+              messageError("The xml node 'splitSignals' has not been found");
+
+          XmlNode *addModulePathToVariablesXml = vcdParserConfigXml->first_node("addModulePathToVariables");
+          if (addModulePathToVariablesXml == nullptr)
+              messageError("The xml node 'addModulePathToVariables' has not been found");
+
+          XmlNode *convertSingleBitLogicToBoolXml = vcdParserConfigXml->first_node("convertSingleBitLogicToBool");
+          if (convertSingleBitLogicToBoolXml == nullptr)
+              messageError("The xml node 'convertSingleBitLogicToBool' has not been found");
+
+
+
+          _clk=getAttributeValue(clockSignalXml,"name");
+          std::string splitSignal=getAttributeValue(splitSignalsXml,"value");
+          std::string addModulePathToVariables=getAttributeValue(addModulePathToVariablesXml,"value");
+          std::string convertSingleBitLogicToBool=getAttributeValue(convertSingleBitLogicToBoolXml,"value");
+
+
+          size_t itIndex = _vcdFile.find_last_of("/", _vcdFile.size() - 1);
+          std::string pathToOut(_vcdFile.begin(), _vcdFile.begin() + (itIndex + 1));
+
+    std::string binPath=get_selfpath();
+    itIndex = binPath.find_last_of("/", binPath.size() - 1);
+    std::string selfPath(binPath.begin(), binPath.begin() + (itIndex + 1));
 
     ifstream f1((pathToOut + "trace.variables").c_str());
     ifstream f2((pathToOut + "trace.mangrove").c_str());
     if (!f1.good() || !f2.good()) {
         messageInfo("Parsing VCD file...");
-        std::system(("python ../vcd2mangrove/vcd2mangrove.py " + vcdFilePath +
-                     " clk False " + pathToOut)
-                        .c_str());
+        std::system(("python2.7 " + selfPath + "../vcd2mangrove/vcd2mangrove.py " + _vcdFile + " " + _clk + " " + splitSignal + " "  + addModulePathToVariables + " " + convertSingleBitLogicToBool + " " + pathToOut).c_str());
     } else {
         messageInfo("Trace files found! Not parsing the VCD file");
     }
@@ -37,9 +75,6 @@ MangroveTraceReader::MangroveTraceReader(XmlNode *xmlNode)
     _variablesFile = pathToOut + "trace.variables";
     _tracesFile.push_back(pathToOut + "trace.mangrove");
     /*
-XmlNode *variablesXml = configuration->first_node("variables");
-if (variablesXml == nullptr)
-  messageError("The xml node 'variables' has not been found");
 
 _variablesFile = getAttributeValue(variablesXml, "path");
 if (_variablesFile.empty())
@@ -179,6 +214,7 @@ void MangroveTraceReader::_readTraceFile(TraceRepository &repo,
     }
 
     Trace &trace = repo.makeTrace(length);
+    trace._clk=_clk;
 
     messageInfo("File: " + traceFile + " Length: " + to_string(length));
     for (string &varName : _sortedNames) {

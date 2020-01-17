@@ -101,6 +101,7 @@ void ManualDefinition::mineCones(TraceRepository &traceRepo,
     messageErrorIf(coneName.empty(), "Cone of influence does not have a name!");
 
     auto *newCone = new ConeOfInfluence(coneName);
+    newCone->_clk=trace._clk;
 
   /*
     //(1) get single variable propositions
@@ -147,6 +148,17 @@ void ManualDefinition::mineCones(TraceRepository &traceRepo,
     messageInfo("The cone: " + coneName + " has been created");
     cones.push_back(newCone);
   }
+
+  /*
+  Proposition *a=cones[0]->inPropositions[0];
+  Proposition *b=cones[0]->propositions[0];
+  for(size_t i=0;i<trace.getLength();i++){
+      if(!(!a->evaluate(i) || b->evaluate(i))){
+          std::cout<<"Error, time: "<<i<<"\n";
+      }
+  }
+  exit(0);
+  */
 }
 
 void ManualDefinition::_fillName2Dir(XmlNodeList &directionList) {
@@ -198,10 +210,15 @@ void ManualDefinition::fillConeWithAtomicPropositions(
       // add type to the variable (if present)
       auto it = begin(atProp);
       std::string toFind = var->getName();
+      bool varAdded=false;
       while (1) {
         it = std::search(it, end(atProp), begin(toFind), end(toFind));
         if (it == end(atProp)) {
           break;
+        }
+        if(!varAdded){
+            varAdded=true;
+            cone.usedVariables.push_back(toFind);
         }
         // substitute the typeless variable with <varName,type>
         atProp.erase(it, it + toFind.size());
@@ -218,19 +235,13 @@ void ManualDefinition::fillConeWithAtomicPropositions(
     tree::ParseTree *tree = parser.file();
     oden::PropositionParser listener(traceRepo.getVariables(), traceRepo[0]);
     tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
-    std::cout << tree->toStringTree(&parser) << std::endl;
+//    std::cout << tree->toStringTree(&parser) << std::endl;
 
     Proposition *p = listener.getProposition();
     messageErrorIf(p == nullptr, "Not valid atomic proposition: " +
                                    tree->toStringTree(&parser));
 
     messageInfo("PROPOSITION: " + oden::prop2String(*p));
-    /*
-    for(size_t i=0;i<traceRepo[0].getLength();i++){
-        std::cout<<p->evaluate(i)<<" ";
-    }
-    std::cout<<std::endl;
-    */
 
     VariableDirection direction = variableDirectionFromString(directionStr);
 

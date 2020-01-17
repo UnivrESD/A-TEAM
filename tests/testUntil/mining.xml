@@ -1,7 +1,12 @@
 <root>
 
     <tracereader name="mangroveTraceReader">
-        <vcdFile path="testUntil/testUntil.vcd"/>
+        <vcdParserConfig>
+            <clockSignal name="wb_clk"/>
+            <splitSignals value="No"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="No"/>
+        </vcdParserConfig>
     </tracereader>
 
         
@@ -12,7 +17,9 @@
         </directions>
 
             <atomicPropositions>
-                <atomicProposition formula="{_a}['b01] == _e" dir="out"/>
+                <atomicProposition formula="_e" dir="in"/>
+                <atomicProposition formula="_f" dir="out"/>
+                <atomicProposition formula="_g" dir="out"/>
 
                 <!--
                 <atomicProposition formula="~c <=_ ~d" dir="out"/>

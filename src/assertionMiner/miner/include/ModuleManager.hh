@@ -14,7 +14,7 @@ class ModuleManager {
     ~ModuleManager() = default;
 
     modules::ConeMiner *getConeMiner(XmlNode *data);
-    modules::TraceReader *getTraceReader(XmlNode *data);
+    modules::TraceReader *getTraceReader(XmlNode *data,const std::string &vcdFile);
     modules::PropositionMiner *getAtomicPropositionsMiner(XmlNode *data);
     modules::PropertyMiner *getPropertyMiner(XmlNode *data);
     modules::PropertyQualifier *getPropertyQualifier(XmlNode *data);

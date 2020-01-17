@@ -23,7 +23,7 @@ class MangroveTraceReader : public TraceReader {
   public:
     /// @brief Constructor.
     /// @param xmlNode The xml node containing the reader's parameters
-    explicit MangroveTraceReader(XmlNode *xmlNode);
+    explicit MangroveTraceReader(XmlNode *xmlNode,const std::string &vcdFile);
 
     /// @brief Destructor.
     ~MangroveTraceReader() override = default;
@@ -34,6 +34,10 @@ class MangroveTraceReader : public TraceReader {
     TraceRepository *readTraces() override;
 
   private:
+    std::string _vcdFile;
+
+    std::string _clk;
+
     // path to the file .variables
     string _variablesFile;
 

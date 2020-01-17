@@ -5,6 +5,7 @@
 #include "oden/classes/atom/Atom.hh"
 #include "oden/types.hh"
 #include <string>
+#include <vector>
 
 namespace oden {
 
@@ -23,6 +24,8 @@ class ConeOfInfluence {
 
     /// @brief Destructor.
     ~ConeOfInfluence();
+
+    std::vector<std::string> usedVariables;
 
     /// @brief A List of propositions among
     /// the input variables belonging to the cone.
@@ -51,11 +54,15 @@ class ConeOfInfluence {
     /// @brief The list of mined assertions.
     List<Assertion> assertions;
 
+
+
     /// @brief Unsupported operator
     ConeOfInfluence &operator=(const ConeOfInfluence &other) = delete;
 
     // the name of the cone of influence
     const std::string name;
+
+    std::string _clk;
 };
 
 } // namespace oden

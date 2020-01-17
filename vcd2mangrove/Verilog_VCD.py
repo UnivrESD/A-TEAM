@@ -28,7 +28,7 @@ def list_sigs(file):
     return sigs
 
 
-def parse_vcd(file, only_sigs=0, use_stdout=0, siglist=[], opt_timescale=''):
+def parse_vcd(file, addModulePathToVariables,clockName, only_sigs=0, use_stdout=0, siglist=[], opt_timescale=''):
     """Parse input VCD file into data structure.
     Also, print t-v pairs to STDOUT, if requested."""
 
@@ -142,7 +142,7 @@ def parse_vcd(file, only_sigs=0, use_stdout=0, siglist=[], opt_timescale=''):
                 path = '.'.join(hier)
                 full_name = path + '.' + name
 
-                if (name!="clk"):
+                if (name!=clockName and addModulePathToVariables=="Yes"):
                     name= hier[len(hier)-1] + '.' + name
 
                 sys.stdout.write(name + "\n")

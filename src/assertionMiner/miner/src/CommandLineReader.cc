@@ -6,16 +6,17 @@ using namespace std;
 namespace assertionMiner {
 
 void CommandLineReader::_printUsage() {
-    cout << "Usage: a-team configuration_file.xml" << endl;
+    cout << "Usage: a-team configuration_file.xml Trace.vcd" << endl;
     exit(EXIT_FAILURE);
 }
 
 CommandLineReader::CommandLineReader(int argc, char *argv[])
     : _xmlFile(nullptr), _doc(nullptr) {
-    if (argc != 2)
+    if (argc != 3)
         _printUsage();
 
     _validateFile(argv[1]);
+    _vcdFile=std::string(argv[2]);
 }
 
 CommandLineReader::~CommandLineReader() {
@@ -33,6 +34,10 @@ void CommandLineReader::_validateFile(const char *xmlFile) {
                   << "Reason: " << e.what() << endl;
         exit(1);
     }
+}
+
+const std::string CommandLineReader::getVCDfile(){
+    return _vcdFile;
 }
 
 XmlNode *CommandLineReader::getConeMinerNode() {

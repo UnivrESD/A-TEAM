@@ -1,5 +1,5 @@
 
-// Generated from ../assertionminer/antlr4_grammar/proposition.gr by ANTLR 4.7.1
+// Generated from A-TEAM/antlr4_grammar/proposition.gr by ANTLR 4.7.2
 
 #pragma once
 

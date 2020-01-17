@@ -55,6 +55,8 @@ class Trace {
     // in otder to let it access to private variables
     friend class PeTraceChanger;
 
+  public:
+    std::string _clk="";
   private:
     /// @brief The numeric sub-trace containing the values of each Numeric
     /// variable

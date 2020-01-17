@@ -24,7 +24,7 @@ inline bool evaluate_INL(const unsigned int *_array, size_t time) {
 
 FaultChecker::FaultChecker(XmlNode *xmlNode)
     : _faultyTraces(nullptr), _covTraces(0), _coverageMap(nullptr) {
-    auto tReader  = new modules::MangroveTraceReader(xmlNode);
+    auto tReader  = new modules::MangroveTraceReader(xmlNode,"");
     _faultyTraces = tReader->readTraces();
     delete tReader;
 

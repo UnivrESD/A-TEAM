@@ -1,5 +1,5 @@
 
-// Generated from ../assertionminer/antlr4_grammar/proposition.gr by ANTLR 4.7.1
+// Generated from A-TEAM/antlr4_grammar/proposition.gr by ANTLR 4.7.2
 
 #pragma once
 
@@ -135,6 +135,7 @@ public:
   public:
     BooleanVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LT();
     VariableContext *variable();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -211,6 +212,7 @@ public:
   public:
     LogicVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LT();
     VariableContext *variable();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -278,6 +280,7 @@ public:
   public:
     NumericVariableContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *LT();
     VariableContext *variable();
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;

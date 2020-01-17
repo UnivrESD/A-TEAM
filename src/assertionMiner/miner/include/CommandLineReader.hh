@@ -23,12 +23,14 @@ class CommandLineReader {
     XmlNode *getPropertyMinerNode();
     XmlNode *getPropertyQualifierNode();
     XmlNode *getPropertyPrinterNode();
+    const std::string getVCDfile();
 
     CommandLineReader &operator=(const CommandLineReader &other) = delete;
 
   private:
     rapidxml::file<> *_xmlFile;
     rapidxml::xml_document<> *_doc;
+    std::string _vcdFile;
 
     void _printUsage();
     void _validateFile(const char *xmlFile);

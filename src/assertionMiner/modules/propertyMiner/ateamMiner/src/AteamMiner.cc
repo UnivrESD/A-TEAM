@@ -3,6 +3,7 @@
 #include "oden/odenUtils/odenUtils.hh"
 #include "supportMethods.hh"
 
+#include <algorithm>
 #include <iostream>
 #include <list>
 #include <spot/tl/print.hh>
@@ -394,8 +395,8 @@ bool AteamMiner::_makeImply(const Template &templ,
     // if the consequent is a BooleanVariable, then we also
     // save the off-set.
     // Otherwise, we only save the on-set
-    antGen.safeOffset =
-        (dynamic_cast<BooleanVariable *>(prop) != nullptr);
+    //antGen.safeOffset = (dynamic_cast<BooleanVariable *>(prop) != nullptr || dynamic_cast<LogicToBool *>(prop) != nullptr); 
+    antGen.safeOffset=false;
 
     // 4 - generate the antecedents justifying the
     // consequent
@@ -520,10 +521,21 @@ void AteamMiner::_makeCandidatePropositions(
 
         //========== (2) filling the vectors of atomic
         //proposition
-        std::cout << "Candidate Antecedents: \n";
-        for (auto e : cone.inPropositions) {
-            std::cout << prop2String(*e) << "\n";
+
+        /*
+    std::sort(begin(cone.inPropositions),end(cone.inPropositions),[](Proposition *p1,Proposition *p2){
+            return oden::prop2String(*p1) < oden::prop2String(*p2);
+            });
+            */
+    for (auto e : cone.inPropositions) {
+        std::cout << prop2String(*e) << "\n";
+        /*
+        for(size_t i=0;i<e->getMaxTime();i++){
+            ofs<<e->evaluate(i)<<" ";
         }
+        ofs <<"\n";
+        */
+    }
         _makeCandidatePropositions(
             cone.inPropositions, chainOfNexts,
             _antec2CandInProps[antecedent]);

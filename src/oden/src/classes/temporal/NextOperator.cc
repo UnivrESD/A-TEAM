@@ -35,7 +35,8 @@ template <> Logic NextOperator<LogicExpression>::evaluate(size_t time) {
 
 template <> bool NextOperator<Proposition>::evaluate(size_t time) {
   if ((time + _offset) >= _max_time) {
-    return _e->evaluate(_max_time - 1);
+    //return _e->evaluate(_max_time - 1);
+    return true;
   } else {
     return _e->evaluate(_offset + time);
   }

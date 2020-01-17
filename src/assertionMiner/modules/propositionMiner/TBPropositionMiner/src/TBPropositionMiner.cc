@@ -3,6 +3,7 @@
 #include "oden/odenUtils/odenUtils.hh"
 
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -118,8 +119,25 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
     }
 
     std::cout << "generated consequents:\n";
+
+    /*
+    std::sort(begin(cone.outPropositions),end(cone.outPropositions),[](Proposition *p1,Proposition *p2){
+            return oden::prop2String(*p1) < oden::prop2String(*p2);
+            });
+            */
+    
+    /*
+    std::ofstream ofs;
+  ofs.open ("Logicvars.txt", std::ofstream::out);
+  */
     for (auto e : cone.outPropositions) {
         std::cout << prop2String(*e) << "\n";
+        /*
+        for(size_t i=0;i<e->getMaxTime();i++){
+            ofs<<e->evaluate(i)<<" ";
+        }
+        ofs <<"\n";
+        */
     }
 
     delete[] base;

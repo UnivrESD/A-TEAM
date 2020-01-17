@@ -13,7 +13,7 @@ int main(int arg, char *argv[]) {
 
     config.coneMiner = manager.getConeMiner(cmdReader.getConeMinerNode());
 
-    config.traceReader = manager.getTraceReader(cmdReader.getTraceReaderNode());
+    config.traceReader = manager.getTraceReader(cmdReader.getTraceReaderNode(),cmdReader.getVCDfile());
 
     config.propositionMiner =
         manager.getAtomicPropositionsMiner(cmdReader.getPropositionMinerNode());

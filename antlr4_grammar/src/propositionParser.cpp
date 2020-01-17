@@ -1,5 +1,5 @@
 
-// Generated from ../assertionminer/antlr4_grammar/proposition.gr by ANTLR 4.7.1
+// Generated from A-TEAM/antlr4_grammar/proposition.gr by ANTLR 4.7.2
 
 
 #include "propositionListener.h"
@@ -199,6 +199,7 @@ propositionParser::BooleanContext* propositionParser::boolean(int precedence) {
   size_t parentState = getState();
   propositionParser::BooleanContext *_localctx = _tracker.createInstance<BooleanContext>(_ctx, parentState);
   propositionParser::BooleanContext *previousContext = _localctx;
+  (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 2;
   enterRecursionRule(_localctx, 2, propositionParser::RuleBoolean, precedence);
 
@@ -538,6 +539,10 @@ propositionParser::BooleanVariableContext::BooleanVariableContext(ParserRuleCont
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* propositionParser::BooleanVariableContext::LT() {
+  return getToken(propositionParser::LT, 0);
+}
+
 propositionParser::VariableContext* propositionParser::BooleanVariableContext::variable() {
   return getRuleContext<propositionParser::VariableContext>(0);
 }
@@ -706,6 +711,7 @@ propositionParser::LogicContext* propositionParser::logic(int precedence) {
   size_t parentState = getState();
   propositionParser::LogicContext *_localctx = _tracker.createInstance<LogicContext>(_ctx, parentState);
   propositionParser::LogicContext *previousContext = _localctx;
+  (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 10;
   enterRecursionRule(_localctx, 10, propositionParser::RuleLogic, precedence);
 
@@ -1041,6 +1047,10 @@ propositionParser::LogicVariableContext::LogicVariableContext(ParserRuleContext 
   : ParserRuleContext(parent, invokingState) {
 }
 
+tree::TerminalNode* propositionParser::LogicVariableContext::LT() {
+  return getToken(propositionParser::LT, 0);
+}
+
 propositionParser::VariableContext* propositionParser::LogicVariableContext::variable() {
   return getRuleContext<propositionParser::VariableContext>(0);
 }
@@ -1177,6 +1187,7 @@ propositionParser::NumericContext* propositionParser::numeric(int precedence) {
   size_t parentState = getState();
   propositionParser::NumericContext *_localctx = _tracker.createInstance<NumericContext>(_ctx, parentState);
   propositionParser::NumericContext *previousContext = _localctx;
+  (void)previousContext; // Silence compiler, in case the context is not used by generated code.
   size_t startState = 18;
   enterRecursionRule(_localctx, 18, propositionParser::RuleNumeric, precedence);
 
@@ -1437,6 +1448,10 @@ propositionParser::NumericConstantContext* propositionParser::numericConstant() 
 
 propositionParser::NumericVariableContext::NumericVariableContext(ParserRuleContext *parent, size_t invokingState)
   : ParserRuleContext(parent, invokingState) {
+}
+
+tree::TerminalNode* propositionParser::NumericVariableContext::LT() {
+  return getToken(propositionParser::LT, 0);
 }
 
 propositionParser::VariableContext* propositionParser::NumericVariableContext::variable() {
