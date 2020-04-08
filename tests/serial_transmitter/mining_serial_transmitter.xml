@@ -9,21 +9,13 @@
     </tracereader>
 
     <coneminer name="manualDefinition">
-        <coneOfInfluence name="cone1">
+        <coneOfInfluence name="Es1_2_assertions">
             <atomicPropositions>
-                <!-- commong propositions -->
-                <atomicProposition formula="bsy"   dir="inout" />
-                <atomicProposition formula="!bsy"   dir="out" />
-
-                <!-- load a key propositions -->
-                <atomicProposition formula="krdy"   dir="in" />
-                <atomicProposition formula="kvld"   dir="out" />
-
-
-                <!-- encode/decode key  propositions -->
-                <atomicProposition formula="encdec"   dir="in" />
-                <atomicProposition formula="drdy"   dir="in" />
-                <atomicProposition formula="dvld"   dir="out" />
+                <atomicProposition formula="rst"   dir="inout" />
+                <atomicProposition formula="data_to_send[7:0]"   dir="inout" />
+                <atomicProposition formula="send"   dir="inout" />
+                <atomicProposition formula="done"   dir="inout" />
+                <atomicProposition formula="val"   dir="inout" />
             </atomicPropositions>
         </coneOfInfluence>
     </coneminer>
@@ -42,8 +34,11 @@
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="X(p2 && X[6](p3 && p4))"/>
-            <template value="X(p2 && X[23](p3 && p4))"/>
+                    <template value="p2"/>
+                    <template value="Xp2"/>
+                    <template value="X(Xp2 <-> p3)"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 && p2"/>
          </ConsequentTemplates>
     </propositionminer>
 
@@ -52,7 +47,7 @@
     </propertyminer>
 
     <propertyprinter name="sva">
-        <generateChecker value="No" name="camellia"/>
+        <generateChecker value="Yes" name="transmitter"/>
     </propertyprinter>
 
 </root>

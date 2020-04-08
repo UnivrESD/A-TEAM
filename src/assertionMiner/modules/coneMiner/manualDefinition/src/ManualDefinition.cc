@@ -13,6 +13,7 @@
 
 #include <algorithm>
 #include <set>
+#include <cassert>
 
 using namespace oden;
 
@@ -187,7 +188,20 @@ void ManualDefinition::fillConeWithAtomicPropositions(
     messageErrorIf(directionStr.empty(), "Formula's direction not found!");
 
     // add types to variables
-    for (auto name2var : traceRepo.getVariables()) {
+    auto &vars= traceRepo.getVariables();
+    std::vector<std::pair<std::string,const DataType *>> name2varVec; 
+    for(const auto e: vars){
+        name2varVec.push_back(e);
+    }
+    //match the longest variables first
+    std::sort(begin(name2varVec),end(name2varVec),[](std::pair<std::string,const DataType *> &e1, std::pair<std::string,const DataType *> &e2){
+            return e1.first.size() > e2.first.size();
+            });
+
+    //keep track of substitutions
+    std::deque<bool> changes(atProp.size());
+
+    for (auto name2var : name2varVec) {
 
       // retrive type string
       const DataType *var = name2var.second;
@@ -207,25 +221,62 @@ void ManualDefinition::fillConeWithAtomicPropositions(
         break;
       }
 
-      // add type to the variable (if present)
-      auto it = begin(atProp);
+      //restart from the beginnin of the current proposition
+      auto it= begin(atProp);
       std::string toFind = var->getName();
       bool varAdded=false;
+
+  //    std::cout<<"matching:"<<toFind<<"\n";
+      // add type to the variable (if present)
       while (1) {
         it = std::search(it, end(atProp), begin(toFind), end(toFind));
         if (it == end(atProp)) {
+//            std::cout<<"No\n";
           break;
         }
+        //check if you are trying to substitute a substring of an already
+        //substituted variable
+        if(*(begin(changes)+(it-begin(atProp)))){
+            //increment the index iterator until the end of the forbidden area
+            //or until the end of the string
+            while(*(begin(changes)+(it-begin(atProp)))){
+                it++;
+                if (it == end(atProp)) {
+                    break;
+                }
+            }
+            continue;
+        }
+
+ //       std::cout<<"Yes!\n";
         if(!varAdded){
             varAdded=true;
             cone.usedVariables.push_back(toFind);
         }
         // substitute the typeless variable with <varName,type>
         atProp.erase(it, it + toFind.size());
+        //keep track of changes
+        std::transform(begin(changes)+(it-begin(atProp)),begin(changes)+(it-begin(atProp))+toFind.size(),begin(changes)+(it-begin(atProp)),[](bool e){
+                return true;
+                });
+        size_t toAdd=nameType.size()-toFind.size();
+
+        //extend changes to match the new size of atProp
+        changes.insert(begin(changes)+(it-begin(atProp)),toAdd,true);
+
         it = (atProp.insert(it, begin(nameType), end(nameType)) + toFind.size()) + toFind.size();
       }
     }
-    std::cout << atProp << std::endl;
+
+    assert(changes.size()==atProp.size());
+    /*
+    DEBUG
+    std::cout <<"After : "<< atProp << std::endl;
+    for(auto e : changes){
+        std::cout<<e<<" ";
+    }
+    std::cout<<"\n";
+    */
 
     antlr4::ANTLRInputStream input(atProp);
 

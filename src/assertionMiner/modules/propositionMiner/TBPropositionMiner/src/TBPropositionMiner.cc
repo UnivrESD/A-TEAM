@@ -197,6 +197,13 @@ Proposition *TBPropositionMiner::_genProposition(Template curr, int *repo,
         return p1;
     }
 
+    if (curr.is(spot::op::Equiv)) {
+        auto *pO = new PropositionEq();
+        pO->addItem(_genProposition(curr[0], repo, counter, outProps));
+        pO->addItem(_genProposition(curr[1], repo, counter, outProps));
+        return pO;
+    }
+
     if (isAtomicProposition(curr))
         return oden::copy(*outProps[repo[counter++]]);
 

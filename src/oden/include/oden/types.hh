@@ -22,12 +22,13 @@ struct Assertion {
     /// @brief Assertion identifier
     int id;
     /// @brief Assertion template.
+    Proposition *antecedent;
+    Proposition *consequent;
+
     Template templ;
-    /// @brief The t2p maps each leaf of the template with an oden proposition
-    std::map<Template, Proposition *> t2p;
-    /// @brief the faultList list collects the faults covered by the assertion.
-    std::list<size_t> faultList;
-    /// @brief Constructor.
+    std::map<Template,Proposition*> t2p;
+    std::vector<size_t> faultList; 
+
     Assertion();
     /// @brief Copy constructor.
     Assertion(const Assertion &other);

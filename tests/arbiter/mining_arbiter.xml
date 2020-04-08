@@ -1,7 +1,13 @@
 <root>
     <tracereader name="mangroveTraceReader">
-        <vcdFile path="arbiter/arbiter.vcd"/>
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="No"/>
+            <addModulePathToVariables value="Yes"/>
+            <convertSingleBitLogicToBool value="No"/>
+        </vcdParserConfig>
     </tracereader>
+
 
 
     <coneminer name="manualDefinition">
@@ -104,6 +110,8 @@
                         <propertyQualifier name="FBQualifier"/> 
                     -->
 
-                        <propertyprinter name="psl"/>
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="buslayer_master"/>
+    </propertyprinter>
 
 </root>

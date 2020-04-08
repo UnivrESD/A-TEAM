@@ -49,7 +49,7 @@ void Miner::run() {
 
     // for each cone of influence
     for (ConeOfInfluence *cone : cones) {
-        messageInfo("Getting assetions for the cone: " + cone->name);
+        messageInfo("Getting assertions for the cone: " + cone->name);
 
         //==== step 3) Mine logic propositions =================================
         if (_config.propositionMiner == nullptr)
@@ -79,10 +79,12 @@ void Miner::run() {
             _config.propertyPrinter->print(*cone);
         //----------------------------------------------------------------------
 
+        /*
         Checker checker;
         for (Assertion *a : cone->assertions)
             messageErrorIf(!checker.evaluate(*a, *traceRepo),
                            "Checking mined assertion failed!");
+                           */
     }
     delete traceRepo;
 }

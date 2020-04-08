@@ -9,14 +9,12 @@
     </tracereader>
 
     <coneminer name="manualDefinition">
-        <coneOfInfluence name="ManualAnalysis">
+        <coneOfInfluence name="cone1">
             <atomicPropositions>
+                <atomicProposition formula="busy"   dir="inout" />
                 <atomicProposition formula="request"   dir="in" />
-                <atomicProposition formula="busy"   dir="in" />
-                <atomicProposition formula="X[1]busy"   dir="out" />
-                <atomicProposition formula="wb_we"   dir="in" />
-                <atomicProposition formula="nexttime[1](wb_we == $past(write, 1)"   dir="out" />
-                <!--
+                <atomicProposition formula="wb_we"   dir="out" />
+                <atomicProposition formula="write"    dir="out" />
                 <atomicProposition formula="wb_stb"   dir="out" />
                 <atomicProposition formula="wb_we"    dir="out" />
                 <atomicProposition formula="wb_ack"   dir="in" />
@@ -29,20 +27,27 @@
                 <atomicProposition formula="reset"    dir="out" />
                 <atomicProposition formula="ready_from_bus" dir="out" />
                 <atomicProposition formula="error_from_bus" dir="out" />
--->
             </atomicPropositions>
         </coneOfInfluence>
     </coneminer>
 
     <!-- 
-        The template is "always(antecedent -> consequent)"
-        The antecedent is generated automatically
+        The full template is "(antecedent -> consequent)"
+        The antecedent is generated automatically following the template: p_1 && p_2 ... p_n
+
+        The templates must be written in the spot ltl language.
+        Some notes for the spot ltl language:
+        - Use "<->" instead of "=="
+        - Use "X[constant] expression" intead of "nexttime[constant] expression"
+        - Use "expression1 U expression2" intead of "expression1 until expression2"
+        - Use "expression1 -> expression2" intead of "expression1 |-> expression2"
+        - The other operators should hold the usual syntax
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="p1"/>
+                    <template value="Xp2"/>
+                    <template value="X(Xp2 <-> p3)"/>
                 <!--
-                    <template value="p1 && p2"/>
                     <template value="p1 U p2"/>
                     <template value="p1 R p2"/>
                 -->
@@ -60,7 +65,7 @@
                         <propertyQualifier name="FBQualifier"/> 
                     -->
     <propertyprinter name="sva">
-        <generateChecker value="Yes" name="buslayer_master"/>
+        <generateChecker value="No" name="buslayer_master"/>
     </propertyprinter>
 
 </root>

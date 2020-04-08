@@ -422,8 +422,7 @@ bool AteamMiner::_makeImply(const Template &templ,
     for (const set<Proposition *> &props : antGen.onSets) {
 
         auto *assertion = new Assertion();
-        assertion->templ = templ;
-        assertion->t2p[consequent] = oden::copy(*prop);
+        assertion->consequent = oden::copy(*prop);
         _finalizeAntecedent(*assertion, antecedent, props);
 
         assertions.push_back(assertion);
@@ -431,8 +430,7 @@ bool AteamMiner::_makeImply(const Template &templ,
 
     for (const set<Proposition *> &props : antGen.offSets) {
         auto *assertion = new Assertion();
-        assertion->templ = templ;
-        assertion->t2p[consequent] =
+        assertion->consequent = oden::copy(*prop);
             makeExpression<PropositionNot>(
                 oden::copy(*prop));
         _finalizeAntecedent(*assertion, antecedent, props);
@@ -481,9 +479,10 @@ void AteamMiner::_finalizeAntecedent(
     //placeholder ============
     // {(0: a&c); (1, d); (2, b)} --> ((a&c) & X(d) &
     // X(X(b)))
-    if (antecedent.is(spot::op::ap))
+    if (antecedent.is(spot::op::ap)){
         assertion.t2p[antecedent] = offset2Prop[0];
-    else {
+        assertion.antecedent=offset2Prop[0];
+    } else {
         for (auto at : antecedent) {
             size_t offset = countNext(at);
             at = removeNext(at);
@@ -491,10 +490,18 @@ void AteamMiner::_finalizeAntecedent(
             Proposition *p = offset2Prop[offset];
             assertion.t2p[at] =
                 (p == nullptr)
-                    ? new BooleanConstant(true, 0)
-                    : p;
+                ? new BooleanConstant(true, 0)
+                : p;
+            assertion.antecedent=
+                (p == nullptr)
+                ? new BooleanConstant(true, 0)
+                : p;
         }
     }
+
+
+
+
     //----------------------------------------------------------------------------
 }
 
@@ -527,6 +534,7 @@ void AteamMiner::_makeCandidatePropositions(
             return oden::prop2String(*p1) < oden::prop2String(*p2);
             });
             */
+        std::cout<<"Candidate antecedents:\n";
     for (auto e : cone.inPropositions) {
         std::cout << prop2String(*e) << "\n";
         /*

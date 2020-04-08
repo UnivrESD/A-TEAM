@@ -39,8 +39,9 @@ void PSLPrinter::print(ConeOfInfluence &cone) {
     ss << "checker " << _checkerName << "_checker(";
     ss<<cone._clk;
 
-    ss <<cone.usedVariables.front();
-    for(size_t i=1;i<cone.usedVariables.size();i++){
+    assert(cone.usedVariables.size()>0);
+
+    for(size_t i=0;i<cone.usedVariables.size();i++){
       ss <<", " <<cone.usedVariables[i];
     }
 
@@ -51,7 +52,11 @@ void PSLPrinter::print(ConeOfInfluence &cone) {
 
     for (Assertion *assertion : cone.assertions) {
       ss << "\t\tproperty p" << assertion->id << ";\n\t\t  ";
-      _printer(*assertion, assertion->templ, ss);
+//      _printer(*assertion, assertion->templ, ss);
+        ss<< oden::prop2String(*assertion->antecedent);
+        ss<<" |-> ";
+        ss<< oden::prop2String(*assertion->consequent);
+        ss<<"\n";
       ss << "\n\t\tendproperty\n\n";
       maxID = std::max(maxID, assertion->id);
     }
@@ -66,7 +71,7 @@ void PSLPrinter::print(ConeOfInfluence &cone) {
     ss << "bind `" << moduleNameUpperCase << " " << _checkerName<<"_checker "<<_checkerName
        << "_checker_instance(";
     ss<<"`" + moduleNameUpperCase + "." + cone._clk;
-    for(size_t i=1;i<cone.usedVariables.size();i++){
+    for(size_t i=0;i<cone.usedVariables.size();i++){
       ss << ", `" + moduleNameUpperCase + "." + cone.usedVariables[i];
     }
     ss<<");";
@@ -78,7 +83,10 @@ void PSLPrinter::print(ConeOfInfluence &cone) {
 
     for (Assertion *assertion : cone.assertions) {
       ss << "\tproperty p" << assertion->id << ";\n\t  ";
-      _printer(*assertion, assertion->templ, ss);
+//      _printer(*assertion, assertion->templ, ss);
+        ss<< oden::prop2String(*assertion->antecedent);
+        ss<<" |-> ";
+        ss<< oden::prop2String(*assertion->consequent);
       ss << "\n\tendproperty\n\n";
       maxID = std::max(maxID, assertion->id);
     }
@@ -102,7 +110,7 @@ void PSLPrinter::_printer(Assertion &assertion, Template templ,
       templ = templ[0];
     } while (templ.is(spot::op::X));
 
-    ss << "next[" << xCounter << "](";
+    ss << "nexttime[" << xCounter << "](";
     _printer(assertion, templ, ss);
     ss << ")";
     return;

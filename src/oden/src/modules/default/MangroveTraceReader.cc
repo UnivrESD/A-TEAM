@@ -66,7 +66,7 @@ MangroveTraceReader::MangroveTraceReader(XmlNode *xmlNode,const std::string &vcd
     ifstream f2((pathToOut + "trace.mangrove").c_str());
     if (!f1.good() || !f2.good()) {
         messageInfo("Parsing VCD file...");
-        std::system(("python2.7 " + selfPath + "../vcd2mangrove/vcd2mangrove.py " + _vcdFile + " " + _clk + " " + splitSignal + " "  + addModulePathToVariables + " " + convertSingleBitLogicToBool + " " + pathToOut).c_str());
+        std::system(("python2.7 " + selfPath + "../../../../vcd2mangrove/vcd2mangrove.py " + _vcdFile + " " + _clk + " " + splitSignal + " "  + addModulePathToVariables + " " + convertSingleBitLogicToBool + " " + pathToOut).c_str());
     } else {
         messageInfo("Trace files found! Not parsing the VCD file");
     }

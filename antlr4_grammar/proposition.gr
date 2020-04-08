@@ -96,7 +96,7 @@ variable
 
 
 NextOp
-    : 'X'
+    : 'nexttime'
     ;
 PastOp
     : '$past'
@@ -138,6 +138,7 @@ VARIABLE
    : VALID_ID_START VALID_ID_CHAR*
    ;
 
+
 fragment VALID_ID_START
     : ('a' .. 'z')
     | ('A' .. 'W')
@@ -150,9 +151,7 @@ fragment VALID_ID_CHAR
     : VALID_ID_START
     | ('0' .. '9')
     | ('.')
-    | ('[')
-    | (']')
-    | (':')
+    | ('[') ('0' .. '9')* (':') ('0' .. '9')* (']')
     ;
 //------------------------------------------------------------------------------
 
