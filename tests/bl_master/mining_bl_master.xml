@@ -2,7 +2,7 @@
     <tracereader name="mangroveTraceReader">
         <vcdParserConfig>
             <clockSignal name="wb_clk"/>
-            <splitSignals value="No"/>
+            <splitSignals value="Yes"/>
             <addModulePathToVariables value="No"/>
             <convertSingleBitLogicToBool value="Yes"/>
         </vcdParserConfig>
@@ -55,7 +55,7 @@
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-         <constraints maxVariables="10"/>
+         <constraints maxVariables="3"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->

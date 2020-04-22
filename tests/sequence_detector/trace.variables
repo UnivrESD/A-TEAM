@@ -1,0 +1,10 @@
+current_state[2] bool
+current_state[1] bool
+current_state[0] bool
+detector_out bool
+next_state[2] bool
+next_state[1] bool
+next_state[0] bool
+reset bool
+sequence_in bool
+

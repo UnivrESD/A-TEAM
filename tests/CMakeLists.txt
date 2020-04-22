@@ -2,7 +2,9 @@ message("-- Including test cases...")
 
 set(WORD_DIR ${CMAKE_BINARY_DIR}/../tests)
 
-add_test(NAME bl_master COMMAND a-team bl_master/mining_bl_master.xml bl_master/bl_master.vcd WORKING_DIRECTORY ${WORD_DIR})
+#add_test(NAME bl_master COMMAND a-team bl_master/mining_bl_master.xml bl_master/bl_master.vcd WORKING_DIRECTORY ${WORD_DIR})
+add_test(NAME sequence_detector COMMAND a-team
+    sequence_detector/mining_sequence_detector.xml sequence_detector/sequence_detector.vcd WORKING_DIRECTORY ${WORD_DIR})
 #add_test(NAME bl_slave_0 COMMAND a-team bl_slave_0/mining_bl_slave.xml WORKING_DIRECTORY ${WORD_DIR})
 #add_test(NAME bl_slave_1 COMMAND a-team bl_slave_1/mining_bl_slave.xml WORKING_DIRECTORY ${WORD_DIR})
 #add_test(NAME camellia COMMAND a-team camellia/mining_camellia.xml camellia/camellia.vcd WORKING_DIRECTORY ${WORD_DIR})
