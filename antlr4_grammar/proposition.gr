@@ -19,6 +19,7 @@ boolean
     | boolean booleanop=OR boolean
     | booleanAtom
     | logic /* implicit cast from logic to boolean */
+    | numeric /* implicit cast from numeric to boolean */
     ;
 
 booleanAtom
@@ -166,8 +167,8 @@ fragment VALID_ID_CHAR
     ;
 
     BOOLEAN
-    : 'TRUE'
-    | 'FALSE'
+    : '<true,bool>'
+    | '<false,bool>'
     ;
 
 //------------------------------------------------------------------------------

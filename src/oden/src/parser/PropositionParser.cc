@@ -643,11 +643,11 @@ void PropositionParser::enterBooleanConstant(
   antlr4::tree::TerminalNode *con = ctx->BOOLEAN();
   std::string conStr = std::string(con->getText());
 
-  if (conStr == "False") {
+  if (conStr == "<false,bool>") {
     auto *c = new BooleanConstant(false, INT_MAX);
     _proposition.push(c);
     return;
-  } else if (conStr == "True") {
+  } else if (conStr == "<true,bool>") {
     auto *c = new BooleanConstant(true, INT_MAX);
     _proposition.push(c);
     return;

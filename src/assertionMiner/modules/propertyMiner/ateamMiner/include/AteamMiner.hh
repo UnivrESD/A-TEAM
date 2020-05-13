@@ -62,6 +62,9 @@ class AteamMiner : public modules::PropertyMiner {
     // the maximum number of variable in an assertion's antecedent
     size_t _maxVariablesAntecedent;
 
+    // the maximum depth of nexts in an assertion's antecedent
+    size_t _maxNextDepth=0;
+
     TraceInfo traceInfo;
 
     //TODO

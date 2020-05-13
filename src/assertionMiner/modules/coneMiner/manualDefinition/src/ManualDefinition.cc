@@ -188,8 +188,19 @@ void ManualDefinition::fillConeWithAtomicPropositions(
     messageErrorIf(directionStr.empty(), "Formula's direction not found!");
 
     // add types to variables
+    
     auto &vars= traceRepo.getVariables();
     std::vector<std::pair<std::string,const DataType *>> name2varVec; 
+    //add mock variables for boolean constants
+    DataType *trueConst= new DataType();
+    trueConst->setType(VariableType::boolean);
+    trueConst->setName("true");
+    DataType *falseConst= new DataType();
+    falseConst->setType(VariableType::boolean);
+    falseConst->setName("false");
+    name2varVec.push_back(std::make_pair("true",trueConst));
+    name2varVec.push_back(std::make_pair("false",falseConst));
+
     for(const auto e: vars){
         name2varVec.push_back(e);
     }
@@ -291,6 +302,7 @@ void ManualDefinition::fillConeWithAtomicPropositions(
     Proposition *p = listener.getProposition();
     messageErrorIf(p == nullptr, "Not valid atomic proposition: " +
                                    tree->toStringTree(&parser));
+
 
     messageInfo("PROPOSITION: " + oden::prop2String(*p));
 

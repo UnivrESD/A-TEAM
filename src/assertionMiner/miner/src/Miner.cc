@@ -65,7 +65,7 @@ void Miner::run() {
             _config.propertyMiner->mineProperties(*cone, *traceRepo);
         //----------------------------------------------------------------------
 
-        //==== step 5) Print the mined temporal assertions
+        //==== step 5) Qualify the mined temporal assertions
         if (_config.propertyQualifier == nullptr)
             messageWarning("No propertyQualifier module has been set");
         else

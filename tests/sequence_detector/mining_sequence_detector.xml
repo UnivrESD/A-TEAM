@@ -15,8 +15,13 @@
             <directions>
             </directions>
             <atomicPropositions>
+		<atomicProposition formula="current_state[2]" dir="inout"/>
+		<atomicProposition formula="current_state[1]" dir="inout"/>
 		<atomicProposition formula="current_state[0]" dir="inout"/>
-		<atomicProposition formula="sequence_in" dir="in"/>
+		<atomicProposition formula="next_state[2]" dir="inout"/>
+		<atomicProposition formula="next_state[1]" dir="inout"/>
+		<atomicProposition formula="next_state[0]" dir="inout"/>
+		<atomicProposition formula="!sequence_in" dir="in"/>
 		<atomicProposition formula="detector_out" dir="out"/>
             </atomicPropositions>
         </coneOfInfluence>
@@ -29,23 +34,22 @@
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
             <template value="p1"/>
+                <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>
             <template value="X(Xp1 <-> p2)"/>
             <template value="X(p1 <-> Xp2)"/>
             <template value="p1 <-> p2"/>
             <template value="Xp1"/>
-            <template value="X(p1 <-> p2)"/>
-                <!--
                     <template value="p1 && p2"/>
                     <template value="p1 U p2"/>
                     <template value="p1 R p2"/>
                 -->
-                </templates>
+            </ConsequentTemplates>
             </propositionminer>
 
             <propertyminer name="A-teamMiner">
-                <constraints maxVariables="3"/>
+                <constraints maxVariables="3" maxNextDepth="2"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->

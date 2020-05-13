@@ -6,6 +6,8 @@
 
 #define CONSTANT(LEAF)                                                         \
   void PrinterVisitor::visit(LEAF &o) { _ss << o.evaluate(0); }
+#define BOOLEAN_CONSTANT(LEAF)                                                         \
+  void PrinterVisitor::visit(LEAF &o) { _ss << (o.evaluate(0)?"true":"false"); }
 
 #define EXPRESSION(NODE)                                                       \
   void PrinterVisitor::visit(oden::NODE &o) {                                  \
@@ -152,7 +154,7 @@ std::string PrinterVisitor::get() {
 
 // proposition
 VARIABLE(BooleanVariable)
-CONSTANT(BooleanConstant)
+BOOLEAN_CONSTANT(BooleanConstant)
 EXPRESSION(PropositionAnd)
 EXPRESSION(PropositionOr)
 EXPRESSION(PropositionXor)

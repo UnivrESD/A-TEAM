@@ -21,6 +21,9 @@ Assertion::~Assertion() {
     // call the destructor of each proposition
     for (auto &kv : t2p)
         delete kv.second;
+
+    delete antecedent;
+    delete consequent;
 }
 
 } // namespace oden
