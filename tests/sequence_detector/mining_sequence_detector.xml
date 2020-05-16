@@ -21,8 +21,8 @@
 		<atomicProposition formula="next_state[2]" dir="inout"/>
 		<atomicProposition formula="next_state[1]" dir="inout"/>
 		<atomicProposition formula="next_state[0]" dir="inout"/>
-		<atomicProposition formula="!sequence_in" dir="in"/>
-		<atomicProposition formula="detector_out" dir="out"/>
+		<atomicProposition formula="sequence_in" dir="inout"/>
+		<atomicProposition formula="detector_out" dir="inout"/>
             </atomicPropositions>
         </coneOfInfluence>
     </coneMiner>
@@ -33,7 +33,7 @@
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="p1"/>
+            <template value="true U p1"/>
                 <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>

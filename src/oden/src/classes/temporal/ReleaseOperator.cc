@@ -70,9 +70,9 @@ bool ReleaseOperator::evaluate(size_t time) {
             }
 
             // check if p2 and p1 are both true now
-            if (_p2->evaluate(stop) && _p1->evaluate(stop) && stop > start) {
+            if ((_p2->evaluate(stop) && _p1->evaluate(stop)/* && stop > start*/)) {
                 // check if p2 is false at the next simulation time
-                if ((stop + 1) < _max_time && !_p2->evaluate(stop + 1))
+//                if ((stop + 1) < _max_time && !_p2->evaluate(stop + 1))
                     // for (; start <= stop; ++start)
                     assign_INL(_cachedValues, start, true);
             }

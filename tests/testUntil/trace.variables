@@ -1,13 +1,4 @@
-_a logic 3
-_b logic 3
-_c numeric
-_d numeric
-_e bool
-_f bool
-_g bool
-_h bool
-_i bool
-_j bool
-_k bool
-_m bool
-_n bool
+a bool
+b bool
+c bool
+d bool

@@ -78,8 +78,6 @@ class Trace {
     /// @brief The mapping between variable's name and values
     std::map<std::string, uintptr_t> _varName2varValues;
 
-    // Logics are stored in a uint64_t array
-    const size_t _bits4Logic = sizeof(uint64_t);
 
     void _allocateTrace(List<DataType> &variables);
     void _allocatePointers(List<DataType> &variables);

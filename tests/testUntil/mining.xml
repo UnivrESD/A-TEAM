@@ -1,56 +1,53 @@
 <root>
-
     <tracereader name="mangroveTraceReader">
         <vcdParserConfig>
-            <clockSignal name="wb_clk"/>
-            <splitSignals value="No"/>
+            <clockSignal name="clk"/>
+            <splitSignals value="Yes"/>
             <addModulePathToVariables value="No"/>
-            <convertSingleBitLogicToBool value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
         </vcdParserConfig>
     </tracereader>
 
-        
+
+
     <coneminer name="manualDefinition">
-
         <coneOfInfluence name="cone1">
-        <directions>
-        </directions>
-
+            <directions>
+            </directions>
             <atomicPropositions>
-                <atomicProposition formula="_e" dir="in"/>
-                <atomicProposition formula="_f" dir="out"/>
-                <atomicProposition formula="_g" dir="out"/>
-
-                <!--
-                <atomicProposition formula="~c <=_ ~d" dir="out"/>
-                <atomicProposition formula="(X[1]i = X[1]h)" dir="in"/>
-                <atomicProposition formula="a" dir="out"/>
-                -->
+		<atomicProposition formula="a" dir="in"/>
+		<atomicProposition formula="c" dir="out"/>
+		<atomicProposition formula="b" dir="out"/>
             </atomicPropositions>
         </coneOfInfluence>
+    </coneMiner>
 
-    </conemine>
-
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="p1"/>
-<!--
-            <template value="p1 && p2"/>
-            <template value="p1 || p2"/>
+            <template value="p2 R p1"/>
+                <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>
-            <template value="p1"/>
-     -->
-        </ConsequentTemplates>
-    </propositionminer>
+            <template value="X(Xp1 <-> p2)"/>
+            <template value="X(p1 <-> Xp2)"/>
+            <template value="p1 <-> p2"/>
+            <template value="Xp1"/>
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+            </ConsequentTemplates>
+            </propositionminer>
 
-    <propertyminer name="A-teamMiner">
-        <constraints maxVariables="1"/>
-        <!--        <faultyTraces list="testUntil/faultyTraces/traces.xml"/> -->
-    </propertyminer>
-
-    <!-- <propertyQualifier name="FBQualifier"/> -->
-
-    <propertyprinter name="psl"/>
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3" maxNextDepth="0"/>
+                    </propertyminer>
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="sequence_detector"/>
+    </propertyprinter>
 
 </root>

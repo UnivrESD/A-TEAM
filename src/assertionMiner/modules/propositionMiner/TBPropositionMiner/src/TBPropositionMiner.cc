@@ -5,6 +5,7 @@
 #include <string>
 #include <algorithm>
 
+#include <climits>
 using namespace std;
 
 namespace tbPropositionMiner {
@@ -204,8 +205,14 @@ Proposition *TBPropositionMiner::_genProposition(Template curr, int *repo,
         return pO;
     }
 
-    if (isAtomicProposition(curr))
+    if (curr.is(spot::op::ap))
         return oden::copy(*outProps[repo[counter++]]);
+
+    if (curr.is(spot::op::ff))
+        return new BooleanConstant(false,INT_MAX);
+
+    if (curr.is(spot::op::tt))
+        return new BooleanConstant(true,INT_MAX);
 
     messageError("Unsupported template: " + template2String(curr) + "\n");
     return nullptr;

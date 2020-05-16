@@ -41,7 +41,7 @@ void Trace::_allocateTrace(List<DataType> &variables) {
         }
         case VariableType::logic: {
             // number of values in a Logic
-            size_t val4Logic     = (_bits4Logic * 8);
+            size_t val4Logic     = 64;
             size_t _valuesInside = val4Logic / var->getSize();
             // number of 64 bits integers to represent all the values of this
             // variable
@@ -84,7 +84,7 @@ void Trace::_allocatePointers(List<DataType> &variables) {
                 reinterpret_cast<uintptr_t>(&_logicTrace[logVarAccu]);
 
             // number of values in a Logic
-            size_t val4Logic     = (_bits4Logic * 8);
+            size_t val4Logic     = 64;
             size_t _valuesInside = val4Logic / var->getSize();
             // number of 64 bits integers to represent all the values of this
             // variable
