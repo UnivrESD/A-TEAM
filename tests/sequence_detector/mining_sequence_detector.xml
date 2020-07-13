@@ -33,7 +33,7 @@
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="true U p1"/>
+            <template value="Xp1"/>
                 <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>
@@ -49,7 +49,7 @@
             </propositionminer>
 
             <propertyminer name="A-teamMiner">
-                <constraints maxVariables="3" maxNextDepth="2"/>
+                <constraints maxVariables="2" maxNextDepth="0"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->

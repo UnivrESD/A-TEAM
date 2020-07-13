@@ -331,7 +331,7 @@ bool AteamMiner::_makeImply(const Template &templ, Proposition *prop,
   Template antecedent = support::getAntecedent(templ);
   Template consequent = support::getConsequent(templ);
   //    size_t offsetCons   = countNext(consequent);
-  consequent = removeNext(consequent);
+  // consequent = removeNext(consequent);
 
   // 1 - setting the research space for the antecedent
   // generator
@@ -352,9 +352,9 @@ bool AteamMiner::_makeImply(const Template &templ, Proposition *prop,
   // if the consequent is a BooleanVariable, then we also
   // save the off-set.
   // Otherwise, we only save the on-set
-  // antGen.safeOffset = (dynamic_cast<BooleanVariable *>(prop) != nullptr ||
+  // antGen.saveOffset = (dynamic_cast<BooleanVariable *>(prop) != nullptr ||
   // dynamic_cast<LogicToBool *>(prop) != nullptr);
-  antGen.safeOffset = false;
+  antGen.saveOffset = true;
 
   // 4 - generate the antecedents justifying the
   // consequent
@@ -367,11 +367,13 @@ bool AteamMiner::_makeImply(const Template &templ, Proposition *prop,
   messageInfo(ss.str());
   ss.str("");
 
-  ss << "False instants: " << traceInfo.length - traceInfo.initTrue;
-  ss << " ,assertions: " << antGen.offSets.size();
-  ss << ", coverage: "
-     << DIV(traceInfo.reachedFalse, (traceInfo.length - traceInfo.initTrue));
-  messageInfo(ss.str());
+  if (antGen.saveOffset) {
+    ss << "False instants: " << traceInfo.length - traceInfo.initTrue;
+    ss << " ,assertions: " << antGen.offSets.size();
+    ss << ", coverage: "
+       << DIV(traceInfo.reachedFalse, (traceInfo.length - traceInfo.initTrue));
+    messageInfo(ss.str());
+  }
 
   for (const set<Proposition *> &props : antGen.onSets) {
 
@@ -384,8 +386,7 @@ bool AteamMiner::_makeImply(const Template &templ, Proposition *prop,
 
   for (const set<Proposition *> &props : antGen.offSets) {
     auto *assertion = new Assertion();
-    assertion->consequent = oden::copy(*prop);
-    makeExpression<PropositionNot>(oden::copy(*prop));
+    assertion->consequent = makeExpression<PropositionNot>(oden::copy(*prop));
     _finalizeAntecedent(*assertion, antecedent, props);
 
     assertions.push_back(assertion);

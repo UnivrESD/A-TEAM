@@ -113,7 +113,7 @@ void verify_MT(List<Proposition> &allPropositions, TraceInfo *traceInfo,
 
 AntecedentGenerator::AntecedentGenerator()
     : maxPropositions(0), onSets(), offSets(), _traceInfo(nullptr),
-      safeOffset(true), _entropyGoal(1) {
+      saveOffset(true), _entropyGoal(1) {
     // ntd
 }
 
@@ -250,8 +250,10 @@ void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
 
 void AntecedentGenerator::_store(PropositionAnd &antecedent, bool value) {
 
-    if (!value && !safeOffset)
+    if (!value && !saveOffset){
+//        std::cout << "Not storing:" <<oden::prop2String(antecedent)<< "\n";
         return;
+    }
 
     // std::cout << "store: " << oden::prop2String(antecedent) << " " << value
     //          << " " << _traceInfo->reachedTrue << "\n";

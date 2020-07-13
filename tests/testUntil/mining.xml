@@ -16,8 +16,8 @@
             </directions>
             <atomicPropositions>
 		<atomicProposition formula="a" dir="in"/>
-		<atomicProposition formula="c" dir="out"/>
 		<atomicProposition formula="b" dir="out"/>
+		<atomicProposition formula="c" dir="out"/>
             </atomicPropositions>
         </coneOfInfluence>
     </coneMiner>
@@ -28,7 +28,7 @@
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="p2 R p1"/>
+            <template value="(p1)"/>
                 <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>

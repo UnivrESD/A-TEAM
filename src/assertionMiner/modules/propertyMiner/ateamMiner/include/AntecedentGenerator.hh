@@ -41,8 +41,8 @@ class AntecedentGenerator {
     /// generated antecedent
     size_t maxPropositions;
 
-    /// @brief safeOffset defines if
-    bool safeOffset;
+    /// @brief saveOffset defines if
+    bool saveOffset;
 
     /// the algorithm's result:
     set<set<Proposition *>> onSets;
