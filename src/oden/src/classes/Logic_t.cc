@@ -96,7 +96,7 @@ std::string Logic_t::to_string() const {
     std::stringstream ss;
     uint64_t mask = 1;
     ss<<"'b";
-    for (size_t i = 0; i < _size; i++) {
+    for (int i = (_size-1); i >= 0; i--) {
                 ss << ((_value & (mask << i)) ? 1 : 0);
     }
     return ss.str();
