@@ -3,6 +3,7 @@
 #include "oden/visitors/CopyVisitor.hh"
 #include "oden/visitors/PeTraceChanger.hh"
 #include "oden/visitors/PrinterVisitor.hh"
+#include "oden/visitors/DepthVisitor.hh"
 
 #include <sstream>
 
@@ -12,6 +13,11 @@ std::string prop2String(Proposition &prop) {
     PrinterVisitor printer;
     prop.acceptVisitor(printer);
     return printer.get();
+}
+int prop2depth(Proposition &prop) {
+    DepthVisitor dv;
+    prop.acceptVisitor(dv);
+    return dv.get();
 }
 std::string logicExp2String(LogicExpression &le) {
     PrinterVisitor printer;

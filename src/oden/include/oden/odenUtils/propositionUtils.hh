@@ -10,6 +10,8 @@ namespace oden {
 /// @param prop The proposition
 std::string prop2String(Proposition &prop);
 
+int prop2depth(Proposition &prop);
+
 std::string logicExp2String(LogicExpression &le);
 
 /// @brief Copy a given Proposition.
