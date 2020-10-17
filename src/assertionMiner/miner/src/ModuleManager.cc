@@ -6,6 +6,7 @@
 
 //==== Modules =================================================================
 #include "AteamMiner.hh"
+#include "ContingencyTable.hh"
 #include "BooleanVariables.hh"
 #include "FaultBasedQualifier.hh"
 #include "ManualDefinition.hh"

@@ -86,6 +86,9 @@ void Miner::run() {
                            "Checking mined assertion failed!");
                            */
     }
+
+    _config.propertyMiner->print_contingency_table_analysis();
+
     delete traceRepo;
 }
 

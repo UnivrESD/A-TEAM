@@ -1,0 +1,81 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="Yes"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+
+
+
+		<atomicProposition formula="send_zero_length" dir="in"/>
+		<atomicProposition formula="send_token" dir="in"/>
+		<atomicProposition formula="tx_ready" dir="in"/>
+		<atomicProposition formula="send_data" dir="in"/>
+		<atomicProposition formula="state[0]" dir="in"/>
+		<atomicProposition formula="state[1]" dir="in"/>
+		<atomicProposition formula="nextstate[0]" dir="in"/>
+		<atomicProposition formula="nextstate[1]" dir="in"/>
+		<atomicProposition formula="tx_valid_r" dir="in"/>
+		<atomicProposition formula="tx_valid_d" dir="in"/>
+		<atomicProposition formula="last" dir="in"/>
+		<atomicProposition formula="tx_first_r" dir="in"/>
+
+
+		<atomicProposition formula="tx_valid" dir="out"/>
+                <atomicProposition formula="tx_valid_last" dir="out"/>
+                <atomicProposition formula="tx_first" dir="out"/>
+		<atomicProposition formula="rd_next" dir="out"/>
+
+<!-- 
+		<atomicProposition formula="gnt2" dir="out"/>
+-->
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+            <template value="!p2"/>
+            <template value="Xp1"/>
+            <template value="X!p2"/>
+	    
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="usbf_pa"/>
+    </propertyprinter>
+
+</root>

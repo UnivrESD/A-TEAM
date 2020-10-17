@@ -1,0 +1,89 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="sd_clk"/>
+            <splitSignals value="Yes"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+				
+ 		<!-- 	
+		Exception: Numerical con segnale "response_i"
+		-->
+				
+		<atomicProposition formula="start_i" dir="in"/>
+		<atomicProposition formula="int_status_rst_i" dir="in"/>
+		<atomicProposition formula="crc_ok_i" dir="in"/>
+		<atomicProposition formula="index_ok_i" dir="in"/>
+
+		<!-- 
+		<atomicProposition formula="argument_i" dir="in"/> 
+		<atomicProposition formula="timeout_i" dir="in"/>
+		<atomicProposition formula="command_i" dir="in"/>
+		<atomicProposition formula="setting_o" dir="out"/>
+		<atomicProposition formula="cmd_o" dir="out"/>
+		<atomicProposition formula="int_status_o" dir="out"/>
+		<atomicProposition formula="response_0_o" dir="out"/>
+		<atomicProposition formula="response_1_o" dir="out"/>
+		<atomicProposition formula="response_2_o" dir="out"/>
+		<atomicProposition formula="response_3_o" dir="out"/>
+		-->
+
+		<atomicProposition formula="busy_i" dir="in"/> 
+		<atomicProposition formula="finish_i" dir="in"/>
+		
+		
+		<atomicProposition formula="state[0]" dir="in"/>
+
+
+
+		<atomicProposition formula="start_xfr_o" dir="out"/>
+		<atomicProposition formula="go_idle_o" dir="out"/>
+
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+            <template value="!p2"/>
+            <template value="Xp1"/>
+            <template value="X!p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="usbf_idma"/>
+    </propertyprinter>
+
+</root>

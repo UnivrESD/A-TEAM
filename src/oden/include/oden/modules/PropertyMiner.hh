@@ -29,6 +29,9 @@ class PropertyMiner {
     /// @brief Unsupported operator
     PropertyMiner &operator=(const PropertyMiner &other) = delete;
 
+    /// @brief Print analysis
+    virtual void print_contingency_table_analysis() = 0;
+
   protected:
     /// @brief Constructor.
     explicit PropertyMiner(XmlNode *data);

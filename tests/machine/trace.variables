@@ -1,0 +1,12 @@
+change_count[2:0] logic 3
+current_state[3:0] logic 4
+diet bool
+dime bool
+give_diet bool
+give_soda bool
+next_state[3:0] logic 4
+nickel bool
+quarter bool
+reset bool
+soda bool
+

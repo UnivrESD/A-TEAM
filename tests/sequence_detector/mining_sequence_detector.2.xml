@@ -1,0 +1,63 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clock"/>
+            <splitSignals value="Yes"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+<!--
+	se mettessi inout otterrei molte più asserzioni
+-->
+		<atomicProposition formula="current_state[0]" dir="in"/>
+		<atomicProposition formula="current_state[1]" dir="in"/>
+		<atomicProposition formula="current_state[2]" dir="in"/>
+		<atomicProposition formula="sequence_in" dir="in"/>
+		<atomicProposition formula="detector_out" dir="out"/>
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+	    <template value="p1"/>
+	    <template value="!p1"/>
+	    <template value="Xp1"/>
+            <template value="X!p1"/>
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="3"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="sequence_detector"/>
+    </propertyprinter>
+
+</root>

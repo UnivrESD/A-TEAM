@@ -1,0 +1,7 @@
+gnt1 bool
+gnt2 bool
+req1 bool
+req2 bool
+rst bool
+state bool
+

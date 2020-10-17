@@ -43,6 +43,9 @@ class AteamMiner : public modules::PropertyMiner {
     void mineProperties(ConeOfInfluence &cone,
                         TraceRepository &traceRepository) override;
 
+    /// @brief print analysis from contingency table
+    void print_contingency_table_analysis() override;
+
   private:
     // assertion checker for the faulty traces set
     FaultChecker *_fchecker;

@@ -2,6 +2,7 @@
 #include "AntecedentGenerator.hh"
 #include "oden/odenUtils/odenUtils.hh"
 #include "supportMethods.hh"
+#include "ContingencyTable.hh"
 
 #include <algorithm>
 #include <iostream>
@@ -245,6 +246,11 @@ void AteamMiner::_readAssertionTemplates(XmlNode *templatesXml) {
   }
 }
 
+void AteamMiner::print_contingency_table_analysis() {
+  ContingencyTableAnalysis::instance().print_all();
+  ContingencyTableAnalysis::instance().export_all("contingency_table_analysis.csv");
+}
+
 void AteamMiner::mineProperties(ConeOfInfluence &cone,
                                 TraceRepository &traceRepository) {
 
@@ -295,10 +301,13 @@ void AteamMiner::mineProperties(ConeOfInfluence &cone,
       _makeImply(templ, prop, minedAssertions);
 
     check_coverage:
+
       // check coverage
       while (!minedAssertions.empty()) {
         Assertion *assertion = minedAssertions.pop_front();
         assertion->id = assertCounter++;
+
+        ContingencyTableAnalysis::instance().add_assertion(assertion);
 
         double fault_coverage = _getFaultCoverage(*assertion);
         cone.assertions.push_back(assertion);
@@ -374,6 +383,7 @@ bool AteamMiner::_makeImply(const Template &templ, Proposition *prop,
        << DIV(traceInfo.reachedFalse, (traceInfo.length - traceInfo.initTrue));
     messageInfo(ss.str());
   }
+
 
   for (const set<Proposition *> &props : antGen.onSets) {
 

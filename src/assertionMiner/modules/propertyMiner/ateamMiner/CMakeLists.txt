@@ -15,6 +15,7 @@ include_directories(include/
 #############################################
 SET(ATEAMPROPERTYMINER_SRC
         src/AteamMiner.cc
+        src/ContingencyTable.cc
         src/supportTypes.cc
         src/supportMethods.cc
         src/AntecedentGenerator.cc

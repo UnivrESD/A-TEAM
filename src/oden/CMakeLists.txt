@@ -26,6 +26,7 @@ SET(VISITORS_SRC
         src/visitors/PrinterVisitor.cc
         src/visitors/CopyVisitor.cc
         src/visitors/PeTraceChanger.cc
+        src/visitors/CounterVisitor.cc
         )
 
 SET(UTILS_SRCS

@@ -10,6 +10,12 @@ namespace oden {
 /// @param prop The proposition
 std::string prop2String(Proposition &prop);
 
+/// @brief return the len of antecedent 
+int prop2len(Proposition &prop);
+
+/// @brief return the len of cosequent next 
+int prop2next(Proposition &prop);
+
 std::string logicExp2String(LogicExpression &le);
 
 /// @brief Copy a given Proposition.

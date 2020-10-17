@@ -3,6 +3,7 @@
 #include "oden/visitors/CopyVisitor.hh"
 #include "oden/visitors/PeTraceChanger.hh"
 #include "oden/visitors/PrinterVisitor.hh"
+#include "oden/visitors/CounterVisitor.hh"
 
 #include <sstream>
 
@@ -13,6 +14,20 @@ std::string prop2String(Proposition &prop) {
     prop.acceptVisitor(printer);
     return printer.get();
 }
+
+int prop2len(Proposition &prop) {
+    CounterVisitor counter;
+    prop.acceptVisitor(counter);
+    return counter.get();
+}
+
+int prop2next(Proposition &prop) {
+    CounterVisitor counter_next;
+    prop.acceptVisitor(counter_next);
+    return counter_next.get_next();  
+}
+
+
 std::string logicExp2String(LogicExpression &le) {
     PrinterVisitor printer;
     le.acceptVisitor(printer);

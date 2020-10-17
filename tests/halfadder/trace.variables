@@ -1,0 +1,6 @@
+a bool
+b bool
+carry bool
+reset bool
+sum bool
+

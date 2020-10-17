@@ -1,0 +1,978 @@
+// Copyright (C) 1991-2004 Altera Corporation
+// Any  megafunction  design,  and related netlist (encrypted  or  decrypted),
+// support information,  device programming or simulation file,  and any other
+// associated  documentation or information  provided by  Altera  or a partner
+// under  Altera's   Megafunction   Partnership   Program  may  be  used  only
+// to program  PLD  devices (but not masked  PLD  devices) from  Altera.   Any
+// other  use  of such  megafunction  design,  netlist,  support  information,
+// device programming or simulation file,  or any other  related documentation
+// or information  is prohibited  for  any  other purpose,  including, but not
+// limited to  modification,  reverse engineering,  de-compiling, or use  with
+// any other  silicon devices,  unless such use is  explicitly  licensed under
+// a separate agreement with  Altera  or a megafunction partner.  Title to the
+// intellectual property,  including patents,  copyrights,  trademarks,  trade
+// secrets,  or maskworks,  embodied in any such megafunction design, netlist,
+// support  information,  device programming or simulation file,  or any other
+// related documentation or information provided by  Altera  or a megafunction
+// partner, remains with Altera, the megafunction partner, or their respective
+// licensors. No other licenses, including any licenses needed under any third
+// party's intellectual property, are provided herein.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "03/29/2005 16:41:12"
+                                                                        
+// Verilog Self-Checking Test Bench (with test vectors) for design :    fir_filter
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module fir_filter_vlg_sample_tst(
+	s1,
+	s2,
+	s3,
+	s4,
+	s5,
+	sampler_tx
+);
+input  s1;
+input [ 7 : 0 ] s2;
+input [ 7 : 0 ] s3;
+input  s4;
+input  s5;
+output sampler_tx;
+
+reg sample ;
+
+always @(s1 or s2 or s3 or s4 or s5)
+                                                                                
+begin                                         
+ if ($time > 0)                               
+ begin                                        
+     if (sample === 1'bx)                     
+	sample = 0;                           
+     else                                     
+        sample = ~sample;                     
+ end                                          
+end                                           
+
+assign sampler_tx = sample;
+endmodule
+
+module fir_filter_vlg_check_tst (
+	o1,sampler_rx
+);
+input [17:0] o1;
+input sampler_rx;
+
+reg [17:0] t__reg__o1_expected;
+
+reg [17:0] t__reg__o1_prev;
+
+reg [17:0] t__reg__o1_expected_prev;
+
+reg [17:0] t__reg__last_o1_exp;
+
+reg trigger;
+
+integer i;
+integer nummismatches;
+
+reg [1:1] on_first_change ;
+
+
+initial
+begin
+trigger = 0;
+i = 0;
+nummismatches = 0;
+on_first_change = 1'b1;
+end
+
+// update real /o prevs
+
+always @(trigger)
+begin
+	t__reg__o1_prev = o1;
+end
+
+// update expected /o prevs
+
+always @(trigger)
+begin
+	t__reg__o1_expected_prev = t__reg__o1_expected;
+end
+
+
+// expected data_out[ 17 ]
+initial
+begin
+	t__reg__o1_expected[17] = 1'b0;
+end 
+// expected data_out[ 16 ]
+initial
+begin
+	t__reg__o1_expected[16] = 1'b0;
+end 
+// expected data_out[ 15 ]
+initial
+begin
+	t__reg__o1_expected[15] = 1'b0;
+	t__reg__o1_expected[15] = #737787 1'b1;
+	t__reg__o1_expected[15] = #580000 1'b0;
+	t__reg__o1_expected[15] = #340000 1'b1;
+	t__reg__o1_expected[15] = #660000 1'b0;
+	t__reg__o1_expected[15] = #320000 1'b1;
+	t__reg__o1_expected[15] = #660000 1'b0;
+	t__reg__o1_expected[15] = #340000 1'b1;
+end 
+// expected data_out[ 14 ]
+initial
+begin
+	t__reg__o1_expected[14] = 1'b0;
+	t__reg__o1_expected[14] = #657781 1'b1;
+	t__reg__o1_expected[14] = #80000 1'b0;
+	t__reg__o1_expected[14] = #120000 1'b1;
+	t__reg__o1_expected[14] = #320000 1'b0;
+	t__reg__o1_expected[14] = #140000 1'b1;
+	t__reg__o1_expected[14] = #340000 1'b0;
+	t__reg__o1_expected[14] = #160000 1'b1;
+	t__reg__o1_expected[14] = #360000 1'b0;
+	t__reg__o1_expected[14] = #140000 1'b1;
+	t__reg__o1_expected[14] = #320000 1'b0;
+	t__reg__o1_expected[14] = #160000 1'b1;
+	t__reg__o1_expected[14] = #360000 1'b0;
+	t__reg__o1_expected[14] = #140000 1'b1;
+	t__reg__o1_expected[14] = #340000 1'b0;
+	t__reg__o1_expected[14] = #160000 1'b1;
+end 
+// expected data_out[ 13 ]
+initial
+begin
+	t__reg__o1_expected[13] = 1'b0;
+	t__reg__o1_expected[13] = #617549 1'b1;
+	t__reg__o1_expected[13] = #40000 1'b0;
+	t__reg__o1_expected[13] = #40000 1'b1;
+	t__reg__o1_expected[13] = #40000 1'b0;
+	t__reg__o1_expected[13] = #60000 1'b1;
+	t__reg__o1_expected[13] = #60000 1'b0;
+	t__reg__o1_expected[13] = #100000 1'b1;
+	t__reg__o1_expected[13] = #160000 1'b0;
+	t__reg__o1_expected[13] = #60000 1'b1;
+	t__reg__o1_expected[13] = #60000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #120000 1'b0;
+	t__reg__o1_expected[13] = #180000 1'b1;
+	t__reg__o1_expected[13] = #40000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #80000 1'b0;
+	t__reg__o1_expected[13] = #100000 1'b1;
+	t__reg__o1_expected[13] = #200000 1'b0;
+	t__reg__o1_expected[13] = #60000 1'b1;
+	t__reg__o1_expected[13] = #60000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #120000 1'b0;
+	t__reg__o1_expected[13] = #160000 1'b1;
+	t__reg__o1_expected[13] = #40000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #80000 1'b0;
+	t__reg__o1_expected[13] = #100000 1'b1;
+	t__reg__o1_expected[13] = #200000 1'b0;
+	t__reg__o1_expected[13] = #60000 1'b1;
+	t__reg__o1_expected[13] = #60000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #120000 1'b0;
+	t__reg__o1_expected[13] = #180000 1'b1;
+	t__reg__o1_expected[13] = #40000 1'b0;
+	t__reg__o1_expected[13] = #80000 1'b1;
+	t__reg__o1_expected[13] = #80000 1'b0;
+	t__reg__o1_expected[13] = #100000 1'b1;
+end 
+// expected data_out[ 12 ]
+initial
+begin
+	t__reg__o1_expected[12] = 1'b0;
+	# 597777;
+	repeat(3)
+	begin
+		t__reg__o1_expected[12] = 1'b1;
+		t__reg__o1_expected[12] = #20000 1'b0;
+		# 20000;
+	end
+	repeat(3)
+	begin
+		t__reg__o1_expected[12] = 1'b1;
+		t__reg__o1_expected[12] = #20000 1'b0;
+		# 40000;
+	end
+	t__reg__o1_expected[12] = 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #80000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #20000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #60000 1'b1;
+	t__reg__o1_expected[12] = #180000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	# 20000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[12] = 1'b0;
+		t__reg__o1_expected[12] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[12] = 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #100000 1'b1;
+	t__reg__o1_expected[12] = #80000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #20000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #60000 1'b1;
+	t__reg__o1_expected[12] = #160000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	# 20000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[12] = 1'b0;
+		t__reg__o1_expected[12] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[12] = 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #100000 1'b1;
+	t__reg__o1_expected[12] = #80000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #20000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	t__reg__o1_expected[12] = #40000 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #60000 1'b1;
+	t__reg__o1_expected[12] = #180000 1'b0;
+	t__reg__o1_expected[12] = #20000 1'b1;
+	# 20000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[12] = 1'b0;
+		t__reg__o1_expected[12] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[12] = 1'b0;
+	t__reg__o1_expected[12] = #40000 1'b1;
+	t__reg__o1_expected[12] = #60000 1'b0;
+	t__reg__o1_expected[12] = #100000 1'b1;
+end 
+// expected data_out[ 11 ]
+initial
+begin
+	t__reg__o1_expected[11] = 1'b0;
+	# 757555;
+	repeat(2)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #40000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #80000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #100000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	# 40000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #100000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #80000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	# 40000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #100000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #20000 1'b1;
+	t__reg__o1_expected[11] = #20000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+	t__reg__o1_expected[11] = #100000 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	# 40000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[11] = 1'b1;
+		t__reg__o1_expected[11] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[11] = 1'b1;
+	t__reg__o1_expected[11] = #40000 1'b0;
+	t__reg__o1_expected[11] = #40000 1'b1;
+	t__reg__o1_expected[11] = #60000 1'b0;
+end 
+// expected data_out[ 10 ]
+initial
+begin
+	t__reg__o1_expected[10] = 1'b0;
+	t__reg__o1_expected[10] = #617806 1'b1;
+	t__reg__o1_expected[10] = #100000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #100000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #60000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #120000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #60000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #160000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[10] = 1'b1;
+		t__reg__o1_expected[10] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[10] = 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #80000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #120000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #160000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[10] = 1'b1;
+		t__reg__o1_expected[10] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[10] = 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #80000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #120000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+	t__reg__o1_expected[10] = #60000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #20000 1'b1;
+	t__reg__o1_expected[10] = #20000 1'b0;
+	t__reg__o1_expected[10] = #40000 1'b1;
+	t__reg__o1_expected[10] = #160000 1'b0;
+	# 40000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[10] = 1'b1;
+		t__reg__o1_expected[10] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[10] = 1'b1;
+	t__reg__o1_expected[10] = #40000 1'b0;
+end 
+// expected data_out[ 9 ]
+initial
+begin
+	t__reg__o1_expected[9] = 1'b0;
+	t__reg__o1_expected[9] = #597799 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #60000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #80000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #60000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #60000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	# 100000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b0;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b1;
+		t__reg__o1_expected[9] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b1;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #120000 1'b1;
+		t__reg__o1_expected[9] = #20000 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		t__reg__o1_expected[9] = #120000 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b1;
+		t__reg__o1_expected[9] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b1;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b0;
+	t__reg__o1_expected[9] = #100000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #120000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #120000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	# 120000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b0;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b1;
+		t__reg__o1_expected[9] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b1;
+	# 80000;
+	repeat(2)
+	begin
+		t__reg__o1_expected[9] = 1'b0;
+		t__reg__o1_expected[9] = #20000 1'b1;
+		# 20000;
+	end
+	t__reg__o1_expected[9] = 1'b0;
+	t__reg__o1_expected[9] = #120000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #120000 1'b0;
+	t__reg__o1_expected[9] = #20000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+	t__reg__o1_expected[9] = #120000 1'b1;
+	t__reg__o1_expected[9] = #20000 1'b0;
+end 
+// expected data_out[ 8 ]
+initial
+begin
+	t__reg__o1_expected[8] = 1'b0;
+	t__reg__o1_expected[8] = #697837 1'b1;
+	t__reg__o1_expected[8] = #160000 1'b0;
+	t__reg__o1_expected[8] = #160000 1'b1;
+	# 140000;
+	repeat(2)
+	begin
+		repeat(2)
+		begin
+			t__reg__o1_expected[8] = 1'b0;
+			t__reg__o1_expected[8] = #80000 1'b1;
+			# 80000;
+		end
+		t__reg__o1_expected[8] = 1'b0;
+		t__reg__o1_expected[8] = #80000 1'b1;
+		# 100000;
+	end
+	repeat(5)
+	begin
+		t__reg__o1_expected[8] = 1'b0;
+		t__reg__o1_expected[8] = #80000 1'b1;
+		# 80000;
+	end
+	repeat(2)
+	begin
+		t__reg__o1_expected[8] = 1'b0;
+		t__reg__o1_expected[8] = #80000 1'b1;
+		# 100000;
+		repeat(2)
+		begin
+			t__reg__o1_expected[8] = 1'b0;
+			t__reg__o1_expected[8] = #80000 1'b1;
+			# 80000;
+		end
+	end
+	t__reg__o1_expected[8] = 1'b0;
+end 
+// expected data_out[ 7 ]
+initial
+begin
+	t__reg__o1_expected[7] = 1'b0;
+	# 597818;
+	repeat(3)
+	begin
+		t__reg__o1_expected[7] = 1'b1;
+		t__reg__o1_expected[7] = #40000 1'b0;
+		t__reg__o1_expected[7] = #20000 1'b1;
+		t__reg__o1_expected[7] = #20000 1'b0;
+		t__reg__o1_expected[7] = #40000 1'b1;
+		t__reg__o1_expected[7] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__o1_expected[7] = 1'b1;
+	# 20000;
+	repeat(6)
+	begin
+		t__reg__o1_expected[7] = 1'b0;
+		t__reg__o1_expected[7] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b0;
+	# 20000;
+	repeat(6)
+	begin
+		t__reg__o1_expected[7] = 1'b1;
+		t__reg__o1_expected[7] = #40000 1'b0;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b1;
+	# 20000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[7] = 1'b0;
+		t__reg__o1_expected[7] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b0;
+	t__reg__o1_expected[7] = #40000 1'b1;
+	# 80000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[7] = 1'b0;
+		t__reg__o1_expected[7] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b0;
+	t__reg__o1_expected[7] = #40000 1'b1;
+	# 20000;
+	repeat(6)
+	begin
+		t__reg__o1_expected[7] = 1'b0;
+		t__reg__o1_expected[7] = #40000 1'b1;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b0;
+	# 20000;
+	repeat(5)
+	begin
+		t__reg__o1_expected[7] = 1'b1;
+		t__reg__o1_expected[7] = #40000 1'b0;
+		# 40000;
+	end
+	t__reg__o1_expected[7] = 1'b1;
+end 
+// expected data_out[ 6 ]
+initial
+begin
+	t__reg__o1_expected[6] = 1'b0;
+	# 597803;
+	repeat(6)
+	begin
+		t__reg__o1_expected[6] = 1'b1;
+		t__reg__o1_expected[6] = #40000 1'b0;
+		# 40000;
+	end
+	t__reg__o1_expected[6] = 1'b1;
+end 
+// expected data_out[ 5 ]
+initial
+begin
+	t__reg__o1_expected[5] = 1'b0;
+end 
+// expected data_out[ 4 ]
+initial
+begin
+	t__reg__o1_expected[4] = 1'b0;
+end 
+// expected data_out[ 3 ]
+initial
+begin
+	t__reg__o1_expected[3] = 1'b0;
+end 
+// expected data_out[ 2 ]
+initial
+begin
+	t__reg__o1_expected[2] = 1'b0;
+end 
+// expected data_out[ 1 ]
+initial
+begin
+	t__reg__o1_expected[1] = 1'b0;
+end 
+// expected data_out[ 0 ]
+initial
+begin
+	t__reg__o1_expected[0] = 1'b0;
+end 
+// generate trigger
+always @(t__reg__o1_expected or o1)
+begin
+	trigger <= ~trigger;
+end
+
+always @(posedge sampler_rx or negedge sampler_rx)
+begin
+`ifdef debug_tbench
+	$display("Scanning pattern %d @time = %t",i,$realtime );
+	i = i + 1;
+	$display("| expected data_out = %b | ",t__reg__o1_expected_prev);
+	$display("| real data_out = %b | ",t__reg__o1_prev);
+`endif
+	if (
+		( t__reg__o1_expected_prev !== 18'bx ) && ( t__reg__o1_prev !== t__reg__o1_expected_prev )
+		&& ((t__reg__o1_expected_prev !== t__reg__last_o1_exp) ||
+			on_first_change[1])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port data_out :: @time = %t,Expected value = %b ; Real value = %b", $realtime, t__reg__o1_expected_prev, t__reg__o1_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[1] = 1'b0;
+		t__reg__last_o1_exp = t__reg__o1_expected_prev;
+	end
+
+	trigger <= ~trigger;
+end
+initial 
+
+begin 
+$timeformat(-12,3," ps",6);
+#4000000;
+if (nummismatches > 0)
+	$display ("%d mismatched vectors : Simulation failed !",nummismatches);
+else
+	$display ("Simulation passed !");
+$stop;
+end 
+endmodule
+
+module fir_filter_vlg_vec_tst();
+// constants                                           
+// general purpose registers                               
+reg t__reg__clk;
+reg [7:0] t__reg__coef_in;
+reg [7:0] t__reg__data_in;
+reg t__reg__load_c;
+reg t__reg__reset;
+// wires                                               
+wire t__wire__clk;
+wire [7:0] t__wire__coef_in;
+wire [7:0] t__wire__data_in;
+wire [17:0] t__wire__data_out;
+wire t__wire__load_c;
+wire t__wire__reset;
+
+wire t__wire__sampler;                             
+
+// assign statements (if any)                          
+assign {t__wire__clk,t__wire__coef_in,t__wire__data_in,t__wire__load_c,t__wire__reset} = {t__reg__clk,t__reg__coef_in,t__reg__data_in,t__reg__load_c,t__reg__reset};
+fir_filter tb (
+// port map - connection between master ports and signals/registers   
+	.clk(t__wire__clk),
+	.coef_in(t__wire__coef_in),
+	.data_in(t__wire__data_in),
+	.data_out(t__wire__data_out),
+	.load_c(t__wire__load_c),
+	.reset(t__wire__reset)
+);
+
+// clk
+always
+begin
+	t__reg__clk = 1'b0;
+	t__reg__clk = #10000 1'b1;
+	#10000;
+end 
+
+// load_c
+initial
+begin
+	t__reg__load_c = 1'b1;
+	t__reg__load_c = #500000 1'b0;
+end 
+
+// reset
+initial
+begin
+	t__reg__reset = 1'b0;
+end 
+// coef_in[ 7 ]
+initial
+begin
+	t__reg__coef_in[7] = 1'b0;
+end 
+// coef_in[ 6 ]
+initial
+begin
+	t__reg__coef_in[6] = 1'b0;
+end 
+// coef_in[ 5 ]
+initial
+begin
+	t__reg__coef_in[5] = 1'b0;
+end 
+// coef_in[ 4 ]
+initial
+begin
+	t__reg__coef_in[4] = 1'b0;
+	t__reg__coef_in[4] = #300000 1'b1;
+	t__reg__coef_in[4] = #200000 1'b0;
+end 
+// coef_in[ 3 ]
+initial
+begin
+	t__reg__coef_in[3] = 1'b0;
+	t__reg__coef_in[3] = #140000 1'b1;
+	t__reg__coef_in[3] = #160000 1'b0;
+	t__reg__coef_in[3] = #160000 1'b1;
+	t__reg__coef_in[3] = #40000 1'b0;
+end 
+// coef_in[ 2 ]
+initial
+begin
+	t__reg__coef_in[2] = 1'b0;
+	# 60000;
+	repeat(2)
+	begin
+		t__reg__coef_in[2] = 1'b1;
+		t__reg__coef_in[2] = #80000 1'b0;
+		# 80000;
+	end
+	t__reg__coef_in[2] = 1'b1;
+	t__reg__coef_in[2] = #80000 1'b0;
+end 
+// coef_in[ 1 ]
+initial
+begin
+	t__reg__coef_in[1] = 1'b0;
+	# 20000;
+	repeat(5)
+	begin
+		t__reg__coef_in[1] = 1'b1;
+		t__reg__coef_in[1] = #40000 1'b0;
+		# 40000;
+	end
+	t__reg__coef_in[1] = 1'b1;
+	t__reg__coef_in[1] = #40000 1'b0;
+end 
+// coef_in[ 0 ]
+initial
+begin
+	repeat(12)
+	begin
+		t__reg__coef_in[0] = 1'b1;
+		t__reg__coef_in[0] = #20000 1'b0;
+		# 20000;
+	end
+	t__reg__coef_in[0] = 1'b1;
+	t__reg__coef_in[0] = #20000 1'b0;
+end 
+// data_in[ 7 ]
+initial
+begin
+	t__reg__data_in[7] = 1'b0;
+	t__reg__data_in[7] = #500000 1'b1;
+	t__reg__data_in[7] = #500000 1'b0;
+	t__reg__data_in[7] = #495000 1'b1;
+	t__reg__data_in[7] = #500000 1'b0;
+	t__reg__data_in[7] = #490000 1'b1;
+	t__reg__data_in[7] = #500000 1'b0;
+	t__reg__data_in[7] = #495000 1'b1;
+	t__reg__data_in[7] = #500000 1'b0;
+end 
+// data_in[ 6 ]
+initial
+begin
+	t__reg__data_in[6] = 1'b1;
+end 
+// data_in[ 5 ]
+initial
+begin
+	t__reg__data_in[5] = 1'b0;
+end 
+// data_in[ 4 ]
+initial
+begin
+	t__reg__data_in[4] = 1'b0;
+end 
+// data_in[ 3 ]
+initial
+begin
+	t__reg__data_in[3] = 1'b0;
+end 
+// data_in[ 2 ]
+initial
+begin
+	t__reg__data_in[2] = 1'b0;
+end 
+// data_in[ 1 ]
+initial
+begin
+	t__reg__data_in[1] = 1'b0;
+end 
+// data_in[ 0 ]
+initial
+begin
+	t__reg__data_in[0] = 1'b0;
+end 
+
+fir_filter_vlg_sample_tst tb_sample (
+	.s1(t__wire__clk),
+	.s2(t__wire__coef_in),
+	.s3(t__wire__data_in),
+	.s4(t__wire__load_c),
+	.s5(t__wire__reset),
+	.sampler_tx(t__wire__sampler)
+);
+
+fir_filter_vlg_check_tst tb_out(
+	.o1(t__wire__data_out),
+	.sampler_rx(t__wire__sampler)
+);
+endmodule
+

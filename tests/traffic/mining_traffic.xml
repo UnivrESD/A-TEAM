@@ -1,0 +1,146 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="No"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+		<atomicProposition formula="curr_state[3:0]=='b0001" dir="in"/>
+		<atomicProposition formula="curr_state[3:0]=='b0010" dir="in"/>
+		<atomicProposition formula="curr_state[3:0]=='b0100" dir="in"/>
+		<atomicProposition formula="curr_state[3:0]=='b1000" dir="in"/>
+
+		<atomicProposition formula="north[2:0]=='b001" dir="out"/>
+		<atomicProposition formula="north[2:0]=='b010" dir="out"/>
+		<atomicProposition formula="north[2:0]=='b100" dir="out"/>
+
+		
+		<atomicProposition formula="south[2:0]=='b001" dir="out"/>
+		<atomicProposition formula="south[2:0]=='b010" dir="out"/>
+		<atomicProposition formula="south[2:0]=='b100" dir="out"/>
+
+		<!--
+		<atomicProposition formula="west[2:0]=='b001" dir="out"/>
+		<atomicProposition formula="west[2:0]=='b010" dir="out"/>
+		<atomicProposition formula="west[2:0]=='b100" dir="out"/>
+
+		<atomicProposition formula="east[2:0]=='b001" dir="out"/>
+		<atomicProposition formula="east[2:0]=='b010" dir="out"/>
+		<atomicProposition formula="east[2:0]=='b100" dir="out"/>
+		-->
+
+<!-- 
+		<atomicProposition formula="gnt2" dir="out"/>
+-->
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            	<template value="p1"/>
+		<template value="Xp1"/>
+<!--
+<template value="X[2]p1"/>
+<template value="X[3]p1"/>
+<template value="X[4]p1"/>
+<template value="X[5]p1"/>
+-->
+	    <!-- ############ EXISTENCE: P becomes true ############ -->
+
+	<!--
+		After Q until R
+		[](Q & !R -> (!R U (P & !R)))
+	-->
+        <!-- <template value="!p1 U (p2 && !p1)"/> -->
+	<!--
+		Between Q and R	
+		[](Q & !R -> (!R W (P & !R)))
+	-->
+	<!--<template value="( !p1 U (p2 && !p1) ) || ( false R !p1 )"/> -->
+
+
+	
+	<!-- ############ ABSENCE: P is false  ############ -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W R))
+	-->	
+	 <!--<template value="( p1 U p2 ) || ( false R !p1 )"/> -->
+	
+	<!--
+		After Q	
+		[](Q -> [](!P))
+	-->
+	 <!--<template value="false R !p1"/> -->
+
+	<!-- ############ UNIVERSALITY: P is true  ############ -->
+
+	<!--
+		After Q	
+		[](Q -> [](P))
+	-->	
+	<!-- <template value="false R p1"/>-->
+
+	<!--
+		After Q until R	
+		[](Q & !R -> (P W R))
+	-->
+	 <!--<template value="( p1 U p2 ) || false R p1"/> -->
+
+	<!-- ############ PRECEDENCE: S precedes P ############ 
+	 Precedence says that some cause precedes each effect -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W (S | R)))
+	-->
+	 <!--<template value="( !p1 U (p2 || p3) ) || ( false R !p1 )"/> -->
+
+
+	<!-- ############ RESPONSE: S responds to P ############ 
+	 Response says that some effect follows each cause -->
+		
+	<!--
+		Globally
+		[](P -> <>S)
+	
+	 <template value="true U p1"/> 
+-->
+                <!--
+                    <template value="p1 && p2"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="2" maxNextDepth="0"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="traffic"/>
+    </propertyprinter>
+
+</root>

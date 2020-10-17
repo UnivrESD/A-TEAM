@@ -1,0 +1,11 @@
+computer_play bool
+current_state[1:0] logic 2
+illegal_move bool
+next_state[1:0] logic 2
+no_space bool
+pc bool
+play bool
+player_play bool
+reset bool
+win bool
+

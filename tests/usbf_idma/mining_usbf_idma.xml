@@ -1,0 +1,161 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="Yes"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <directions>
+            </directions>
+            <atomicPropositions>
+
+<!--
+		<atomicProposition formula="rx_data_st[0]" dir="in"/>
+		<atomicProposition formula="rx_data_st[1]" dir="in"/>
+		<atomicProposition formula="rx_data_st[2]" dir="in"/>
+		<atomicProposition formula="rx_data_st[3]" dir="in"/>
+		<atomicProposition formula="rx_data_st[4]" dir="in"/>
+		<atomicProposition formula="rx_data_st[5]" dir="in"/>
+		<atomicProposition formula="rx_data_st[6]" dir="in"/>
+-->
+		<atomicProposition formula="rx_data_valid" dir="in"/>
+		<atomicProposition formula="rx_data_done" dir="in"/>
+		<atomicProposition formula="rx_dma_en" dir="in"/>
+		<atomicProposition formula="tx_dma_en" dir="in"/>
+		<atomicProposition formula="abort" dir="in"/>
+		<atomicProposition formula="dma_en" dir="in"/>
+		<atomicProposition formula="send_zero_length" dir="in"/>
+		<atomicProposition formula="mack" dir="in"/>
+		<atomicProposition formula="rd_next" dir="in"/>
+
+		<!-- reg -->
+		<atomicProposition formula="mwe_d" dir="in"/>
+		<atomicProposition formula="state[0]" dir="in"/>
+		<atomicProposition formula="state[1]" dir="in"/>
+		<atomicProposition formula="rx_data_done_r" dir="in"/>
+		<atomicProposition formula="word_done_r" dir="in"/>
+		<atomicProposition formula="mack_r" dir="in"/>
+		<atomicProposition formula="mreq_d" dir="in"/>
+		<atomicProposition formula="word_done" dir="in"/>
+
+
+
+
+
+		<atomicProposition formula="send_data" dir="out"/>
+<!--
+		<atomicProposition formula="tx_data_st[0]" dir="out"/>
+		<atomicProposition formula="tx_data_st[1]" dir="out"/>
+		<atomicProposition formula="tx_data_st[2]" dir="out"/>
+		<atomicProposition formula="tx_data_st[3]" dir="out"/>
+		<atomicProposition formula="tx_data_st[4]" dir="out"/>
+		<atomicProposition formula="tx_data_st[5]" dir="out"/>
+		<atomicProposition formula="tx_data_st[6]" dir="out"/>
+-->
+		<atomicProposition formula="idma_done" dir="out"/>
+		<atomicProposition formula="mwe" dir="out"/>
+		<atomicProposition formula="mreq" dir="out"/>
+		
+		
+
+	
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneMiner>
+
+    <!-- 
+        The template is "always(antecedent -> consequent)"
+        The antecedent is generated automatically
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+            <template value="!p2"/>
+            <template value="Xp1"/>
+            <template value="X!p1"/>
+	    <template value="!p1 U (p2 && !p1)"/> <!-- solo con max = 3 -->
+	    <template value="( p1 U p2 ) || ( false R p1 )"/> <!-- anche con max = 2 -->
+            <!-- ############ EXISTENCE: P becomes true ############ -->
+	<!--
+		After Q until R
+		[](Q & !R -> (!R U (P & !R)))
+	-->
+        <template value="!p1 U (p2 && !p1)"/>
+	<!--
+		Between Q and R	
+		[](Q & !R -> (!R W (P & !R)))
+	-->
+	<template value="( !p1 U (p2 && !p1) ) || ( false R !p1 )"/>
+
+
+	
+	<!-- ############ ABSENCE: P is false  ############ -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W R))
+	-->	
+	<template value="( p1 U p2 ) || ( false R !p1 )"/>
+	
+	<!--
+		After Q	
+		[](Q -> [](!P))
+	-->
+	<template value="false R !p1"/>
+
+	<!-- ############ UNIVERSALITY: P is true  ############ -->
+
+	<!--
+		After Q	
+		[](Q -> [](P))
+	-->	
+	<template value="false R p1"/>
+
+	<!--
+		After Q until R	
+		[](Q & !R -> (P W R))
+	-->
+	<template value="( p1 U p2 ) || false R p1"/>
+
+	<!-- ############ PRECEDENCE: S precedes P ############ 
+	 Precedence says that some cause precedes each effect -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W (S | R)))
+	-->
+	<template value="( !p1 U (p2 || p3) ) || ( false R !p1 )"/>
+
+
+	<!-- ############ RESPONSE: S responds to P ############ 
+	 Response says that some effect follows each cause -->
+		
+	<!--
+		Globally
+		[](P -> <>S)
+	-->
+	<template value="true U p1"/>
+                </templates>
+            </propositionminer>
+
+            <propertyminer name="A-teamMiner">
+                <constraints maxVariables="2" maxNextDepth="2"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+                    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="usbf_idma"/>
+    </propertyprinter>
+
+</root>

@@ -1,0 +1,91 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="Yes"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <atomicPropositions>
+		<atomicProposition formula="fbit_comp"    dir="in" />
+                <atomicProposition formula="wr"   dir="in" />
+                <atomicProposition formula="fifo_we"   dir="in" />
+                <atomicProposition formula="fifo_rd"   dir="in" />
+                <atomicProposition formula="rd"    dir="in" />
+		<atomicProposition formula="underflow_set"    dir="in" />
+		<atomicProposition formula="overflow_set"    dir="in" />
+		<atomicProposition formula="pointer_equal"    dir="in" />
+		<atomicProposition formula="wptr[0]"    dir="in" />
+		<atomicProposition formula="wptr[1]"    dir="in" />
+		<atomicProposition formula="wptr[2]"    dir="in" />
+		<atomicProposition formula="wptr[3]"    dir="in" />
+		<atomicProposition formula="rptr[0]"    dir="in" />
+		<atomicProposition formula="rptr[1]"    dir="in" />
+		<atomicProposition formula="rptr[2]"    dir="in" />
+		<atomicProposition formula="rptr[3]"    dir="in" />
+		<atomicProposition formula="wptr[3]"    dir="in" />
+		<atomicProposition formula="pointer_result[0]"    dir="in" />
+		<atomicProposition formula="pointer_result[1]"    dir="in" />
+		<atomicProposition formula="pointer_result[2]"    dir="in" />
+		<atomicProposition formula="pointer_result[3]"    dir="in" />
+
+
+
+
+
+                <atomicProposition formula="fifo_full"   dir="out" />
+                <atomicProposition formula="fifo_empty"    dir="out" />
+                <atomicProposition formula="fifo_threshold"     dir="out" />
+                <atomicProposition formula="fifo_underflow"    dir="out" />
+                <atomicProposition formula="fifo_overflow" dir="out" />
+
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneminer>
+
+    <!-- 
+        The full template is "(antecedent -> consequent)"
+        The antecedent is generated automatically following the template: p_1 && p_2 ... p_n
+
+        The templates must be written in the spot ltl language.
+        Some notes for the spot ltl language:
+        - Use "<->" instead of "=="
+        - Use "X[constant] expression" intead of "nexttime[constant] expression"
+        - Use "expression1 U expression2" intead of "expression1 until expression2"
+        - Use "expression1 -> expression2" intead of "expression1 |-> expression2"
+        - The other operators should hold the usual syntax
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+            <template value="p1"/>
+	    <template value="Xp1"/>
+            
+
+                <!--
+		    <template value="X!p1"/>
+                    <template value="p1 U p2"/>
+                    <template value="p1 R p2"/>
+                -->
+         </ConsequentTemplates>
+    </propositionminer>
+
+    <propertyminer name="A-teamMiner">
+         <constraints maxVariables="3" maxNextDepth="1"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="fifo_mem"/>
+    </propertyprinter>
+
+</root>

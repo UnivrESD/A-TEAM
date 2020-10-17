@@ -1,0 +1,123 @@
+<root>
+    <tracereader name="mangroveTraceReader">
+        <vcdParserConfig>
+            <clockSignal name="clk"/>
+            <splitSignals value="No"/>
+            <addModulePathToVariables value="No"/>
+            <convertSingleBitLogicToBool value="Yes"/>
+        </vcdParserConfig>
+    </tracereader>
+
+    <coneminer name="manualDefinition">
+        <coneOfInfluence name="cone1">
+            <atomicPropositions>
+                <atomicProposition formula="a"   dir="in" />
+                <atomicProposition formula="b"   dir="in" />
+                <atomicProposition formula="sum"   dir="out" />
+                <atomicProposition formula="carry"    dir="out" />
+            </atomicPropositions>
+        </coneOfInfluence>
+    </coneminer>
+
+    <!-- 
+        The full template is "(antecedent -> consequent)"
+        The antecedent is generated automatically following the template: p_1 && p_2 ... p_n
+
+        The templates must be written in the spot ltl language.
+        Some notes for the spot ltl language:
+        - Use "<->" instead of "=="
+        - Use "X[constant] expression" intead of "nexttime[constant] expression"
+        - Use "expression1 U expression2" intead of "expression1 until expression2"
+        - Use "expression1 -> expression2" intead of "expression1 |-> expression2"
+        - The other operators should hold the usual syntax
+    -->
+    <propositionminer name="TBMiner">
+        <ConsequentTemplates>
+                    <template value="p1"/>
+		   
+                <!-- ############ EXISTENCE: P becomes true ############ -->
+
+	<!--
+		After Q until R
+		[](Q & !R -> (!R U (P & !R)))
+	-->
+        <!-- <template value="!p1 U (p2 && !p1)"/> -->
+	<!--
+		Between Q and R	
+		[](Q & !R -> (!R W (P & !R)))
+	-->
+	<!-- <template value="( !p1 U (p2 && !p1) ) || ( false R !p1 )"/> -->
+
+
+	
+	<!-- ############ ABSENCE: P is false  ############ -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W R))
+	-->	
+	<!-- <template value="( p1 U p2 ) || ( false R !p1 )"/> -->
+	
+	<!--
+		After Q	
+		[](Q -> [](!P))
+	-->
+	<!-- <template value="false R !p1"/> -->
+
+	<!-- ############ UNIVERSALITY: P is true  ############ -->
+
+	<!--
+		After Q	
+		[](Q -> [](P))
+	-->	
+	<!-- <template value="false R p1"/> -->
+
+	<!--
+		After Q until R	
+		[](Q & !R -> (P W R))
+	-->
+	<!-- <template value="( p1 U p2 ) || false R p1"/> -->
+
+	<!-- ############ PRECEDENCE: S precedes P ############ 
+	 Precedence says that some cause precedes each effect -->
+	<!--
+		After Q until R	
+		[](Q & !R -> (!P W (S | R)))
+	-->
+	<!-- <template value="( !p1 U (p2 || p3) ) || ( false R !p1 )"/> -->
+
+
+	<!-- ############ RESPONSE: S responds to P ############ 
+	 Response says that some effect follows each cause -->
+		
+	<!--
+		Globally
+		[](P -> <>S)
+	-->
+	<!-- <template value="true U p1"/> -->
+
+
+
+
+		<!--
+			Eventually:= true U p
+			Always:= false R p
+			p1 W p2 = ( p1 U p2 ) V always p1
+		-->
+         </ConsequentTemplates>
+    </propositionminer>
+
+    <propertyminer name="A-teamMiner">
+         <constraints maxVariables="3" maxNextDepth="1"/>
+                    <!--
+                        <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
+                    -->
+    </propertyminer>
+
+                    <!--
+                        <propertyQualifier name="FBQualifier"/> 
+                    -->
+    <propertyprinter name="sva">
+        <generateChecker value="No" name="buslayer_master"/>
+    </propertyprinter>
+
+</root>
