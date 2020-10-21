@@ -297,7 +297,7 @@ void ManualDefinition::fillConeWithAtomicPropositions(
     tree::ParseTree *tree = parser.file();
     oden::PropositionParser listener(traceRepo.getVariables(), traceRepo[0]);
     tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
-//    std::cout << tree->toStringTree(&parser) << std::endl;
+    std::cout << tree->toStringTree(&parser) << std::endl;
 
     Proposition *p = listener.getProposition();
     messageErrorIf(p == nullptr, "Not valid atomic proposition: " +

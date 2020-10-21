@@ -12,11 +12,12 @@
 class  propositionParser : public antlr4::Parser {
 public:
   enum {
-    T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, PastOp = 6, LGPAREN = 7, 
-    RGPAREN = 8, LCPAREN = 9, RCPAREN = 10, LPAREN = 11, RPAREN = 12, VARIABLE = 13, 
-    NUMERIC = 14, BINARY = 15, BOOLEAN = 16, PLUS = 17, MINUS = 18, TIMES = 19, 
-    DIV = 20, GT = 21, GE = 22, LT = 23, LE = 24, EQ = 25, NEQ = 26, BAND = 27, 
-    BOR = 28, BXOR = 29, NEG = 30, AND = 31, OR = 32, NOT = 33, WS = 34
+    T__0 = 1, T__1 = 2, T__2 = 3, T__3 = 4, T__4 = 5, NextOp = 6, PastOp = 7, 
+    LGPAREN = 8, RGPAREN = 9, LCPAREN = 10, RCPAREN = 11, LPAREN = 12, RPAREN = 13, 
+    VARIABLE = 14, NUMERIC = 15, BINARY = 16, BOOLEAN = 17, PLUS = 18, MINUS = 19, 
+    TIMES = 20, DIV = 21, GT = 22, GE = 23, LT = 24, LE = 25, EQ = 26, NEQ = 27, 
+    BAND = 28, BOR = 29, BXOR = 30, NEG = 31, AND = 32, OR = 33, NOT = 34, 
+    WS = 35
   };
 
   enum {
@@ -81,12 +82,13 @@ public:
     antlr4::tree::TerminalNode *RPAREN();
     antlr4::tree::TerminalNode *PastOp();
     ConstantContext *constant();
+    antlr4::tree::TerminalNode *NextOp();
     antlr4::tree::TerminalNode *NOT();
-    std::vector<LogicContext *> logic();
-    LogicContext* logic(size_t i);
-    RelopContext *relop();
     std::vector<NumericContext *> numeric();
     NumericContext* numeric(size_t i);
+    RelopContext *relop();
+    std::vector<LogicContext *> logic();
+    LogicContext* logic(size_t i);
     antlr4::tree::TerminalNode *EQ();
     antlr4::tree::TerminalNode *NEQ();
     BooleanAtomContext *booleanAtom();
@@ -159,6 +161,7 @@ public:
     Upper_boundContext *upper_bound();
     Lower_boundContext *lower_bound();
     antlr4::tree::TerminalNode *PastOp();
+    antlr4::tree::TerminalNode *NextOp();
     antlr4::tree::TerminalNode *NEG();
     LogicAtomContext *logicAtom();
     NumericContext *numeric();
@@ -226,8 +229,9 @@ public:
     std::vector<NumericContext *> numeric();
     NumericContext* numeric(size_t i);
     antlr4::tree::TerminalNode *RPAREN();
-    antlr4::tree::TerminalNode *PastOp();
+    antlr4::tree::TerminalNode *NextOp();
     ConstantContext *constant();
+    antlr4::tree::TerminalNode *PastOp();
     NumericAtomContext *numericAtom();
     antlr4::tree::TerminalNode *TIMES();
     antlr4::tree::TerminalNode *DIV();

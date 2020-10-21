@@ -4,17 +4,17 @@ file : boolean EOF;
 
 boolean
     : LPAREN boolean RPAREN
-    /*| NextOp LCPAREN constant RCPAREN boolean*/
     | PastOp LPAREN boolean ',' constant RPAREN
+    | NextOp LPAREN boolean ',' constant RPAREN
     | NOT boolean
-    | logic relop logic
     | numeric relop numeric
+    | logic relop logic
     | boolean EQ boolean
-    | logic EQ logic
     | numeric EQ numeric
+    | logic EQ logic
     | boolean NEQ boolean
-    | logic NEQ logic
     | numeric NEQ numeric
+    | logic NEQ logic
     | boolean booleanop=AND boolean
     | boolean booleanop=OR boolean
     | booleanAtom
@@ -39,8 +39,8 @@ logic
     : LPAREN logic RPAREN
     | LGPAREN logic RGPAREN LCPAREN constant RCPAREN
     | LGPAREN logic RGPAREN LCPAREN upper_bound ':' lower_bound RCPAREN
-    /*| NextOp LCPAREN constant RCPAREN logic*/
     | PastOp LPAREN logic ',' constant RPAREN
+    | NextOp LPAREN logic ',' constant RPAREN
     | NEG logic 
     | logic artop=(TIMES|DIV) logic
     | logic artop=(PLUS|MINUS) logic
@@ -65,7 +65,7 @@ logicVariable
 
 numeric
     : LPAREN numeric RPAREN
-    /*| NextOp LCPAREN constant RCPAREN numeric*/
+    | NextOp LPAREN numeric ',' constant RPAREN
     | PastOp LPAREN numeric ',' constant RPAREN
     | numeric artop=(TIMES|DIV) numeric
     | numeric artop=(PLUS|MINUS) numeric
@@ -96,11 +96,9 @@ variable
     ;
 
 
-/*
 NextOp
-    : 'nexttime'
+    : '$next'
     ;
-*/
 PastOp
     : '$past'
     ;

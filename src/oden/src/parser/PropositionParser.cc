@@ -77,7 +77,7 @@ void PropositionParser::enterLogicConstant(
 }
 void PropositionParser::enterNumericConstant(propositionParser::NumericConstantContext *ctx) {
   if (ctx->NUMERIC() != nullptr) {
-    Numeric value = std::stoul(ctx->getText());
+    Numeric value = std::stof(ctx->getText());
     auto *c = new NumericConstant(value, INT_MAX);
     _numericExpressions.push(c);
     return;
@@ -129,10 +129,10 @@ void PropositionParser::enterNumericVariable(
 }
 void PropositionParser::exitBoolean(propositionParser::BooleanContext *ctx) {
 
-  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr) {
-    // std::cout<<__func__<<"()"<<std::endl;
+  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr &&  ctx->NextOp() == nullptr) {
     return;
   }
+
   if (ctx->boolean().size() == 1) {
     if (ctx->NOT()) {
       // std::cout<<__func__<<"!"<<std::endl;
@@ -143,9 +143,8 @@ void PropositionParser::exitBoolean(propositionParser::BooleanContext *ctx) {
     }
 
     // next operator
-    /*
-    if (ctx->NextOp() != nullptr && ctx->LCPAREN() != nullptr &&
-        ctx->RCPAREN() != nullptr) {
+    if (ctx->NextOp() != nullptr && ctx->LPAREN() != nullptr &&
+        ctx->RPAREN() != nullptr) {
       // std::cout<<__func__<<"X"<<std::endl;
       Proposition *p = _proposition.top();
       _proposition.pop();
@@ -154,7 +153,6 @@ void PropositionParser::exitBoolean(propositionParser::BooleanContext *ctx) {
       _proposition.push(new PropositionNext(p, offset));
       return;
     }
-    */
 
     // past operator
     if (ctx->PastOp() != nullptr && ctx->LPAREN() != nullptr &&
@@ -317,7 +315,7 @@ void PropositionParser::exitBoolean(propositionParser::BooleanContext *ctx) {
 void PropositionParser::exitLogic(propositionParser::LogicContext *ctx) {
   // std::cout<<__func__<<std::endl;
 
-  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr) {
+  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr && ctx->NextOp() == nullptr) {
     return;
   }
 
@@ -385,9 +383,8 @@ void PropositionParser::exitLogic(propositionParser::LogicContext *ctx) {
     }
 
     // next operator
-    /*
-    if (ctx->NextOp() != nullptr && ctx->LCPAREN() != nullptr &&
-        ctx->RCPAREN() != nullptr) {
+    if (ctx->NextOp() != nullptr && ctx->LPAREN() != nullptr &&
+        ctx->RPAREN() != nullptr) {
       LogicExpression *le = _logicExpressions.top();
       _logicExpressions.pop();
       size_t offset =
@@ -395,7 +392,6 @@ void PropositionParser::exitLogic(propositionParser::LogicContext *ctx) {
       _logicExpressions.push(new LogicNext(le, offset));
       return;
     }
-    */
 
     // past operator
     if (ctx->PastOp() != nullptr && ctx->LPAREN() != nullptr &&
@@ -474,15 +470,14 @@ void PropositionParser::exitLogic(propositionParser::LogicContext *ctx) {
 void PropositionParser::exitNumeric(propositionParser::NumericContext *ctx) {
   // std::cout<<__func__<<std::endl;
 
-  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr) {
+  if (ctx->LPAREN() && ctx->RPAREN() && ctx->PastOp() == nullptr && ctx->NextOp() == nullptr) {
     return;
   }
 
   if (ctx->numeric().size() == 1) {
     // next operator
-    /*
-    if (ctx->NextOp() != nullptr && ctx->LCPAREN() != nullptr &&
-        ctx->RCPAREN() != nullptr) {
+    if (ctx->NextOp() != nullptr && ctx->LPAREN() != nullptr &&
+        ctx->RPAREN() != nullptr) {
       NumericExpression *ne = _numericExpressions.top();
       _numericExpressions.pop();
       size_t offset =
@@ -490,7 +485,6 @@ void PropositionParser::exitNumeric(propositionParser::NumericContext *ctx) {
       _numericExpressions.push(new NumericNext(ne, offset));
       return;
     }
-    */
 
     // past operator
     if (ctx->PastOp() != nullptr && ctx->LPAREN() != nullptr &&

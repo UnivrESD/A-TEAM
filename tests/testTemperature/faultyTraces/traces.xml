@@ -1,0 +1,7 @@
+<root>
+    <variables path="testUntil/trace.variables"/>
+    <traces>
+        <trace path="testUntil/faultyTraces/fault_0.mangrove"/>
+        <trace path="testUntil/faultyTraces/fault_1.mangrove"/>
+    </traces>
+</root>

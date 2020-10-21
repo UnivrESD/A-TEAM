@@ -38,7 +38,7 @@ template <typename T> class Atom {
     size_t _max_time;
 };
 
-using Numeric = int32_t;
+using Numeric = float;
 using Logic   = Logic_t;
 
 using NumericExpression = Atom<Numeric>;

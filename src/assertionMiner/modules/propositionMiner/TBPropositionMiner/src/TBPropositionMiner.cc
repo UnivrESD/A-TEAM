@@ -133,12 +133,10 @@ void TBPropositionMiner::minePropositions(ConeOfInfluence &cone,
   */
     for (auto e : cone.outPropositions) {
         std::cout << prop2String(*e) << "\n";
-        /*
-        for(size_t i=0;i<e->getMaxTime();i++){
-            ofs<<e->evaluate(i)<<" ";
-        }
-        ofs <<"\n";
-        */
+//        for(size_t i=0;i<e->getMaxTime();i++){
+//		std::cout<<e->evaluate(i)<<" ";
+//        }
+//	std::cout <<"\n";
     }
 
     delete[] base;

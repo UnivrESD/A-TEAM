@@ -120,6 +120,7 @@ AntecedentGenerator::AntecedentGenerator()
 TraceInfo &AntecedentGenerator::makeAntecedents(DecTreeVariables &dcVariables,
                                                 TraceInfo &traceInfo) {
     _traceInfo = &traceInfo;
+    saveOffset=false;
 
     std::list<size_t> unusedVars;
     for (size_t i = 0; i < dcVariables.size(); ++i)
