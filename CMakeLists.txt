@@ -45,7 +45,7 @@ list(APPEND MINER_EXTERNAL_LIBRARIES ${ANTLR4_RUNTIME})
 
 find_package(SPOTLTL REQUIRED)
 list(APPEND MINER_EXTERNAL_HEADERS ${SPOTLTL_CPP_INCLUDE_DIR})
-list(APPEND MINER_EXTERNAL_LIBRARIES ${SPOTLTL_LIBRARY})
+list(APPEND MINER_EXTERNAL_LIBRARIES ${SPOTLTL_LIB})
 
 ################################################################################
 # Targets.

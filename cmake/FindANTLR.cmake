@@ -1,32 +1,18 @@
+
 include(FindPackageHandleStandardArgs)
 
-find_library(ANTLR4_RUNTIME NAMES antlr4-runtime PATHS ./libs/lib/antlr4/lib)
+if(DEFINED ANTRL4_INCLUDE_PATH AND DEFINED ANTRL4_LIB_PATH)
+    set(ANTLR4_RUNTIME ${ANTRL4_LIB_PATH})
+    set(ANTLR4CPP_INCLUDE_DIRS ${ANTRL4_INCLUDE_PATH})
+else()
+    find_library(ANTLR4_RUNTIME NAMES libantlr4-runtime.so 
+        HINTS /usr/local/lib/antlr4 /usr/lib/antlr4 /usr/local/lib /usr/lib)
 
-if (NOT ANTLR4_RUNTIME)
-    find_library(ANTLR4_RUNTIME NAMES antlr4-runtime PATHS ./libs/antlr4/.libs)
-endif ()
-
-find_path(ANTLR4CPP_INCLUDE_DIRS
-    PATHS ./libs/lib/antlr4/include/runtime/Cpp/runtime/src
-    NAMES antlr4-runtime.h
-    DOC "ANTLR4 C++ headers"
-    )
-if (NOT ANTLR4CPP_INCLUDE_DIRS)
     find_path(ANTLR4CPP_INCLUDE_DIRS
-        PATHS ./libs/antlr4/runtime/Cpp/runtime/src
         NAMES antlr4-runtime.h
+        HINTS /usr/local/include/antlr4-runtime /usr/include/antlr4-runtime /usr/local/include /usr/include
         DOC "ANTLR4 C++ headers"
         )
-endif ()
+endif()
 
-if (NOT ANTLR4_RUNTIME)
-    message(STATUS "Could not find ANTLR-RUNTIME library")
-else()
-    message(STATUS "Found ANTLR4_RUNTIME:" ${ANTLR4_RUNTIME})
-endif ()
-
-if (NOT ANTLR4CPP_INCLUDE_DIRS)
-    message(STATUS "Could not find C++ ANTLR include path")
-endif ()
-
-find_package_handle_standard_args(ANTLR4 REQUIRED_VARS ANTLR4CPP_INCLUDE_DIRS ANTLR4_RUNTIME)
+find_package_handle_standard_args(ANTLR4 REQUIRED_VARS ANTLR4_RUNTIME ANTLR4CPP_INCLUDE_DIRS)

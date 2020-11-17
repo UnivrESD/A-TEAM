@@ -1,34 +1,22 @@
 include(FindPackageHandleStandardArgs)
 
-find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/lib/spot/lib)
+if(DEFINED SPOTLTL_INCLUDE_PATH AND DEFINED SPOTLTL_LIB_PATH AND DEFINED BDDX_LIB_PATH)
+set(SPOTLTLCPP_INCLUDE_DIRS ${SPOTLTL_INCLUDE_PATH})
+set(SPOTLTL_LIB ${SPOTLTL_LIB_PATH})
+set(BDDX_LIB ${BDDX_LIB_PATH})
+else()
 
-if (NOT SPOTLTL_LIBRARY)
-    find_library(SPOTLTL_LIBRARY NAMES spot PATHS ./libs/spot/spot/.libs)
-endif ()
-
-if (NOT SPOTLTL_LIBRARY)
-    message(STATUS "Could not find SPOTLTL libraries")
-endif ()
-
-# Try to find c++ headers
-find_path(SPOTLTL_CPP_INCLUDE_DIR
-    NAMES spot/tl
-    PATHS ./libs/lib/spot/include/
-    DOC "SPOTLTL C++ header")
-
-if (NOT SPOTLTL_CPP_INCLUDE_DIR)
-    find_path(SPOTLTL_CPP_INCLUDE_DIR
-        NAMES spot/tl
-        PATHS ./libs/spot/
-        DOC "SPOTLTL C++ header")
-endif ()
+    find_library(SPOTLTL_LIB NAMES libspot.so HINTS /usr/local/lib/spot
+        /usr/lib/spot /usr/local/lib /usr/lib)
+    find_library(BDDX_LIB NAMES libbddx.so HINTS /usr/local/lib /usr/lib)
 
 
-if (SPOTLTL_CPP_INCLUDE_DIR)
-    message(STATUS "Found SPOTLTL include directory: " ${SPOTLTL_CPP_INCLUDE_DIR})
-else ()
-    message(STATUS "Could not find SPOTLTL C++ include path")
-endif ()
+find_path(SPOTLTLCPP_INCLUDE_DIRS
+    NAMES spot/tl spot/twaalgos
+    HINTS /usr/local/include /usr/include /usr/local/include /usr/include
+    )
 
-find_package_handle_standard_args(SPOTLTL REQUIRED_VARS SPOTLTL_LIBRARY SPOTLTL_CPP_INCLUDE_DIR)
+endif()
+list(APPEND SPOTLTL_LIB ${BDDX_LIB})
 
+find_package_handle_standard_args(SPOTLTL REQUIRED_VARS SPOTLTL_LIB BDDX_LIB SPOTLTLCPP_INCLUDE_DIRS)
