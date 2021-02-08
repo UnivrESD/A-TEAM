@@ -1,4 +1,2 @@
 a bool
-b bool
-c bool
-d bool
+b[1:0] logic 2

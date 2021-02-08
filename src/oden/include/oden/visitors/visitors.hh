@@ -5,4 +5,5 @@
 #include "PeTraceChanger.hh"
 #include "PrinterVisitor.hh"
 #include "CounterVisitor.hh"
+#include "DepthVisitor.hh"
 //------------------------------------------------------------------------------

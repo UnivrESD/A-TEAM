@@ -1,277 +1,282 @@
 [
 {
-  "directory": "/home/sam/A-TEAM/build/antlr4_grammar",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/antlr4_grammar/include -I/home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionLexer.cpp.o -c /home/sam/A-TEAM/antlr4_grammar/src/propositionLexer.cpp",
-  "file": "/home/sam/A-TEAM/antlr4_grammar/src/propositionLexer.cpp"
+  "directory": "/home/sam/branchFixTime/build/antlr4_grammar",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/antlr4_grammar/include -I/home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionLexer.cpp.o -c /home/sam/branchFixTime/antlr4_grammar/src/propositionLexer.cpp",
+  "file": "/home/sam/branchFixTime/antlr4_grammar/src/propositionLexer.cpp"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/antlr4_grammar",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/antlr4_grammar/include -I/home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionParser.cpp.o -c /home/sam/A-TEAM/antlr4_grammar/src/propositionParser.cpp",
-  "file": "/home/sam/A-TEAM/antlr4_grammar/src/propositionParser.cpp"
+  "directory": "/home/sam/branchFixTime/build/antlr4_grammar",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/antlr4_grammar/include -I/home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionParser.cpp.o -c /home/sam/branchFixTime/antlr4_grammar/src/propositionParser.cpp",
+  "file": "/home/sam/branchFixTime/antlr4_grammar/src/propositionParser.cpp"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/antlr4_grammar",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/antlr4_grammar/include -I/home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionListener.cpp.o -c /home/sam/A-TEAM/antlr4_grammar/src/propositionListener.cpp",
-  "file": "/home/sam/A-TEAM/antlr4_grammar/src/propositionListener.cpp"
+  "directory": "/home/sam/branchFixTime/build/antlr4_grammar",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/antlr4_grammar/include -I/home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionListener.cpp.o -c /home/sam/branchFixTime/antlr4_grammar/src/propositionListener.cpp",
+  "file": "/home/sam/branchFixTime/antlr4_grammar/src/propositionListener.cpp"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/antlr4_grammar",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/antlr4_grammar/include -I/home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionBaseListener.cpp.o -c /home/sam/A-TEAM/antlr4_grammar/src/propositionBaseListener.cpp",
-  "file": "/home/sam/A-TEAM/antlr4_grammar/src/propositionBaseListener.cpp"
+  "directory": "/home/sam/branchFixTime/build/antlr4_grammar",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/antlr4_grammar/include -I/home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src    -std=gnu++11 -o CMakeFiles/propositionParser.dir/src/propositionBaseListener.cpp.o -c /home/sam/branchFixTime/antlr4_grammar/src/propositionBaseListener.cpp",
+  "file": "/home/sam/branchFixTime/antlr4_grammar/src/propositionBaseListener.cpp"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenEnums.cc.o -c /home/sam/A-TEAM/src/oden/src/odenEnums.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/odenEnums.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenEnums.cc.o -c /home/sam/branchFixTime/src/oden/src/odenEnums.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/odenEnums.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/types.cc.o -c /home/sam/A-TEAM/src/oden/src/types.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/types.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/types.cc.o -c /home/sam/branchFixTime/src/oden/src/types.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/types.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/Checker.cc.o -c /home/sam/A-TEAM/src/oden/src/Checker.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/Checker.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/Checker.cc.o -c /home/sam/branchFixTime/src/oden/src/Checker.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/Checker.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/parser/PropositionParser.cc.o -c /home/sam/A-TEAM/src/oden/src/parser/PropositionParser.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/parser/PropositionParser.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/parser/PropositionParser.cc.o -c /home/sam/branchFixTime/src/oden/src/parser/PropositionParser.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/parser/PropositionParser.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/Constant.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/atom/Constant.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/atom/Constant.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/Constant.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/atom/Constant.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/atom/Constant.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/BooleanVariable.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/atom/BooleanVariable.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/atom/BooleanVariable.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/BooleanVariable.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/atom/BooleanVariable.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/atom/BooleanVariable.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/NumericVariable.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/atom/NumericVariable.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/atom/NumericVariable.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/NumericVariable.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/atom/NumericVariable.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/atom/NumericVariable.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/LogicVariable.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/atom/LogicVariable.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/atom/LogicVariable.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/atom/LogicVariable.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/atom/LogicVariable.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/atom/LogicVariable.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/Expression.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/expression/Expression.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/expression/Expression.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/Expression.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/expression/Expression.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/expression/Expression.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/BitSelector.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/expression/BitSelector.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/expression/BitSelector.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/BitSelector.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/expression/BitSelector.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/expression/BitSelector.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/TypeCast.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/expression/TypeCast.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/expression/TypeCast.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/expression/TypeCast.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/expression/TypeCast.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/expression/TypeCast.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/NextOperator.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/temporal/NextOperator.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/temporal/NextOperator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/NextOperator.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/temporal/NextOperator.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/temporal/NextOperator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/PastOperator.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/temporal/PastOperator.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/temporal/PastOperator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/PastOperator.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/temporal/PastOperator.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/temporal/PastOperator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/UntilOperator.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/temporal/UntilOperator.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/temporal/UntilOperator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/UntilOperator.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/temporal/UntilOperator.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/temporal/UntilOperator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/ReleaseOperator.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/temporal/ReleaseOperator.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/temporal/ReleaseOperator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/temporal/ReleaseOperator.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/temporal/ReleaseOperator.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/temporal/ReleaseOperator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/Logic_t.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/Logic_t.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/Logic_t.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/Logic_t.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/Logic_t.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/Logic_t.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/ConeOfInfluence.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/ConeOfInfluence.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/ConeOfInfluence.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/ConeOfInfluence.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/ConeOfInfluence.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/ConeOfInfluence.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/DataType.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/DataType.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/DataType.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/DataType.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/DataType.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/DataType.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/TraceRepository.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/TraceRepository.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/TraceRepository.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/TraceRepository.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/TraceRepository.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/TraceRepository.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/Trace.cc.o -c /home/sam/A-TEAM/src/oden/src/classes/Trace.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/classes/Trace.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/classes/Trace.cc.o -c /home/sam/branchFixTime/src/oden/src/classes/Trace.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/classes/Trace.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/applicationUtils.cc.o -c /home/sam/A-TEAM/src/oden/src/odenUtils/applicationUtils.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/odenUtils/applicationUtils.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/applicationUtils.cc.o -c /home/sam/branchFixTime/src/oden/src/odenUtils/applicationUtils.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/odenUtils/applicationUtils.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/xmlUtils.cc.o -c /home/sam/A-TEAM/src/oden/src/odenUtils/xmlUtils.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/odenUtils/xmlUtils.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/xmlUtils.cc.o -c /home/sam/branchFixTime/src/oden/src/odenUtils/xmlUtils.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/odenUtils/xmlUtils.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/propositionUtils.cc.o -c /home/sam/A-TEAM/src/oden/src/odenUtils/propositionUtils.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/odenUtils/propositionUtils.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/propositionUtils.cc.o -c /home/sam/branchFixTime/src/oden/src/odenUtils/propositionUtils.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/odenUtils/propositionUtils.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/templateUtils.cc.o -c /home/sam/A-TEAM/src/oden/src/odenUtils/templateUtils.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/odenUtils/templateUtils.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/odenUtils/templateUtils.cc.o -c /home/sam/branchFixTime/src/oden/src/odenUtils/templateUtils.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/odenUtils/templateUtils.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/TraceReader.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/TraceReader.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/TraceReader.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/TraceReader.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/TraceReader.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/TraceReader.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/ConeMiner.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/ConeMiner.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/ConeMiner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/ConeMiner.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/ConeMiner.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/ConeMiner.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropositionMiner.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/PropositionMiner.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/PropositionMiner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropositionMiner.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/PropositionMiner.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/PropositionMiner.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyMiner.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/PropertyMiner.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/PropertyMiner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyMiner.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/PropertyMiner.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/PropertyMiner.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyPrinter.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/PropertyPrinter.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/PropertyPrinter.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyPrinter.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/PropertyPrinter.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/PropertyPrinter.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyQualifier.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/PropertyQualifier.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/PropertyQualifier.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/PropertyQualifier.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/PropertyQualifier.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/PropertyQualifier.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/default/MangroveTraceReader.cc.o -c /home/sam/A-TEAM/src/oden/src/modules/default/MangroveTraceReader.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/modules/default/MangroveTraceReader.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/modules/default/MangroveTraceReader.cc.o -c /home/sam/branchFixTime/src/oden/src/modules/default/MangroveTraceReader.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/modules/default/MangroveTraceReader.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/OdenVisitor.cc.o -c /home/sam/A-TEAM/src/oden/src/OdenVisitor.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/OdenVisitor.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/OdenVisitor.cc.o -c /home/sam/branchFixTime/src/oden/src/OdenVisitor.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/OdenVisitor.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/PrinterVisitor.cc.o -c /home/sam/A-TEAM/src/oden/src/visitors/PrinterVisitor.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/visitors/PrinterVisitor.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/PrinterVisitor.cc.o -c /home/sam/branchFixTime/src/oden/src/visitors/PrinterVisitor.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/visitors/PrinterVisitor.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/CopyVisitor.cc.o -c /home/sam/A-TEAM/src/oden/src/visitors/CopyVisitor.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/visitors/CopyVisitor.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/DepthVisitor.cc.o -c /home/sam/branchFixTime/src/oden/src/visitors/DepthVisitor.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/visitors/DepthVisitor.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/oden",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/oden/./include -I/home/sam/A-TEAM/antlr4_grammar/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/PeTraceChanger.cc.o -c /home/sam/A-TEAM/src/oden/src/visitors/PeTraceChanger.cc",
-  "file": "/home/sam/A-TEAM/src/oden/src/visitors/PeTraceChanger.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/CopyVisitor.cc.o -c /home/sam/branchFixTime/src/oden/src/visitors/CopyVisitor.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/visitors/CopyVisitor.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/coneMiner/manualDefinition",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include -isystem /home/sam/A-TEAM/antlr4_grammar/include    -std=gnu++11 -o CMakeFiles/manualDefinition.dir/src/ManualDefinition.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/src/ManualDefinition.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/src/ManualDefinition.cc"
+  "directory": "/home/sam/branchFixTime/build/src/oden",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/oden/./include -I/home/sam/branchFixTime/antlr4_grammar/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/oden.dir/src/visitors/PeTraceChanger.cc.o -c /home/sam/branchFixTime/src/oden/src/visitors/PeTraceChanger.cc",
+  "file": "/home/sam/branchFixTime/src/oden/src/visitors/PeTraceChanger.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/AteamMiner.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AteamMiner.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AteamMiner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/coneMiner/manualDefinition",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include -isystem /home/sam/branchFixTime/antlr4_grammar/include    -std=gnu++11 -o CMakeFiles/manualDefinition.dir/src/ManualDefinition.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/src/ManualDefinition.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/src/ManualDefinition.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/supportTypes.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportTypes.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportTypes.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/AteamMiner.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AteamMiner.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AteamMiner.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/supportMethods.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportMethods.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportMethods.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/supportTypes.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportTypes.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportTypes.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/AntecedentGenerator.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AntecedentGenerator.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AntecedentGenerator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/supportMethods.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportMethods.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/supportMethods.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/FaultChecker.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/FaultChecker.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/FaultChecker.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/AntecedentGenerator.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AntecedentGenerator.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/AntecedentGenerator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/SetsGenerator.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/SetsGenerator.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/src/SetsGenerator.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/FaultChecker.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/FaultChecker.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/FaultChecker.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propositionMiner/booleanVariables",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/booleanVariables.dir/src/BooleanVariables.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/src/BooleanVariables.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/src/BooleanVariables.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyMiner/ateamMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/ateam.dir/src/SetsGenerator.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/SetsGenerator.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/src/SetsGenerator.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propositionMiner/TBPropositionMiner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/tbPropositionMiner.dir/src/TBPropositionMiner.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/src/TBPropositionMiner.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/src/TBPropositionMiner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propositionMiner/booleanVariables",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/booleanVariables.dir/src/BooleanVariables.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/src/BooleanVariables.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/src/BooleanVariables.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyQualification/faultBasedQualifier",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/faultBasedQualifier.dir/src/FaultBasedQualifier.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/src/FaultBasedQualifier.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/src/FaultBasedQualifier.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propositionMiner/TBPropositionMiner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/tbPropositionMiner.dir/src/TBPropositionMiner.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/src/TBPropositionMiner.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/src/TBPropositionMiner.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyPrinter/pslPrinter",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/pslPrinter.dir/src/PSLPrinter.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPrinter.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPrinter.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyQualification/faultBasedQualifier",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/faultBasedQualifier.dir/src/FaultBasedQualifier.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/src/FaultBasedQualifier.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/src/FaultBasedQualifier.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/modules/propertyPrinter/pslPrinter",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/oden/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/pslPrinter.dir/src/PSLPropositionPrinter.cc.o -c /home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPropositionPrinter.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPropositionPrinter.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyPrinter/pslPrinter",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/pslPrinter.dir/src/PSLPrinter.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPrinter.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPrinter.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/miner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/miner/include -I/home/sam/A-TEAM/src/oden/include -I/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/main.cc.o -c /home/sam/A-TEAM/src/assertionMiner/miner/src/main.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/miner/src/main.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/modules/propertyPrinter/pslPrinter",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/oden/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/pslPrinter.dir/src/PSLPropositionPrinter.cc.o -c /home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPropositionPrinter.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/src/PSLPropositionPrinter.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/miner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/miner/include -I/home/sam/A-TEAM/src/oden/include -I/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/ModuleManager.cc.o -c /home/sam/A-TEAM/src/assertionMiner/miner/src/ModuleManager.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/miner/src/ModuleManager.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/miner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/miner/include -I/home/sam/branchFixTime/src/oden/include -I/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/main.cc.o -c /home/sam/branchFixTime/src/assertionMiner/miner/src/main.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/miner/src/main.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/miner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/miner/include -I/home/sam/A-TEAM/src/oden/include -I/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/Miner.cc.o -c /home/sam/A-TEAM/src/assertionMiner/miner/src/Miner.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/miner/src/Miner.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/miner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/miner/include -I/home/sam/branchFixTime/src/oden/include -I/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/ModuleManager.cc.o -c /home/sam/branchFixTime/src/assertionMiner/miner/src/ModuleManager.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/miner/src/ModuleManager.cc"
 },
 {
-  "directory": "/home/sam/A-TEAM/build/src/assertionMiner/miner",
-  "command": "/usr/bin/c++   -I/home/sam/A-TEAM/src/assertionMiner/miner/include -I/home/sam/A-TEAM/src/oden/include -I/home/sam/A-TEAM/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/A-TEAM/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/A-TEAM/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /home/sam/A-TEAM/libs/lib/spot/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/CommandLineReader.cc.o -c /home/sam/A-TEAM/src/assertionMiner/miner/src/CommandLineReader.cc",
-  "file": "/home/sam/A-TEAM/src/assertionMiner/miner/src/CommandLineReader.cc"
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/miner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/miner/include -I/home/sam/branchFixTime/src/oden/include -I/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/Miner.cc.o -c /home/sam/branchFixTime/src/assertionMiner/miner/src/Miner.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/miner/src/Miner.cc"
+},
+{
+  "directory": "/home/sam/branchFixTime/build/src/assertionMiner/miner",
+  "command": "/usr/bin/c++   -I/home/sam/branchFixTime/src/assertionMiner/miner/include -I/home/sam/branchFixTime/src/oden/include -I/home/sam/branchFixTime/src/assertionMiner/modules/coneMiner/manualDefinition/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyPrinter/pslPrinter/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyMiner/ateamMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/booleanVariables/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propositionMiner/TBPropositionMiner/include -I/home/sam/branchFixTime/src/assertionMiner/modules/propertyQualification/faultBasedQualifier/include -isystem /home/sam/branchFixTime/libs/lib/antlr4/include/runtime/Cpp/runtime/src -isystem /usr/local/include    -std=gnu++11 -o CMakeFiles/a-team.dir/src/CommandLineReader.cc.o -c /home/sam/branchFixTime/src/assertionMiner/miner/src/CommandLineReader.cc",
+  "file": "/home/sam/branchFixTime/src/assertionMiner/miner/src/CommandLineReader.cc"
 }
 ]

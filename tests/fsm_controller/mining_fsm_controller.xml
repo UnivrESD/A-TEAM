@@ -114,7 +114,6 @@
 		Globally
 		[](P -> <>S)
 	-->
-	 <template value="true U p1"/> 
                 <!--
                     <template value="p1 && p2"/>
                     <template value="p1 U p2"/>
@@ -124,7 +123,7 @@
             </propositionminer>
 
             <propertyminer name="A-teamMiner">
-                <constraints maxVariables="3" maxNextDepth="0"/>
+                <constraints maxVariables="4" maxNextDepth="1"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->

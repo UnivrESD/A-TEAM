@@ -24,6 +24,7 @@ SET(BASE_SRCS
 SET(VISITORS_SRC
         src/OdenVisitor.cc
         src/visitors/PrinterVisitor.cc
+        src/visitors/DepthVisitor.cc
         src/visitors/CopyVisitor.cc
         src/visitors/PeTraceChanger.cc
         src/visitors/CounterVisitor.cc

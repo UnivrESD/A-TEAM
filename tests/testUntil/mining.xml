@@ -2,7 +2,7 @@
     <tracereader name="mangroveTraceReader">
         <vcdParserConfig>
             <clockSignal name="clk"/>
-            <splitSignals value="Yes"/>
+            <splitSignals value="No"/>
             <addModulePathToVariables value="No"/>
             <convertSingleBitLogicToBool value="Yes"/>
         </vcdParserConfig>
@@ -16,8 +16,10 @@
             </directions>
             <atomicPropositions>
 		<atomicProposition formula="a" dir="in"/>
-		<atomicProposition formula="b" dir="out"/>
-		<atomicProposition formula="c" dir="out"/>
+		<atomicProposition formula="b[1:0]=='b00" dir="out"/>
+		
+		<atomicProposition formula="b[1:0]=='b10" dir="out"/>
+		<atomicProposition formula="b[1:0]=='b11" dir="out"/>
             </atomicPropositions>
         </coneOfInfluence>
     </coneMiner>
@@ -28,7 +30,7 @@
     -->
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
-            <template value="(p1)"/>
+            <template value="p1"/>
                 <!--
             <template value="p1 U p2"/>
             <template value="p1 R p2"/>
@@ -44,7 +46,7 @@
             </propositionminer>
 
             <propertyminer name="A-teamMiner">
-                <constraints maxVariables="3" maxNextDepth="0"/>
+                <constraints maxVariables="3" maxNextDepth="10"/>
                     </propertyminer>
     <propertyprinter name="sva">
         <generateChecker value="No" name="sequence_detector"/>

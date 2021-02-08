@@ -18,7 +18,7 @@ set(WORD_DIR ${CMAKE_BINARY_DIR}/../tests)
 #add_test(NAME arb2 COMMAND a-team arbiter_goldmine/mining_arbiter.xml arbiter_goldmine/arb2.vcd WORKING_DIRECTORY ${WORD_DIR})
 
 #HALF ADDER
-#add_test(NAME halfadder COMMAND a-team halfadder/mining_halfadder.xml halfadder/halfadder.vcd WORKING_DIRECTORY ${WORD_DIR})
+add_test(NAME halfadder COMMAND a-team halfadder/mining_halfadder.xml halfadder/halfadder.vcd WORKING_DIRECTORY ${WORD_DIR})
 
 #FIFO
 #add_test(NAME fifo_mem COMMAND a-team FIFO/mining_fifo.xml FIFO/fifo_mem.vcd WORKING_DIRECTORY ${WORD_DIR})
@@ -42,7 +42,7 @@ set(WORD_DIR ${CMAKE_BINARY_DIR}/../tests)
 #add_test(NAME usbf_pa COMMAND a-team usbf_pa/mining_usbf_pa.xml usbf_pa/usbf_pa.vcd WORKING_DIRECTORY ${WORD_DIR})
 
 #machine
-add_test(NAME machine COMMAND a-team machine/mining_machine.xml machine/machine.vcd WORKING_DIRECTORY ${WORD_DIR})
+#add_test(NAME machine COMMAND a-team machine/mining_machine.xml machine/machine.vcd WORKING_DIRECTORY ${WORD_DIR})
 
 #due_otto
 #add_test(NAME machine COMMAND a-team due_otto/mining_due_otto.xml due_otto/due_otto.vcd WORKING_DIRECTORY ${WORD_DIR})

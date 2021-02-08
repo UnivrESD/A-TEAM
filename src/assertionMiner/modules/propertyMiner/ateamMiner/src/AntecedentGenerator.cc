@@ -38,6 +38,7 @@ Result_DC mean_MT(Proposition *proposition, TraceInfo *traceInfo) {
     size_t length     = traceInfo->length;
     Proposition *goal = traceInfo->goal;
 
+    cout << "MEAN_MT: " << oden::prop2String(*proposition) << endl;
     for (size_t nThread = 0; nThread < availThreads; ++nThread) {
         threadArray[nThread] = std::thread(
             [nThread, length, proposition, goal, &occProposition, &occGoal]() {
@@ -139,39 +140,63 @@ TraceInfo &AntecedentGenerator::makeAntecedents(DecTreeVariables &dcVariables,
 void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
                                            DecTreeVariables &dcVariables,
                                            PropositionAnd *antecedent) {
+    ///
+    cout << "RUN DECISIONE TREE: " << endl;
+
     // the propositions in the current antecedent
     List<Proposition> &usedPropositions = antecedent->getItems();
 
+    cout << "usedPropositions size: " << usedPropositions.size() << endl;
     double maxRIG = 0.0;
-    auto vbest    = unusedVars.end();
+    auto vbest    = unusedVars.end(); //ritorna l'iteratore all'ultimo elemento della lista
+
+    ///
+    cout << "RIG: " << maxRIG <<  endl;
+    cout << "unusedVars: " << endl;
+    for (auto i = unusedVars.begin(); i!= unusedVars.end(); i++){
+        cout << "Elemento: " <<*i << endl;
+    }
+
 
     DecTreeVariables toLeaf;
 
     // getting the relative information gain (RIG) for each unused variable X
     // RIG (Y|X) = (H(Y) - H(Y|X)) / H(Y)
-    auto candidate = unusedVars.begin();
+    auto candidate = unusedVars.begin(); //iteratore al primo elemento/posizione
+
+    // itero su ogni proposizione nell'antecedente
     for (; candidate != unusedVars.end() && maxRIG < 1; ++candidate) {
 
-        // the 2 propositions of X
+        // the 2 propositions of X (esempio a e il suo negato !a)
         Proposition **propPtr = dcVariables[*candidate];
 
         // conditioned entropy:   H(Y|X) = for each x in X : p(X=x) * H(Y|X=x)
         double condEnt = 0.0;
-
         // for each proposition that belongs to a unused variable (namely x)
         for (size_t propI = 0; propI < 2; ++propI) {
 
             Proposition *prop = propPtr[propI];
+
+            // può essere che sia stata scartata precedentemente nella prima 
+            // chiamata dela funzione
             if (prop == nullptr)
                 continue;
 
+            ///
+            cout << "Proposizioni: " << oden::prop2String(*prop) << endl; //dopo il controllo, altrimenti seg fault
+            //cout << "Numero antecedenti presi: " << usedPropositions.size() << endl;
+            
             // add the new proposition of a unused variable in the current
             // antecedent
             usedPropositions.push_back(prop);
-            // std::cout << "current: " << usedPropositions.size() << " -> "
-            //       << oden::prop2String(*antecedent) << "\n";
 
+            // valuto l'asserzione sulla traccia
             MT::Result_DC res = MT::mean_MT(antecedent, _traceInfo);
+
+            ///
+            // occProposition: numero di volte in cui la proposizione è vera nella traccia (AT)
+            // occGoal: numero di volte in cui proposizione -> conseguente è vero nella traccia (AT CT)
+            cout << "occGoal: " << res.occGoal << "    occProposition: " << res.occProposition << endl;
 
             // is the new antecedent at least once satisfied? (avoid vacuity)
             if (res.occProposition > 0) {
@@ -191,10 +216,21 @@ void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
                     ((-1) * propYTrueGivenXx * log2(propYTrueGivenXx) +
                      (-1) * propYFalseGivenXx * log2(propYFalseGivenXx));
 
+                cout << "probXx= " << probXx << "   propYTrueGivenXx= " << propYTrueGivenXx << endl;
+                cout << "probYFalseGivenXx= " << propYFalseGivenXx << "   EntropiaYGivenXx = " << entropyYgivenXx << endl;
+                
+                // res.occGoal == 0 ---> visto che occProposition > 0 , se occGoal == 0 allora ci sono 
+                //                       dei casi in cui AT CF
+                //                       Infatti viene passato a _store il occGoal!=0 per distinguere in quale caso siamo
+                //                       se siamo nel caso di occGoal == 0 allora verrà considerato il negato del conseguente (!sum)
+                // res.occGoal == res.occProposition ----> tutte le volte in cui vale il conseguente allora vale anche l'antecedente
+                //                                         non ci sono casi di AT CF per cui posso costruire l'asserzione con antecedente -> conseguente
                 if (res.occGoal == 0 || res.occGoal == res.occProposition) {
-                    entropyYgivenXx = 0;
-                    _store(*antecedent, res.occGoal != 0);
+                    entropyYgivenXx = 0; // puro? serve per sistemare il -nan ottenuto dai logaritmi precedentemente
 
+                    // Viene effettivamente scelto l'antecedente e onset o offset del conseguente
+                    _store(*antecedent, res.occGoal != 0);
+                    std::cout << "setting " << prop2String(*antecedent) << "null" << std::endl;
                     dcVariables[*candidate][propI] = nullptr;
                     toLeaf[*candidate][propI]      = prop;
                 }
@@ -202,11 +238,15 @@ void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
                 // H(Y|X)
                 condEnt += probXx * entropyYgivenXx;
             }
-
+            std::cout << "antecedent size: " << antecedent->size() << std::endl;
             usedPropositions.pop_back();
+            std::cout << "antecedent size: " << antecedent->size() << std::endl;
         }
 
+        /// è qua che scelgo quello che massimizza la riduzione di entropia
+        /// la formula è quasi uguale tranne che c'è un fratto in più
         double RIG = (_entropyGoal - condEnt) / _entropyGoal;
+        cout << "Entropy Goal: " << _entropyGoal << "    RIG= " << RIG << endl;
 
         if (RIG > maxRIG) {
             maxRIG = RIG;
@@ -216,19 +256,27 @@ void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
     //------------------------------------------------------------------------
 
     //=================== make a new node of the decision tree ===============
+    // usedPropositions.size() < maxPropositions ---> se non ho già scelto tutte le proposizioni
     if (usedPropositions.size() < maxPropositions &&
         !(_traceInfo->initTrue == _traceInfo->reachedTrue ||
           vbest == unusedVars.end())) {
 
+                
+        // posizione della proposizione scelta
         size_t removedVar = *vbest;
 
         // remove the vbest variable from the unused variables set
+        // vbest è la proposizioni scelta prima con RIG maggiore tra tutte
         unusedVars.erase(vbest);
 
+        // the 2 propositions of X
         Proposition **propPtr = dcVariables[removedVar];
         for (size_t i = 0; i < 2; ++i) {
             Proposition *prop = propPtr[i];
+            // se prima avevo scartato !b perchè occGoal == 0 ad esempio
+            // ora prop == !b == nullptr e quindi non viene creato il ramo
             if (prop != nullptr) {
+                cout << "Proposizioni scelta, ramo: " << oden::prop2String(*prop) << endl;
                 usedPropositions.push_back(prop);
                 _runDecisionTree(unusedVars, dcVariables, antecedent);
                 usedPropositions.pop_back();
@@ -239,27 +287,38 @@ void AntecedentGenerator::_runDecisionTree(list<size_t> &unusedVars,
     }
     //------------------------------------------------------------------------
 
+    // da capire? sarebbero le foglie? o in generale tutto l'albero?
     for (auto &kv : toLeaf) {
         size_t varNum         = kv.first;
         Proposition **propPtr = kv.second;
         for (size_t propI = 0; propI < 2; ++propI)
-            if (dcVariables[varNum][propI] == nullptr)
+            if (dcVariables[varNum][propI] == nullptr){
                 dcVariables[varNum][propI] = propPtr[propI];
+                 //cout << "..... " << prop2String(*propPtr[propI]) << endl;
+            }
+        
     }
 }
 
 void AntecedentGenerator::_store(PropositionAnd &antecedent, bool value) {
+    // In atecendet al primo giro mi trovo con a && b, poi quando esco
+    // viene fatta la pop_back e viene tolto a e si ritorna in questa funzione con
+    // b && !a
 
     if (!value && !saveOffset){
-//        std::cout << "Not storing:" <<oden::prop2String(antecedent)<< "\n";
+        // std::cout << "Not storing:" <<oden::prop2String(antecedent)<< "\n";
         return;
     }
 
-    // std::cout << "store: " << oden::prop2String(antecedent) << " " << value
-    //          << " " << _traceInfo->reachedTrue << "\n";
+     std::cout << "store: " << oden::prop2String(antecedent) << " " << value
+              << " " << _traceInfo->reachedTrue << "\n";
 
     List<PropositionAnd> shorterAntecedents;
     _simplify(antecedent, value, shorterAntecedents);
+
+    // in shorteAntecedents c'è l'antecedenteAnd attuale semplicficato
+    // o non semplificato se non è stato possibile
+    /// cout << "..........." << prop2String( *shorterAntecedents[0] )<<endl;
 
     while (!shorterAntecedents.empty()) {
         PropositionAnd *shorterAntecedent = shorterAntecedents.pop_front();
@@ -273,11 +332,13 @@ void AntecedentGenerator::_store(PropositionAnd &antecedent, bool value) {
             while (!props.empty())
                 newSolution.insert(props.pop_front());
 
+            // è qua che scelgo in base a value se si tratta di un sum oppure di un !sum
             if (value)
                 onSets.insert(newSolution);
             else
                 offSets.insert(newSolution);
         } else
+            // svuota la lista
             while (!props.empty())
                 props.pop_front();
 
@@ -297,6 +358,9 @@ void AntecedentGenerator::_simplify(PropositionAnd &antecedent, bool value,
 
     size_t setSize = 1;
     for (; setSize < numPropositions && shorterProps.empty(); ++setSize) {
+
+        /* Viene creato un insieme di size=1 che aumenta size finchè minore del numero di proposizioni
+           nell'antecedente quindi se antecedente (a && b) allora setSize sarà massimo di 1 e non di più*/
 
         setsGenerator::Sets sets;
         sets.setSize  = setSize;
@@ -336,7 +400,7 @@ void AntecedentGenerator::_getCoverage(PropositionAnd &proposition,
             if (value) {
                 if (_traceInfo->coverageTrue->evaluate(time)) {
                     _traceInfo->coverageTrue->assign(time, false);
-                    _traceInfo->reachedTrue++;
+                    //_traceInfo->reachedTrue++;
                 }
             } else {
                 if (_traceInfo->coverageFalse->evaluate(time)) {
@@ -349,3 +413,4 @@ void AntecedentGenerator::_getCoverage(PropositionAnd &proposition,
 }
 
 } // namespace ateam
+

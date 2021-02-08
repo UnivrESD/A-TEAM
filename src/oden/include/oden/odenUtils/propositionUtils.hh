@@ -16,6 +16,8 @@ int prop2len(Proposition &prop);
 /// @brief return the len of cosequent next 
 int prop2next(Proposition &prop);
 
+int prop2depth(Proposition &prop);
+
 std::string logicExp2String(LogicExpression &le);
 
 /// @brief Copy a given Proposition.

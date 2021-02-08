@@ -34,6 +34,7 @@
     <propositionminer name="TBMiner">
         <ConsequentTemplates>
                     <template value="p1"/>
+
 		   
                 <!-- ############ EXISTENCE: P becomes true ############ -->
 
@@ -107,7 +108,7 @@
     </propositionminer>
 
     <propertyminer name="A-teamMiner">
-         <constraints maxVariables="3" maxNextDepth="1"/>
+         <constraints maxVariables="3" maxNextDepth="0"/>
                     <!--
                         <faultyTraces list="bl_master/faultyTraces/traces.xml"/>
                     -->
