@@ -1,0 +1,31 @@
+count logic 32
+dp0[8:0] logic 9
+dp1[8:0] logic 9
+dp2[8:0] logic 9
+dp3[8:0] logic 9
+dp4[8:0] logic 9
+dp5[8:0] logic 9
+dp6[8:0] logic 9
+dp7[8:0] logic 9
+dp8[8:0] logic 9
+in logic 32
+ot logic 32
+out[0] bool
+out[1] bool
+out[2] bool
+out[3] bool
+out[4] bool
+out[5] bool
+out[6] bool
+out[7] bool
+p0[8:0] logic 9
+p1[8:0] logic 9
+p2[8:0] logic 9
+p3[8:0] logic 9
+p4[8:0] logic 9
+p5[8:0] logic 9
+p6[8:0] logic 9
+p7[8:0] logic 9
+p8[8:0] logic 9
+temp logic 32
+

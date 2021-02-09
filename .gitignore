@@ -65,6 +65,7 @@ src/vcd2mangrove/makefile
 # BUILD DIRECTORY
 ################################################################################
 build/*
+build
 cmake-build-default/*
 install
 .idea

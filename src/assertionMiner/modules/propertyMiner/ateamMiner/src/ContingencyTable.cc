@@ -183,16 +183,16 @@ namespace ateam {
 
             Proposition* antecedent = assertion->antecedent;
             Proposition* consequent = assertion->consequent;
-            cout << "SCORE: " << score_cluster(ct) << "     Letterali: " << oden::prop2len(*antecedent) << endl; //size(assertions->antecedent) << endl;
+//            cout << "SCORE: " << score_cluster(ct) << "     Letterali: " << oden::prop2len(*antecedent) << endl; //size(assertions->antecedent) << endl;
             
 
             auto *maybeNext = dynamic_cast<PropositionNext*>(consequent);
             
-            if (maybeNext == nullptr)
-                cout << "Next: " << 0 << endl;
-            else {
-                cout << "Next: " << maybeNext->getOffset() << endl;
-            }
+ //           if (maybeNext == nullptr)
+ //               cout << "Next: " << 0 << endl;
+ //           else {
+ //               cout << "Next: " << maybeNext->getOffset() << endl;
+ //           }
 
 
 
